@@ -1,8 +1,9 @@
-import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
-import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/core/router/app_router.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() {
   runApp(const Fleexa());
@@ -13,7 +14,16 @@ class Fleexa extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      locale: Locale('en'),
+      localizationsDelegates: [
+        S.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         appBarTheme: AppBarTheme(
@@ -27,7 +37,7 @@ class Fleexa extends StatelessWidget {
         fontFamily: 'Poppins',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const SignUpView(),
+      routerConfig: AppRouter.router,
     );
   }
 }

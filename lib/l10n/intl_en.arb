@@ -1,0 +1,239 @@
+{
+  "@@locale": "en",
+
+  "//": "--- Auth Screens ---",
+  "authSignInTitle": "Sign In",
+  "authSignUpTitle": "Sign Up",
+  "authWelcomeBack": "Welcome back, you've been missed",
+  "authCreateAccountSubtitle": "Create new account to get Started",
+  
+  "fieldEmail": "Email Address",
+  "fieldUsername": "Username",
+  "fieldPassword": "Password",
+  "fieldConfirmPassword": "Confirm Password",
+  
+  "authForgotPassword": "Forgot Password?",
+  "authOr": "or",
+    "agreeWith": "Agree with ",
+    "termsAndConditions": "Terms & Conditions",
+  "authNoAccountQuestion": "Don't Have an Account ?",
+  "authHaveAccountQuestion": "Already Have an Account?",
+
+  "//": "--- Home Screen ---",
+  "homeHello": "Hello, {userName}",
+  "@homeHello": {
+    "description": "Greeting with user name",
+    "placeholders": {
+      "userName": {
+        "type": "String",
+        "example": "Youssif"
+      }
+    }
+  },
+  "homeWelcome": "Welcome Home",
+  "homeMyDevices": "My Devices",
+  "homeAllDevices": "All Devices",
+  "homeSensors": "Sensors",
+  "homeActuators": "Actuators",
+  "homeNotifications": "Notifications",
+ 
+  "//": "--- Dashboard Metrics ---",
+  "labelSystemStatus": "System Status",
+  "labelDevicesOnline": "Devices Online",
+  "labelInsights": "Insights",
+  "labelEnergyConsumption": "Energy Consumption",
+  "labelAlertsAndWarnings": "Alerts & Warnings",
+  "labelSummaries": "Summaries",
+
+  "//": "--- Status & Alerts ---",
+  "statusConnected": "Connected",
+  "statusDisconnected": "Disconnected",
+  "statusWarning": "Warning",
+  "statusCritical": "Critical",
+  "statusNormal": "Normal",
+  "statusAboveNormal": "Above Normal",
+  "statusHigh": "High",
+  "statusAboveHigh": "Above High",
+  "statusLow": "Low",
+  "statusDark": "Dark",
+  "statusBright": "Bright",
+  "statusClosed": "Closed",
+  "statusOpened": "Opened",
+  "statusOn": "ON",
+  "statusOff": "OFF",
+
+  "//": "--- Filters for Data Visualization ---",
+  "filterLast24h": "Last 24 Hours",
+  "filterFiveDays": "Last 5 Days",
+  "filterLastWeek": "Last Week",
+  "filterLastMonth": "Last Month",
+
+
+  "//": "--- Days of Week (For Charts) ---",
+  "daySat": "Sat",
+  "daySun": "Sun",
+  "dayMon": "Mon",
+  "dayTue": "Tue",
+  "dayWed": "Wed",
+  "dayThu": "Thu",
+  "dayFri": "Fri",
+
+  "//": "--- Sensor Details Screens ---",
+  "temperatureSensor": "Temperature Sensor",
+  "gasSensor": "Gas Sensor",
+  "lightSensor": "Light Sensor",
+  
+  "temperatureStatus": "Temp Status",
+  "deviceStatus": "Device Status",
+  "tempMin": "Min",
+  "tempMax": "Max",
+  "tempAverage": "Average",
+  "labelRelatedDevices": "Related Devices",
+  "temperature": "Temperature",
+
+  "gasStatus": "Gas Status",
+  "gasLevel": "Gas Level",
+  "gasLevelExceeded": "Gas level has exceeded the safe limit",
+  "gasSpikeDetected": "Gas spike detected",
+
+  "lightstatus": "Light Status",
+  "lightLevelOverTime": "Light Level Over Time",
+
+  "//": "--- Measurement Units & Stats ---",
+  "unitCelsiusText": "Celsius",
+  "unitPpmText": "PPM",
+  "unitLuxText": "Lux",
+  "timeAgoHour": "{count} hour ago",
+  "timeAgoMin": "{count} min ago",
+  "timeAgoSec": "{count} sec ago",
+
+  "//": "--- Door Lock Screen ---",
+  "doorLock": "Door Lock",
+  "doorLockedStatus": "Door is Locked",
+  "doorUnlockedStatus": "Door is Unlocked",
+  "recentActivities": "Recent Activities",
+  "lastActivity": "Last Activity",
+  "unlcokDuration": "Unlock Duration",
+  "avgUnlockDuration": "Average Unlock Duration",
+  "alertDoorLeftOpen": "Door Left Open",
+  "doorOpenTooLong": "The door has been open for {duration} minutes",
+  "@doorOpenTooLong": {
+    "description": "Alert message when door is left open too long",
+    "placeholders": {
+      "duration": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  
+  "//": "--- Air Conditioner Screen ---",
+  "airConditioner": "Air Conditioner",
+  "automaticMode": "Automatic Mode",
+  "manualMode": "Manual Mode",
+  "mode": "Mode",
+  "modeCooling": "Cooling",
+  "modeHeating": "Heating",
+  "modeDry": "Dry",
+  "modeAirwave": "Airwave",
+  "tempOutside": "Outside",
+  "tempInside": "Inside",
+  "timer": "Timer",
+  "timerOptions": "{options} H",
+  "@timerOptions": {
+      "description": "Timer options in hours",
+      "placeholders": {
+          "options": {
+              "type": "int",
+              "example": "1"
+            }
+        }
+    },
+    "smartRules": "Smart Rules",
+    "Threshold": "Threshold",
+    "ThresholdDescription": "AC starts at {startTemp}°, stops at {stopTemp}°",
+    "@ThresholdDescription": {
+        "description": "Description for AC threshold rule",
+        "placeholders": {
+            "startTemp": {
+                "type": "int",
+                "example": "22"
+            },
+            "stopTemp": {
+                "type": "int",
+                "example": "25"
+            }
+        }
+    },
+    "activeHours": "Active Hours",
+    "starts": "Start: {time} {DayNight}",
+    "@starts": {
+        "description": "Start time with day/night indicator",
+        "placeholders": {
+            "time": {
+                "type": "String",
+                "example": "8:00"
+            },
+            "DayNight": {
+                "type": "String",
+                "example": "AM/PM"
+            }
+        }
+    },
+    "ends": "End: {time} {DayNight}",
+    "controlType": "Control Type",
+    "AutoMode" : "Auto Mode",
+    "target": "Target",
+    "running": "Running",
+    "currentTemp": "Current Temp {temp}°",
+    "tempPerformance": "Temp Performance",
+    "AirConditionerUsage": "Air Conditioner Usage",
+    
+    "//": "--- Settings Screens ---",
+    "settingsTitle": "Settings",
+    "settingsAccountAndSecurity": "Account & Security",
+    "settingsNotificationsAndAlerts": "Notifications & Alerts",
+    "settingsThemeMode": "Theme Mode",
+    "settingsLanguage": "Language",
+    "settingsAboutAndSupport": "About & Support",
+    "settingsLogOut": "Log Out",
+    "themeModeLight": "Light",
+    "themeModeDark": "Dark",
+    "themeModeSystem": "System Default",
+    "languageEnglish": "English",
+    "languageArabic": "Arabic",
+    "settingsVersion": "Version",
+    "settingsProfile": "Profile",
+    "settingsChangePassword": "Change Password",
+    "settingsDeleteAccount": "Delete Account",
+    "settingsPushNotifications": "Push Notifications",
+    "SettingsCriticalAlerts": "Critical Alerts",
+    "settingsCriticalAlertsDescription": "Receive alerts for critical system events",
+    "settingsWarningAlerts": "Warning Alerts",
+    "settingsWarningAlertsDescription": "Receive alerts for warning-level events",
+    "settingsInfoLogs": "Info Logs",
+    "settingsInfoLogsDescription": "Receive informational logs and updates",
+    
+    
+    "//": "--- Reset Password Screens ---",
+    "currentPassword": "Current Password",
+    "newPassword": "New Password",
+    "confirmNewPassword": "Confirm New Password",
+    "enterYourEmail": "Enter your email address to recover your password",
+    "sendOTP": "Send OTP",
+    "verifyCode": "Verify Code",
+    "pleaseEnterTheOTP": "Please enter the OTP sent to your email {email}",
+    "@pleaseEnterTheOTP":{
+        "description": "Prompt to enter OTP sent to email",
+        "placeholders": {
+            "email": {
+                "type": "String",
+                "example": "user@example.com"
+            }
+        }
+    },
+    "didntReceiveOTP": "Didn't receive an OTP?",
+    "resendOTP": "Resend OTP",
+    "verifyAndContinue": "Verify & Continue",
+    "resetPassword": "Reset Password"
+}

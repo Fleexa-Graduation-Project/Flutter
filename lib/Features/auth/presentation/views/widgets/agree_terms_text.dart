@@ -1,5 +1,6 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -30,7 +31,7 @@ class _AgreeTermsWidgetState extends State<AgreeTermsWidget> {
           activeColor: AppColors.burgundy,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
-        const SizedBox(width: 4), // small spacing
+        const SizedBox(width: 4),
         Expanded(
           child: Text.rich(
             TextSpan(
@@ -38,9 +39,9 @@ class _AgreeTermsWidgetState extends State<AgreeTermsWidget> {
                 color: const Color(0xFF8A8A8A),
               ),
               children: [
-                const TextSpan(text: 'Agree with '),
+                TextSpan(text: S.of(context).agreeWith),
                 TextSpan(
-                  text: 'Terms & Conditions',
+                  text: S.of(context).termsAndConditions,
                   style: const TextStyle(
                     color: AppColors.burgundy,
                     decoration: TextDecoration.underline,

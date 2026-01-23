@@ -1,5 +1,6 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class OrDivider extends StatelessWidget {
@@ -12,7 +13,7 @@ class OrDivider extends StatelessWidget {
       children: [
         Expanded(child: Container(height: 2, color: AppColors.dimGray)),
         SizedBox(width: 8),
-        Text('or', style: Styles.style14Medium),
+        Text(S.of(context).authOr, style: Styles.style14Medium),
         SizedBox(width: 8),
         Expanded(child: Container(height: 2, color: AppColors.dimGray)),
       ],
