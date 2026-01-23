@@ -1,5 +1,7 @@
+import 'package:fleexa/Features/auth/presentation/views/widgets/account_action_text.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_otp_text_field.dart';
+import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -50,6 +52,14 @@ class VerifyCodeView extends StatelessWidget {
                     ),
                     const SizedBox(height: 52),
                     CustomOtpTextField(),
+                    const SizedBox(height: 28),
+                    AccountActionText(
+                      normalText: S.of(context).didntReceiveOTP,
+                      actionText: S.of(context).resendOTP,
+                      onTap: () {
+                        AppRouter.router.go(AppRouter.resetPasswordView);
+                      },
+                    ),
                     const Spacer(),
                     CustomButton(
                         text: S.of(context).verifyCode, onPressed: () {}),
