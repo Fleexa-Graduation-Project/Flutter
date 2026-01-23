@@ -19,7 +19,7 @@ class AppRouter {
 
   /// GoRouter instance
   static final GoRouter router = GoRouter(
-    initialLocation: verifyCodeView,
+    initialLocation: settingsView,
     routes: [
       GoRoute(
         path: splashView,

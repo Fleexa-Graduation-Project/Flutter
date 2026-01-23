@@ -3,8 +3,8 @@
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/utils/constants/app_colors.dart';
 import '../../../../generated/l10n.dart';
+import 'widgets/settings_card.dart';
 
 class SettingsView extends StatelessWidget {
   const SettingsView({super.key});
@@ -23,47 +23,43 @@ class SettingsView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                // Title
                 Text(
                   S.of(context).settingsTitle,
                   style: Styles.style24Medium,
                 ),
                 SizedBox(height: 40),
-                Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-                  decoration: BoxDecoration(
-                    color: AppColors.charcoalBlack,
-                    borderRadius: BorderRadius.circular(10),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.12),
-                        spreadRadius: 2,
-                        blurRadius: 4,
-                        offset: Offset(0, 4),
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: AppColors.darkGray,
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        child: Icon(
-                          Icons.person_outline_rounded,
-                          color: AppColors.white,
-                        ),
-                      ),
-                      SizedBox(width: 12),
-                      Text(
-                        S.of(context).settingsAccountAndSecurity,
-                        style: Styles.style16Medium,
-                      ),
-                    ],
-                  ),
-                )
+
+                // Settings Options
+                SettingsCard(
+                  title: S.of(context).settingsAccountAndSecurity,
+                  icon: Icons.person_outline_rounded,
+                ),
+                SizedBox(height: 20),
+                SettingsCard(
+                  title: S.of(context).settingsNotificationsAndAlerts,
+                  icon: Icons.notifications_none_rounded,
+                ),
+                SizedBox(height: 20),
+                SettingsCard(
+                  title: S.of(context).settingsThemeMode,
+                  icon: Icons.brightness_6_outlined,
+                ),
+                SizedBox(height: 20),
+                SettingsCard(
+                  title: S.of(context).settingsLanguage,
+                  icon: Icons.language_outlined,
+                ),
+                SizedBox(height: 20),
+                SettingsCard(
+                  title: S.of(context).settingsAboutAndSupport,
+                  icon: Icons.info_outline_rounded,
+                ),
+                SizedBox(height: 20),
+                SettingsCard(
+                  title: S.of(context).settingsLogOut,
+                  icon: Icons.logout,
+                ),
               ],
             ),
           ),
