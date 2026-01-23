@@ -7,9 +7,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
-  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
+  // WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
-  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
+  // FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);
 
   runApp(const Fleexa());
 }
