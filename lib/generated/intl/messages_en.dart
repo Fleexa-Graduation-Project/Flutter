@@ -50,6 +50,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Air Conditioner Usage",
     ),
     "AutoMode": MessageLookupByLibrary.simpleMessage("Auto Mode"),
+    "CreateNewPassword": MessageLookupByLibrary.simpleMessage(
+      "Create New Password",
+    ),
+    "NewPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "SettingsCriticalAlerts": MessageLookupByLibrary.simpleMessage(
       "Critical Alerts",
     ),
@@ -134,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("Sensors"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("Welcome Home"),
+    "isRequired": MessageLookupByLibrary.simpleMessage("is required"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "Alerts & Warnings",
     ),
@@ -163,7 +168,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "modeCooling": MessageLookupByLibrary.simpleMessage("Cooling"),
     "modeDry": MessageLookupByLibrary.simpleMessage("Dry"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("Heating"),
-    "newPassword": MessageLookupByLibrary.simpleMessage("New Password"),
     "pleaseEnterTheOTP": m5,
     "recentActivities": MessageLookupByLibrary.simpleMessage(
       "Recent Activities",

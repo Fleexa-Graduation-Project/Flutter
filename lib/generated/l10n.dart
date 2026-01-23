@@ -1076,6 +1076,11 @@ class S {
     );
   }
 
+  /// `is required`
+  String get isRequired {
+    return Intl.message('is required', name: 'isRequired', desc: '', args: []);
+  }
+
   /// `Current Password`
   String get currentPassword {
     return Intl.message(
@@ -1086,11 +1091,21 @@ class S {
     );
   }
 
+  /// `Create New Password`
+  String get CreateNewPassword {
+    return Intl.message(
+      'Create New Password',
+      name: 'CreateNewPassword',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `New Password`
-  String get newPassword {
+  String get NewPassword {
     return Intl.message(
       'New Password',
-      name: 'newPassword',
+      name: 'NewPassword',
       desc: '',
       args: [],
     );
