@@ -25,7 +25,12 @@ class AccountActionText extends StatelessWidget {
           onTap: onTap,
           child: Text(
             actionText,
-            style: Styles.style14Medium.copyWith(color: AppColors.burgundy),
+            style: Styles.style14Medium.copyWith(
+              color: AppColors.burgundy,
+              decoration: TextDecoration.underline,
+              decorationColor: AppColors.burgundy,
+              decorationThickness: 1.5,
+            ),
           ),
         ),
       ],
