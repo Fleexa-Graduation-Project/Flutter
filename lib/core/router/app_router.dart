@@ -1,18 +1,24 @@
 import 'package:fleexa/Features/auth/presentation/views/change_password_view.dart';
+import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
 class AppRouter {
   // Route names
+  static const String splashView = '/';
   static const String signInView = '/sign-in';
   static const String signUpView = '/sign-up';
   static const String changePasswordView = '/change-password';
 
   /// GoRouter instance
   static final GoRouter router = GoRouter(
-    initialLocation: signInView,
+    initialLocation: splashView,
     routes: [
+      GoRoute(
+        path: splashView,
+        builder: (context, state) => const SplashView(),
+      ),
       GoRoute(
         path: signInView,
         builder: (context, state) => const SignInView(),
