@@ -49,6 +49,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "استخدام مكيف الهواء",
     ),
     "AutoMode": MessageLookupByLibrary.simpleMessage("الوضع التلقائي"),
+    "CreateNewPassword": MessageLookupByLibrary.simpleMessage(
+      "إنشاء كلمة مرور جديدة",
+    ),
+    "NewPassword": MessageLookupByLibrary.simpleMessage("كلمة مرور جديدة"),
     "SettingsCriticalAlerts": MessageLookupByLibrary.simpleMessage(
       "التنبيهات الحرجة",
     ),
@@ -134,6 +138,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("الحساسات"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("أهلاً بك في منزلك"),
+    "isRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "التنبيهات والتحذيرات",
     ),
@@ -161,7 +166,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "modeCooling": MessageLookupByLibrary.simpleMessage("تبريد"),
     "modeDry": MessageLookupByLibrary.simpleMessage("جاف"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("تدفئة"),
-    "newPassword": MessageLookupByLibrary.simpleMessage("كلمة المرور الجديدة"),
     "pleaseEnterTheOTP": m5,
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التحقق"),

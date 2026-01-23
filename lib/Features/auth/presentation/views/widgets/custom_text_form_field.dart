@@ -1,5 +1,6 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
@@ -7,7 +8,6 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final IconData? prefixIcon;
   final bool obscureText;
-  final String? Function(String?)? validator;
   final TextInputType keyboardType;
   final Color borderColor;
   final Color focusedBorderColor;
@@ -18,7 +18,6 @@ class CustomTextFormField extends StatelessWidget {
     this.controller,
     this.prefixIcon,
     this.obscureText = false,
-    this.validator,
     this.keyboardType = TextInputType.text,
     this.borderColor = AppColors.coolGray,
     this.focusedBorderColor = AppColors.white,
@@ -36,7 +35,12 @@ class CustomTextFormField extends StatelessWidget {
           style: Styles.style14Medium.copyWith(color: AppColors.white),
           controller: controller,
           obscureText: isObscure,
-          validator: validator,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return '$hintText ${S.of(context).isRequired}';
+            }
+            return null;
+          },
           keyboardType: keyboardType,
           decoration: InputDecoration(
             hintText: hintText,

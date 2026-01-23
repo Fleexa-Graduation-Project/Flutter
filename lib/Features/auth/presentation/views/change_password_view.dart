@@ -1,28 +1,27 @@
-import 'package:fleexa/Features/auth/presentation/views/widgets/account_action_text.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:fleexa/Features/auth/presentation/views/widgets/or_divider.dart';
-import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-class SignInView extends StatefulWidget {
-  const SignInView({super.key});
-
+class ChangePasswordView extends StatefulWidget {
+  const ChangePasswordView({super.key});
   @override
-  State<SignInView> createState() => _SignInViewState();
+  State<ChangePasswordView> createState() => _ChangePasswordViewState();
 }
 
-class _SignInViewState extends State<SignInView> {
+class _ChangePasswordViewState extends State<ChangePasswordView> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-
+  final TextEditingController _currentPasswordController =
+      TextEditingController();
+  final TextEditingController _newPasswordController = TextEditingController();
+  final TextEditingController _confirmPasswordController =
+      TextEditingController();
   @override
   void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
+    _currentPasswordController.dispose();
+    _newPasswordController.dispose();
+    _confirmPasswordController.dispose();
     super.dispose();
   }
 
@@ -34,7 +33,7 @@ class _SignInViewState extends State<SignInView> {
           icon: const Icon(Icons.arrow_back_ios),
           onPressed: () => Navigator.pop(context),
         ),
-        title: Text(S.of(context).authSignInTitle),
+        title: Text(S.of(context).settingsChangePassword),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -48,23 +47,25 @@ class _SignInViewState extends State<SignInView> {
                   key: _formKey,
                   child: Column(
                     children: [
-                      const SizedBox(height: 20),
-                      Text(
-                        S.of(context).authWelcomeBack,
-                        style: Styles.style14Medium,
-                        textAlign: TextAlign.center,
-                      ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 80),
                       CustomTextFormField(
-                        controller: _emailController,
-                        prefixIcon: Icons.email_outlined,
-                        hintText: S.of(context).fieldEmail,
+                        controller: _currentPasswordController,
+                        prefixIcon: Icons.lock_outline,
+                        hintText: S.of(context).currentPassword,
+                        obscureText: true,
                       ),
                       const SizedBox(height: 24),
                       CustomTextFormField(
-                        controller: _passwordController,
+                        controller: _newPasswordController,
                         prefixIcon: Icons.lock_outline,
-                        hintText: S.of(context).fieldPassword,
+                        hintText: S.of(context).CreateNewPassword,
+                        obscureText: true,
+                      ),
+                      const SizedBox(height: 24),
+                      CustomTextFormField(
+                        controller: _confirmPasswordController,
+                        prefixIcon: Icons.lock_outline,
+                        hintText: S.of(context).confirmNewPassword,
                         obscureText: true,
                       ),
                       const SizedBox(height: 12),
@@ -75,24 +76,15 @@ class _SignInViewState extends State<SignInView> {
                           style: Styles.style14Regular,
                         ),
                       ),
+                      const SizedBox(height: 12),
                       const Spacer(),
                       CustomButton(
-                        text: S.of(context).authSignInTitle,
+                        text: S.of(context).settingsChangePassword,
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {}
                         },
                       ),
-                      const SizedBox(height: 32),
-                      OrDivider(),
-                      const SizedBox(height: 32),
-                      AccountActionText(
-                        normalText: S.of(context).authNoAccountQuestion,
-                        actionText: S.of(context).authSignUpTitle,
-                        onTap: () {
-                          AppRouter.router.go(AppRouter.signUpView);
-                        },
-                      ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 80),
                     ],
                   ),
                 ),

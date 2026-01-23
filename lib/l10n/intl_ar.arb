@@ -208,8 +208,10 @@
     
     
     "//": "--- Reset Password Screens ---",
+    "isRequired": "مطلوب",
     "currentPassword": "كلمة المرور الحالية",
-    "newPassword": "كلمة المرور الجديدة",
+   "NewPassword": "كلمة مرور جديدة",
+    "CreateNewPassword": "إنشاء كلمة مرور جديدة",
     "confirmNewPassword": "تأكيد كلمة المرور الجديدة",
     "enterYourEmail": "أدخل عنوان بريدك الإلكتروني لاستعادة كلمة المرور",
     "sendOTP": "إرسال رمز التحقق",

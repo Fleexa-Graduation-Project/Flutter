@@ -216,8 +216,10 @@
     
     
     "//": "--- Reset Password Screens ---",
+    "isRequired": "is required",
     "currentPassword": "Current Password",
-    "newPassword": "New Password",
+    "CreateNewPassword": "Create New Password",
+    "NewPassword": "New Password",
     "confirmNewPassword": "Confirm New Password",
     "enterYourEmail": "Enter your email address to recover your password",
     "sendOTP": "Send OTP",
