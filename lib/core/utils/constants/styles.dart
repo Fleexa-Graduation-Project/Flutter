@@ -7,6 +7,13 @@ class Styles {
     fontSize: 24,
     fontWeight: FontWeight.w500,
   );
+    static const TextStyle style28Medium = TextStyle(
+    color: AppColors.white,
+    fontSize: 28,
+    fontWeight: FontWeight.w500,
+  );
+  
+
   static const TextStyle style14Regular = TextStyle(
     color: AppColors.coolGray,
     fontSize: 14,
