@@ -18,7 +18,7 @@ class AppColors {
   static const Color black = Color(0xFF000000);
   static const Color jetBlack = Color(0xFF111111);
   static const Color nearBlack = Color(0xFF151515);
-  static const Color charcoalBlack = Color(0xFF161616);
+  static const Color charcoalBlack = Color(0xFF1A1A1A);
   static const Color darkCharcoal = Color(0xFF242424);
   static const Color darkGray = Color(0xFF282828);
   static const Color dimGray = Color(0xFF393939);
