@@ -22,7 +22,7 @@ class AppColors {
   static const Color darkCharcoal = Color(0xFF242424);
   static const Color darkGray = Color(0xFF282828);
   static const Color dimGray = Color(0xFF393939);
-
+  static final Color settingCard = Color.fromARGB(255, 30, 30, 30);
   // =========================
   // Gray Scale
   // =========================

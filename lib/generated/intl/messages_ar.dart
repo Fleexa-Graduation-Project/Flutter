@@ -109,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorLockedStatus": MessageLookupByLibrary.simpleMessage("الباب مغلق"),
     "doorOpenTooLong": m2,
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage("الباب مفتوح"),
+    "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "ends": m3,
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني لاستعادة كلمة المرور",
