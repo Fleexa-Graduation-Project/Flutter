@@ -204,6 +204,7 @@
     "languageArabic": "Arabic",
     "settingsVersion": "Version",
     "settingsProfile": "Profile",
+    "editProfile": "Edit Profile",
     "settingsChangePassword": "Change Password",
     "settingsDeleteAccount": "Delete Account",
     "settingsPushNotifications": "Push Notifications",

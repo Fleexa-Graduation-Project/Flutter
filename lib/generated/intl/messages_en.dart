@@ -108,6 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage(
       "Door is Unlocked",
     ),
+    "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "ends": m3,
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to recover your password",

@@ -986,6 +986,16 @@ class S {
     return Intl.message('Profile', name: 'settingsProfile', desc: '', args: []);
   }
 
+  /// `Edit Profile`
+  String get editProfile {
+    return Intl.message(
+      'Edit Profile',
+      name: 'editProfile',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Change Password`
   String get settingsChangePassword {
     return Intl.message(
