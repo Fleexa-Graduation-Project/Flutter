@@ -166,7 +166,7 @@
         }
     },
     "activeHours": "Active Hours",
-    "starts": "Start: {time} {DayNight}",
+    "starts": "Start: {time} {dayNight}",
     "@starts": {
         "description": "Start time with day/night indicator",
         "placeholders": {
@@ -174,13 +174,13 @@
                 "type": "String",
                 "example": "8:00"
             },
-            "DayNight": {
+            "dayNight": {
                 "type": "String",
                 "example": "AM/PM"
             }
         }
     },
-    "ends": "End: {time} {DayNight}",
+    "ends": "End: {time} {dayNight}",
     "controlType": "Control Type",
     "AutoMode" : "Auto Mode",
     "target": "Target",
@@ -199,7 +199,7 @@
     "settingsLogOut": "Log Out",
     "themeModeLight": "Light",
     "themeModeDark": "Dark",
-    "themeModeSystem": "System Default",
+    "themeModeSystem": "System",
     "languageEnglish": "English",
     "languageArabic": "Arabic",
     "settingsVersion": "Version",

@@ -27,13 +27,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(duration) => "تم فتح الباب لمدة ${duration} دقيقة";
 
-  static String m3(time, DayNight) => "توقف: ${time} ${DayNight}";
+  static String m3(time, dayNight) => "توقف: ${time} ${dayNight}";
 
   static String m4(userName) => "مرحباً، ${userName}";
 
   static String m5(email) => "Please enter the OTP sent to your email ${email}";
 
-  static String m6(time, DayNight) => "ابدأ: ${time} ${DayNight}";
+  static String m6(time, dayNight) => "ابدأ: ${time} ${dayNight}";
 
   static String m7(count) => "منذ ${count} ساعة";
 
@@ -243,7 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "themeModeDark": MessageLookupByLibrary.simpleMessage("داكن"),
     "themeModeLight": MessageLookupByLibrary.simpleMessage("فاتح"),
-    "themeModeSystem": MessageLookupByLibrary.simpleMessage("افتراضي النظام"),
+    "themeModeSystem": MessageLookupByLibrary.simpleMessage("النظام"),
     "timeAgoHour": m7,
     "timeAgoMin": m8,
     "timeAgoSec": m9,

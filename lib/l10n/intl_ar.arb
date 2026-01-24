@@ -158,7 +158,7 @@
         }
     },
   "activeHours": "ساعات النشاط",
-  "starts": "ابدأ: {time} {DayNight}",
+  "starts": "ابدأ: {time} {dayNight}",
   "@starts": {
     "description": "Start time with day/night indicator",
     "placeholders": {
@@ -166,13 +166,13 @@
         "type": "String",
         "example": "8:00"
       },
-      "DayNight": {
+      "dayNight": {
         "type": "String",
         "example": "AM/PM"
       }
     }
   },
-  "ends": "توقف: {time} {DayNight}",
+  "ends": "توقف: {time} {dayNight}",
   "controlType": "نوع التحكم",
   "AutoMode" : "الوضع التلقائي",
   "target": "الهدف",
@@ -191,7 +191,7 @@
     "settingsLogOut": "تسجيل خروج",
     "themeModeLight": "فاتح",
     "themeModeDark": "داكن",
-    "themeModeSystem": "افتراضي النظام",
+    "themeModeSystem": "النظام",
     "languageEnglish": "الإنجليزية",
     "languageArabic": "العربية",
     "settingsVersion": "الإصدار",

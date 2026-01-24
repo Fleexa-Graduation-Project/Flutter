@@ -811,23 +811,23 @@ class S {
     );
   }
 
-  /// `Start: {time} {DayNight}`
-  String starts(String time, String DayNight) {
+  /// `Start: {time} {dayNight}`
+  String starts(String time, String dayNight) {
     return Intl.message(
-      'Start: $time $DayNight',
+      'Start: $time $dayNight',
       name: 'starts',
       desc: 'Start time with day/night indicator',
-      args: [time, DayNight],
+      args: [time, dayNight],
     );
   }
 
-  /// `End: {time} {DayNight}`
-  String ends(Object time, Object DayNight) {
+  /// `End: {time} {dayNight}`
+  String ends(Object time, Object dayNight) {
     return Intl.message(
-      'End: $time $DayNight',
+      'End: $time $dayNight',
       name: 'ends',
       desc: '',
-      args: [time, DayNight],
+      args: [time, dayNight],
     );
   }
 
@@ -956,14 +956,9 @@ class S {
     return Intl.message('Dark', name: 'themeModeDark', desc: '', args: []);
   }
 
-  /// `System Default`
+  /// `System`
   String get themeModeSystem {
-    return Intl.message(
-      'System Default',
-      name: 'themeModeSystem',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('System', name: 'themeModeSystem', desc: '', args: []);
   }
 
   /// `English`
