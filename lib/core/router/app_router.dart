@@ -2,6 +2,7 @@ import 'package:fleexa/Features/auth/presentation/views/change_password_view.dar
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
+import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
@@ -19,11 +20,12 @@ class AppRouter {
   static const String verifyCodeView = '/verify-code';
   static const String settingsView = '/settings';
   static const String settingsProfileView = '/settings-profile';
+  static const String settingsNotificationsView = '/settings-notifications';
   static const String editProfileView = '/edit-profile';
 
   /// GoRouter instance
   static final GoRouter router = GoRouter(
-    initialLocation: editProfileView,
+    initialLocation: settingsNotificationsView,
     routes: [
       GoRoute(
         path: splashView,
@@ -58,10 +60,13 @@ class AppRouter {
         builder: (context, state) => const SettingsProfileView(),
       ),
       GoRoute(
-          path: editProfileView,
-          builder: (context, state) {
-            return const EditProfileView();
-          })
+        path: settingsNotificationsView,
+        builder: (context, state) => const SettingsNotificationsView(),
+      ),
+      GoRoute(
+        path: editProfileView,
+        builder: (context, state) => const EditProfileView(),
+      )
     ],
   );
 }
