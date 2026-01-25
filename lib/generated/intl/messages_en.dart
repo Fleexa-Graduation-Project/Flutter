@@ -176,6 +176,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "running": MessageLookupByLibrary.simpleMessage("Running"),
+    "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "sendOTP": MessageLookupByLibrary.simpleMessage("Send OTP"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage(
       "About & Support",

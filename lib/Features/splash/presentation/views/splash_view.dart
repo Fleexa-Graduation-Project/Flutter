@@ -2,6 +2,7 @@ import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -24,7 +25,7 @@ class _SplashViewState extends State<SplashView> {
     });
 
     Future.delayed(const Duration(milliseconds: 1500), () {
-      if (mounted) AppRouter.router.go(AppRouter.signUpView);
+      if (mounted) context.goNamed(AppRouter.signUp);
     });
   }
 

@@ -174,6 +174,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "إعادة تعيين كلمة المرور",
     ),
     "running": MessageLookupByLibrary.simpleMessage("تشغيل"),
+    "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "sendOTP": MessageLookupByLibrary.simpleMessage("إرسال رمز التحقق"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage("حول ودعم"),
     "settingsAccountAndSecurity": MessageLookupByLibrary.simpleMessage(

@@ -6,6 +6,7 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class VerifyCodeView extends StatelessWidget {
   const VerifyCodeView({super.key});
@@ -57,7 +58,7 @@ class VerifyCodeView extends StatelessWidget {
                       normalText: S.of(context).didntReceiveOTP,
                       actionText: S.of(context).resendOTP,
                       onTap: () {
-                        AppRouter.router.go(AppRouter.resetPasswordView);
+                        context.goNamed(AppRouter.resetPassword);
                       },
                     ),
                     const Spacer(),
