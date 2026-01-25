@@ -991,6 +991,16 @@ class S {
     );
   }
 
+  /// `Save Changes`
+  String get saveChanges {
+    return Intl.message(
+      'Save Changes',
+      name: 'saveChanges',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Change Password`
   String get settingsChangePassword {
     return Intl.message(

@@ -205,6 +205,7 @@
     "settingsVersion": "Version",
     "settingsProfile": "Profile",
     "editProfile": "Edit Profile",
+    "saveChanges": "Save Changes",
     "settingsChangePassword": "Change Password",
     "settingsDeleteAccount": "Delete Account",
     "settingsPushNotifications": "Push Notifications",

@@ -6,6 +6,7 @@ import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SignInView extends StatefulWidget {
   const SignInView({super.key});
@@ -89,7 +90,7 @@ class _SignInViewState extends State<SignInView> {
                         normalText: S.of(context).authNoAccountQuestion,
                         actionText: S.of(context).authSignUpTitle,
                         onTap: () {
-                          AppRouter.router.go(AppRouter.signUpView);
+                         context.goNamed(AppRouter.signUp);
                         },
                       ),
                       const SizedBox(height: 16),
