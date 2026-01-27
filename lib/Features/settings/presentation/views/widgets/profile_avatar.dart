@@ -1,5 +1,6 @@
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProfileAvatar extends StatelessWidget {
   const ProfileAvatar({super.key});
@@ -10,7 +11,7 @@ class ProfileAvatar extends StatelessWidget {
       alignment: Alignment.bottomRight,
       children: [
         CircleAvatar(
-            radius: 55, backgroundImage: AssetImage(AppAssets.imagesMan)),
+            radius: 55.r, backgroundImage: AssetImage(AppAssets.imagesMan)),
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,

@@ -2,6 +2,7 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOtpTextField extends StatelessWidget {
   const CustomOtpTextField({
@@ -17,7 +18,7 @@ class CustomOtpTextField extends StatelessWidget {
       focusedBorderColor: AppColors.burgundy,
       showFieldAsBox: true,
       fieldWidth: 50,
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(12.r),
       textStyle: Styles.style20Medium,
       keyboardType: TextInputType.number,
       onCodeChanged: (String code) {},

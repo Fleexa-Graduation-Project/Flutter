@@ -1,6 +1,7 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class EditField extends StatelessWidget {
   final String label;
@@ -35,7 +36,7 @@ class EditField extends StatelessWidget {
             filled: true,
             fillColor: AppColors.settingCard,
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(10.r),
               borderSide: BorderSide.none,
             ),
           ),

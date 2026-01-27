@@ -3,6 +3,7 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AccountCard extends StatelessWidget {
   const AccountCard({
@@ -27,7 +28,7 @@ class AccountCard extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
           decoration: BoxDecoration(
             color: AppColors.charcoalBlack,
-            borderRadius: BorderRadius.circular(8),
+            borderRadius: BorderRadius.circular(8.r),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.1),

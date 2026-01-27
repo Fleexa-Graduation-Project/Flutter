@@ -2,6 +2,7 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
@@ -69,7 +70,7 @@ class CustomTextFormField extends StatelessWidget {
   OutlineInputBorder _outlineInputBorder(Color color) {
     return OutlineInputBorder(
       borderSide: BorderSide(color: color, width: 1.0),
-      borderRadius: const BorderRadius.all(Radius.circular(8.0)),
+      borderRadius: BorderRadius.all(Radius.circular(8.0.r)),
     );
   }
 }

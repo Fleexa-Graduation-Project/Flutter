@@ -30,19 +30,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(time, dayNight) => "End: ${time} ${dayNight}";
 
-  static String m4(userName) => "Hello, ${userName}";
+  static String m4(email) => "Please enter the OTP sent to your email ${email}";
 
-  static String m5(email) => "Please enter the OTP sent to your email ${email}";
+  static String m5(time, dayNight) => "Start: ${time} ${dayNight}";
 
-  static String m6(time, dayNight) => "Start: ${time} ${dayNight}";
+  static String m6(count) => "${count} hour ago";
 
-  static String m7(count) => "${count} hour ago";
+  static String m7(count) => "${count} min ago";
 
-  static String m8(count) => "${count} min ago";
+  static String m8(count) => "${count} sec ago";
 
-  static String m9(count) => "${count} sec ago";
-
-  static String m10(options) => "${options} H";
+  static String m9(options) => "${options} H";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -59,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
     "ThresholdDescription": m0,
+    "ac": MessageLookupByLibrary.simpleMessage("AC"),
     "activeHours": MessageLookupByLibrary.simpleMessage("Active Hours"),
     "agreeWith": MessageLookupByLibrary.simpleMessage("Agree with "),
     "airConditioner": MessageLookupByLibrary.simpleMessage("Air Conditioner"),
@@ -134,7 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "gasStatus": MessageLookupByLibrary.simpleMessage("Gas Status"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("Actuators"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("All Devices"),
-    "homeHello": m4,
+    "homeHello": MessageLookupByLibrary.simpleMessage("Hello,"),
     "homeMyDevices": MessageLookupByLibrary.simpleMessage("My Devices"),
     "homeNotifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("Sensors"),
@@ -169,7 +168,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "modeCooling": MessageLookupByLibrary.simpleMessage("Cooling"),
     "modeDry": MessageLookupByLibrary.simpleMessage("Dry"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("Heating"),
-    "pleaseEnterTheOTP": m5,
+    "pleaseEnterTheOTP": m4,
     "recentActivities": MessageLookupByLibrary.simpleMessage(
       "Recent Activities",
     ),
@@ -216,7 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Receive alerts for warning-level events",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("Smart Rules"),
-    "starts": m6,
+    "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("Above High"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage("Above Normal"),
     "statusBright": MessageLookupByLibrary.simpleMessage("Bright"),
@@ -250,11 +249,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeModeDark": MessageLookupByLibrary.simpleMessage("Dark"),
     "themeModeLight": MessageLookupByLibrary.simpleMessage("Light"),
     "themeModeSystem": MessageLookupByLibrary.simpleMessage("System"),
-    "timeAgoHour": m7,
-    "timeAgoMin": m8,
-    "timeAgoSec": m9,
+    "timeAgoHour": m6,
+    "timeAgoMin": m7,
+    "timeAgoSec": m8,
     "timer": MessageLookupByLibrary.simpleMessage("Timer"),
-    "timerOptions": m10,
+    "timerOptions": m9,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),

@@ -3,6 +3,7 @@ import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AgreeTermsWidget extends StatefulWidget {
   final VoidCallback? onTapTerms;
@@ -29,7 +30,8 @@ class _AgreeTermsWidgetState extends State<AgreeTermsWidget> {
             });
           },
           activeColor: AppColors.burgundy,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.r)),
         ),
         const SizedBox(width: 4),
         Expanded(

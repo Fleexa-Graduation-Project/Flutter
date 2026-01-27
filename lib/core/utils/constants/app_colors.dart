@@ -22,6 +22,7 @@ class AppColors {
   static const Color darkCharcoal = Color(0xFF242424);
   static const Color darkGray = Color(0xFF282828);
   static const Color dimGray = Color(0xFF393939);
+  static const Color darkEspresso = Color(0xFF201214);
   static final Color settingCard = Color.fromARGB(255, 30, 30, 30);
   // =========================
   // Gray Scale
@@ -38,6 +39,7 @@ class AppColors {
   // =========================
   static const Color crimsonRed = Color(0xFFCC2427);
   static const Color burgundy = Color(0xFF9E1B32);
+  static const Color darkBurgundy = Color(0xFF2B0F12);
   static const Color darkMaroon = Color(0xFF5D0D15);
   static const Color wineRed = Color(0xFF511118);
   static const Color bordeaux = Color(0xFF722F37);

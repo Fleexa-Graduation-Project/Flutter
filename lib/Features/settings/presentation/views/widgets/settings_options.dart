@@ -1,5 +1,6 @@
 import 'package:fleexa/Features/settings/domain/settings_enums.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../generated/l10n.dart';
 import 'settings_card.dart';
@@ -65,7 +66,7 @@ class _SettingsOptionsState extends State<SettingsOptions> {
         // Language
         SettingsCard(
           title: S.of(context).settingsLanguage,
-          icon: Icons.language_outlined,
+          icon: FontAwesomeIcons.language,
           dropDown: SettingsDropDown<AppLanguage>(
             value: _language,
             items: AppLanguage.values,

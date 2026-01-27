@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../core/utils/constants/styles.dart';
@@ -30,7 +31,7 @@ class SettingsCard extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
         decoration: BoxDecoration(
           color: AppColors.charcoalBlack,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(8.r),
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -46,7 +47,7 @@ class SettingsCard extends StatelessWidget {
               padding: EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: AppColors.darkGray,
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(8.r),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.1),

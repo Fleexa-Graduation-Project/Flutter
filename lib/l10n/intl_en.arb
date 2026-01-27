@@ -20,16 +20,7 @@
   "authHaveAccountQuestion": "Already Have an Account?",
 
   "//": "--- Home Screen ---",
-  "homeHello": "Hello, {userName}",
-  "@homeHello": {
-    "description": "Greeting with user name",
-    "placeholders": {
-      "userName": {
-        "type": "String",
-        "example": "Youssif"
-      }
-    }
-  },
+  "homeHello": "Hello,",
   "homeWelcome": "Welcome Home",
   "homeMyDevices": "My Devices",
   "homeAllDevices": "All Devices",
@@ -129,6 +120,7 @@
   
   "//": "--- Air Conditioner Screen ---",
   "airConditioner": "Air Conditioner",
+  "ac": "AC",
   "automaticMode": "Automatic Mode",
   "manualMode": "Manual Mode",
   "mode": "Mode",

@@ -166,14 +166,9 @@ class S {
     );
   }
 
-  /// `Hello, {userName}`
-  String homeHello(String userName) {
-    return Intl.message(
-      'Hello, $userName',
-      name: 'homeHello',
-      desc: 'Greeting with user name',
-      args: [userName],
-    );
+  /// `Hello,`
+  String get homeHello {
+    return Intl.message('Hello,', name: 'homeHello', desc: '', args: []);
   }
 
   /// `Welcome Home`
@@ -714,6 +709,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `AC`
+  String get ac {
+    return Intl.message('AC', name: 'ac', desc: '', args: []);
   }
 
   /// `Automatic Mode`

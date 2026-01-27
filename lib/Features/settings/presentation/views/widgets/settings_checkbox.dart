@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../../../core/utils/constants/app_colors.dart';
 
@@ -18,7 +19,7 @@ class SettingsCheckbox extends StatelessWidget {
       value: value,
       activeColor: AppColors.burgundy,
       checkColor: AppColors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4.r)),
       onChanged: (value) {
         if (value != null) {
           onChanged(value);

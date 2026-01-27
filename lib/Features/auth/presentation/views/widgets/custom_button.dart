@@ -1,6 +1,7 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -17,7 +18,7 @@ class CustomButton extends StatelessWidget {
         decoration: ShapeDecoration(
           color: AppColors.darkMaroon,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: BorderRadius.circular(18.r),
           ),
           shadows: const [
             BoxShadow(

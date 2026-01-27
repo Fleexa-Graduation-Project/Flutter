@@ -6,6 +6,7 @@ import 'package:fleexa/Features/settings/presentation/views/settings_account_vie
 import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
+import 'package:fleexa/Features/overview/home/views/home_view.dart';
 import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
@@ -24,9 +25,10 @@ class AppRouter {
   static const String editProfile = 'editProfile';
   static const String settingsAccount = 'settingsAccount';
   static const String settingsNotifications = 'settingsNotifications';
+  static const String home = 'home';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/settings-notifications',
+    initialLocation: '/home',
     routes: [
       GoRoute(
         path: '/',
@@ -83,6 +85,11 @@ class AppRouter {
         name: settingsAccount,
         builder: (context, state) => const SettingsAccountView(),
       ),
+      GoRoute(
+        path: '/home',
+        name: home,
+        builder: (context, state) => const HomeView(),
+      )
     ],
   );
 }

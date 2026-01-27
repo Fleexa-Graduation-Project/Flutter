@@ -29,19 +29,17 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m3(time, dayNight) => "توقف: ${time} ${dayNight}";
 
-  static String m4(userName) => "مرحباً، ${userName}";
+  static String m4(email) => "Please enter the OTP sent to your email ${email}";
 
-  static String m5(email) => "Please enter the OTP sent to your email ${email}";
+  static String m5(time, dayNight) => "ابدأ: ${time} ${dayNight}";
 
-  static String m6(time, dayNight) => "ابدأ: ${time} ${dayNight}";
+  static String m6(count) => "منذ ${count} ساعة";
 
-  static String m7(count) => "منذ ${count} ساعة";
+  static String m7(count) => "منذ ${count} دقيقة";
 
-  static String m8(count) => "منذ ${count} دقيقة";
+  static String m8(count) => "منذ ${count} ثانية";
 
-  static String m9(count) => "منذ ${count} ثانية";
-
-  static String m10(options) => "${options} ساعة";
+  static String m9(options) => "${options} ساعة";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -58,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Threshold": MessageLookupByLibrary.simpleMessage("الحد"),
     "ThresholdDescription": m0,
+    "ac": MessageLookupByLibrary.simpleMessage("مكيف الهواء"),
     "activeHours": MessageLookupByLibrary.simpleMessage("ساعات النشاط"),
     "agreeWith": MessageLookupByLibrary.simpleMessage("الموافقة على "),
     "airConditioner": MessageLookupByLibrary.simpleMessage("مكيف الهواء"),
@@ -134,7 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "gasStatus": MessageLookupByLibrary.simpleMessage("حالة الغاز"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("المشغلات"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("كل الأجهزة"),
-    "homeHello": m4,
+    "homeHello": MessageLookupByLibrary.simpleMessage("مرحباً،"),
     "homeMyDevices": MessageLookupByLibrary.simpleMessage("أجهزتي"),
     "homeNotifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("الحساسات"),
@@ -167,7 +166,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "modeCooling": MessageLookupByLibrary.simpleMessage("تبريد"),
     "modeDry": MessageLookupByLibrary.simpleMessage("جاف"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("تدفئة"),
-    "pleaseEnterTheOTP": m5,
+    "pleaseEnterTheOTP": m4,
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التحقق"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
@@ -210,7 +209,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تلقي التنبيهات للأحداث على مستوى التحذير",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("القواعد الذكية"),
-    "starts": m6,
+    "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("أعلى من المرتفع"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage(
       "أعلى من الطبيعي",
@@ -246,11 +245,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeModeDark": MessageLookupByLibrary.simpleMessage("داكن"),
     "themeModeLight": MessageLookupByLibrary.simpleMessage("فاتح"),
     "themeModeSystem": MessageLookupByLibrary.simpleMessage("النظام"),
-    "timeAgoHour": m7,
-    "timeAgoMin": m8,
-    "timeAgoSec": m9,
+    "timeAgoHour": m6,
+    "timeAgoMin": m7,
+    "timeAgoSec": m8,
     "timer": MessageLookupByLibrary.simpleMessage("مؤقت"),
-    "timerOptions": m10,
+    "timerOptions": m9,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),

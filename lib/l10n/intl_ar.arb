@@ -22,16 +22,7 @@
   "authHaveAccountQuestion": "هل لديك حساب بالفعل؟",
 
 "//": "--- Home Screen ---",
-  "homeHello": "مرحباً، {userName}",
-  "@homeHello": {
-    "description": "Greeting with user name",
-    "placeholders": {
-      "userName": {
-        "type": "String",
-        "example": "Youssif"
-      }
-    }
-  },
+  "homeHello": "مرحباً،",
   "homeWelcome": "أهلاً بك في منزلك",
   "homeMyDevices": "أجهزتي",
   "homeAllDevices": "كل الأجهزة",
@@ -121,6 +112,7 @@
 
   "//": "--- Air Conditioner Screen ---",
   "airConditioner": "مكيف الهواء",
+  "ac": "مكيف الهواء",
   "automaticMode": "الوضع التلقائي",
   "manualMode": "الوضع اليدوي",
   "mode": "الوضع",

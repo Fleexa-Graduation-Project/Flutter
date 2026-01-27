@@ -22,6 +22,8 @@ dependencies:
   syncfusion_flutter_gauges: ^32.1.24
   syncfusion_flutter_charts: ^32.1.24
   intl: ^0.20.2
+  animated_toggle_switch: ^0.8.7
+  flutter_screenutil: ^5.9.3
 
 dev_dependencies:
   flutter_lints: ^5.0.0
