@@ -17,7 +17,8 @@ class SettingsAccountView extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.white),
           onPressed: () => GoRouter.of(context).pop(),
         ),
-        title: Text(S.of(context).editProfile, style: Styles.style20Medium),
+        title: Text(S.of(context).settingsAccountAndSecurity,
+            style: Styles.style20Medium),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -29,14 +30,14 @@ class SettingsAccountView extends StatelessWidget {
                 title: S.of(context).settingsProfile,
                 forwardArrow: true,
                 onTap: () {
-                  context.goNamed(AppRouter.settingsProfile);
+                  context.pushNamed(AppRouter.settingsProfile);
                 },
               ),
               const SizedBox(height: 18),
               AccountCard(
                 title: S.of(context).settingsChangePassword,
                 onTap: () {
-                  context.goNamed(AppRouter.changePassword);
+                  context.pushNamed(AppRouter.changePassword);
                 },
               ),
               const SizedBox(height: 18),

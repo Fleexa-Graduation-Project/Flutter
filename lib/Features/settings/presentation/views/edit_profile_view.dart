@@ -33,8 +33,6 @@ class _EditProfileViewState extends State<EditProfileView> {
     return Scaffold(
       backgroundColor: AppColors.black,
       appBar: AppBar(
-        backgroundColor: AppColors.black,
-        elevation: 0,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.white),
           onPressed: () => Navigator.pop(context),

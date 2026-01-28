@@ -1,8 +1,10 @@
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_text_form_field.dart';
+import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ChangePasswordView extends StatefulWidget {
   const ChangePasswordView({super.key});
@@ -31,7 +33,7 @@ class _ChangePasswordViewState extends State<ChangePasswordView> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
         ),
         title: Text(S.of(context).settingsChangePassword),
         centerTitle: true,

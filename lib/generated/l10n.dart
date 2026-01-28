@@ -231,6 +231,16 @@ class S {
     );
   }
 
+  /// `System Overview`
+  String get systemOverview {
+    return Intl.message(
+      'System Overview',
+      name: 'systemOverview',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Devices Online`
   String get labelDevicesOnline {
     return Intl.message(
@@ -304,6 +314,16 @@ class S {
   /// `Critical`
   String get statusCritical {
     return Intl.message('Critical', name: 'statusCritical', desc: '', args: []);
+  }
+
+  /// `CRITICAL`
+  String get statuscapitalcritical {
+    return Intl.message(
+      'CRITICAL',
+      name: 'statuscapitalcritical',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Normal`
@@ -481,6 +501,16 @@ class S {
     );
   }
 
+  /// `Current Temp`
+  String get currentTemperature {
+    return Intl.message(
+      'Current Temp',
+      name: 'currentTemperature',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Device Status`
   String get deviceStatus {
     return Intl.message(
@@ -506,6 +536,26 @@ class S {
     return Intl.message('Average', name: 'tempAverage', desc: '', args: []);
   }
 
+  /// `Avg Brightness`
+  String get avergeBrightness {
+    return Intl.message(
+      'Avg Brightness',
+      name: 'avergeBrightness',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `15%`
+  String get avergeBrightnessValue {
+    return Intl.message(
+      '15%',
+      name: 'avergeBrightnessValue',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Related Devices`
   String get labelRelatedDevices {
     return Intl.message(
@@ -529,6 +579,11 @@ class S {
   /// `Gas Level`
   String get gasLevel {
     return Intl.message('Gas Level', name: 'gasLevel', desc: '', args: []);
+  }
+
+  /// `820`
+  String get gasLevelValue {
+    return Intl.message('820', name: 'gasLevelValue', desc: '', args: []);
   }
 
   /// `Gas level has exceeded the safe limit`
@@ -639,6 +694,16 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `24 mins`
+  String get doorvalue {
+    return Intl.message('24 mins', name: 'doorvalue', desc: '', args: []);
+  }
+
+  /// `20°C`
+  String get acValue {
+    return Intl.message('20°C', name: 'acValue', desc: '', args: []);
   }
 
   /// `Recent Activities`
