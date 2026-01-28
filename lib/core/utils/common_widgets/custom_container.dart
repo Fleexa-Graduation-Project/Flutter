@@ -1,8 +1,8 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class DashboardSectionContainer extends StatelessWidget {
-  const DashboardSectionContainer({
+class CustomContainer extends StatelessWidget {
+  const CustomContainer({
     super.key,
     required this.child,
   });

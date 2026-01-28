@@ -165,6 +165,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageArabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "languageEnglish": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
     "lastActivity": MessageLookupByLibrary.simpleMessage("آخر نشاط"),
+    "lastUpdateValue": MessageLookupByLibrary.simpleMessage("منذ ٢ ثانية"),
+    "latUpdate": MessageLookupByLibrary.simpleMessage("آخر تحديث"),
     "lightLevelOverTime": MessageLookupByLibrary.simpleMessage("مستوى الضوء"),
     "lightSensor": MessageLookupByLibrary.simpleMessage("حساس الضوء"),
     "lightstatus": MessageLookupByLibrary.simpleMessage("حالة الضوء"),
@@ -217,6 +219,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تلقي التنبيهات للأحداث على مستوى التحذير",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("القواعد الذكية"),
+    "stable": MessageLookupByLibrary.simpleMessage("مستقر"),
     "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("أعلى من المرتفع"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage(

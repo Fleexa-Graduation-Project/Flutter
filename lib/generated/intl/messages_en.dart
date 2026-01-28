@@ -55,6 +55,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "SettingsCriticalAlerts": MessageLookupByLibrary.simpleMessage(
       "Critical Alerts",
     ),
+    "Stability": MessageLookupByLibrary.simpleMessage("stability"),
     "Threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
     "ThresholdDescription": m0,
     "ac": MessageLookupByLibrary.simpleMessage("AC"),
@@ -163,6 +164,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "languageArabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "languageEnglish": MessageLookupByLibrary.simpleMessage("English"),
     "lastActivity": MessageLookupByLibrary.simpleMessage("Last Activity"),
+    "lastUpdateValue": MessageLookupByLibrary.simpleMessage("2 sec ago"),
+    "latUpdate": MessageLookupByLibrary.simpleMessage("Last Update"),
     "lightLevelOverTime": MessageLookupByLibrary.simpleMessage(
       "Light Level Over Time",
     ),
@@ -221,6 +224,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Receive alerts for warning-level events",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("Smart Rules"),
+    "stable": MessageLookupByLibrary.simpleMessage("stable"),
     "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("Above High"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage("Above Normal"),

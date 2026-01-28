@@ -356,6 +356,16 @@ class S {
     );
   }
 
+  /// `stable`
+  String get stable {
+    return Intl.message('stable', name: 'stable', desc: '', args: []);
+  }
+
+  /// `stability`
+  String get Stability {
+    return Intl.message('stability', name: 'Stability', desc: '', args: []);
+  }
+
   /// `Low`
   String get statusLow {
     return Intl.message('Low', name: 'statusLow', desc: '', args: []);
@@ -721,6 +731,21 @@ class S {
     return Intl.message(
       'Last Activity',
       name: 'lastActivity',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Last Update`
+  String get latUpdate {
+    return Intl.message('Last Update', name: 'latUpdate', desc: '', args: []);
+  }
+
+  /// `2 sec ago`
+  String get lastUpdateValue {
+    return Intl.message(
+      '2 sec ago',
+      name: 'lastUpdateValue',
       desc: '',
       args: [],
     );

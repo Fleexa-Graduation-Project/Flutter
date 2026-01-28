@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/dashboard_section_container.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/Features/overview/system_overview/views/widgets/energy_bar_chart.dart';
 import 'package:fleexa/Features/overview/system_overview/views/widgets/energy_chart_data.dart';
 import 'package:fleexa/Features/overview/system_overview/views/widgets/energy_chart_header.dart'
@@ -30,7 +30,7 @@ class _EnergyConsumptionChartState extends State<EnergyConsumptionChart> {
     
     final periodData = periods[_selectedPeriod] ?? periods.values.first;
 
-    return DashboardSectionContainer(
+    return CustomContainer(
       child: Column(
         children: [
           EnergyChartHeader(

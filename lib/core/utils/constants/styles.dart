@@ -23,6 +23,11 @@ class Styles {
     fontSize: 28.sp,
     fontWeight: FontWeight.w500,
   );
+   static TextStyle style28SemiBold = TextStyle(
+    color: AppColors.white,
+    fontSize: 28.sp,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle style8Medium = TextStyle(
     color: AppColors.white,
     fontSize: 8.sp,

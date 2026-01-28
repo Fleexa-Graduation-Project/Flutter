@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/auth/presentation/views/change_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
+import 'package:fleexa/Features/devices/sensors/tempreature/presentation/views/tempreature_sensor_view.dart';
 import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
     show SystemOverviewView;
 import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_control_view.dart';
@@ -33,9 +34,9 @@ class AppRouter {
   static const String home = 'home';
   static const String doorLockControl = 'doorLockControl';
   static const String doorLockDetails = 'doorLockDetails';
-
+static const String tempreatureSensor = 'tempreatureSensor';
   static final GoRouter router = GoRouter(
-    initialLocation: '/door-lock-details',
+    initialLocation: '/tempreature-sensor',
     routes: [
       GoRoute(
         path: '/',
@@ -111,7 +112,15 @@ class AppRouter {
         path: '/door-lock-details',
         name: doorLockDetails,
         builder: (context, state) => const DoorLockDetailsView(),
-      )
+      ),
+     
+      GoRoute(  
+        path: '/tempreature-sensor',
+        name: tempreatureSensor,  
+        builder: (context, state) => const TempreatureSensorView(),  
+      ),  
+
+
     ],
   );
 }

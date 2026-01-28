@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/dashboard_section_container.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/Features/overview/system_overview/views/widgets/gas_sensor_gauge.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
@@ -10,7 +10,7 @@ class GasSensorOverview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DashboardSectionContainer(
+    return CustomContainer(
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(
