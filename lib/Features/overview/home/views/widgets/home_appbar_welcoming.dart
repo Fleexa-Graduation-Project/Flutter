@@ -27,7 +27,7 @@ class HomeAppbarWelcoming extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
           S.of(context).homeWelcome,
           style: Styles.style16Regular,

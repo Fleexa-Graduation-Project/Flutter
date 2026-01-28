@@ -11,7 +11,8 @@ class ProfileAvatar extends StatelessWidget {
       alignment: Alignment.bottomRight,
       children: [
         CircleAvatar(
-            radius: 55.r, backgroundImage: AssetImage(AppAssets.imagesMan)),
+            radius: 55.r,
+            backgroundImage: const AssetImage(AppAssets.imagesMan)),
         Container(
           decoration: BoxDecoration(
             shape: BoxShape.circle,

@@ -28,8 +28,8 @@ class _HomeViewState extends State<HomeView> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                HomeAppbar(),
-                SizedBox(height: 12),
+                const HomeAppbar(),
+                const SizedBox(height: 12),
                 DevicesSectionHeader(
                   currentFilter: currentFilter,
                   onFilterChanged: (value) {
@@ -40,7 +40,7 @@ class _HomeViewState extends State<HomeView> {
                     }
                   },
                 ),
-                SizedBox(height: 24),
+                const SizedBox(height: 24),
                 Expanded(
                   child: DeviceCardList(
                     filterType: currentFilter,

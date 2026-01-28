@@ -1,6 +1,8 @@
 import 'package:fleexa/Features/auth/presentation/views/change_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_control_view.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_details_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_account_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
@@ -26,9 +28,11 @@ class AppRouter {
   static const String settingsAccount = 'settingsAccount';
   static const String settingsNotifications = 'settingsNotifications';
   static const String home = 'home';
+  static const String doorLockControl = 'doorLockControl';
+  static const String doorLockDetails = 'doorLockDetails';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/door-lock-details',
     routes: [
       GoRoute(
         path: '/',
@@ -89,6 +93,16 @@ class AppRouter {
         path: '/home',
         name: home,
         builder: (context, state) => const HomeView(),
+      ),
+      GoRoute(
+        path: '/door-lock-control',
+        name: doorLockControl,
+        builder: (context, state) => const DoorLockControlView(),
+      ),
+      GoRoute(
+        path: '/door-lock-details',
+        name: doorLockDetails,
+        builder: (context, state) => const DoorLockDetailsView(),
       )
     ],
   );

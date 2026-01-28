@@ -20,7 +20,7 @@ class SensorDeviceCardFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 6, horizontal: 8),
+      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
       decoration: BoxDecoration(
         color: AppColors.charcoalBlack,
         borderRadius: BorderRadius.circular(30.r),
@@ -31,7 +31,7 @@ class SensorDeviceCardFooter extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
             blurRadius: 4,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
       ),
@@ -44,7 +44,7 @@ class SensorDeviceCardFooter extends StatelessWidget {
             height: 14,
             fit: BoxFit.contain,
           ),
-          SizedBox(width: 4),
+          const SizedBox(width: 4),
           Text(
             valueLabel!,
             style: Styles.style8Medium,

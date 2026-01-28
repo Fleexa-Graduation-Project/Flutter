@@ -27,7 +27,7 @@ class _SettingsOptionsState extends State<SettingsOptions> {
           icon: Icons.person_outline_rounded,
           forwardArrow: true,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
         // Notifications and Alerts
         SettingsCard(
@@ -35,7 +35,7 @@ class _SettingsOptionsState extends State<SettingsOptions> {
           icon: Icons.notifications_none_rounded,
           forwardArrow: true,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
         // Theme Mode
         SettingsCard(
@@ -61,7 +61,7 @@ class _SettingsOptionsState extends State<SettingsOptions> {
             },
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
         // Language
         SettingsCard(
@@ -82,14 +82,14 @@ class _SettingsOptionsState extends State<SettingsOptions> {
             },
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
         // About and Support
         SettingsCard(
           title: S.of(context).settingsAboutAndSupport,
           icon: Icons.info_outline_rounded,
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
 
         // Log Out
         SettingsCard(

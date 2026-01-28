@@ -28,7 +28,7 @@ class SettingsCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
         decoration: BoxDecoration(
           color: AppColors.charcoalBlack,
           borderRadius: BorderRadius.circular(8.r),
@@ -37,14 +37,14 @@ class SettingsCard extends StatelessWidget {
               color: Colors.black.withOpacity(0.1),
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
         ),
         child: Row(
           children: [
             Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               decoration: BoxDecoration(
                 color: AppColors.darkGray,
                 borderRadius: BorderRadius.circular(8.r),
@@ -53,7 +53,7 @@ class SettingsCard extends StatelessWidget {
                     color: Colors.black.withOpacity(0.1),
                     spreadRadius: 0,
                     blurRadius: 2,
-                    offset: Offset(0, 1),
+                    offset: const Offset(0, 1),
                   ),
                 ],
               ),
@@ -62,14 +62,14 @@ class SettingsCard extends StatelessWidget {
                 color: AppColors.white,
               ),
             ),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             Text(
               title,
               style: Styles.style16Medium,
             ),
-            Spacer(),
+            const Spacer(),
             if (forwardArrow)
-              Icon(
+              const Icon(
                 Icons.arrow_forward_ios,
                 color: AppColors.coolGray,
                 size: 16,

@@ -24,7 +24,7 @@ class SettingsAccountView extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 40),
+              const SizedBox(height: 40),
               AccountCard(
                 title: S.of(context).settingsProfile,
                 forwardArrow: true,
@@ -32,14 +32,14 @@ class SettingsAccountView extends StatelessWidget {
                   context.goNamed(AppRouter.settingsProfile);
                 },
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
               AccountCard(
                 title: S.of(context).settingsChangePassword,
                 onTap: () {
                   context.goNamed(AppRouter.changePassword);
                 },
               ),
-              SizedBox(height: 18),
+              const SizedBox(height: 18),
               AccountCard(
                 title: S.of(context).settingsDeleteAccount,
                 onTap: () {},

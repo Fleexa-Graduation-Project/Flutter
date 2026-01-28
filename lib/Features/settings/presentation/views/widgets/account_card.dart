@@ -25,7 +25,7 @@ class AccountCard extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 24),
         child: Container(
           width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+          padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
           decoration: BoxDecoration(
             color: AppColors.charcoalBlack,
             borderRadius: BorderRadius.circular(8.r),
@@ -34,7 +34,7 @@ class AccountCard extends StatelessWidget {
                 color: Colors.black.withOpacity(0.1),
                 spreadRadius: 2,
                 blurRadius: 4,
-                offset: Offset(0, 4),
+                offset: const Offset(0, 4),
               ),
             ],
           ),
@@ -45,9 +45,9 @@ class AccountCard extends StatelessWidget {
                     color:
                         title == "Delete Account" ? AppColors.burgundy : null,
                   )),
-              Spacer(),
+              const Spacer(),
               if (forwardArrow)
-                Icon(
+                const Icon(
                   Icons.arrow_forward_ios,
                   color: AppColors.coolGray,
                   size: 16,

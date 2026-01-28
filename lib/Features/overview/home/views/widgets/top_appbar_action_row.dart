@@ -15,7 +15,7 @@ class TopAppbarActionRow extends StatelessWidget {
           'assets/images/letter_logo.svg',
           width: 28,
         ),
-        Spacer(),
+        const Spacer(),
         IconButton(
           onPressed: () {},
           icon: SvgPicture.asset(
@@ -25,12 +25,12 @@ class TopAppbarActionRow extends StatelessWidget {
             fit: BoxFit.contain,
           ),
         ),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         InkWell(
           onTap: () {},
           child: CircleAvatar(
             radius: 16.r,
-            backgroundImage: AssetImage('assets/images/girl.png'),
+            backgroundImage: const AssetImage('assets/images/girl.png'),
           ),
         )
       ],

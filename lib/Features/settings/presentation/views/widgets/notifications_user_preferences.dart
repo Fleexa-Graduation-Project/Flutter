@@ -36,7 +36,7 @@ class _NotificationsUserPreferencesState
             }),
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
 
         // Warning Alerts Option Card
         SettingsNotificationsCard(
@@ -52,7 +52,7 @@ class _NotificationsUserPreferencesState
             }),
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
 
         // Info logs Option Card
         SettingsNotificationsCard(

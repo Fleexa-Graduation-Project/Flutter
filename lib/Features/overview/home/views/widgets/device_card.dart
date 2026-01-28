@@ -52,11 +52,11 @@ class DeviceCard extends StatelessWidget {
             BoxShadow(
               color: Colors.black.withOpacity(0.2),
               blurRadius: 4,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
           gradient: isActuator
-              ? LinearGradient(
+              ? const LinearGradient(
                   colors: [
                     AppColors.darkEspresso,
                     AppColors.darkBurgundy,
@@ -73,11 +73,11 @@ class DeviceCard extends StatelessWidget {
             // Icon & Status dot
             DeviceCardHeader(
                 icon: icon, statusColor: statusColor, isActuator: isActuator),
-            SizedBox(height: 12),
+            const SizedBox(height: 12),
 
             // Title and subtext
             DeviceCardContent(title: title, subtext: subtext),
-            if (isActuator) SizedBox(height: 8) else Spacer(),
+            if (isActuator) const SizedBox(height: 8) else const Spacer(),
 
             // Value label or Switch
             if (isActuator)

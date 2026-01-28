@@ -53,12 +53,12 @@ class _SettingsNotificationsViewState extends State<SettingsNotificationsView> {
                     },
                   ),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
 
                 // User Preferences Options
                 DisabledSection(
                   isEnabled: isPushEnabled,
-                  child: NotificationsUserPreferences(),
+                  child: const NotificationsUserPreferences(),
                 ),
               ],
             ),

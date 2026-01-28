@@ -26,10 +26,10 @@ class SettingsView extends StatelessWidget {
                   S.of(context).settingsTitle,
                   style: Styles.style24Medium,
                 ),
-                SizedBox(height: 32),
+                const SizedBox(height: 32),
 
                 // Settings Options
-                SettingsOptions(),
+                const SettingsOptions(),
               ],
             ),
           ),

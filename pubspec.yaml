@@ -24,6 +24,7 @@ dependencies:
   intl: ^0.20.2
   animated_toggle_switch: ^0.8.7
   flutter_screenutil: ^5.9.3
+  ai_glow: ^0.0.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0

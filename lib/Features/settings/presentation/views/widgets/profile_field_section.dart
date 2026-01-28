@@ -4,8 +4,9 @@ import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 
 class ProfileFieldSection extends StatelessWidget {
-  const ProfileFieldSection({super.key, required this.profileFieldSectionModel});
-final ProfileFieldSectionModel profileFieldSectionModel;
+  const ProfileFieldSection(
+      {super.key, required this.profileFieldSectionModel});
+  final ProfileFieldSectionModel profileFieldSectionModel;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -15,16 +16,16 @@ final ProfileFieldSectionModel profileFieldSectionModel;
           profileFieldSectionModel.title,
           style: Styles.style14SemiBold.copyWith(color: AppColors.white),
         ),
-        SizedBox(
+        const SizedBox(
           height: 16,
         ),
         Row(
           children: [
             Icon(
-            profileFieldSectionModel.icon ,
+              profileFieldSectionModel.icon,
               color: AppColors.white,
             ),
-            SizedBox(
+            const SizedBox(
               width: 14,
             ),
             Text(
@@ -33,7 +34,6 @@ final ProfileFieldSectionModel profileFieldSectionModel;
             ),
           ],
         ),
-      
       ],
     );
   }

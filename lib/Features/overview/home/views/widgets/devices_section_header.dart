@@ -24,7 +24,7 @@ class DevicesSectionHeader extends StatelessWidget {
           S.of(context).homeMyDevices,
           style: Styles.style18Medium,
         ),
-        Spacer(),
+        const Spacer(),
         DevicesFilterDropdown(
           currentFilter: currentFilter,
           onChanged: onFilterChanged,

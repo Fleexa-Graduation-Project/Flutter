@@ -53,7 +53,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                 child: Column(
                   children: [
                     const SizedBox(height: 20),
-                    ProfileAvatar(),
+                    const ProfileAvatar(),
                     const SizedBox(height: 40),
                     EditField(
                       label: S.of(context).fieldUsername,
@@ -68,9 +68,10 @@ class _EditProfileViewState extends State<EditProfileView> {
                       enabled: false,
                     ),
                     const Spacer(),
-                    SizedBox(height: 20),
-                    CustomButton(text: S.of(context).saveChanges, onPressed: () {}),
-                    SizedBox(height: 40),
+                    const SizedBox(height: 20),
+                    CustomButton(
+                        text: S.of(context).saveChanges, onPressed: () {}),
+                    const SizedBox(height: 40),
                   ],
                 ),
               ),

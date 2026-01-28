@@ -26,7 +26,7 @@ class SettingsNotificationsCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: EdgeInsets.symmetric(vertical: 18, horizontal: 18),
+        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
         decoration: BoxDecoration(
           color: AppColors.charcoalBlack,
           borderRadius: BorderRadius.circular(8.r),
@@ -35,7 +35,7 @@ class SettingsNotificationsCard extends StatelessWidget {
               color: Colors.black.withOpacity(0.1),
               spreadRadius: 2,
               blurRadius: 4,
-              offset: Offset(0, 4),
+              offset: const Offset(0, 4),
             ),
           ],
         ),
@@ -50,7 +50,7 @@ class SettingsNotificationsCard extends StatelessWidget {
                   title,
                   style: Styles.style16Medium,
                 ),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
 
                 // Subtitle
                 if (subtitle != null)
@@ -62,7 +62,7 @@ class SettingsNotificationsCard extends StatelessWidget {
                   ),
               ],
             ),
-            Spacer(),
+            const Spacer(),
             if (trailingWidget != null) trailingWidget!,
           ],
         ),

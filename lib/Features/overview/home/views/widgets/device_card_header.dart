@@ -23,7 +23,7 @@ class DeviceCardHeader extends StatelessWidget {
       children: [
         // Icon
         Container(
-          padding: EdgeInsets.all(12),
+          padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             color: isActuator ? AppColors.bordeaux : AppColors.dimGray,
