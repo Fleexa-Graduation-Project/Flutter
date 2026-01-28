@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

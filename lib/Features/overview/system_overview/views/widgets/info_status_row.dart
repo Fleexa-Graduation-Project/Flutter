@@ -13,7 +13,7 @@ class InfoStatusRow extends StatelessWidget {
       children: [
         Text(infoStatusModel.title,
             style: Styles.style14Medium.copyWith(color: AppColors.white)),
-        Spacer(),
+        const Spacer(),
         if (S.of(context).labelSystemStatus == infoStatusModel.title) ...[
           Container(
             width: 8,
@@ -23,7 +23,7 @@ class InfoStatusRow extends StatelessWidget {
               shape: BoxShape.circle,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             width: 4,
           ),
           Text(

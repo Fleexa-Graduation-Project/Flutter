@@ -22,7 +22,7 @@ class DeviceCardContent extends StatelessWidget {
           title,
           style: Styles.style16Medium,
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
           subtext,
           style: Styles.style12Regular.copyWith(

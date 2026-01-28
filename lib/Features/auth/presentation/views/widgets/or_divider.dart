@@ -12,9 +12,9 @@ class OrDivider extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Expanded(child: Container(height: 2, color: AppColors.dimGray)),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Text(S.of(context).authOr, style: Styles.style14Medium),
-        SizedBox(width: 8),
+        const SizedBox(width: 8),
         Expanded(child: Container(height: 2, color: AppColors.dimGray)),
       ],
     );

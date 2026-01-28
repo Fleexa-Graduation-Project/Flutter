@@ -1,6 +1,5 @@
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_text_form_field.dart';
-import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

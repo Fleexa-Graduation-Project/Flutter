@@ -23,7 +23,7 @@ class GasSensorOverview extends StatelessWidget {
                 S.of(context).gasSensor,
                 style: Styles.style14Medium.copyWith(color: AppColors.white),
               ),
-              SizedBox(height: 4),
+              const SizedBox(height: 4),
               Text.rich(
                 TextSpan(
                   children: [

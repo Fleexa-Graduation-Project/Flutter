@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:fleexa/Features/overview/home/domain/home_enums.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/custom_switch.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/device_card_content.dart';

@@ -32,7 +32,7 @@ class DeviceOverviewCard extends StatelessWidget {
                 SvgPicture.asset(deviceModel.iconPath),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 4,
             ),
             Text(
@@ -40,7 +40,7 @@ class DeviceOverviewCard extends StatelessWidget {
               style:
                   Styles.style12Regular.copyWith(color: AppColors.mediumGray),
             ),
-            SizedBox(
+            const SizedBox(
               height: 12,
             ),
             CardLabelValue(label: deviceModel.label, value: deviceModel.value)

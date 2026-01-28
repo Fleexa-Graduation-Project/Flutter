@@ -15,11 +15,11 @@ class DeviceCard extends StatelessWidget {
           BoxShadow(
             color: Colors.black.withOpacity(0.2),
             blurRadius: 4,
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
           ),
         ],
         gradient: isActuator
-            ? LinearGradient(
+            ? const LinearGradient(
                 colors: [
                   AppColors.darkEspresso,
                   AppColors.darkBurgundy,

@@ -13,7 +13,7 @@ class StatusLegendRow extends StatelessWidget {
       children: [
         LegendItem(
             color: AppColors.burntOrange, label: S.of(context).statusWarning),
-        SizedBox(width: 20),
+        const SizedBox(width: 20),
         LegendItem(
             color: AppColors.darkMaroon, label: S.of(context).statusCritical),
       ],

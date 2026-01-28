@@ -52,7 +52,7 @@ class VerifyCodeView extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 52),
-                    CustomOtpTextField(),
+                    const CustomOtpTextField(),
                     const SizedBox(height: 28),
                     AccountActionText(
                       normalText: S.of(context).didntReceiveOTP,

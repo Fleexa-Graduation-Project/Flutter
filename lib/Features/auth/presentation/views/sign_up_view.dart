@@ -89,10 +89,8 @@ class _SignUpViewState extends State<SignUpView> {
                         obscureText: true,
                       ),
                       const SizedBox(height: 12),
-
                       const AgreeTermsWidget(),
                       const Spacer(),
-
                       CustomButton(
                         text: S.of(context).authSignUpTitle,
                         onPressed: () {
@@ -100,7 +98,7 @@ class _SignUpViewState extends State<SignUpView> {
                         },
                       ),
                       const SizedBox(height: 32),
-                      OrDivider(),
+                      const OrDivider(),
                       const SizedBox(height: 32),
                       AccountActionText(
                         normalText: S.of(context).authHaveAccountQuestion,

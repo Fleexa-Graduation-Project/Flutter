@@ -11,7 +11,7 @@ class SystemOverviewHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(
+        const SizedBox(
           height: 24,
         ),
         Text(

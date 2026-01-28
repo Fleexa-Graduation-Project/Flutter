@@ -84,13 +84,13 @@ class _SignInViewState extends State<SignInView> {
                         },
                       ),
                       const SizedBox(height: 32),
-                      OrDivider(),
+                      const OrDivider(),
                       const SizedBox(height: 32),
                       AccountActionText(
                         normalText: S.of(context).authNoAccountQuestion,
                         actionText: S.of(context).authSignUpTitle,
                         onTap: () {
-                         context.goNamed(AppRouter.signUp);
+                          context.goNamed(AppRouter.signUp);
                         },
                       ),
                       const SizedBox(height: 16),
