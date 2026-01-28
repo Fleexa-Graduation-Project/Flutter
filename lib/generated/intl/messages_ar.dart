@@ -57,6 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Threshold": MessageLookupByLibrary.simpleMessage("الحد"),
     "ThresholdDescription": m0,
     "ac": MessageLookupByLibrary.simpleMessage("مكيف الهواء"),
+    "acValue": MessageLookupByLibrary.simpleMessage("٢٠°م"),
     "activeHours": MessageLookupByLibrary.simpleMessage("ساعات النشاط"),
     "agreeWith": MessageLookupByLibrary.simpleMessage("الموافقة على "),
     "airConditioner": MessageLookupByLibrary.simpleMessage("مكيف الهواء"),
@@ -82,6 +83,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "مرحباً بعودتك، لقد افتقدناك",
     ),
     "automaticMode": MessageLookupByLibrary.simpleMessage("الوضع التلقائي"),
+    "avergeBrightness": MessageLookupByLibrary.simpleMessage("متوسط السطوع"),
+    "avergeBrightnessValue": MessageLookupByLibrary.simpleMessage("١٥٪"),
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "متوسط مدة الفتح",
     ),
@@ -93,6 +96,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "كلمة المرور الحالية",
     ),
     "currentTemp": m1,
+    "currentTemperature": MessageLookupByLibrary.simpleMessage(
+      "درجة الحرارة الحالية",
+    ),
     "dayFri": MessageLookupByLibrary.simpleMessage("الجمعة"),
     "dayMon": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "daySat": MessageLookupByLibrary.simpleMessage("السبت"),
@@ -108,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorLockedStatus": MessageLookupByLibrary.simpleMessage("الباب مغلق"),
     "doorOpenTooLong": m2,
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage("الباب مفتوح"),
+    "doorvalue": MessageLookupByLibrary.simpleMessage("٢٤ دقيقة"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "ends": m3,
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
@@ -126,6 +133,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "gasLevelExceeded": MessageLookupByLibrary.simpleMessage(
       "مستوى الغاز تجاوز الحد الآمن",
     ),
+    "gasLevelValue": MessageLookupByLibrary.simpleMessage("٨٢٠"),
     "gasSensor": MessageLookupByLibrary.simpleMessage("حساس الغاز"),
     "gasSpikeDetected": MessageLookupByLibrary.simpleMessage(
       "تم الكشف عن ارتفاع مفاجئ في الغاز",
@@ -227,6 +235,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusOn": MessageLookupByLibrary.simpleMessage("تشغيل"),
     "statusOpened": MessageLookupByLibrary.simpleMessage("مفتوح"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("تحذير"),
+    "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("خطر"),
+    "systemOverview": MessageLookupByLibrary.simpleMessage(
+      "نظرة عامة على النظام",
+    ),
     "target": MessageLookupByLibrary.simpleMessage("الهدف"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("المتوسط"),
     "tempInside": MessageLookupByLibrary.simpleMessage("داخليًا"),

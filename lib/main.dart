@@ -24,7 +24,7 @@ class Fleexa extends StatelessWidget {
       splitScreenMode: true,
       builder: (context, child) {
         return MaterialApp.router(
-          locale: Locale('en'),
+          locale: Locale('ar'),
           localizationsDelegates: [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

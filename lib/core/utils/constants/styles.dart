@@ -13,6 +13,11 @@ class Styles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w600,
   );
+  static TextStyle style20Medium = TextStyle(
+    color: Colors.white,
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle style28Medium = TextStyle(
     color: AppColors.white,
     fontSize: 28.sp,
@@ -21,6 +26,11 @@ class Styles {
   static TextStyle style8Medium = TextStyle(
     color: AppColors.white,
     fontSize: 8.sp,
+    fontWeight: FontWeight.w500,
+  );
+  static TextStyle style18Medium = TextStyle(
+    color: Colors.white,
+    fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
 
@@ -39,6 +49,16 @@ class Styles {
     fontSize: 12.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle style12SemiBold = TextStyle(
+    color: AppColors.burgundy,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w600,
+  );
+  static TextStyle style12Medium = TextStyle(
+    color: AppColors.white,
+    fontSize: 12.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle style16Medium = TextStyle(
     color: AppColors.white,
     fontSize: 16.sp,
@@ -49,24 +69,9 @@ class Styles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w500,
   );
-  static TextStyle style12Medium = TextStyle(
-    color: AppColors.white,
-    fontSize: 12.sp,
-    fontWeight: FontWeight.w500,
-  );
   static TextStyle style14SemiBold = TextStyle(
     color: AppColors.coolGray,
     fontSize: 14.sp,
     fontWeight: FontWeight.w600,
-  );
-  static TextStyle style20Medium = TextStyle(
-    color: Colors.white,
-    fontSize: 20.sp,
-    fontWeight: FontWeight.w500,
-  );
-  static TextStyle style18Medium = TextStyle(
-    color: Colors.white,
-    fontSize: 18.sp,
-    fontWeight: FontWeight.w500,
   );
 }

@@ -1,6 +1,8 @@
 import 'package:fleexa/Features/auth/presentation/views/change_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
+import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
+    show SystemOverviewView;
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_account_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
@@ -25,10 +27,11 @@ class AppRouter {
   static const String editProfile = 'editProfile';
   static const String settingsAccount = 'settingsAccount';
   static const String settingsNotifications = 'settingsNotifications';
+  static const String systemOverview = 'systemOverview';
   static const String home = 'home';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/home',
+    initialLocation: '/system-overview',
     routes: [
       GoRoute(
         path: '/',
@@ -89,7 +92,12 @@ class AppRouter {
         path: '/home',
         name: home,
         builder: (context, state) => const HomeView(),
-      )
+      ),
+      GoRoute(
+        path: '/system-overview',
+        name: systemOverview,
+        builder: (context, state) => const SystemOverviewView(),
+      ),
     ],
   );
 }

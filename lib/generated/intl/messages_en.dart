@@ -58,6 +58,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "Threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
     "ThresholdDescription": m0,
     "ac": MessageLookupByLibrary.simpleMessage("AC"),
+    "acValue": MessageLookupByLibrary.simpleMessage("20°C"),
     "activeHours": MessageLookupByLibrary.simpleMessage("Active Hours"),
     "agreeWith": MessageLookupByLibrary.simpleMessage("Agree with "),
     "airConditioner": MessageLookupByLibrary.simpleMessage("Air Conditioner"),
@@ -81,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
       "Welcome back, you\'ve been missed",
     ),
     "automaticMode": MessageLookupByLibrary.simpleMessage("Automatic Mode"),
+    "avergeBrightness": MessageLookupByLibrary.simpleMessage("Avg Brightness"),
+    "avergeBrightnessValue": MessageLookupByLibrary.simpleMessage("15%"),
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "Average Unlock Duration",
     ),
@@ -90,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "controlType": MessageLookupByLibrary.simpleMessage("Control Type"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
     "currentTemp": m1,
+    "currentTemperature": MessageLookupByLibrary.simpleMessage("Current Temp"),
     "dayFri": MessageLookupByLibrary.simpleMessage("Fri"),
     "dayMon": MessageLookupByLibrary.simpleMessage("Mon"),
     "daySat": MessageLookupByLibrary.simpleMessage("Sat"),
@@ -107,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage(
       "Door is Unlocked",
     ),
+    "doorvalue": MessageLookupByLibrary.simpleMessage("24 mins"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "ends": m3,
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
@@ -126,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "gasLevelExceeded": MessageLookupByLibrary.simpleMessage(
       "Gas level has exceeded the safe limit",
     ),
+    "gasLevelValue": MessageLookupByLibrary.simpleMessage("820"),
     "gasSensor": MessageLookupByLibrary.simpleMessage("Gas Sensor"),
     "gasSpikeDetected": MessageLookupByLibrary.simpleMessage(
       "Gas spike detected",
@@ -231,6 +237,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusOn": MessageLookupByLibrary.simpleMessage("ON"),
     "statusOpened": MessageLookupByLibrary.simpleMessage("Opened"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("Warning"),
+    "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("CRITICAL"),
+    "systemOverview": MessageLookupByLibrary.simpleMessage("System Overview"),
     "target": MessageLookupByLibrary.simpleMessage("Target"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("Average"),
     "tempInside": MessageLookupByLibrary.simpleMessage("Inside"),
