@@ -34,9 +34,14 @@ class Styles {
     fontWeight: FontWeight.w500,
   );
   static TextStyle style18Medium = TextStyle(
-    color: Colors.white,
+    color: AppColors.white,
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
+  );
+  static TextStyle style18Regular = TextStyle(
+    color: AppColors.mediumGray,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w400,
   );
 
   static TextStyle style14Regular = TextStyle(

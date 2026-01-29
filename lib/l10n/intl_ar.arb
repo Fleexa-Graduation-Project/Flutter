@@ -84,6 +84,7 @@
   "tempMin": "الحد الأدنى",
   "tempMax": "الحد الأقصى",
   "tempAverage": "المتوسط",
+  "tempAvg":"المتوسط",
   "avergeBrightness": "متوسط السطوع",
   "avergeBrightnessValue":"١٥٪",
   "labelRelatedDevices": "الأجهزة ذات الصلة",

@@ -252,6 +252,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "systemOverview": MessageLookupByLibrary.simpleMessage("System Overview"),
     "target": MessageLookupByLibrary.simpleMessage("Target"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("Average"),
+    "tempAvg": MessageLookupByLibrary.simpleMessage("Avg"),
     "tempInside": MessageLookupByLibrary.simpleMessage("Inside"),
     "tempMax": MessageLookupByLibrary.simpleMessage("Max"),
     "tempMin": MessageLookupByLibrary.simpleMessage("Min"),

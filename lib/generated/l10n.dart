@@ -556,6 +556,11 @@ class S {
     return Intl.message('Average', name: 'tempAverage', desc: '', args: []);
   }
 
+  /// `Avg`
+  String get tempAvg {
+    return Intl.message('Avg', name: 'tempAvg', desc: '', args: []);
+  }
+
   /// `Avg Brightness`
   String get avergeBrightness {
     return Intl.message(

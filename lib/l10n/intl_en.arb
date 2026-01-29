@@ -85,6 +85,7 @@
   "tempMin": "Min",
   "tempMax": "Max",
   "tempAverage": "Average",
+  "tempAvg":"Avg",
 "avergeBrightness": "Avg Brightness",
   "avergeBrightnessValue": "15%",
   "labelRelatedDevices": "Related Devices",

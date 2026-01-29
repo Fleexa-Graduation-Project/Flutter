@@ -251,6 +251,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "target": MessageLookupByLibrary.simpleMessage("الهدف"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("المتوسط"),
+    "tempAvg": MessageLookupByLibrary.simpleMessage("المتوسط"),
     "tempInside": MessageLookupByLibrary.simpleMessage("داخليًا"),
     "tempMax": MessageLookupByLibrary.simpleMessage("الحد الأقصى"),
     "tempMin": MessageLookupByLibrary.simpleMessage("الحد الأدنى"),

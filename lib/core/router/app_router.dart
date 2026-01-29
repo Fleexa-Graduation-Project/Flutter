@@ -44,7 +44,7 @@ class AppRouter {
   static const String notifications = 'notifications';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/ac-control',
+    initialLocation: '/tempreature-sensor',
     routes: [
       GoRoute(
         path: '/',
