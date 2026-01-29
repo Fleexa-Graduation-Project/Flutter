@@ -34,9 +34,9 @@ class AppRouter {
   static const String home = 'home';
   static const String doorLockControl = 'doorLockControl';
   static const String doorLockDetails = 'doorLockDetails';
-static const String tempreatureSensor = 'tempreatureSensor';
+  static const String tempreatureSensor = 'tempreatureSensor';
   static final GoRouter router = GoRouter(
-    initialLocation: '/tempreature-sensor',
+    initialLocation: '/door-lock-details',
     routes: [
       GoRoute(
         path: '/',
@@ -113,14 +113,11 @@ static const String tempreatureSensor = 'tempreatureSensor';
         name: doorLockDetails,
         builder: (context, state) => const DoorLockDetailsView(),
       ),
-     
-      GoRoute(  
+      GoRoute(
         path: '/tempreature-sensor',
-        name: tempreatureSensor,  
-        builder: (context, state) => const TempreatureSensorView(),  
-      ),  
-
-
+        name: tempreatureSensor,
+        builder: (context, state) => const TempreatureSensorView(),
+      ),
     ],
   );
 }
