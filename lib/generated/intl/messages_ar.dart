@@ -226,6 +226,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تلقي التنبيهات للأحداث على مستوى التحذير",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("القواعد الذكية"),
+    "stability": MessageLookupByLibrary.simpleMessage("الاستقرار"),
     "stable": MessageLookupByLibrary.simpleMessage("مستقر"),
     "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("أعلى من المرتفع"),

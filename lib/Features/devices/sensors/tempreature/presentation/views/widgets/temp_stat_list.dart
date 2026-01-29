@@ -28,7 +28,7 @@ class TempStatList extends StatelessWidget {
         children: tempStats
             .map((stat) => Expanded(
                     child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 4),
                   child: TempStatCard(tempStatModel: stat),
                 )))
             .toList());

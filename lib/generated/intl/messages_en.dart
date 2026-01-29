@@ -61,7 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "SettingsCriticalAlerts": MessageLookupByLibrary.simpleMessage(
       "Critical Alerts",
     ),
-    "Stability": MessageLookupByLibrary.simpleMessage("stability"),
     "Threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
     "ThresholdDescription": m0,
     "ac": MessageLookupByLibrary.simpleMessage("AC"),
@@ -231,6 +230,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Receive alerts for warning-level events",
     ),
     "smartRules": MessageLookupByLibrary.simpleMessage("Smart Rules"),
+    "stability": MessageLookupByLibrary.simpleMessage("stability"),
     "stable": MessageLookupByLibrary.simpleMessage("stable"),
     "starts": m5,
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("Above High"),

@@ -20,7 +20,7 @@ class TempInfoSummary extends StatelessWidget {
         description: S.of(context).statusAboveHigh,
       ),
       DeviceStatusModel(
-        status: S.of(context).Stability,
+        status: S.of(context).stability,
         description: S.of(context).stable,
       ),
       DeviceStatusModel(

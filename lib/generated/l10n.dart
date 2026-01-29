@@ -372,8 +372,8 @@ class S {
   }
 
   /// `stability`
-  String get Stability {
-    return Intl.message('stability', name: 'Stability', desc: '', args: []);
+  String get stability {
+    return Intl.message('stability', name: 'stability', desc: '', args: []);
   }
 
   /// `Low`

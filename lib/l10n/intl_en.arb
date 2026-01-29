@@ -49,7 +49,7 @@
   "statusHigh": "High",
   "statusAboveHigh": "Above High",
   "stable": "stable",
-  "Stability": "stability",
+  "stability": "stability",
   "statusLow": "Low",
   "statusDark": "Dark",
   "statusBright": "Bright",

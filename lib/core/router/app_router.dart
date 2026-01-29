@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/auth/presentation/views/change_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
+import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_sensor_view.dart';
 import 'package:fleexa/Features/devices/sensors/tempreature/presentation/views/tempreature_sensor_view.dart';
 import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
     show SystemOverviewView;
@@ -42,6 +43,7 @@ class AppRouter {
   static const String acDetails = 'acDetails';
   static const String tempreatureSensor = 'tempreatureSensor';
   static const String notifications = 'notifications';
+  static const String gasSensor = 'gasSensor';
 
   static final GoRouter router = GoRouter(
     initialLocation: '/tempreature-sensor',
@@ -141,6 +143,10 @@ class AppRouter {
         name: notifications,
         builder: (context, state) => const NotificationsView(),
       ),
+      GoRoute(
+          path: '/gas-sensor',
+          name: gasSensor,
+          builder: (context, state) => const GasSensorView())
     ],
   );
 }
