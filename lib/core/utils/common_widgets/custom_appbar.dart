@@ -1,16 +1,18 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
     super.key,
     required this.title,
-    this.actionButton,
+    this.detailsPage,
     this.showBackButton = true,
   });
 
-  final Widget? actionButton;
+  final String? detailsPage;
   final String title;
   final bool showBackButton;
 
@@ -32,7 +34,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             )
           : null,
       actions: [
-        if (actionButton != null) actionButton!,
+        if (detailsPage != null)
+          IconButton(
+            onPressed: () {
+              GoRouter.of(context).pushNamed(detailsPage!);
+            },
+            icon: SvgPicture.asset('assets/icons/details_page.svg'),
+          ),
       ],
     );
   }

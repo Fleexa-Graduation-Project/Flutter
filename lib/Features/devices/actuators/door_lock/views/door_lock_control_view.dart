@@ -1,7 +1,8 @@
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/device_pic.dart';
-import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_appbar.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/recent_events_list.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/upper_container_content.dart';
+import 'package:fleexa/core/router/app_router.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -20,7 +21,10 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const DoorLockAppbar(),
+      appBar: CustomAppbar(
+        title: S.of(context).doorLock,
+        detailsPage: AppRouter.doorLockDetails,
+      ),
       body: SafeArea(
         child: Center(
           child: Padding(
