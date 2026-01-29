@@ -286,6 +286,16 @@ class S {
     );
   }
 
+  /// `Current Status`
+  String get currentStatus {
+    return Intl.message(
+      'Current Status',
+      name: 'currentStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Connected`
   String get statusConnected {
     return Intl.message(
@@ -681,6 +691,26 @@ class S {
     );
   }
 
+  /// `{count} hour`
+  String timeHour(Object count) {
+    return Intl.message(
+      '$count hour',
+      name: 'timeHour',
+      desc: '',
+      args: [count],
+    );
+  }
+
+  /// `{count} min`
+  String timeMin(Object count) {
+    return Intl.message('$count min', name: 'timeMin', desc: '', args: [count]);
+  }
+
+  /// `{count} sec`
+  String timeSec(Object count) {
+    return Intl.message('$count sec', name: 'timeSec', desc: '', args: [count]);
+  }
+
   /// `Door Lock`
   String get doorLock {
     return Intl.message('Door Lock', name: 'doorLock', desc: '', args: []);
@@ -752,10 +782,10 @@ class S {
   }
 
   /// `Unlock Duration`
-  String get unlcokDuration {
+  String get unlockDuration {
     return Intl.message(
       'Unlock Duration',
-      name: 'unlcokDuration',
+      name: 'unlockDuration',
       desc: '',
       args: [],
     );

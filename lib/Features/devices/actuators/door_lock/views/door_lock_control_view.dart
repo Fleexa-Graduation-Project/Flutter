@@ -1,8 +1,8 @@
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/device_pic.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_appbar.dart';
-import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_container.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/recent_events_list.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/upper_container_content.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -27,10 +27,10 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             child: Column(
               children: [
-                // const Spacer(),
+                const SizedBox(height: 32),
                 const DevicePic(),
                 const Spacer(),
-                DoorLockContainer(
+                CustomContainer(
                   child: UpperContainerContent(
                       isLocked: isLocked,
                       onToggle: (value) {
@@ -50,7 +50,7 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                   ],
                 ),
                 const SizedBox(height: 20),
-                const DoorLockContainer(child: RecentEventsList()),
+                const CustomContainer(child: RecentEventsList()),
                 const Spacer(),
               ],
             ),

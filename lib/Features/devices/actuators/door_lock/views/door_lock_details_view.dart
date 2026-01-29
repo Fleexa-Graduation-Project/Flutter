@@ -1,8 +1,8 @@
-import 'package:fleexa/core/utils/common_widgets/device_status_row.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/alerts_section.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_details_header.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_insight.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_appbar.dart';
-import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
-import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -18,20 +18,25 @@ class DoorLockDetailsView extends StatelessWidget {
         child: Center(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const DoorLockContainer(
-                      child: DeviceStatusRow(status: DeviceStatus.offline)),
-                  const SizedBox(height: 32),
-                  Text(
-                    S.of(context).labelAlertsAndWarnings,
-                    style:
-                        Styles.style18Medium.copyWith(color: AppColors.white),
-                  ),
-                ],
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const DoorLockDetailsHeader(),
+                const SizedBox(height: 40),
+                Text(
+                  S.of(context).labelAlertsAndWarnings,
+                  style: Styles.style18Medium.copyWith(color: AppColors.white),
+                ),
+                const SizedBox(height: 12),
+                const AlertsSection(),
+                const SizedBox(height: 40),
+                Text(
+                  S.of(context).labelInsights,
+                  style: Styles.style18Medium.copyWith(color: AppColors.white),
+                ),
+                const SizedBox(height: 16),
+                const DoorLockInsight(),
+              ],
             ),
           ),
         ),

@@ -38,6 +38,7 @@
   "labelSummaries": "Summaries",
 
   "//": "--- Status & Alerts ---",
+  "currentStatus": "Current Status",
   "statusConnected": "Connected",
   "statusDisconnected": "Disconnected",
   "statusWarning": "Warning",
@@ -105,6 +106,9 @@
   "timeAgoHour": "{count} hour ago",
   "timeAgoMin": "{count} min ago",
   "timeAgoSec": "{count} sec ago",
+  "timeHour": "{count} hour",
+  "timeMin": "{count} min",
+  "timeSec": "{count} sec",
 
   "//": "--- Door Lock Screen ---",
   "doorLock": "Door Lock",
@@ -116,7 +120,7 @@
   "lastActivity": "Last Activity",
     "latUpdate": "Last Update",
     "lastUpdateValue": "2 sec ago",
-  "unlcokDuration": "Unlock Duration",
+  "unlockDuration": "Unlock Duration",
   "avgUnlockDuration": "Average Unlock Duration",
   "alertDoorLeftOpen": "Door Left Open",
   "doorOpenTooLong": "The door has been open for {duration} minutes",

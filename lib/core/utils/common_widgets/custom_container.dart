@@ -1,5 +1,6 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomContainer extends StatelessWidget {
   const CustomContainer({
@@ -15,7 +16,7 @@ class CustomContainer extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
       decoration: BoxDecoration(
         color: AppColors.charcoalBlack,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(12.r),
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.1),

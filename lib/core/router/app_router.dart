@@ -17,6 +17,8 @@ import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
+import '../../Features/overview/notifications/views/notifications_view.dart';
+
 class AppRouter {
   // Route names
   static const String splash = 'splash';
@@ -35,8 +37,10 @@ class AppRouter {
   static const String doorLockControl = 'doorLockControl';
   static const String doorLockDetails = 'doorLockDetails';
   static const String tempreatureSensor = 'tempreatureSensor';
+  static const String notifications = 'notifications';
+
   static final GoRouter router = GoRouter(
-    initialLocation: '/door-lock-details',
+    initialLocation: '/door-lock-control',
     routes: [
       GoRoute(
         path: '/',
@@ -117,6 +121,11 @@ class AppRouter {
         path: '/tempreature-sensor',
         name: tempreatureSensor,
         builder: (context, state) => const TempreatureSensorView(),
+      ),
+      GoRoute(
+        path: '/notifications',
+        name: notifications,
+        builder: (context, state) => const NotificationsView(),
       ),
     ],
   );

@@ -40,6 +40,7 @@
   "labelSummaries": "الملخصات",
 
   "//": "--- Status & Alerts ---",
+  "currentStatus": "الحالة الحالية",
   "statusConnected": "متصل",
   "statusDisconnected": "غير متصل",
   "statusWarning": "تحذير",
@@ -104,6 +105,9 @@
   "timeAgoHour": "منذ {count} ساعة",
   "timeAgoMin": "منذ {count} دقيقة",
   "timeAgoSec": "منذ {count} ثانية",
+  "timeHour": "{count} ساعة",
+  "timeMin": "{count} دقيقة",
+  "timeSec": "{count} ثانية",
 
   
   "//": "--- Door Lock Screen ---",
@@ -116,7 +120,7 @@
   "lastActivity": "آخر نشاط",
   "latUpdate": "آخر تحديث",
   "lastUpdateValue": "منذ ٢ ثانية",
-  "unlcokDuration": "مدة الفتح",
+  "unlockDuration": "مدة الفتح",
   "avgUnlockDuration": "متوسط مدة الفتح",
   "alertDoorLeftOpen": "الباب ترك مفتوحاً",
   "doorOpenTooLong": "تم فتح الباب لمدة {duration} دقيقة",

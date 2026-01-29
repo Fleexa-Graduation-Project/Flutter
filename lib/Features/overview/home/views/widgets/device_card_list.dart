@@ -1,6 +1,6 @@
-import 'package:fleexa/Features/overview/home/domain/home_enums.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/device_card.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

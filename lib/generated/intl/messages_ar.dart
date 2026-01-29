@@ -39,7 +39,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m8(count) => "منذ ${count} ثانية";
 
-  static String m9(options) => "${options} ساعة";
+  static String m9(count) => "${count} ساعة";
+
+  static String m10(count) => "${count} دقيقة";
+
+  static String m11(count) => "${count} ثانية";
+
+  static String m12(options) => "${options} ساعة";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -95,6 +101,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الحالية",
     ),
+    "currentStatus": MessageLookupByLibrary.simpleMessage("الحالة الحالية"),
     "currentTemp": m1,
     "currentTemperature": MessageLookupByLibrary.simpleMessage(
       "درجة الحرارة الحالية",
@@ -263,12 +270,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeAgoHour": m6,
     "timeAgoMin": m7,
     "timeAgoSec": m8,
+    "timeHour": m9,
+    "timeMin": m10,
+    "timeSec": m11,
     "timer": MessageLookupByLibrary.simpleMessage("مؤقت"),
-    "timerOptions": m9,
+    "timerOptions": m12,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),
-    "unlcokDuration": MessageLookupByLibrary.simpleMessage("مدة الفتح"),
+    "unlockDuration": MessageLookupByLibrary.simpleMessage("مدة الفتح"),
     "verifyAndContinue": MessageLookupByLibrary.simpleMessage("تحقق واستمر"),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تحقق من الرمز"),
   };

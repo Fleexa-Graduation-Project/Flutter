@@ -23,7 +23,7 @@ class Styles {
     fontSize: 28.sp,
     fontWeight: FontWeight.w500,
   );
-   static TextStyle style28SemiBold = TextStyle(
+  static TextStyle style28SemiBold = TextStyle(
     color: AppColors.white,
     fontSize: 28.sp,
     fontWeight: FontWeight.w600,
@@ -44,6 +44,11 @@ class Styles {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
   );
+  static TextStyle style8Regular = TextStyle(
+    color: AppColors.coolGray,
+    fontSize: 8.sp,
+    fontWeight: FontWeight.w400,
+  );
   static TextStyle style16Regular = TextStyle(
     color: AppColors.coolGray,
     fontSize: 16.sp,
@@ -52,6 +57,11 @@ class Styles {
   static TextStyle style12Regular = TextStyle(
     color: AppColors.coolGray,
     fontSize: 12.sp,
+    fontWeight: FontWeight.w400,
+  );
+  static TextStyle style10Regular = TextStyle(
+    color: AppColors.coolGray,
+    fontSize: 10.sp,
     fontWeight: FontWeight.w400,
   );
   static TextStyle style12SemiBold = TextStyle(

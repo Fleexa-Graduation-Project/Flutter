@@ -40,7 +40,13 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m8(count) => "${count} sec ago";
 
-  static String m9(options) => "${options} H";
+  static String m9(count) => "${count} hour";
+
+  static String m10(count) => "${count} min";
+
+  static String m11(count) => "${count} sec";
+
+  static String m12(options) => "${options} H";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "controlType": MessageLookupByLibrary.simpleMessage("Control Type"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
+    "currentStatus": MessageLookupByLibrary.simpleMessage("Current Status"),
     "currentTemp": m1,
     "currentTemperature": MessageLookupByLibrary.simpleMessage("Current Temp"),
     "dayFri": MessageLookupByLibrary.simpleMessage("Fri"),
@@ -264,12 +271,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeAgoHour": m6,
     "timeAgoMin": m7,
     "timeAgoSec": m8,
+    "timeHour": m9,
+    "timeMin": m10,
+    "timeSec": m11,
     "timer": MessageLookupByLibrary.simpleMessage("Timer"),
-    "timerOptions": m9,
+    "timerOptions": m12,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),
-    "unlcokDuration": MessageLookupByLibrary.simpleMessage("Unlock Duration"),
+    "unlockDuration": MessageLookupByLibrary.simpleMessage("Unlock Duration"),
     "verifyAndContinue": MessageLookupByLibrary.simpleMessage(
       "Verify & Continue",
     ),

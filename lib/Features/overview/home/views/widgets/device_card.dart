@@ -1,9 +1,9 @@
-import 'package:fleexa/Features/overview/home/domain/home_enums.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/custom_switch.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/device_card_content.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/device_card_header.dart';
 import 'package:fleexa/Features/overview/home/views/widgets/sensor_device_card_footer.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart' hide DeviceType;
 
@@ -75,13 +75,14 @@ class DeviceCard extends StatelessWidget {
 
             // Title and subtext
             DeviceCardContent(title: title, subtext: subtext),
-            if (isActuator) const SizedBox(height: 8) else const Spacer(),
+            const Spacer(),
 
             // Value label or Switch
             if (isActuator)
               Align(
-                  alignment: Alignment.bottomLeft,
-                  child: CustomSwitch(isOn: isOn, onToggle: onToggle))
+                alignment: Alignment.bottomLeft,
+                child: CustomSwitch(isOn: isOn, onToggle: onToggle),
+              )
             else if (!isActuator && valueLabel != null && valueIcon != null)
               Align(
                 alignment: Alignment.bottomLeft,
