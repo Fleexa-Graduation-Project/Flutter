@@ -15,7 +15,7 @@ class AcDetailsView extends StatelessWidget {
       body: const SafeArea(
         child: Center(
           child: Padding(
-            padding: EdgeInsetsGeometry.all(24),
+            padding: EdgeInsets.all(24),
             child: Column(
               children: [],
             ),

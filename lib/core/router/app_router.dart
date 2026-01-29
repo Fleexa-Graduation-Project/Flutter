@@ -17,6 +17,8 @@ import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
+import '../../Features/devices/actuators/ac/views/ac_control_view.dart';
+import '../../Features/devices/actuators/ac/views/ac_details_view.dart';
 import '../../Features/overview/notifications/views/notifications_view.dart';
 
 class AppRouter {
@@ -36,11 +38,13 @@ class AppRouter {
   static const String home = 'home';
   static const String doorLockControl = 'doorLockControl';
   static const String doorLockDetails = 'doorLockDetails';
+  static const String acControl = 'acControl';
+  static const String acDetails = 'acDetails';
   static const String tempreatureSensor = 'tempreatureSensor';
   static const String notifications = 'notifications';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/door-lock-control',
+    initialLocation: '/ac-control',
     routes: [
       GoRoute(
         path: '/',
@@ -116,6 +120,16 @@ class AppRouter {
         path: '/door-lock-details',
         name: doorLockDetails,
         builder: (context, state) => const DoorLockDetailsView(),
+      ),
+      GoRoute(
+        path: '/ac-control',
+        name: acControl,
+        builder: (context, state) => const AcControlView(),
+      ),
+      GoRoute(
+        path: '/ac-details',
+        name: acDetails,
+        builder: (context, state) => const AcDetailsView(),
       ),
       GoRoute(
         path: '/tempreature-sensor',
