@@ -38,6 +38,11 @@ class Styles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
+    static TextStyle style18SemiBold = TextStyle(
+    color: AppColors.white,
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle style18Regular = TextStyle(
     color: AppColors.mediumGray,
     fontSize: 18.sp,

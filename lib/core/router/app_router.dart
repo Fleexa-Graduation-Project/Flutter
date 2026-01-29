@@ -46,7 +46,7 @@ class AppRouter {
   static const String gasSensor = 'gasSensor';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/tempreature-sensor',
+    initialLocation: '/gas-sensor',
     routes: [
       GoRoute(
         path: '/',
