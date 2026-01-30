@@ -1,9 +1,7 @@
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_gauge_widget.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/gas_sensor_gauge.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
 class GasSensorView extends StatelessWidget {

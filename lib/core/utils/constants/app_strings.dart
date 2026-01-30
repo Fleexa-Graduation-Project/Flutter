@@ -13,3 +13,7 @@ enum NotificationType { info, warning, critical }
 enum AlertType { warning, critical }
 
 enum AlertDeviceType { doorLock, gasSensor }
+
+enum ACMode { cooling, heating, airwaves, dry }
+
+enum ACControlType { manual, auto }

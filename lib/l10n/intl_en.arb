@@ -191,7 +191,7 @@
     },
     "ends": "End: {time} {dayNight}",
     "controlType": "Control Type",
-    "AutoMode" : "Auto Mode",
+    "autoMode" : "Auto Mode",
     "target": "Target",
     "running": "Running",
     "currentTemp": "Current Temp {temp}°",

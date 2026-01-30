@@ -182,7 +182,7 @@
   },
   "ends": "توقف: {time} {dayNight}",
   "controlType": "نوع التحكم",
-  "AutoMode" : "الوضع التلقائي",
+  "autoMode" : "الوضع التلقائي",
   "target": "الهدف",
   "running": "تشغيل",
   "currentTemp": "درجة الحرارة الحالية {temp}°",

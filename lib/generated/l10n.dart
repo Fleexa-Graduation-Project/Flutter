@@ -967,8 +967,8 @@ class S {
   }
 
   /// `Auto Mode`
-  String get AutoMode {
-    return Intl.message('Auto Mode', name: 'AutoMode', desc: '', args: []);
+  String get autoMode {
+    return Intl.message('Auto Mode', name: 'autoMode', desc: '', args: []);
   }
 
   /// `Target`

@@ -53,7 +53,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "AirConditionerUsage": MessageLookupByLibrary.simpleMessage(
       "Air Conditioner Usage",
     ),
-    "AutoMode": MessageLookupByLibrary.simpleMessage("Auto Mode"),
     "CreateNewPassword": MessageLookupByLibrary.simpleMessage(
       "Create New Password",
     ),
@@ -87,6 +86,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "authWelcomeBack": MessageLookupByLibrary.simpleMessage(
       "Welcome back, you\'ve been missed",
     ),
+    "autoMode": MessageLookupByLibrary.simpleMessage("Auto Mode"),
     "automaticMode": MessageLookupByLibrary.simpleMessage("Automatic Mode"),
     "avergeBrightness": MessageLookupByLibrary.simpleMessage("Avg Brightness"),
     "avergeBrightnessValue": MessageLookupByLibrary.simpleMessage("15%"),
