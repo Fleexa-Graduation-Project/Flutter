@@ -1,5 +1,5 @@
-import 'package:fleexa/Features/devices/sensors/tempreature/data/models/temp_stat_model.dart';
-import 'package:fleexa/Features/devices/sensors/tempreature/presentation/views/widgets/temp_stat_card.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_stat_model.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/temp_stat_card.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

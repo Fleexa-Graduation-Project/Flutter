@@ -28,13 +28,13 @@ class GasSensorOverview extends StatelessWidget {
                 TextSpan(
                   children: [
                     TextSpan(
-                        text: S.of(context).gasLevel,
+                        text: "${S.of(context).gasLevel} ",
                         style: Styles.style12Regular),
                     TextSpan(
                         text: S.of(context).gasLevelValue,
                         style: Styles.style12SemiBold),
                     TextSpan(
-                        text: S.of(context).unitPpmText,
+                        text: " ${S.of(context).unitPpmText}",
                         style: Styles.style12Regular),
                   ],
                 ),

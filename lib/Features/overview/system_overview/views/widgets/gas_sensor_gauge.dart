@@ -52,10 +52,12 @@ class GasSensorGauge extends StatelessWidget {
             ],
             annotations: <GaugeAnnotation>[
               GaugeAnnotation(
-                widget: Text(S.of(context).statuscapitalcritical,
-                    style: Styles.style12Regular),
+                widget: Text(
+                  S.of(context).statuscapitalcritical,
+                  style: Styles.style12Regular,
+                ),
                 angle: 90,
-                positionFactor: 0.1,
+                // positionFactor: 0,
               )
             ],
           ),

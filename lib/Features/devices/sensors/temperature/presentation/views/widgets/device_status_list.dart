@@ -1,5 +1,5 @@
-import 'package:fleexa/Features/devices/sensors/tempreature/data/models/device_status_model.dart';
-import 'package:fleexa/Features/devices/sensors/tempreature/presentation/views/widgets/device_status_row.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/data/models/device_status_model.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/device_status_row.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

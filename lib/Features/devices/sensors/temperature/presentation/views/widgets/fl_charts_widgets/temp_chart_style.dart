@@ -1,5 +1,5 @@
 import 'package:fl_chart/fl_chart.dart';
-import 'package:fleexa/Features/devices/sensors/tempreature/presentation/views/widgets/temp_chart_line.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/fl_charts_widgets/temp_chart_line.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

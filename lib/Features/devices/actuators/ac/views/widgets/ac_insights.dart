@@ -1,10 +1,10 @@
-import 'package:fleexa/Features/devices/actuators/ac/views/widgets/insight_card.dart';
+import 'package:fleexa/core/utils/common_widgets/insight_card.dart';
 import 'package:fleexa/Features/devices/actuators/ac/views/widgets/usage_chart.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/utils/constants/styles.dart';
 import '../../../../../../generated/l10n.dart';
-import 'temp_chart.dart';
+import '../../../../../../core/utils/common_widgets/temp_chart.dart';
 
 class AcInsights extends StatelessWidget {
   const AcInsights({super.key});

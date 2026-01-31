@@ -10,16 +10,16 @@ final List<BarChartData> barChartData = [
 ];
 
 final List<TempChartData> tempchartData = [
-  TempChartData('00:00', 24),
-  TempChartData('02:00', 20),
-  TempChartData('04:00', 22),
-  TempChartData('06:00', 20),
-  TempChartData('08:00', 24),
-  TempChartData('10:00', 27),
-  TempChartData('12:00', 29),
-  TempChartData('14:00', 30),
-  TempChartData('16:00', 32),
-  TempChartData('18:00', 29),
-  TempChartData('20:00', 28),
-  TempChartData('22:00', 24),
+  TempChartData('0', 24),
+  TempChartData('2', 20),
+  TempChartData('4', 22),
+  TempChartData('6', 20),
+  TempChartData('8', 24),
+  TempChartData('10', 27),
+  TempChartData('12', 29),
+  TempChartData('14', 30),
+  TempChartData('16', 32),
+  TempChartData('18', 29),
+  TempChartData('20', 28),
+  TempChartData('22', 24),
 ];

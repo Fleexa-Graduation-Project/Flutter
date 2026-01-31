@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/time_frame_selector.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/time_frame_selector.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

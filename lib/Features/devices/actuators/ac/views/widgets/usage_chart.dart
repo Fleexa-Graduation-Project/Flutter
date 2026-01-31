@@ -20,6 +20,7 @@ class UsageChart extends StatelessWidget {
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         tickPosition: TickPosition.inside,
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
+        majorTickLines: const MajorTickLines(size: 0),
         majorGridLines: const MajorGridLines(
           width: 1,
           color: AppColors.dimGray,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/common_widgets/custom_container.dart';
-import '../../../../../../core/utils/constants/app_colors.dart';
-import '../../../../../../core/utils/constants/styles.dart';
+import 'custom_container.dart';
+import '../constants/app_colors.dart';
+import '../constants/styles.dart';
 
 class InsightCard extends StatelessWidget {
   const InsightCard({
@@ -40,7 +40,7 @@ class InsightCard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 20),
             SizedBox(
               height: 240,
               width: double.infinity,

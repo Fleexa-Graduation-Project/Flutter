@@ -15,7 +15,7 @@ class RelatedDeviceCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        GoRouter.of(context).pushNamed(AppRouter.tempreatureSensor);
+        GoRouter.of(context).pushNamed(AppRouter.temperatureSensor);
       },
       child: CustomContainer(
         child: Row(

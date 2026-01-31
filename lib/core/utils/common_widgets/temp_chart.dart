@@ -4,7 +4,7 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../../../core/utils/constants/styles.dart';
+import '../constants/styles.dart';
 
 class TempChart extends StatelessWidget {
   const TempChart({super.key});
@@ -17,11 +17,21 @@ class TempChart extends StatelessWidget {
 
       // X-Axis (Time)
       primaryXAxis: CategoryAxis(
-        majorGridLines:
-            const MajorGridLines(width: 1, color: Color(0xFF333333)),
+        interval: 1,
+        labelAlignment: LabelAlignment.center,
+        placeLabelsNearAxisLine: false,
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
-        axisLine: const AxisLine(width: 0),
-        tickPosition: TickPosition.inside,
+        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
+        axisLabelFormatter: (AxisLabelRenderDetails args) {
+          return ChartAxisLabel('${args.text}h', args.textStyle);
+        },
+        majorGridLines: MajorGridLines(
+          width: 1,
+          color: AppColors.white.withOpacity(0.05),
+          dashArray: const [5, 5],
+        ),
+        majorTickLines: const MajorTickLines(size: 0),
+        labelPlacement: LabelPlacement.onTicks,
       ),
 
       // Y-Axis (Temperature)
@@ -29,10 +39,14 @@ class TempChart extends StatelessWidget {
         minimum: 0,
         maximum: 40,
         interval: 8,
-        majorGridLines:
-            const MajorGridLines(width: 1, color: Color(0xFF333333)),
+        majorTickLines: const MajorTickLines(size: 0),
+        majorGridLines: MajorGridLines(
+          width: 1,
+          color: AppColors.white.withOpacity(0.05),
+          dashArray: const [5, 5],
+        ),
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
-        axisLine: const AxisLine(width: 0),
+        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         tickPosition: TickPosition.inside,
       ),
       series: <CartesianSeries>[
@@ -42,7 +56,7 @@ class TempChart extends StatelessWidget {
           yValueMapper: (TempChartData data, _) => data.temp,
 
           // Line Styling
-          color: AppColors.burgundy, // Red color
+          color: AppColors.crimsonRed,
           width: 2,
 
           // The small dots on the line
@@ -50,17 +64,8 @@ class TempChart extends StatelessWidget {
             isVisible: true,
             height: 4,
             width: 4,
-            color: AppColors.burgundy,
-            borderColor: AppColors.burgundy,
-          ),
-
-          // The numbers above the dots (24, 20, etc.)
-          dataLabelSettings: DataLabelSettings(
-            isVisible: true,
-            textStyle:
-                Styles.style10Regular.copyWith(color: AppColors.coolGray),
-            labelAlignment: ChartDataLabelAlignment.top,
-            margin: const EdgeInsets.all(0),
+            color: AppColors.crimsonRed,
+            borderColor: AppColors.crimsonRed,
           ),
         ),
       ],

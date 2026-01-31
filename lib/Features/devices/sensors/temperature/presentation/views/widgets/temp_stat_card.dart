@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/devices/sensors/tempreature/data/models/temp_stat_model.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_stat_model.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

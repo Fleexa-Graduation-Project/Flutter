@@ -17,3 +17,5 @@ enum AlertDeviceType { doorLock, gasSensor }
 enum ACMode { cooling, heating, airwaves, dry }
 
 enum ACControlType { manual, auto }
+
+enum TimeRange { lastWeek, lastMonth }

@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/legend_item.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/legend_item.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

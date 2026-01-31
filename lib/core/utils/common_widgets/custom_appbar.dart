@@ -10,11 +10,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     required this.title,
     this.detailsPage,
     this.showBackButton = true,
+    this.infoButton = false,
   });
 
   final String? detailsPage;
   final String title;
   final bool showBackButton;
+  final bool infoButton;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +42,14 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               GoRouter.of(context).pushNamed(detailsPage!);
             },
             icon: SvgPicture.asset('assets/icons/details_page.svg'),
+          ),
+        if (infoButton)
+          IconButton(
+            onPressed: () {},
+            icon: SvgPicture.asset(
+              'assets/icons/info.svg',
+              width: 24,
+            ),
           ),
       ],
     );

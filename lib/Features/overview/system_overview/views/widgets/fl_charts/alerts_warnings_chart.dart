@@ -1,8 +1,8 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/alerts_chart_data.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/alerts_header.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/alerts_line_chart.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/alerts_chart_data.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/alerts_header.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/alerts_line_chart.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/status_legend_row.dart';
+import 'package:fleexa/Features/overview/system_overview/views/widgets/fl_charts/status_legend_row.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 

@@ -38,23 +38,34 @@ class _DropdownSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       decoration: BoxDecoration(
         border: Border.all(color: AppColors.coolGray),
         borderRadius: BorderRadius.circular(8),
       ),
       child: DropdownButtonHideUnderline(
         child: DropdownButton<String>(
-
-          isDense: false,
+          isDense: true,
           value: value,
           dropdownColor: const Color(0xFF1E1E1E),
-            icon: const Icon(Icons.keyboard_arrow_down,
-               color: AppColors.coolGray, size: 18),
+          icon: const Icon(Icons.keyboard_arrow_down,
+              color: AppColors.coolGray, size: 18),
           style: const TextStyle(color: AppColors.coolGray, fontSize: 12),
           items: [
-            DropdownMenuItem(value: S.of(context).filterLastWeek, child: Text(S.of(context).filterLastWeek)),
-            DropdownMenuItem(value: S.of(context).filterLastMonth, child: Text(S.of(context).filterLastMonth)),
+            DropdownMenuItem(
+              value: S.of(context).filterLastWeek,
+              child: Text(
+                S.of(context).filterLastWeek,
+                style: Styles.style10Regular,
+              ),
+            ),
+            DropdownMenuItem(
+              value: S.of(context).filterLastMonth,
+              child: Text(
+                S.of(context).filterLastMonth,
+                style: Styles.style10Regular,
+              ),
+            ),
           ],
           onChanged: onChanged,
         ),
