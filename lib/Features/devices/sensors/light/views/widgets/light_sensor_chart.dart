@@ -1,12 +1,13 @@
-import 'package:fleexa/Features/devices/sensors/gas/data/dummy_data.dart';
-import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_chart_model.dart';
+import 'package:fleexa/Features/devices/sensors/light/data/dummy_data.dart';
+import 'package:fleexa/Features/devices/sensors/light/data/model/light_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-class GasSensorChart extends StatelessWidget {
-  const GasSensorChart({super.key});
+class LightSensorChart extends StatelessWidget {
+  const LightSensorChart({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class GasSensorChart extends StatelessWidget {
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         axisLabelFormatter: (AxisLabelRenderDetails args) {
-          return ChartAxisLabel('${args.text}h', args.textStyle);
+          return ChartAxisLabel(args.text, args.textStyle);
         },
         majorGridLines: MajorGridLines(
           width: 1,
@@ -43,8 +44,8 @@ class GasSensorChart extends StatelessWidget {
       // Y-Axis (Gas Level)
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: 100,
-        interval: 20,
+        maximum: 800,
+        interval: 160,
         majorTickLines: const MajorTickLines(size: 0),
         majorGridLines: MajorGridLines(
           width: 1,
@@ -56,13 +57,12 @@ class GasSensorChart extends StatelessWidget {
         tickPosition: TickPosition.inside,
       ),
       series: <CartesianSeries>[
-        LineSeries<GasChartModel, String>(
-          dataSource: gasChartData,
-          name: 'Gas Level (PPM)',
+        LineSeries<LightChartModel, String>(
+          dataSource: lightChartData,
+          name: S.of(context).unitLuxText,
 
-          xValueMapper: (GasChartModel data, _) => data.time,
-          yValueMapper: (GasChartModel data, _) => data.gasLevel,
-
+          xValueMapper: (LightChartModel data, _) => data.time,
+          yValueMapper: (LightChartModel data, _) => data.luxLevel,
           // Line Styling
           color: AppColors.crimsonRed,
           width: 2,
