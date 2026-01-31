@@ -58,6 +58,10 @@ class AppAssets {
   /// assets/icons/door_lock_actuator.svg
   static const String iconsDoorLockActuator = "assets/icons/door_lock_actuator.svg";
 
+  /// Assets for iconsFire
+  /// assets/icons/fire.svg
+  static const String iconsFire = "assets/icons/fire.svg";
+
   /// Assets for iconsGasAlert
   /// assets/icons/gas_alert.svg
   static const String iconsGasAlert = "assets/icons/gas_alert.svg";
@@ -65,6 +69,10 @@ class AppAssets {
   /// Assets for iconsGasSensor
   /// assets/icons/gas_sensor.svg
   static const String iconsGasSensor = "assets/icons/gas_sensor.svg";
+
+  /// Assets for iconsInfo
+  /// assets/icons/info.svg
+  static const String iconsInfo = "assets/icons/info.svg";
 
   /// Assets for iconsLang
   /// assets/icons/lang.svg

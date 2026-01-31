@@ -1,7 +1,6 @@
+import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_radial_gauge.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
-import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class GasSensorGaugeWidget extends StatelessWidget {
   final double ppmValue;
@@ -25,88 +24,45 @@ class GasSensorGaugeWidget extends StatelessWidget {
 
     return AspectRatio(
       aspectRatio: 1,
-      child: SfRadialGauge(
-        axes: <RadialAxis>[
-          RadialAxis(
-            minimum: 0,
-            maximum: 1000,
-            startAngle: 130,
-            endAngle: 50,
-            showLabels: true,
-            showTicks: true,
-            radiusFactor: 0.95,
-            labelsPosition: ElementsPosition.outside,
-            ticksPosition: ElementsPosition.outside,
-            labelOffset: 20,
-            tickOffset: 5,
-            axisLabelStyle: const GaugeTextStyle(
-              color: AppColors.white50,
-              fontSize: 14,
-            ),
-            majorTickStyle: const MajorTickStyle(
-                length: 12, thickness: 2, color: AppColors.white50),
-            axisLineStyle: AxisLineStyle(
-              thickness: 10,
-              color: AppColors.white.withOpacity(0.1),
-              cornerStyle: CornerStyle.bothCurve,
-            ),
-            annotations: <GaugeAnnotation>[
-              GaugeAnnotation(
-                positionFactor: 0,
-                widget: Container(
-                  width: 190,
-                  height: 190,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: Colors.transparent,
-                    border: Border.all(
-                      color: AppColors.dimGray,
-                      width: 12,
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        '${ppmValue.toInt()} PPM',
-                        style: Styles.style18SemiBold
-                            .copyWith(color: AppColors.white, fontSize: 24),
-                      ),
-                      const SizedBox(height: 8),
-                      Text(
-                        status,
-                        style: Styles.style14Regular
-                            .copyWith(color: AppColors.mediumGray),
-                      ),
-                    ],
-                  ),
-                ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 800),
+            width: 300,
+            height: 300,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                colors: [
+                  Colors.transparent,
+                  statusColor.withOpacity(0.13),
+                  statusColor.withOpacity(0.05),
+                ],
+                stops: const [0.2, 0.5, 1.0],
               ),
-            ],
-            pointers: <GaugePointer>[
-              RangePointer(
-                value: ppmValue,
-                width: 12,
-                enableAnimation: true,
-                animationDuration: 1300,
-                cornerStyle: CornerStyle.bothCurve,
-                gradient: SweepGradient(
-                  colors: <Color>[
-                    statusColor.withOpacity(0.3),
-                    statusColor,
-                  ],
-                  stops: const <double>[0.1, 1],
-                ),
-              ),
-              MarkerPointer(
-                value: ppmValue,
-                markerType: MarkerType.circle,
-                color: statusColor,
-                markerHeight: 15,
-                markerWidth: 15,
-              )
-            ],
+            ),
           ),
+          AnimatedContainer(
+            duration: const Duration(milliseconds: 800),
+            width: 200,
+            height: 200,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              gradient: RadialGradient(
+                radius: 0.8,
+                colors: [
+                  statusColor.withOpacity(0.2),
+                  statusColor.withOpacity(0.1),
+                  statusColor.withOpacity(0.02),
+                  Colors.transparent,
+                ],
+                stops: const [0.0, 0.3, 0.6, 1.0],
+              ),
+            ),
+          ),
+          GasRadialGauge(
+              ppmValue: ppmValue, status: status, statusColor: statusColor)
         ],
       ),
     );
