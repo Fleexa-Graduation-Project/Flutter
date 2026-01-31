@@ -19,9 +19,11 @@ class InsightCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
+      bottomPadding: 4,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 4),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Row(
               children: [

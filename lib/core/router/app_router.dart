@@ -3,6 +3,7 @@ import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_sensor_view.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/temperature_sensor_view.dart';
+import 'package:fleexa/Features/overview/main_overview_view.dart';
 import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
     show SystemOverviewView;
 import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_control_view.dart';
@@ -20,23 +21,30 @@ import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
 import '../../Features/devices/actuators/ac/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/views/ac_details_view.dart';
+import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
 import '../../Features/overview/notifications/views/notifications_view.dart';
 
 class AppRouter {
   // Route names
+  // authentication
   static const String splash = 'splash';
   static const String signIn = 'signIn';
   static const String signUp = 'signUp';
+  // password management
   static const String changePassword = 'changePassword';
   static const String resetPassword = 'resetPassword';
   static const String verifyCode = 'verifyCode';
+  // settings
   static const String settings = 'settings';
   static const String settingsProfile = 'settingsProfile';
   static const String editProfile = 'editProfile';
   static const String settingsAccount = 'settingsAccount';
   static const String settingsNotifications = 'settingsNotifications';
+  // overview
+  static const String mainOverview = 'mainOverview';
   static const String systemOverview = 'systemOverview';
   static const String home = 'home';
+  // devices
   static const String doorLockControl = 'doorLockControl';
   static const String doorLockDetails = 'doorLockDetails';
   static const String acControl = 'acControl';
@@ -44,14 +52,20 @@ class AppRouter {
   static const String temperatureSensor = 'temperatureSensor';
   static const String notifications = 'notifications';
   static const String gasSensor = 'gasSensor';
+  static const String lightSensor = 'lightSensor';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/system-overview',
+    initialLocation: '/main-overview',
     routes: [
       GoRoute(
         path: '/',
         name: splash,
         builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        path: '/main-overview',
+        name: mainOverview,
+        builder: (context, state) => const MainOverviewView(),
       ),
       GoRoute(
         path: '/sign-in',
@@ -144,9 +158,15 @@ class AppRouter {
         builder: (context, state) => const NotificationsView(),
       ),
       GoRoute(
-          path: '/gas-sensor',
-          name: gasSensor,
-          builder: (context, state) => const GasSensorView())
+        path: '/gas-sensor',
+        name: gasSensor,
+        builder: (context, state) => const GasSensorView(),
+      ),
+      GoRoute(
+        path: '/light-sensor',
+        name: lightSensor,
+        builder: (context, state) => const LightSensorView(),
+      ),
     ],
   );
 }

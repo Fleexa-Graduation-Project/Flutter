@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../core/utils/constants/styles.dart';
@@ -9,21 +10,25 @@ class SettingsCard extends StatelessWidget {
     super.key,
     required this.title,
     required this.icon,
+    this.pageRouteName,
     this.forwardArrow = false,
     this.dropDown,
-    this.onTap,
   });
 
   final String title;
   final IconData icon;
   final Widget? dropDown;
   final bool forwardArrow;
-  final VoidCallback? onTap;
+  final String? pageRouteName;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: onTap,
+      onTap: () {
+        if (pageRouteName != null) {
+          GoRouter.of(context).pushNamed(pageRouteName!);
+        }
+      },
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),

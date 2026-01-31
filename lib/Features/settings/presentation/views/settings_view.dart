@@ -13,9 +13,11 @@ class SettingsView extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.symmetric(
-              vertical: 72,
-              horizontal: 24,
+            padding: const EdgeInsets.only(
+              top: 48,
+              left: 24,
+              right: 24,
+              bottom: 8,
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -24,7 +26,7 @@ class SettingsView extends StatelessWidget {
                 // Title
                 Text(
                   S.of(context).settingsTitle,
-                  style: Styles.style24Medium,
+                  style: Styles.style20SemiBold,
                 ),
                 const SizedBox(height: 32),
 

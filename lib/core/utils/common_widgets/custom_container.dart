@@ -6,14 +6,21 @@ class CustomContainer extends StatelessWidget {
   const CustomContainer({
     super.key,
     required this.child,
+    this.bottomPadding = 24,
   });
 
   final Widget child;
+  final double bottomPadding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+      padding: EdgeInsets.only(
+        top: 24,
+        right: 16,
+        left: 16,
+        bottom: bottomPadding,
+      ),
       decoration: BoxDecoration(
         color: AppColors.charcoalBlack,
         borderRadius: BorderRadius.circular(20.r),
@@ -26,7 +33,7 @@ class CustomContainer extends StatelessWidget {
           ),
         ],
       ),
-      child: child,
+      child: Center(child: child),
     );
   }
 }

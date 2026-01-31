@@ -21,7 +21,10 @@ class TempChart extends StatelessWidget {
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
-        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
+        axisLine: const AxisLine(width: 1),
+        tickPosition: TickPosition.outside,
+        majorTickLines:
+            const MajorTickLines(size: 12, color: Colors.transparent),
         axisLabelFormatter: (AxisLabelRenderDetails args) {
           return ChartAxisLabel('${args.text}h', args.textStyle);
         },
@@ -30,7 +33,6 @@ class TempChart extends StatelessWidget {
           color: AppColors.white.withOpacity(0.05),
           dashArray: const [5, 5],
         ),
-        majorTickLines: const MajorTickLines(size: 0),
         labelPlacement: LabelPlacement.onTicks,
       ),
 
@@ -39,18 +41,27 @@ class TempChart extends StatelessWidget {
         minimum: 0,
         maximum: 40,
         interval: 8,
-        majorTickLines: const MajorTickLines(size: 0),
+        axisLine: const AxisLine(width: 1),
+        tickPosition: TickPosition.outside,
+        majorTickLines:
+            const MajorTickLines(size: 12, color: Colors.transparent),
         majorGridLines: MajorGridLines(
           width: 1,
           color: AppColors.white.withOpacity(0.05),
           dashArray: const [5, 5],
         ),
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
-        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
-        tickPosition: TickPosition.inside,
+      ),
+      legend: Legend(
+        isVisible: true,
+        position: LegendPosition.bottom,
+        iconHeight: 12,
+        iconWidth: 12,
+        textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
       ),
       series: <CartesianSeries>[
         SplineSeries<TempChartData, String>(
+          name: 'Temperature',
           dataSource: tempchartData,
           xValueMapper: (TempChartData data, _) => data.time,
           yValueMapper: (TempChartData data, _) => data.temp,
@@ -62,8 +73,8 @@ class TempChart extends StatelessWidget {
           // The small dots on the line
           markerSettings: const MarkerSettings(
             isVisible: true,
-            height: 4,
-            width: 4,
+            height: 6,
+            width: 6,
             color: AppColors.crimsonRed,
             borderColor: AppColors.crimsonRed,
           ),

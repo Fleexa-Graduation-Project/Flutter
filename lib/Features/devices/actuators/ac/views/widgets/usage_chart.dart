@@ -15,12 +15,21 @@ class UsageChart extends StatelessWidget {
       // Remove chart border
       plotAreaBorderWidth: 0,
 
+      legend: Legend(
+        isVisible: true,
+        position: LegendPosition.bottom,
+        iconHeight: 12,
+        iconWidth: 12,
+        textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
+      ),
+
       // X & Y axis styling
       primaryXAxis: CategoryAxis(
-        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
-        tickPosition: TickPosition.inside,
+        axisLine: const AxisLine(width: 1),
+        tickPosition: TickPosition.outside,
+        majorTickLines:
+            const MajorTickLines(size: 12, color: Colors.transparent),
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
-        majorTickLines: const MajorTickLines(size: 0),
         majorGridLines: const MajorGridLines(
           width: 1,
           color: AppColors.dimGray,
@@ -31,10 +40,11 @@ class UsageChart extends StatelessWidget {
         minimum: 0,
         maximum: 12,
         interval: 3,
-        tickPosition: TickPosition.inside,
+        tickPosition: TickPosition.outside,
         opposedPosition: true,
         labelFormat: '{value}h',
         axisLine: const AxisLine(width: 0),
+        majorTickLines: const MajorTickLines(size: 0),
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
         majorGridLines: const MajorGridLines(
           width: 1,
@@ -46,6 +56,7 @@ class UsageChart extends StatelessWidget {
       // Chart series
       series: <CartesianSeries>[
         BarSeries<BarChartData, String>(
+          name: 'Usage Hours',
           dataSource: barChartData,
           xValueMapper: (BarChartData data, _) => data.day,
           yValueMapper: (BarChartData data, _) => data.hours,

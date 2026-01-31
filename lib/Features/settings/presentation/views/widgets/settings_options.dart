@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/settings/domain/settings_enums.dart';
+import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../../generated/l10n.dart';
 import 'settings_card.dart';
@@ -14,7 +14,6 @@ class SettingsOptions extends StatefulWidget {
 }
 
 class _SettingsOptionsState extends State<SettingsOptions> {
-  AppTheme _theme = AppTheme.dark;
   AppLanguage _language = AppLanguage.en;
 
   @override
@@ -26,6 +25,7 @@ class _SettingsOptionsState extends State<SettingsOptions> {
           title: S.of(context).settingsAccountAndSecurity,
           icon: Icons.person_outline_rounded,
           forwardArrow: true,
+          pageRouteName: AppRouter.settingsAccount,
         ),
         const SizedBox(height: 20),
 
@@ -34,39 +34,14 @@ class _SettingsOptionsState extends State<SettingsOptions> {
           title: S.of(context).settingsNotificationsAndAlerts,
           icon: Icons.notifications_none_rounded,
           forwardArrow: true,
-        ),
-        const SizedBox(height: 20),
-
-        // Theme Mode
-        SettingsCard(
-          title: S.of(context).settingsThemeMode,
-          icon: Icons.brightness_6_outlined,
-          dropDown: SettingsDropDown<AppTheme>(
-            value: _theme,
-            items: AppTheme.values,
-            labelBuilder: (theme) {
-              switch (theme) {
-                case AppTheme.light:
-                  return S.of(context).themeModeLight;
-                case AppTheme.dark:
-                  return S.of(context).themeModeDark;
-                case AppTheme.system:
-                  return S.of(context).themeModeSystem;
-              }
-            },
-            onChanged: (value) {
-              setState(() {
-                _theme = value;
-              });
-            },
-          ),
+          pageRouteName: AppRouter.settingsNotifications,
         ),
         const SizedBox(height: 20),
 
         // Language
         SettingsCard(
           title: S.of(context).settingsLanguage,
-          icon: FontAwesomeIcons.language,
+          icon: Icons.language_rounded,
           dropDown: SettingsDropDown<AppLanguage>(
             value: _language,
             items: AppLanguage.values,
