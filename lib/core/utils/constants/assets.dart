@@ -58,6 +58,10 @@ class AppAssets {
   /// assets/icons/door_lock_actuator.svg
   static const String iconsDoorLockActuator = "assets/icons/door_lock_actuator.svg";
 
+  /// Assets for iconsFire
+  /// assets/icons/fire.svg
+  static const String iconsFire = "assets/icons/fire.svg";
+
   /// Assets for iconsGasAlert
   /// assets/icons/gas_alert.svg
   static const String iconsGasAlert = "assets/icons/gas_alert.svg";
@@ -65,6 +69,22 @@ class AppAssets {
   /// Assets for iconsGasSensor
   /// assets/icons/gas_sensor.svg
   static const String iconsGasSensor = "assets/icons/gas_sensor.svg";
+
+  /// Assets for iconsHomeTabOff
+  /// assets/icons/home_tab_off.svg
+  static const String iconsHomeTabOff = "assets/icons/home_tab_off.svg";
+
+  /// Assets for iconsHomeTabOn
+  /// assets/icons/home_tab_on.svg
+  static const String iconsHomeTabOn = "assets/icons/home_tab_on.svg";
+
+  /// Assets for iconsInfo
+  /// assets/icons/info.svg
+  static const String iconsInfo = "assets/icons/info.svg";
+
+  /// Assets for iconsLamp
+  /// assets/icons/lamp.svg
+  static const String iconsLamp = "assets/icons/lamp.svg";
 
   /// Assets for iconsLang
   /// assets/icons/lang.svg
@@ -97,6 +117,22 @@ class AppAssets {
   /// Assets for iconsNotification
   /// assets/icons/notification.svg
   static const String iconsNotification = "assets/icons/notification.svg";
+
+  /// Assets for iconsSettingsTabOff
+  /// assets/icons/settings_tab_off.svg
+  static const String iconsSettingsTabOff = "assets/icons/settings_tab_off.svg";
+
+  /// Assets for iconsSettingsTabOn
+  /// assets/icons/settings_tab_on.svg
+  static const String iconsSettingsTabOn = "assets/icons/settings_tab_on.svg";
+
+  /// Assets for iconsSystemTabOff
+  /// assets/icons/system_tab_off.svg
+  static const String iconsSystemTabOff = "assets/icons/system_tab_off.svg";
+
+  /// Assets for iconsSystemTabOn
+  /// assets/icons/system_tab_on.svg
+  static const String iconsSystemTabOn = "assets/icons/system_tab_on.svg";
 
   /// Assets for iconsTempMax
   /// assets/icons/temp_max.svg

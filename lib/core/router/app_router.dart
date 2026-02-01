@@ -55,7 +55,7 @@ class AppRouter {
   static const String lightSensor = 'lightSensor';
 
   static final GoRouter router = GoRouter(
-    initialLocation: '/ac-control',
+    initialLocation: '/main-overview',
     routes: [
       GoRoute(
         path: '/',
