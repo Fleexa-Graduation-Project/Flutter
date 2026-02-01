@@ -41,7 +41,7 @@ class GasSensorOverview extends StatelessWidget {
               )
             ],
           ),
-          const GasSensorGauge(gasLevel: 0.82),
+          const GasSensorGauge(gasLevel: 0.9),
         ],
       ),
     ));

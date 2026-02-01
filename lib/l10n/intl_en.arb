@@ -42,6 +42,7 @@
   "statusConnected": "Connected",
   "statusDisconnected": "Disconnected",
   "statusWarning": "Warning",
+  "statusSafe": "Safe",
   "statusCritical": "Critical",
     "statuscapitalcritical": "CRITICAL",
   "statusNormal": "Normal",

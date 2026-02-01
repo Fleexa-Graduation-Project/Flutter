@@ -44,6 +44,7 @@
   "statusConnected": "متصل",
   "statusDisconnected": "غير متصل",
   "statusWarning": "تحذير",
+  "statusSafe": "آمن",
   "statusCritical": "خطر",
   "statuscapitalcritical": "خطر",
   "statusNormal": "طبيعي",

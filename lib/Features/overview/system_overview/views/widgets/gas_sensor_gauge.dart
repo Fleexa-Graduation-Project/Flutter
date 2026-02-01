@@ -5,16 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class GasSensorGauge extends StatelessWidget {
-  final double gasLevel; // e.g., 0.82 for 82%
+  final double gasLevel; // e.g., 0.82
 
   const GasSensorGauge({super.key, required this.gasLevel});
 
+  Color _getGaugeColor(double level) {
+    if (level < 0.4) return AppColors.emeraldGreen;
+    if (level < 0.7) return AppColors.copperOrange;
+    return AppColors.burgundy;
+  }
+
   @override
   Widget build(BuildContext context) {
+    final currentColor = _getGaugeColor(gasLevel);
+
     return SizedBox(
       height: 100,
       width: 100,
       child: SfRadialGauge(
+        enableLoadingAnimation: true,
+        animationDuration: 2000,
         axes: <RadialAxis>[
           RadialAxis(
             minimum: 0,
@@ -33,36 +43,40 @@ class GasSensorGauge extends StatelessWidget {
                 value: gasLevel * 100,
                 width: 8,
                 cornerStyle: CornerStyle.bothCurve,
-                gradient: const SweepGradient(
-                  colors: <Color>[
-                    AppColors.wineRed,
-                    AppColors.crimsonRed,
-                  ],
-                  stops: <double>[0.1, 0.9],
-                ),
+                color: currentColor,
+                enableAnimation: true,
+                animationType: AnimationType.easeOutBack,
+                animationDuration: 1200,
               ),
-              // The White Indicator Dot
               MarkerPointer(
                 value: gasLevel * 100,
                 markerType: MarkerType.circle,
-                color: Colors.white,
+                color: AppColors.white,
                 markerHeight: 6,
                 markerWidth: 6,
+                enableAnimation: true,
+                animationDuration: 1200,
               )
             ],
             annotations: <GaugeAnnotation>[
               GaugeAnnotation(
-                widget: Text(
-                  S.of(context).statuscapitalcritical,
-                  style: Styles.style12Regular,
+                widget: AnimatedDefaultTextStyle(
+                  duration: const Duration(milliseconds: 500),
+                  style: Styles.style12Regular.copyWith(color: currentColor),
+                  child: Text(_getStatusText(context, gasLevel)),
                 ),
                 angle: 90,
-                // positionFactor: 0,
               )
             ],
           ),
         ],
       ),
     );
+  }
+
+  String _getStatusText(BuildContext context, double level) {
+    if (level < 0.4) return S.of(context).statusSafe;
+    if (level < 0.7) return S.of(context).statusWarning;
+    return S.of(context).statusCritical;
   }
 }

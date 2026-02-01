@@ -249,6 +249,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusOff": MessageLookupByLibrary.simpleMessage("إيقاف"),
     "statusOn": MessageLookupByLibrary.simpleMessage("تشغيل"),
     "statusOpened": MessageLookupByLibrary.simpleMessage("مفتوح"),
+    "statusSafe": MessageLookupByLibrary.simpleMessage("آمن"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("تحذير"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("خطر"),
     "systemOverview": MessageLookupByLibrary.simpleMessage(

@@ -321,6 +321,11 @@ class S {
     return Intl.message('Warning', name: 'statusWarning', desc: '', args: []);
   }
 
+  /// `Safe`
+  String get statusSafe {
+    return Intl.message('Safe', name: 'statusSafe', desc: '', args: []);
+  }
+
   /// `Critical`
   String get statusCritical {
     return Intl.message('Critical', name: 'statusCritical', desc: '', args: []);
