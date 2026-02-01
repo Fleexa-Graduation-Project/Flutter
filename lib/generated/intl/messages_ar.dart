@@ -27,25 +27,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(duration) => "تم فتح الباب لمدة ${duration} دقيقة";
 
-  static String m3(time, dayNight) => "توقف: ${time} ${dayNight}";
+  static String m3(email) => "Please enter the OTP sent to your email ${email}";
 
-  static String m4(email) => "Please enter the OTP sent to your email ${email}";
+  static String m4(time, minutes) => "الوقت المتبقي: ${time}س ${minutes}د";
 
-  static String m5(time, dayNight) => "ابدأ: ${time} ${dayNight}";
+  static String m5(count) => "منذ ${count} ساعة";
 
-  static String m6(count) => "منذ ${count} ساعة";
+  static String m6(count) => "منذ ${count} دقيقة";
 
-  static String m7(count) => "منذ ${count} دقيقة";
+  static String m7(count) => "منذ ${count} ثانية";
 
-  static String m8(count) => "منذ ${count} ثانية";
+  static String m8(count) => "${count} ساعة";
 
-  static String m9(count) => "${count} ساعة";
+  static String m9(count) => "${count} دقيقة";
 
-  static String m10(count) => "${count} دقيقة";
+  static String m10(count) => "${count} ثانية";
 
-  static String m11(count) => "${count} ثانية";
-
-  static String m12(options) => "${options} ساعة";
+  static String m11(options) => "${options} ساعة";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -94,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "متوسط مدة الفتح",
     ),
+    "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",
     ),
@@ -123,7 +122,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage("الباب مفتوح"),
     "doorvalue": MessageLookupByLibrary.simpleMessage("٢٤ دقيقة"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
-    "ends": m3,
+    "ends": MessageLookupByLibrary.simpleMessage("توقف:"),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني لاستعادة كلمة المرور",
     ),
@@ -179,12 +178,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "lightstatus": MessageLookupByLibrary.simpleMessage("حالة الضوء"),
     "manualMode": MessageLookupByLibrary.simpleMessage("الوضع اليدوي"),
     "mode": MessageLookupByLibrary.simpleMessage("الوضع"),
-    "modeAirwave": MessageLookupByLibrary.simpleMessage("موجة هوائية"),
     "modeCooling": MessageLookupByLibrary.simpleMessage("تبريد"),
     "modeDry": MessageLookupByLibrary.simpleMessage("جاف"),
+    "modeFanOnly": MessageLookupByLibrary.simpleMessage("مروحة فقط"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("تدفئة"),
-    "pleaseEnterTheOTP": m4,
+    "pleaseEnterTheOTP": m3,
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
+    "remainingTime": m4,
     "resendOTP": MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التحقق"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
@@ -192,6 +192,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "running": MessageLookupByLibrary.simpleMessage("تشغيل"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
     "sendOTP": MessageLookupByLibrary.simpleMessage("إرسال رمز التحقق"),
+    "set": MessageLookupByLibrary.simpleMessage("تعيين"),
+    "setCustomTimer": MessageLookupByLibrary.simpleMessage("تعيين مؤقت مخصص"),
+    "setTime": MessageLookupByLibrary.simpleMessage("تعيين الوقت"),
+    "setTimer": MessageLookupByLibrary.simpleMessage("تعيين المؤقت"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage("حول ودعم"),
     "settingsAccountAndSecurity": MessageLookupByLibrary.simpleMessage(
       "الحساب والأمان",
@@ -228,7 +232,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "smartRules": MessageLookupByLibrary.simpleMessage("القواعد الذكية"),
     "stability": MessageLookupByLibrary.simpleMessage("الاستقرار"),
     "stable": MessageLookupByLibrary.simpleMessage("مستقر"),
-    "starts": m5,
+    "starts": MessageLookupByLibrary.simpleMessage("ابدأ:"),
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("أعلى من المرتفع"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage(
       "أعلى من الطبيعي",
@@ -269,14 +273,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeModeDark": MessageLookupByLibrary.simpleMessage("داكن"),
     "themeModeLight": MessageLookupByLibrary.simpleMessage("فاتح"),
     "themeModeSystem": MessageLookupByLibrary.simpleMessage("النظام"),
-    "timeAgoHour": m6,
-    "timeAgoMin": m7,
-    "timeAgoSec": m8,
-    "timeHour": m9,
-    "timeMin": m10,
-    "timeSec": m11,
+    "timeAgoHour": m5,
+    "timeAgoMin": m6,
+    "timeAgoSec": m7,
+    "timeHour": m8,
+    "timeMin": m9,
+    "timeSec": m10,
     "timer": MessageLookupByLibrary.simpleMessage("مؤقت"),
-    "timerOptions": m12,
+    "timerOptions": m11,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),

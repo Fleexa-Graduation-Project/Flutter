@@ -14,8 +14,10 @@ enum AlertType { warning, critical }
 
 enum AlertDeviceType { doorLock, gasSensor }
 
-enum ACMode { cooling, heating, airwaves, dry }
+enum ACMode { cooling, heating, fanOnly, dry }
 
 enum ACControlType { manual, auto }
 
 enum TimeRange { lastWeek, lastMonth }
+
+enum PickerMode { duration, time }

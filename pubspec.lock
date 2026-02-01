@@ -105,6 +105,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  custom_sliding_segmented_control:
+    dependency: "direct main"
+    description:
+      name: custom_sliding_segmented_control
+      sha256: bc747b1500284bff36fc8c61774c9a3ca35c1dca4d570141c8a2569b4f984bf3
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.8.5"
   equatable:
     dependency: transitive
     description:
@@ -419,7 +427,7 @@ packages:
     source: hosted
     version: "32.1.25"
   syncfusion_flutter_core:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: syncfusion_flutter_core
       sha256: "44ec7f2bc3257d4d5ecae9ad2ed73ec1ca123323e0b1662441bc7f756530844f"
@@ -430,10 +438,18 @@ packages:
     dependency: "direct main"
     description:
       name: syncfusion_flutter_gauges
-      sha256: "6151762b265678b2357baf8f93094dee00263fcece6ddbecd80e8d6b1cf0d54d"
+      sha256: eafc0b631837d0a1a8663a9fa18dec60f84f1a81953cdea30034f671420ab2a4
       url: "https://pub.dev"
     source: hosted
-    version: "32.1.24"
+    version: "32.1.25"
+  syncfusion_flutter_sliders:
+    dependency: "direct main"
+    description:
+      name: syncfusion_flutter_sliders
+      sha256: "7dd108c8eabe4a9874daf1f5361cb21697c8a29136da9c583d4cf9e6db279343"
+      url: "https://pub.dev"
+    source: hosted
+    version: "32.1.25"
   term_glyph:
     dependency: transitive
     description:

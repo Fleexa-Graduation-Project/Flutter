@@ -135,10 +135,16 @@
   "modeCooling": "تبريد",
   "modeHeating": "تدفئة",
   "modeDry": "جاف",
-  "modeAirwave": "موجة هوائية",
+  "modeFanOnly": "مروحة فقط",
   "tempOutside": "خارجيًا",
   "tempInside": "داخليًا",
   "timer": "مؤقت",
+  "setCustomTimer": "تعيين مؤقت مخصص",
+  "setTimer": "تعيين المؤقت",
+  "setTime": "تعيين الوقت",
+  "set" : "تعيين",
+  "cancel": "إلغاء",
+  "remainingTime": "الوقت المتبقي: {time}س {minutes}د",
   "timerOptions": "{options} ساعة",
     "@timerOptions": {
         "description": "Timer options in hours",
@@ -166,21 +172,8 @@
         }
     },
   "activeHours": "ساعات النشاط",
-  "starts": "ابدأ: {time} {dayNight}",
-  "@starts": {
-    "description": "Start time with day/night indicator",
-    "placeholders": {
-      "time": {
-        "type": "String",
-        "example": "8:00"
-      },
-      "dayNight": {
-        "type": "String",
-        "example": "AM/PM"
-      }
-    }
-  },
-  "ends": "توقف: {time} {dayNight}",
+  "starts": "ابدأ:",
+  "ends": "توقف:",
   "controlType": "نوع التحكم",
   "autoMode" : "الوضع التلقائي",
   "target": "الهدف",

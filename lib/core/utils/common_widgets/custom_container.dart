@@ -7,18 +7,20 @@ class CustomContainer extends StatelessWidget {
     super.key,
     required this.child,
     this.bottomPadding = 24,
+    this.horizontalPadding = 16,
   });
 
   final Widget child;
   final double bottomPadding;
+  final double horizontalPadding;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.only(
         top: 24,
-        right: 16,
-        left: 16,
+        right: horizontalPadding,
+        left: horizontalPadding,
         bottom: bottomPadding,
       ),
       decoration: BoxDecoration(

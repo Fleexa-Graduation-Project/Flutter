@@ -144,10 +144,17 @@
   "modeCooling": "Cooling",
   "modeHeating": "Heating",
   "modeDry": "Dry",
-  "modeAirwave": "Airwave",
+  "modeFanOnly": "Fan Only",
   "tempOutside": "Outside",
   "tempInside": "Inside",
   "timer": "Timer",
+  "setCustomTimer": "Set Custom Timer",
+  
+  "setTimer": "Set Timer",
+  "setTime": "Set Time",
+  "set" : "Set",
+  "cancel": "Cancel",
+  "remainingTime": "Remaining Time: {time}h {minutes}m",
   "timerOptions": "{options} H",
   "@timerOptions": {
       "description": "Timer options in hours",
@@ -175,21 +182,8 @@
         }
     },
     "activeHours": "Active Hours",
-    "starts": "Start: {time} {dayNight}",
-    "@starts": {
-        "description": "Start time with day/night indicator",
-        "placeholders": {
-            "time": {
-                "type": "String",
-                "example": "8:00"
-            },
-            "dayNight": {
-                "type": "String",
-                "example": "AM/PM"
-            }
-        }
-    },
-    "ends": "End: {time} {dayNight}",
+    "starts": "Start:",
+    "ends": "End:",
     "controlType": "Control Type",
     "autoMode" : "Auto Mode",
     "target": "Target",

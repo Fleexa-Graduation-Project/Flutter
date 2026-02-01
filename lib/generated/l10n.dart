@@ -876,9 +876,9 @@ class S {
     return Intl.message('Dry', name: 'modeDry', desc: '', args: []);
   }
 
-  /// `Airwave`
-  String get modeAirwave {
-    return Intl.message('Airwave', name: 'modeAirwave', desc: '', args: []);
+  /// `Fan Only`
+  String get modeFanOnly {
+    return Intl.message('Fan Only', name: 'modeFanOnly', desc: '', args: []);
   }
 
   /// `Outside`
@@ -894,6 +894,46 @@ class S {
   /// `Timer`
   String get timer {
     return Intl.message('Timer', name: 'timer', desc: '', args: []);
+  }
+
+  /// `Set Custom Timer`
+  String get setCustomTimer {
+    return Intl.message(
+      'Set Custom Timer',
+      name: 'setCustomTimer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Set Timer`
+  String get setTimer {
+    return Intl.message('Set Timer', name: 'setTimer', desc: '', args: []);
+  }
+
+  /// `Set Time`
+  String get setTime {
+    return Intl.message('Set Time', name: 'setTime', desc: '', args: []);
+  }
+
+  /// `Set`
+  String get set {
+    return Intl.message('Set', name: 'set', desc: '', args: []);
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message('Cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `Remaining Time: {time}h {minutes}m`
+  String remainingTime(Object time, Object minutes) {
+    return Intl.message(
+      'Remaining Time: ${time}h ${minutes}m',
+      name: 'remainingTime',
+      desc: '',
+      args: [time, minutes],
+    );
   }
 
   /// `{options} H`
@@ -936,24 +976,14 @@ class S {
     );
   }
 
-  /// `Start: {time} {dayNight}`
-  String starts(String time, String dayNight) {
-    return Intl.message(
-      'Start: $time $dayNight',
-      name: 'starts',
-      desc: 'Start time with day/night indicator',
-      args: [time, dayNight],
-    );
+  /// `Start:`
+  String get starts {
+    return Intl.message('Start:', name: 'starts', desc: '', args: []);
   }
 
-  /// `End: {time} {dayNight}`
-  String ends(Object time, Object dayNight) {
-    return Intl.message(
-      'End: $time $dayNight',
-      name: 'ends',
-      desc: '',
-      args: [time, dayNight],
-    );
+  /// `End:`
+  String get ends {
+    return Intl.message('End:', name: 'ends', desc: '', args: []);
   }
 
   /// `Control Type`

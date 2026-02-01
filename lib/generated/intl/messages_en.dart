@@ -28,25 +28,23 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m2(duration) =>
       "The door has been open for ${duration} minutes";
 
-  static String m3(time, dayNight) => "End: ${time} ${dayNight}";
+  static String m3(email) => "Please enter the OTP sent to your email ${email}";
 
-  static String m4(email) => "Please enter the OTP sent to your email ${email}";
+  static String m4(time, minutes) => "Remaining Time: ${time}h ${minutes}m";
 
-  static String m5(time, dayNight) => "Start: ${time} ${dayNight}";
+  static String m5(count) => "${count} hour ago";
 
-  static String m6(count) => "${count} hour ago";
+  static String m6(count) => "${count} min ago";
 
-  static String m7(count) => "${count} min ago";
+  static String m7(count) => "${count} sec ago";
 
-  static String m8(count) => "${count} sec ago";
+  static String m8(count) => "${count} hour";
 
-  static String m9(count) => "${count} hour";
+  static String m9(count) => "${count} min";
 
-  static String m10(count) => "${count} min";
+  static String m10(count) => "${count} sec";
 
-  static String m11(count) => "${count} sec";
-
-  static String m12(options) => "${options} H";
+  static String m11(options) => "${options} H";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -93,6 +91,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "Average Unlock Duration",
     ),
+    "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
@@ -120,7 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "doorvalue": MessageLookupByLibrary.simpleMessage("24 mins"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
-    "ends": m3,
+    "ends": MessageLookupByLibrary.simpleMessage("End:"),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to recover your password",
     ),
@@ -179,19 +178,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "lightstatus": MessageLookupByLibrary.simpleMessage("Light Status"),
     "manualMode": MessageLookupByLibrary.simpleMessage("Manual Mode"),
     "mode": MessageLookupByLibrary.simpleMessage("Mode"),
-    "modeAirwave": MessageLookupByLibrary.simpleMessage("Airwave"),
     "modeCooling": MessageLookupByLibrary.simpleMessage("Cooling"),
     "modeDry": MessageLookupByLibrary.simpleMessage("Dry"),
+    "modeFanOnly": MessageLookupByLibrary.simpleMessage("Fan Only"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("Heating"),
-    "pleaseEnterTheOTP": m4,
+    "pleaseEnterTheOTP": m3,
     "recentActivities": MessageLookupByLibrary.simpleMessage(
       "Recent Activities",
     ),
+    "remainingTime": m4,
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
     "running": MessageLookupByLibrary.simpleMessage("Running"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
     "sendOTP": MessageLookupByLibrary.simpleMessage("Send OTP"),
+    "set": MessageLookupByLibrary.simpleMessage("Set"),
+    "setCustomTimer": MessageLookupByLibrary.simpleMessage("Set Custom Timer"),
+    "setTime": MessageLookupByLibrary.simpleMessage("Set Time"),
+    "setTimer": MessageLookupByLibrary.simpleMessage("Set Timer"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage(
       "About & Support",
     ),
@@ -232,7 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "smartRules": MessageLookupByLibrary.simpleMessage("Smart Rules"),
     "stability": MessageLookupByLibrary.simpleMessage("stability"),
     "stable": MessageLookupByLibrary.simpleMessage("stable"),
-    "starts": m5,
+    "starts": MessageLookupByLibrary.simpleMessage("Start:"),
     "statusAboveHigh": MessageLookupByLibrary.simpleMessage("Above High"),
     "statusAboveNormal": MessageLookupByLibrary.simpleMessage("Above Normal"),
     "statusBright": MessageLookupByLibrary.simpleMessage("Bright"),
@@ -269,14 +273,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "themeModeDark": MessageLookupByLibrary.simpleMessage("Dark"),
     "themeModeLight": MessageLookupByLibrary.simpleMessage("Light"),
     "themeModeSystem": MessageLookupByLibrary.simpleMessage("System"),
-    "timeAgoHour": m6,
-    "timeAgoMin": m7,
-    "timeAgoSec": m8,
-    "timeHour": m9,
-    "timeMin": m10,
-    "timeSec": m11,
+    "timeAgoHour": m5,
+    "timeAgoMin": m6,
+    "timeAgoSec": m7,
+    "timeHour": m8,
+    "timeMin": m9,
+    "timeSec": m10,
     "timer": MessageLookupByLibrary.simpleMessage("Timer"),
-    "timerOptions": m12,
+    "timerOptions": m11,
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),

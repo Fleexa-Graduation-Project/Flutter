@@ -18,6 +18,11 @@ class Styles {
     fontSize: 20.sp,
     fontWeight: FontWeight.w500,
   );
+  static TextStyle style36Medium = TextStyle(
+    color: Colors.white,
+    fontSize: 36.sp,
+    fontWeight: FontWeight.w500,
+  );
   static TextStyle style28Medium = TextStyle(
     color: AppColors.white,
     fontSize: 28.sp,
@@ -38,7 +43,7 @@ class Styles {
     fontSize: 18.sp,
     fontWeight: FontWeight.w500,
   );
-    static TextStyle style18SemiBold = TextStyle(
+  static TextStyle style18SemiBold = TextStyle(
     color: AppColors.white,
     fontSize: 18.sp,
     fontWeight: FontWeight.w600,
