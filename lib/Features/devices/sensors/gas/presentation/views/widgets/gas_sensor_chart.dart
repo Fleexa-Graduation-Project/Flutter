@@ -2,6 +2,7 @@ import 'package:fleexa/Features/devices/sensors/gas/data/dummy_data.dart';
 import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -58,7 +59,7 @@ class GasSensorChart extends StatelessWidget {
       series: <CartesianSeries>[
         LineSeries<GasChartModel, String>(
           dataSource: gasChartData,
-          name: 'Gas Level (PPM)',
+          name: S.of(context).gasLevel,
 
           xValueMapper: (GasChartModel data, _) => data.time,
           yValueMapper: (GasChartModel data, _) => data.gasLevel,

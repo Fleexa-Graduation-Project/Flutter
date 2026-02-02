@@ -19,14 +19,6 @@ class TempInfoSummary extends StatelessWidget {
         status: S.of(context).temperatureStatus,
         description: S.of(context).statusAboveHigh,
       ),
-      DeviceStatusModel(
-        status: S.of(context).stability,
-        description: S.of(context).stable,
-      ),
-      DeviceStatusModel(
-        status: S.of(context).latUpdate,
-        description: S.of(context).lastUpdateValue,
-      ),
     ];
 
     return CustomContainer(

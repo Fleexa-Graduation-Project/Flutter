@@ -21,6 +21,11 @@
   "authNoAccountQuestion": "ليس لديك حساب؟",
   "authHaveAccountQuestion": "هل لديك حساب بالفعل؟",
 
+   "//": "--- Navigation bar ---",
+  "home": "الرئيسية",
+  "system": "النظام",
+  "settings": "الإعدادات",
+
 "//": "--- Home Screen ---",
   "homeHello": "مرحباً،",
   "homeWelcome": "أهلاً بك في منزلك",

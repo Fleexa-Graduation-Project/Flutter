@@ -18,33 +18,36 @@ class AcTimerOptions extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<int> timeOptions = [2, 4, 6, 8, 10, 12];
 
-    return Row(
-      children: timeOptions.map(
-        (hours) {
-          final bool isSelected =
-              (selectedOption == hours && (selectedMin == 0));
-          return Padding(
-            padding: const EdgeInsets.only(left: 8),
-            child: GestureDetector(
-              onTap: () => onOptionChanged(hours),
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: isSelected ? AppColors.wineRed : Colors.transparent,
-                ),
-                child: Text(
-                  '${hours}H',
-                  style: Styles.style14Medium.copyWith(
-                    color: isSelected ? Colors.white : AppColors.coolGray,
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: timeOptions.map(
+          (hours) {
+            final bool isSelected =
+                (selectedOption == hours && (selectedMin == 0));
+            return Padding(
+              padding: const EdgeInsets.only(left: 8),
+              child: GestureDetector(
+                onTap: () => onOptionChanged(hours),
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  alignment: Alignment.center,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: isSelected ? AppColors.wineRed : Colors.transparent,
+                  ),
+                  child: Text(
+                    '${hours}H',
+                    style: Styles.style14Medium.copyWith(
+                      color: isSelected ? Colors.white : AppColors.coolGray,
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-        },
-      ).toList(),
+            );
+          },
+        ).toList(),
+      ),
     );
   }
 }

@@ -17,7 +17,7 @@ class DeviceStatusList extends StatelessWidget {
       children: items.map((item) {
         return Padding(
           padding: EdgeInsets.only(
-              bottom: item.status == S.of(context).latUpdate ? 0 : 12),
+              bottom: item.status == S.of(context).temperatureStatus ? 0 : 12),
           child: DeviceStatusRow(
             deviceStatusModel: item,
           ),

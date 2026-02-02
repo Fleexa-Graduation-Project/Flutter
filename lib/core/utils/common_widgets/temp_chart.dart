@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/devices/actuators/ac/data/dummy_chart_data.dart';
 import 'package:fleexa/Features/devices/actuators/ac/data/temp_chart_data.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -61,13 +62,14 @@ class TempChart extends StatelessWidget {
       ),
       series: <CartesianSeries>[
         SplineSeries<TempChartData, String>(
-          name: 'Temperature',
+          name: S.of(context).temperature,
           dataSource: tempchartData,
           xValueMapper: (TempChartData data, _) => data.time,
           yValueMapper: (TempChartData data, _) => data.temp,
 
           // Line Styling
           color: AppColors.crimsonRed,
+
           width: 2,
 
           // The small dots on the line

@@ -13,10 +13,13 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   bool _startAnimation = false;
+  double _opacity = 1.0;
 
   @override
   void initState() {
     super.initState();
+
+    // Remove Native Splash & Start Text Expansion
     Future.delayed(const Duration(milliseconds: 500), () {
       FlutterNativeSplash.remove();
       setState(() {
@@ -24,8 +27,20 @@ class _SplashViewState extends State<SplashView> {
       });
     });
 
-    Future.delayed(const Duration(milliseconds: 1500), () {
-      if (mounted) context.goNamed(AppRouter.signUp);
+    // Start Fading Out
+    Future.delayed(const Duration(milliseconds: 1600), () {
+      if (mounted) {
+        setState(() {
+          _opacity = 0.0; // Fade out content
+        });
+      }
+    });
+
+    // Navigate
+    Future.delayed(const Duration(milliseconds: 2200), () {
+      if (mounted) {
+        GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
+      }
     });
   }
 
@@ -33,35 +48,43 @@ class _SplashViewState extends State<SplashView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            // F Letter
-            SvgPicture.asset(
-              'assets/images/letter_logo.svg',
-              width: 52,
-              height: 52,
-            ),
+        child: Directionality(
+          textDirection: TextDirection.ltr,
+          child: AnimatedOpacity(
+            duration: const Duration(milliseconds: 600), // Fade duration
+            curve: Curves.easeOut,
+            opacity: _opacity,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                // F Letter
+                SvgPicture.asset(
+                  'assets/images/letter_logo.svg',
+                  width: 52,
+                  height: 52,
+                ),
 
-            // leexa Logo
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 800),
-              curve: Curves.easeInOut,
-              width: _startAnimation ? 105 : 0,
-              height: 32,
-              child: ClipRRect(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: SvgPicture.asset(
-                    'assets/images/full_logo.svg',
-                    width: 105,
-                    height: 32,
+                // leexa Logo
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 800),
+                  curve: Curves.easeInOut,
+                  width: _startAnimation ? 105 : 0,
+                  height: 32,
+                  child: ClipRRect(
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: SvgPicture.asset(
+                        'assets/images/full_logo.svg',
+                        width: 105,
+                        height: 32,
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

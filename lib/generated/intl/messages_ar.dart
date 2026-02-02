@@ -145,6 +145,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم الكشف عن ارتفاع مفاجئ في الغاز",
     ),
     "gasStatus": MessageLookupByLibrary.simpleMessage("حالة الغاز"),
+    "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("المشغلات"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("كل الأجهزة"),
     "homeHello": MessageLookupByLibrary.simpleMessage("مرحباً،"),
@@ -196,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "setCustomTimer": MessageLookupByLibrary.simpleMessage("تعيين مؤقت مخصص"),
     "setTime": MessageLookupByLibrary.simpleMessage("تعيين الوقت"),
     "setTimer": MessageLookupByLibrary.simpleMessage("تعيين المؤقت"),
+    "settings": MessageLookupByLibrary.simpleMessage("الإعدادات"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage("حول ودعم"),
     "settingsAccountAndSecurity": MessageLookupByLibrary.simpleMessage(
       "الحساب والأمان",
@@ -252,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusSafe": MessageLookupByLibrary.simpleMessage("آمن"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("تحذير"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("خطر"),
+    "system": MessageLookupByLibrary.simpleMessage("النظام"),
     "systemOverview": MessageLookupByLibrary.simpleMessage(
       "نظرة عامة على النظام",
     ),

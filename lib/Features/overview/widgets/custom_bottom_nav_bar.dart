@@ -1,3 +1,4 @@
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -49,7 +50,7 @@ class CustomBottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset('assets/icons/home_tab_on.svg'),
             ),
-            label: 'Home',
+            label: S.of(context).home,
           ),
           BottomNavigationBarItem(
             icon: Padding(
@@ -60,7 +61,7 @@ class CustomBottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset('assets/icons/system_tab_on.svg'),
             ),
-            label: 'System',
+            label: S.of(context).system,
           ),
           BottomNavigationBarItem(
             icon: Padding(
@@ -71,7 +72,7 @@ class CustomBottomNavBar extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset('assets/icons/settings_tab_on.svg'),
             ),
-            label: 'Settings',
+            label: S.of(context).settings,
           ),
         ],
       ),

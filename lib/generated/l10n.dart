@@ -166,6 +166,21 @@ class S {
     );
   }
 
+  /// `Home`
+  String get home {
+    return Intl.message('Home', name: 'home', desc: '', args: []);
+  }
+
+  /// `System`
+  String get system {
+    return Intl.message('System', name: 'system', desc: '', args: []);
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
   /// `Hello,`
   String get homeHello {
     return Intl.message('Hello,', name: 'homeHello', desc: '', args: []);

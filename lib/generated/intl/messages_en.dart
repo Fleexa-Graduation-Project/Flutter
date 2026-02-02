@@ -143,6 +143,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Gas spike detected",
     ),
     "gasStatus": MessageLookupByLibrary.simpleMessage("Gas Status"),
+    "home": MessageLookupByLibrary.simpleMessage("Home"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("Actuators"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("All Devices"),
     "homeHello": MessageLookupByLibrary.simpleMessage("Hello,"),
@@ -196,6 +197,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "setCustomTimer": MessageLookupByLibrary.simpleMessage("Set Custom Timer"),
     "setTime": MessageLookupByLibrary.simpleMessage("Set Time"),
     "setTimer": MessageLookupByLibrary.simpleMessage("Set Timer"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "settingsAboutAndSupport": MessageLookupByLibrary.simpleMessage(
       "About & Support",
     ),
@@ -254,6 +256,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusSafe": MessageLookupByLibrary.simpleMessage("Safe"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("Warning"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("CRITICAL"),
+    "system": MessageLookupByLibrary.simpleMessage("System"),
     "systemOverview": MessageLookupByLibrary.simpleMessage("System Overview"),
     "target": MessageLookupByLibrary.simpleMessage("Target"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("Average"),

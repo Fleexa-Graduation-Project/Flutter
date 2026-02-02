@@ -42,7 +42,8 @@ class Fleexa extends StatelessWidget {
             ),
             scaffoldBackgroundColor: AppColors.jetBlack,
             primaryColor: AppColors.white,
-            fontFamily: 'Poppins',
+            fontFamily:
+                const Locale('en').languageCode == 'ar' ? 'Rubik' : 'Rubik',
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           ),
           routerConfig: AppRouter.router,

@@ -18,7 +18,13 @@
     "termsAndConditions": "Terms & Conditions",
   "authNoAccountQuestion": "Don't Have an Account ?",
   "authHaveAccountQuestion": "Already Have an Account?",
+  
 
+  "//": "--- Navigation bar ---",
+  "home": "Home",
+  "system": "System",
+  "settings": "Settings",
+  
   "//": "--- Home Screen ---",
   "homeHello": "Hello,",
   "homeWelcome": "Welcome Home",

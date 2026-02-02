@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/overview/system_overview/data/dummy_data.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
@@ -46,7 +47,7 @@ class AlertWarningChart extends StatelessWidget {
       series: <CartesianSeries>[
         // SERIES 1: WARNINGS
         LineSeries<DailyAlertStats, String>(
-          name: 'Warning',
+          name: S.of(context).statusWarning,
           animationDuration: 1000,
           dataSource: getWeeklyStats(range),
           xValueMapper: (DailyAlertStats data, _) => data.dayName,
@@ -62,7 +63,7 @@ class AlertWarningChart extends StatelessWidget {
 
         // SERIES 2: CRITICAL
         LineSeries<DailyAlertStats, String>(
-          name: 'Critical',
+          name: S.of(context).statusCritical,
           animationDuration: 1000,
           dataSource: getWeeklyStats(range),
           xValueMapper: (DailyAlertStats data, _) => data.dayName,
