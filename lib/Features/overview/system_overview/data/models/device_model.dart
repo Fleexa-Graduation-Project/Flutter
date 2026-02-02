@@ -5,13 +5,13 @@ class DeviceModel {
   final String label;
   final String value;
   final bool isActuator;
-
+final String path;
   const DeviceModel({
     required this.title,
     required this.status,
     required this.iconPath,
     required this.label,
     required this.value,
-    this.isActuator = false,
+    this.isActuator = false, required this.path,
   });
 }
