@@ -101,6 +101,10 @@
     "gasLevelValue":"٨٢٠",
   "gasLevelExceeded": "مستوى الغاز تجاوز الحد الآمن",
   "gasSpikeDetected": "تم الكشف عن ارتفاع مفاجئ في الغاز",
+  "statusGuide": "دليل الحالة: \n\n",
+  "infoStatusSafe": "• آمن: ",
+  "infoStatusWarning": "• تحذير: ",
+  "infoStatusCritical": "• خطر: ",
 
   "lightstatus": "حالة الضوء",
   "lightLevelOverTime": "مستوى الضوء",

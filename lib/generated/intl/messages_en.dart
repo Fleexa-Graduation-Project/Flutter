@@ -151,6 +151,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("Sensors"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("Welcome Home"),
+    "infoStatusCritical": MessageLookupByLibrary.simpleMessage("• Critical: "),
+    "infoStatusSafe": MessageLookupByLibrary.simpleMessage("• Safe: "),
+    "infoStatusWarning": MessageLookupByLibrary.simpleMessage("• Warning: "),
     "isRequired": MessageLookupByLibrary.simpleMessage("is required"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "Alerts & Warnings",
@@ -247,6 +250,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusCritical": MessageLookupByLibrary.simpleMessage("Critical"),
     "statusDark": MessageLookupByLibrary.simpleMessage("Dark"),
     "statusDisconnected": MessageLookupByLibrary.simpleMessage("Disconnected"),
+    "statusGuide": MessageLookupByLibrary.simpleMessage("Status Guide: \n\n"),
     "statusHigh": MessageLookupByLibrary.simpleMessage("High"),
     "statusLow": MessageLookupByLibrary.simpleMessage("Low"),
     "statusNormal": MessageLookupByLibrary.simpleMessage("Normal"),

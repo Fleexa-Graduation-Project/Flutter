@@ -651,6 +651,41 @@ class S {
     );
   }
 
+  /// `Status Guide: \n\n`
+  String get statusGuide {
+    return Intl.message(
+      'Status Guide: \n\n',
+      name: 'statusGuide',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Safe: `
+  String get infoStatusSafe {
+    return Intl.message('• Safe: ', name: 'infoStatusSafe', desc: '', args: []);
+  }
+
+  /// `• Warning: `
+  String get infoStatusWarning {
+    return Intl.message(
+      '• Warning: ',
+      name: 'infoStatusWarning',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `• Critical: `
+  String get infoStatusCritical {
+    return Intl.message(
+      '• Critical: ',
+      name: 'infoStatusCritical',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Light Status`
   String get lightstatus {
     return Intl.message(

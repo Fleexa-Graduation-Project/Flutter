@@ -53,7 +53,7 @@ class _AcControlViewState extends State<AcControlView> {
                     selectedMode: selectedMode,
                     temperature: targetTemperature,
                   ),
-                  const SizedBox(height: 32),
+                  const SizedBox(height: 20),
                   AcControlButtons(
                     isManual: controlMode == 1,
                     onIncreaseTemp: () {

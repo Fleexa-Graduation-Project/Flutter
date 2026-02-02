@@ -1,6 +1,5 @@
+import 'package:fleexa/Features/devices/actuators/ac/views/widgets/ac_pic.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../core/utils/constants/styles.dart';
@@ -20,11 +19,8 @@ class AcDeviceStatus extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        SvgPicture.asset(
-          'assets/images/ac_device.svg',
-          width: 240,
-        ),
-        const SizedBox(height: 24),
+        const AcPic(),
+        // const SizedBox(height: 8),
         Text(
           '$temperature°',
           style: Styles.style36Medium,

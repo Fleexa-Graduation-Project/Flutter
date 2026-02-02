@@ -153,6 +153,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("الحساسات"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("أهلاً بك في منزلك"),
+    "infoStatusCritical": MessageLookupByLibrary.simpleMessage("• خطر: "),
+    "infoStatusSafe": MessageLookupByLibrary.simpleMessage("• آمن: "),
+    "infoStatusWarning": MessageLookupByLibrary.simpleMessage("• تحذير: "),
     "isRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "التنبيهات والتحذيرات",
@@ -245,6 +248,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusCritical": MessageLookupByLibrary.simpleMessage("خطر"),
     "statusDark": MessageLookupByLibrary.simpleMessage("داكن"),
     "statusDisconnected": MessageLookupByLibrary.simpleMessage("غير متصل"),
+    "statusGuide": MessageLookupByLibrary.simpleMessage("دليل الحالة: \n\n"),
     "statusHigh": MessageLookupByLibrary.simpleMessage("مرتفع"),
     "statusLow": MessageLookupByLibrary.simpleMessage("منخفض"),
     "statusNormal": MessageLookupByLibrary.simpleMessage("طبيعي"),

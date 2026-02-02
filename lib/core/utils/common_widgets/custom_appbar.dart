@@ -1,8 +1,11 @@
+import 'package:el_tooltip/el_tooltip.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../generated/l10n.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
@@ -44,11 +47,40 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             icon: SvgPicture.asset('assets/icons/details_page.svg'),
           ),
         if (infoButton)
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              'assets/icons/info.svg',
-              width: 24,
+          ElTooltip(
+            content: RichText(
+              text: TextSpan(
+                children: [
+                  TextSpan(
+                    text: S.of(context).statusGuide,
+                    style: Styles.style16Medium,
+                  ),
+                  TextSpan(
+                    text: "${S.of(context).infoStatusSafe} < 500 PPM\n",
+                    style: Styles.style16Medium,
+                  ),
+                  TextSpan(
+                    text: "${S.of(context).infoStatusWarning} 500 - 1500 PPM\n",
+                    style: Styles.style16Medium,
+                  ),
+                  TextSpan(
+                    text: "${S.of(context).infoStatusCritical} > 1500 PPM",
+                    style: Styles.style16Medium,
+                  ),
+                ],
+              ),
+            ),
+            color: AppColors.charcoalBlack,
+            position: ElTooltipPosition.leftStart,
+            showArrow: true,
+            showModal: true,
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+            child: Container(
+              padding: const EdgeInsets.all(16),
+              child: SvgPicture.asset(
+                'assets/icons/info.svg',
+                width: 24,
+              ),
             ),
           ),
       ],

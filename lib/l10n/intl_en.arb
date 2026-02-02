@@ -103,6 +103,11 @@
     "gasLevelValue": "820",
   "gasLevelExceeded": "Gas level has exceeded the safe limit",
   "gasSpikeDetected": "Gas spike detected",
+  "statusGuide": "Status Guide: \n\n",
+  "infoStatusSafe": "• Safe: ",
+  "infoStatusWarning": "• Warning: ",
+  "infoStatusCritical": "• Critical: ",
+
 
   "lightstatus": "Light Status",
   "lightLevelOverTime": "Light Level Over Time",
