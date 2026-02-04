@@ -12,27 +12,29 @@ class SettingsView extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 48,
-              left: 24,
-              right: 24,
-              bottom: 8,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Title
-                Text(
-                  S.of(context).settingsTitle,
-                  style: Styles.style20SemiBold,
-                ),
-                const SizedBox(height: 32),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(
+                top: 48,
+                left: 24,
+                right: 24,
+                bottom: 8,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Title
+                  Text(
+                    S.of(context).settingsTitle,
+                    style: Styles.style20SemiBold,
+                  ),
+                  const SizedBox(height: 32),
 
-                // Settings Options
-                const SettingsOptions(),
-              ],
+                  const SettingsOptions(),
+                  const SizedBox(height: 20),
+                ],
+              ),
             ),
           ),
         ),

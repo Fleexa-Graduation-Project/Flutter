@@ -50,7 +50,7 @@ class DevicesGrid extends StatelessWidget {
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        childAspectRatio: 1.3,
+        childAspectRatio: 1.1,
         crossAxisCount: 2,
         crossAxisSpacing: 16,
         mainAxisSpacing: 16,

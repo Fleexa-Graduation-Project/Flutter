@@ -27,36 +27,38 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
       ),
       body: SafeArea(
         child: Center(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: Column(
-              children: [
-                const SizedBox(height: 32),
-                const DevicePic(),
-                const Spacer(),
-                CustomContainer(
-                  child: UpperContainerContent(
-                      isLocked: isLocked,
-                      onToggle: (value) {
-                        setState(() {
-                          isLocked = value;
-                        });
-                      }),
-                ),
-                const Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.of(context).recentActivities,
-                      style: Styles.style18Medium,
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 20),
-                const CustomContainer(child: RecentEventsList()),
-                const Spacer(),
-              ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+              child: Column(
+                children: [
+                  const SizedBox(height: 32),
+                  const DevicePic(),
+                  const SizedBox(height: 36),
+                  CustomContainer(
+                    child: UpperContainerContent(
+                        isLocked: isLocked,
+                        onToggle: (value) {
+                          setState(() {
+                            isLocked = value;
+                          });
+                        }),
+                  ),
+                  const SizedBox(height: 36),
+                   Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).recentActivities,
+                        style: Styles.style18Medium,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  const CustomContainer(child: RecentEventsList()),
+                  const SizedBox(height: 32),
+                ],
+              ),
             ),
           ),
         ),

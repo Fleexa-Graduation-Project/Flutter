@@ -25,11 +25,12 @@ class DeviceOverviewCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+             
                 children: [
                   Text(
                     deviceModel.title,
-                    style: Styles.style14Medium.copyWith(color: AppColors.white),
+                    style:
+                        Styles.style14Medium.copyWith(color: AppColors.white),
                   ),
                   const Spacer(),
                   SvgPicture.asset(deviceModel.iconPath),
