@@ -1,10 +1,10 @@
-import 'package:fleexa/Features/overview/system_overview/views/widgets/syncfusion_charts/chart_time_selector.dart';
+import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../generated/l10n.dart';
 import 'energy_consumption_chart.dart';
-import 'system_chart_card.dart';
+import '../../../../../../core/utils/common_widgets/system_chart_card.dart';
 
 class EnergyChartCard extends StatefulWidget {
   const EnergyChartCard({super.key});

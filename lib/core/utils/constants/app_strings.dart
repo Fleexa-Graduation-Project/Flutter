@@ -18,6 +18,6 @@ enum ACMode { cooling, heating, fanOnly, dry }
 
 enum ACControlType { manual, auto }
 
-enum TimeRange { lastWeek, lastMonth }
+enum TimeRange { lastDay, lastWeek, lastMonth }
 
 enum PickerMode { duration, time }
