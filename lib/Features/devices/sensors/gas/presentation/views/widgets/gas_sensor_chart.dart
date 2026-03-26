@@ -1,36 +1,50 @@
+import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:fleexa/Features/devices/sensors/gas/data/dummy_data.dart';
 import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
-import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
+
 
 class GasSensorChart extends StatelessWidget {
-  const GasSensorChart({super.key});
+  final TimeRange range;
+
+  const GasSensorChart({
+    super.key,
+    required this.range,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final data = getGasData(range);
+
     return SfCartesianChart(
+      key: ValueKey(range),
+
       legend: Legend(
         isVisible: true,
         position: LegendPosition.bottom,
         iconHeight: 12,
         iconWidth: 12,
-        textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
+        textStyle:
+            Styles.style12Regular.copyWith(color: AppColors.lightGray),
       ),
+
       plotAreaBorderWidth: 0,
       plotAreaBorderColor: Colors.transparent,
 
-      // X-Axis (Time)
+      /// X Axis
       primaryXAxis: CategoryAxis(
         interval: 1,
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
-        labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
+        labelStyle:
+            Styles.style10Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
-        axisLabelFormatter: (AxisLabelRenderDetails args) {
-          return ChartAxisLabel('${args.text}h', args.textStyle);
+        axisLabelFormatter: (args) {
+          return ChartAxisLabel('${args.text}', args.textStyle);
         },
         majorGridLines: MajorGridLines(
           width: 1,
@@ -38,10 +52,9 @@ class GasSensorChart extends StatelessWidget {
           dashArray: const [5, 5],
         ),
         majorTickLines: const MajorTickLines(size: 0),
-        labelPlacement: LabelPlacement.onTicks,
       ),
 
-      // Y-Axis (Gas Level)
+      /// Y Axis
       primaryYAxis: NumericAxis(
         minimum: 0,
         maximum: 100,
@@ -52,23 +65,23 @@ class GasSensorChart extends StatelessWidget {
           color: AppColors.white.withOpacity(0.05),
           dashArray: const [5, 5],
         ),
-        labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
+        labelStyle:
+            Styles.style12Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         tickPosition: TickPosition.inside,
       ),
+
+      /// Series
       series: <CartesianSeries>[
         LineSeries<GasChartModel, String>(
-          dataSource: gasChartData,
+          dataSource: data,
           name: S.of(context).gasLevel,
 
-          xValueMapper: (GasChartModel data, _) => data.time,
-          yValueMapper: (GasChartModel data, _) => data.gasLevel,
+          xValueMapper: (data, _) => data.time,
+          yValueMapper: (data, _) => data.gasLevel,
 
-          // Line Styling
           color: AppColors.crimsonRed,
           width: 2,
-
-          // The small dots on the line
           markerSettings: const MarkerSettings(
             isVisible: true,
             height: 4,
