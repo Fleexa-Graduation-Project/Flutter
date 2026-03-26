@@ -1,17 +1,21 @@
-import 'package:fleexa/Features/devices/actuators/ac/data/dummy_chart_data.dart';
+import 'package:fleexa/Features/devices/actuators/ac/data/dummy_data.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../core/utils/constants/styles.dart';
-import '../../data/bar_chart_data.dart';
+import '../../data/models/usage_stats.dart';
 
 class UsageChart extends StatelessWidget {
-  const UsageChart({super.key});
+  const UsageChart({super.key, required this.timerange});
+
+  final TimeRange timerange;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
+      key: ValueKey(timerange),
       // Remove chart border
       plotAreaBorderWidth: 0,
 
@@ -38,8 +42,8 @@ class UsageChart extends StatelessWidget {
       ),
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: 12,
-        interval: 3,
+        maximum: timerange == TimeRange.lastMonth ? 40 : 24,
+        interval: timerange == TimeRange.lastMonth ? 5 : 4,
         tickPosition: TickPosition.outside,
         opposedPosition: true,
         labelFormat: '{value}h',
@@ -55,11 +59,11 @@ class UsageChart extends StatelessWidget {
 
       // Chart series
       series: <CartesianSeries>[
-        BarSeries<BarChartData, String>(
+        BarSeries<UsageStats, String>(
           name: 'Usage Hours',
-          dataSource: barChartData,
-          xValueMapper: (BarChartData data, _) => data.day,
-          yValueMapper: (BarChartData data, _) => data.hours,
+          dataSource: getACUsageData(timerange),
+          xValueMapper: (UsageStats data, _) => data.timeLabel,
+          yValueMapper: (UsageStats data, _) => data.usageHours,
           color: AppColors.darkMaroon,
           width: 0.5,
           isTrackVisible: true,

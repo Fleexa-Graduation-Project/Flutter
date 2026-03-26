@@ -7,7 +7,6 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 
-
 class GasSensorChart extends StatelessWidget {
   final TimeRange range;
 
@@ -28,8 +27,7 @@ class GasSensorChart extends StatelessWidget {
         position: LegendPosition.bottom,
         iconHeight: 12,
         iconWidth: 12,
-        textStyle:
-            Styles.style12Regular.copyWith(color: AppColors.lightGray),
+        textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
       ),
 
       plotAreaBorderWidth: 0,
@@ -40,11 +38,10 @@ class GasSensorChart extends StatelessWidget {
         interval: 1,
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
-        labelStyle:
-            Styles.style10Regular.copyWith(color: AppColors.coolGray),
+        labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         axisLabelFormatter: (args) {
-          return ChartAxisLabel('${args.text}', args.textStyle);
+          return ChartAxisLabel(args.text, args.textStyle);
         },
         majorGridLines: MajorGridLines(
           width: 1,
@@ -65,8 +62,7 @@ class GasSensorChart extends StatelessWidget {
           color: AppColors.white.withOpacity(0.05),
           dashArray: const [5, 5],
         ),
-        labelStyle:
-            Styles.style12Regular.copyWith(color: AppColors.coolGray),
+        labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         tickPosition: TickPosition.inside,
       ),
@@ -76,10 +72,8 @@ class GasSensorChart extends StatelessWidget {
         LineSeries<GasChartModel, String>(
           dataSource: data,
           name: S.of(context).gasLevel,
-
           xValueMapper: (data, _) => data.time,
           yValueMapper: (data, _) => data.gasLevel,
-
           color: AppColors.crimsonRed,
           width: 2,
           markerSettings: const MarkerSettings(

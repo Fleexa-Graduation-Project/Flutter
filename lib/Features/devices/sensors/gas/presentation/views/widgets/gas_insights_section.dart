@@ -1,6 +1,5 @@
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_chart.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
-import 'package:fleexa/core/utils/common_widgets/insight_card.dart';
 import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';

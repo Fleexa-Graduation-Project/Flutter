@@ -1,5 +1,4 @@
-import 'package:fleexa/core/utils/common_widgets/insight_card.dart';
-import 'package:fleexa/Features/devices/actuators/ac/views/widgets/usage_chart.dart';
+import 'package:fleexa/Features/devices/actuators/ac/views/widgets/ac_insight_usage.dart';
 import 'package:fleexa/core/utils/common_widgets/temp_chart/temp_insight_card.dart';
 import 'package:flutter/material.dart';
 
@@ -21,11 +20,7 @@ class AcInsights extends StatelessWidget {
         const SizedBox(height: 20),
         const TempInsightCard(),
         const SizedBox(height: 24),
-        InsightCard(
-          title: S.of(context).AirConditionerUsage,
-          insight: const UsageChart(),
-          duration: S.of(context).filterFiveDays,
-        ),
+        const AcInsightUsage(),
       ],
     );
   }

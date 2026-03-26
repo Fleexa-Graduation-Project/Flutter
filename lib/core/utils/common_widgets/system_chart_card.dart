@@ -10,11 +10,13 @@ class SystemChartCard extends StatelessWidget {
     required this.title,
     required this.insight,
     required this.timeFilter,
+    this.cardHeight = 240,
   });
 
   final String title;
   final Widget insight;
   final Widget timeFilter;
+  final double cardHeight;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,7 @@ class SystemChartCard extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             SizedBox(
-              height: 240,
+              height: cardHeight,
               width: double.infinity,
               child: insight,
             ),

@@ -19,6 +19,7 @@ class _TempInsightCardState extends State<TempInsightCard> {
   @override
   Widget build(BuildContext context) {
     return SystemChartCard(
+      cardHeight: 300,
       title: S.of(context).tempPerformance,
       insight: TempChart(
         range: currentValue,
