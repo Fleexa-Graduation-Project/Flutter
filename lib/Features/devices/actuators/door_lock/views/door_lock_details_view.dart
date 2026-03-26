@@ -1,7 +1,6 @@
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/alerts_section.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_details_header.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/views/widgets/door_lock_insight.dart';
-import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -17,7 +16,6 @@ class DoorLockDetailsView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbar(
         title: S.of(context).doorLock,
-        detailsPage: AppRouter.doorLockDetails,
       ),
       body: SafeArea(
         child: Center(

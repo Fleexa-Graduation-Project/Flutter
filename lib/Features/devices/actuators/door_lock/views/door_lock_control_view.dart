@@ -45,7 +45,7 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                         }),
                   ),
                   const SizedBox(height: 36),
-                   Row(
+                  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
