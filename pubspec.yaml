@@ -33,6 +33,11 @@ dependencies:
   custom_sliding_segmented_control: ^1.8.5
   flutter_launcher_icons: ^0.14.4
   el_tooltip: ^2.2.1
+  hydrated_bloc: ^11.0.0
+  path: ^1.9.1
+  path_provider: ^2.1.5
+  bloc: ^9.2.0
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0

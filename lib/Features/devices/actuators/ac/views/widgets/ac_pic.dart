@@ -19,8 +19,8 @@ class AcPic extends StatelessWidget {
             boxShadow: [
               BoxShadow(
                 color: AppColors.burgundy.withOpacity(0.35),
-                blurRadius: 80,
-                spreadRadius: 20,
+                blurRadius: 40,
+                spreadRadius: 12,
               ),
             ],
           ),

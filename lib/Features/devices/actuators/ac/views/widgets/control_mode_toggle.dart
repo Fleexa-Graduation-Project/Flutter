@@ -56,7 +56,7 @@ class _ControlModeToggleState extends State<ControlModeToggle> {
       // The Content
       children: {
         0: SegmentedContentRow(
-          title: S.of(context).automaticMode,
+          title: S.of(context).autoMode,
           isSelected: widget.controlMode == 0,
         ),
         1: SegmentedContentRow(

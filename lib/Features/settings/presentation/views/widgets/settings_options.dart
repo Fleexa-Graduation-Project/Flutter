@@ -1,23 +1,21 @@
 import 'package:fleexa/Features/settings/domain/settings_enums.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/cubits/localization_cubit.dart';
 import '../../../../../generated/l10n.dart';
 import 'settings_card.dart';
 import 'settings_drop_down.dart';
 
-class SettingsOptions extends StatefulWidget {
+class SettingsOptions extends StatelessWidget {
   const SettingsOptions({super.key});
 
   @override
-  State<SettingsOptions> createState() => _SettingsOptionsState();
-}
-
-class _SettingsOptionsState extends State<SettingsOptions> {
-  AppLanguage _language = AppLanguage.en;
-
-  @override
   Widget build(BuildContext context) {
+    final currentLocale = context.watch<LocalizationCubit>().state;
+    final currentLanguage =
+        currentLocale.languageCode == 'ar' ? AppLanguage.ar : AppLanguage.en;
     return Column(
       children: [
         // Account and Security
@@ -43,17 +41,17 @@ class _SettingsOptionsState extends State<SettingsOptions> {
           title: S.of(context).settingsLanguage,
           icon: Icons.language_rounded,
           dropDown: SettingsDropDown<AppLanguage>(
-            value: _language,
+            value: currentLanguage,
             items: AppLanguage.values,
             labelBuilder: (language) {
               return language == AppLanguage.en
                   ? S.of(context).languageEnglish
                   : S.of(context).languageArabic;
             },
-            onChanged: (value) {
-              setState(() {
-                _language = value;
-              });
+            onChanged: (selectedLanguage) {
+              context
+                  .read<LocalizationCubit>()
+                  .changeLanguage(selectedLanguage.name);
             },
           ),
         ),
