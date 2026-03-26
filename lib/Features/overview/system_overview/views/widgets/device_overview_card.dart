@@ -25,7 +25,6 @@ class DeviceOverviewCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
-             
                 children: [
                   Text(
                     deviceModel.title,
