@@ -3,18 +3,12 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 
 /// Last 24 Hours
 final List<GasChartModel> gas24hData = [
-  GasChartModel('0', 18),
-  GasChartModel('2', 19),
-  GasChartModel('4', 17),
-  GasChartModel('6', 18),
-  GasChartModel('8', 20),
-  GasChartModel('10', 22),
-  GasChartModel('12', 24),
-  GasChartModel('14', 26),
-  GasChartModel('16', 28),
-  GasChartModel('18', 22),
-  GasChartModel('20', 21),
-  GasChartModel('22', 19),
+  GasChartModel('00:00', 18),
+  GasChartModel('04:00', 19),
+  GasChartModel('08:00', 20),
+  GasChartModel('12:00', 24),
+  GasChartModel('16:00', 28),
+  GasChartModel('20:00', 22),
 ];
 
 /// Last Week (7 days)

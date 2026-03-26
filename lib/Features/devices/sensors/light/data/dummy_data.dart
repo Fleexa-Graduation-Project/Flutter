@@ -1,14 +1,14 @@
 import 'package:fleexa/Features/devices/sensors/light/data/model/light_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 
-/// Last Day
-final List<LightChartModel> lightDayData = [
-  LightChartModel('6AM', 20),
-  LightChartModel('9AM', 200),
-  LightChartModel('12PM', 650),
-  LightChartModel('3PM', 500),
-  LightChartModel('6PM', 180),
-  LightChartModel('9PM', 40),
+/// Last 24 Hours
+final List<LightChartModel> light24hData = [
+  LightChartModel('00:00', 18),
+  LightChartModel('04:00', 19),
+  LightChartModel('08:00', 20),
+  LightChartModel('12:00', 200),
+  LightChartModel('16:00', 28),
+  LightChartModel('20:00', 22),
 ];
 
 /// Last Week
@@ -34,7 +34,7 @@ final List<LightChartModel> lightMonthData = [
 List<LightChartModel> getLightData(TimeRange range) {
   switch (range) {
     case TimeRange.lastDay:
-      return lightDayData;
+      return light24hData;
     case TimeRange.lastWeek:
       return lightWeekData;
     case TimeRange.lastMonth:
