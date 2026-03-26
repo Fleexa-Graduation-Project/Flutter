@@ -14,48 +14,66 @@ class DevicesFilterDropdown extends StatelessWidget {
   });
 
   final DeviceFilter currentFilter;
-  final Function(DeviceFilter?) onChanged;
+  final Function(DeviceFilter) onChanged;
+
+  String _getFilterText(BuildContext context, DeviceFilter filter) {
+    switch (filter) {
+      case DeviceFilter.all:
+        return S.of(context).homeAllDevices;
+      case DeviceFilter.sensors:
+        return S.of(context).homeSensors;
+      case DeviceFilter.actuators:
+        return S.of(context).homeActuators;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     final filters = DeviceFilter.values;
 
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      decoration: BoxDecoration(
-        color: AppColors.darkGray,
+    return PopupMenuButton<DeviceFilter>(
+      initialValue: currentFilter,
+      onSelected: onChanged,
+      color: AppColors.charcoalBlack,
+      shadowColor: AppColors.black,
+      elevation: 4,
+      offset: const Offset(0, 40),
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.r),
       ),
-      child: DropdownButtonHideUnderline(
-        child: DropdownButton<DeviceFilter>(
-          value: currentFilter,
-          isDense: true,
-          icon: const Padding(
-            padding: EdgeInsets.only(left: 8),
-            child: Icon(
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+        decoration: BoxDecoration(
+          color: AppColors.charcoalBlack,
+          borderRadius: BorderRadius.circular(8.r),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              _getFilterText(context, currentFilter),
+              style: Styles.style12Medium,
+            ),
+            const SizedBox(width: 8),
+            const Icon(
               Icons.keyboard_arrow_down,
               color: AppColors.white,
               size: 20,
             ),
-          ),
-          dropdownColor: AppColors.darkGray,
-          style: Styles.style12Medium,
-          items: filters.map((filter) {
-            return DropdownMenuItem<DeviceFilter>(
-              value: filter,
-              child: Text(
-                switch (filter) {
-                  DeviceFilter.all => S.of(context).homeAllDevices,
-                  DeviceFilter.sensors => S.of(context).homeSensors,
-                  DeviceFilter.actuators => S.of(context).homeActuators,
-                },
-                style: Styles.style12Medium,
-              ),
-            );
-          }).toList(),
-          onChanged: onChanged,
+          ],
         ),
       ),
+      itemBuilder: (context) {
+        return filters.map((filter) {
+          return PopupMenuItem<DeviceFilter>(
+            value: filter,
+            child: Text(
+              _getFilterText(context, filter),
+              style: Styles.style12Medium,
+            ),
+          );
+        }).toList();
+      },
     );
   }
 }
