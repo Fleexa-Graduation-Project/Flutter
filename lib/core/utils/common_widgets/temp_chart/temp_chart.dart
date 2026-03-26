@@ -1,18 +1,22 @@
-import 'package:fleexa/Features/devices/actuators/ac/data/dummy_chart_data.dart';
-import 'package:fleexa/Features/devices/actuators/ac/data/temp_chart_data.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../constants/styles.dart';
+import '../../constants/app_strings.dart';
+import '../../constants/styles.dart';
+import 'data/dummy_data.dart';
+import 'data/model/temp_stats.dart';
 
 class TempChart extends StatelessWidget {
-  const TempChart({super.key});
+  const TempChart({super.key, required this.range});
+
+  final TimeRange range;
 
   @override
   Widget build(BuildContext context) {
     return SfCartesianChart(
+      key: ValueKey(range),
       plotAreaBorderWidth: 0,
       plotAreaBorderColor: Colors.transparent,
 
@@ -27,7 +31,7 @@ class TempChart extends StatelessWidget {
         majorTickLines:
             const MajorTickLines(size: 12, color: Colors.transparent),
         axisLabelFormatter: (AxisLabelRenderDetails args) {
-          return ChartAxisLabel('${args.text}h', args.textStyle);
+          return ChartAxisLabel(args.text, args.textStyle);
         },
         majorGridLines: MajorGridLines(
           width: 1,
@@ -53,6 +57,7 @@ class TempChart extends StatelessWidget {
         ),
         labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
       ),
+
       legend: Legend(
         isVisible: true,
         position: LegendPosition.bottom,
@@ -61,11 +66,11 @@ class TempChart extends StatelessWidget {
         textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
       ),
       series: <CartesianSeries>[
-        SplineSeries<TempChartData, String>(
+        LineSeries<TempStats, String>(
           name: S.of(context).temperature,
-          dataSource: tempchartData,
-          xValueMapper: (TempChartData data, _) => data.time,
-          yValueMapper: (TempChartData data, _) => data.temp,
+          dataSource: getTempStats(range),
+          xValueMapper: (TempStats data, _) => data.timeLabel,
+          yValueMapper: (TempStats data, _) => data.temperature,
 
           // Line Styling
           color: AppColors.crimsonRed,

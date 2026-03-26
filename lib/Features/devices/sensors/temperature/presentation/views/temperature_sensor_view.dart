@@ -7,8 +7,7 @@ import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../core/utils/common_widgets/insight_card.dart';
-import '../../../../../../core/utils/common_widgets/temp_chart.dart';
+import '../../../../../../core/utils/common_widgets/temp_chart/temp_insight_card.dart';
 
 class TemperatureSensorView extends StatelessWidget {
   const TemperatureSensorView({super.key});
@@ -39,13 +38,7 @@ class TemperatureSensorView extends StatelessWidget {
                   style: Styles.style18Medium,
                 ),
                 const SizedBox(height: 20),
-                InsightCard(
-                  title: S.of(context).tempPerformance,
-                  insight: const TempChart(),
-                  duration: S.of(context).filterLast24h,
-                ),
-                // const SizedBox(height: 20),
-                // const TemperatureChart()
+                const TempInsightCard(),
               ],
             ),
           ),

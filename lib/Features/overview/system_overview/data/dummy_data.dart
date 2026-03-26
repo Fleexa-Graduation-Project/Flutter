@@ -4,7 +4,22 @@ import '../../../../core/utils/constants/app_strings.dart';
 import 'models/energy_stats.dart';
 
 List<DailyAlertStats> getWeeklyStats(TimeRange range) {
-  if (range == TimeRange.lastMonth) {
+  if (range == TimeRange.lastDay) {
+    return [
+      DailyAlertStats(dayName: '00:00', warningCount: 0, criticalCount: 0),
+      DailyAlertStats(dayName: '02:00', warningCount: 2, criticalCount: 0),
+      DailyAlertStats(dayName: '04:00', warningCount: 2, criticalCount: 0),
+      DailyAlertStats(dayName: '06:00', warningCount: 2, criticalCount: 0),
+      DailyAlertStats(dayName: '08:00', warningCount: 2, criticalCount: 0),
+      DailyAlertStats(dayName: '10:00', warningCount: 3, criticalCount: 0),
+      DailyAlertStats(dayName: '12:00', warningCount: 3, criticalCount: 1),
+      DailyAlertStats(dayName: '14:00', warningCount: 3, criticalCount: 1),
+      DailyAlertStats(dayName: '16:00', warningCount: 4, criticalCount: 2),
+      DailyAlertStats(dayName: '18:00', warningCount: 4, criticalCount: 2),
+      DailyAlertStats(dayName: '20:00', warningCount: 4, criticalCount: 2),
+      DailyAlertStats(dayName: '22:00', warningCount: 4, criticalCount: 2),
+    ];
+  } else if (range == TimeRange.lastMonth) {
     return [
       DailyAlertStats(dayName: 'W1', warningCount: 10, criticalCount: 5),
       DailyAlertStats(dayName: 'W2', warningCount: 15, criticalCount: 8),
@@ -26,7 +41,22 @@ List<DailyAlertStats> getWeeklyStats(TimeRange range) {
 }
 
 List<EnergyStats> getEnergyStats(TimeRange range) {
-  if (range == TimeRange.lastMonth) {
+  if (range == TimeRange.lastDay) {
+    return [
+      EnergyStats(label: '00:00', value: 1),
+      EnergyStats(label: '02:00', value: 3),
+      EnergyStats(label: '04:00', value: 3),
+      EnergyStats(label: '06:00', value: 5),
+      EnergyStats(label: '08:00', value: 5.5),
+      EnergyStats(label: '10:00', value: 6),
+      EnergyStats(label: '12:00', value: 10),
+      EnergyStats(label: '14:00', value: 12),
+      EnergyStats(label: '16:00', value: 15),
+      EnergyStats(label: '18:00', value: 18),
+      EnergyStats(label: '20:00', value: 20),
+      EnergyStats(label: '22:00', value: 22),
+    ];
+  } else if (range == TimeRange.lastMonth) {
     // 4 Weeks Data
     return [
       EnergyStats(label: 'Week 1', value: 25.5),
