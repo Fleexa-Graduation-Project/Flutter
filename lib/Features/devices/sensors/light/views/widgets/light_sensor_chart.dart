@@ -1,17 +1,27 @@
+import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/generated/l10n.dart';
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:fleexa/Features/devices/sensors/light/data/dummy_data.dart';
 import 'package:fleexa/Features/devices/sensors/light/data/model/light_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
-import 'package:fleexa/generated/l10n.dart';
-import 'package:flutter/material.dart';
-import 'package:syncfusion_flutter_charts/charts.dart';
 
 class LightSensorChart extends StatelessWidget {
-  const LightSensorChart({super.key});
+  final TimeRange range;
+
+  const LightSensorChart({
+    super.key,
+    required this.range,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final data = getLightData(range);
+
     return SfCartesianChart(
+      key: ValueKey(range), // important
+
       legend: Legend(
         isVisible: true,
         position: LegendPosition.bottom,
@@ -19,17 +29,18 @@ class LightSensorChart extends StatelessWidget {
         iconWidth: 12,
         textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
       ),
+
       plotAreaBorderWidth: 0,
       plotAreaBorderColor: Colors.transparent,
 
-      // X-Axis (Time)
+      /// X Axis
       primaryXAxis: CategoryAxis(
         interval: 1,
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
-        axisLabelFormatter: (AxisLabelRenderDetails args) {
+        axisLabelFormatter: (args) {
           return ChartAxisLabel(args.text, args.textStyle);
         },
         majorGridLines: MajorGridLines(
@@ -38,10 +49,9 @@ class LightSensorChart extends StatelessWidget {
           dashArray: const [5, 5],
         ),
         majorTickLines: const MajorTickLines(size: 0),
-        labelPlacement: LabelPlacement.onTicks,
       ),
 
-      // Y-Axis (Gas Level)
+      /// Y Axis
       primaryYAxis: NumericAxis(
         minimum: 0,
         maximum: 800,
@@ -56,18 +66,16 @@ class LightSensorChart extends StatelessWidget {
         axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
         tickPosition: TickPosition.inside,
       ),
+
+      /// Series
       series: <CartesianSeries>[
         LineSeries<LightChartModel, String>(
-          dataSource: lightChartData,
+          dataSource: data,
           name: S.of(context).unitLuxText,
-
-          xValueMapper: (LightChartModel data, _) => data.time,
-          yValueMapper: (LightChartModel data, _) => data.luxLevel,
-          // Line Styling
+          xValueMapper: (data, _) => data.time,
+          yValueMapper: (data, _) => data.luxLevel,
           color: AppColors.crimsonRed,
           width: 2,
-
-          // The small dots on the line
           markerSettings: const MarkerSettings(
             isVisible: true,
             height: 4,
