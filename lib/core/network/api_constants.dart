@@ -1,5 +1,6 @@
 class ApiConstants {
-  static const String baseUrl = 'http://localhost:8080/api/v1';
+  static const String baseUrl =
+      'https://1650c4e9-95fc-4d60-bba1-bb27851caaaf.mock.pstmn.io/api/v1';
 
   // System & Device Endpoints
   static const String systemOverview = "/system/overview";
