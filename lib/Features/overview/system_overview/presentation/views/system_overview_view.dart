@@ -14,6 +14,7 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+
 class SystemOverviewView extends StatelessWidget {
   const SystemOverviewView({super.key});
 
@@ -46,24 +47,17 @@ class SystemOverviewView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SystemOverviewHeader(),
-
                         const SizedBox(height: 18),
-
-                        
                         SystemStatusCard(
                           systemStatus: data.systemStatus,
                           devicesOnline: data.devicesOnline,
                         ),
-
                         const SizedBox(height: 32),
-
                         Text(
                           S.of(context).labelInsights,
                           style: Styles.style18Medium,
                         ),
-
                         const SizedBox(height: 24),
-
                         HorizontalCardScroller(
                           height: 340,
                           cards: [
@@ -75,20 +69,14 @@ class SystemOverviewView extends StatelessWidget {
                             ),
                           ],
                         ),
-
                         const SizedBox(height: 32),
-
                         Text(
                           S.of(context).labelSummaries,
                           style: Styles.style18Medium,
                         ),
-
                         const SizedBox(height: 24),
-
                         const GasSensorOverview(),
-
                         const SizedBox(height: 24),
-
                         const DevicesGrid(),
                       ],
                     ),

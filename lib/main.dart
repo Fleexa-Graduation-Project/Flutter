@@ -79,6 +79,7 @@ class Fleexa extends StatelessWidget {
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(),
         ),
+      
       ],
       child: BlocBuilder<LocalizationCubit, Locale>(builder: (context, locale) {
         return ScreenUtilInit(
