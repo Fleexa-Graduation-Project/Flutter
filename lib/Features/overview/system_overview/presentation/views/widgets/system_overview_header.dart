@@ -19,7 +19,7 @@ class SystemOverviewHeader extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         Text(
-          formatDate(DateTime.now()), // Thu, 18 Dec
+          formatDate(DateTime.now()), 
           style: Styles.style12Medium.copyWith(color: AppColors.coolGray),
         )
       ],

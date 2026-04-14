@@ -1,5 +1,5 @@
 import 'package:fleexa/Features/overview/home/views/home_view.dart';
-import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:flutter/material.dart';
 

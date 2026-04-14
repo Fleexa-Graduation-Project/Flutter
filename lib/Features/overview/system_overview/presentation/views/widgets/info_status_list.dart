@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fleexa/Features/overview/system_overview/data/models/info_status_model.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/info_status_row.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/info_status_row.dart';
 
 class InfoStatusList extends StatelessWidget {
   final List<InfoStatusModel> items;

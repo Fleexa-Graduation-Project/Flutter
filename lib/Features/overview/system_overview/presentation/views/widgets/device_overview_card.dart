@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/overview/system_overview/data/models/device_model.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/card_label_value.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/device_card.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/card_label_value.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/device_card.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

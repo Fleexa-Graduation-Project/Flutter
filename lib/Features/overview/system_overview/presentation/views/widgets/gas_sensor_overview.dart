@@ -1,5 +1,5 @@
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/gas_sensor_gauge.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/gas_sensor_gauge.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
