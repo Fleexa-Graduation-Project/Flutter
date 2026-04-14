@@ -6,8 +6,8 @@ import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/t
 import 'package:fleexa/Features/overview/main_overview_view.dart';
 import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
     show SystemOverviewView;
-import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_control_view.dart';
-import 'package:fleexa/Features/devices/actuators/door_lock/views/door_lock_details_view.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_control_view.dart';
+import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_details_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_account_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
@@ -19,8 +19,8 @@ import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
-import '../../Features/devices/actuators/ac/views/ac_control_view.dart';
-import '../../Features/devices/actuators/ac/views/ac_details_view.dart';
+import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
+import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
 import '../../Features/overview/notifications/views/notifications_view.dart';
 

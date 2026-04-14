@@ -38,6 +38,7 @@ dependencies:
   path_provider: ^2.1.5
   bloc: ^9.2.0
   flutter_bloc: ^9.1.1
+  dio: ^5.9.2
 
 dev_dependencies:
   flutter_lints: ^5.0.0
