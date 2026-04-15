@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../core/utils/constants/app_colors.dart';
-import '../../../../../core/utils/constants/styles.dart';
+import '../../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../../core/utils/constants/styles.dart';
 
 class SensorDeviceCardFooter extends StatelessWidget {
   const SensorDeviceCardFooter({

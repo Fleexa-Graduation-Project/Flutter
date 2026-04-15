@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/constants/app_strings.dart';
-import '../../../../../core/utils/constants/styles.dart';
-import '../../../../../generated/l10n.dart';
+import '../../../../../../core/utils/constants/app_strings.dart';
+import '../../../../../../core/utils/constants/styles.dart';
+import '../../../../../../generated/l10n.dart';
 import 'devices_filter_dropdown.dart';
 
 class DevicesSectionHeader extends StatelessWidget {

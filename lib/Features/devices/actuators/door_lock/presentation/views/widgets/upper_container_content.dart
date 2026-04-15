@@ -4,7 +4,7 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../../../../overview/home/views/widgets/custom_switch.dart';
+import '../../../../../../overview/home/presentation/views/widgets/custom_switch.dart';
 
 class UpperContainerContent extends StatelessWidget {
   const UpperContainerContent({

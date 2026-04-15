@@ -1,5 +1,5 @@
-import 'package:fleexa/Features/overview/home/views/widgets/device_card_list.dart';
-import 'package:fleexa/Features/overview/home/views/widgets/home_appbar.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 

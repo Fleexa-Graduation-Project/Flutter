@@ -1,8 +1,8 @@
-import 'package:fleexa/Features/overview/home/views/widgets/home_appbar_welcoming.dart';
-import 'package:fleexa/Features/overview/home/views/widgets/top_appbar_action_row.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar_welcoming.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/top_appbar_action_row.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../../core/utils/constants/app_colors.dart';
 
 class HomeAppbar extends StatelessWidget {
   const HomeAppbar({super.key});

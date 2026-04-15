@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/home/views/widgets/device_card.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';

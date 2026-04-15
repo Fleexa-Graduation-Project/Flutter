@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/utils/constants/app_colors.dart';
-import '../../../../../core/utils/constants/styles.dart';
+import '../../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../../core/utils/constants/styles.dart';
 
 class DeviceCardContent extends StatelessWidget {
   const DeviceCardContent({

@@ -1,7 +1,7 @@
-import 'package:fleexa/Features/overview/home/views/widgets/custom_switch.dart';
-import 'package:fleexa/Features/overview/home/views/widgets/device_card_content.dart';
-import 'package:fleexa/Features/overview/home/views/widgets/device_card_header.dart';
-import 'package:fleexa/Features/overview/home/views/widgets/sensor_device_card_footer.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/custom_switch.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_content.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_header.dart';
+import 'package:fleexa/Features/overview/home/presentation/views/widgets/sensor_device_card_footer.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
