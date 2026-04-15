@@ -19,5 +19,16 @@ enum ACMode { cooling, heating, fanOnly, dry }
 enum ACControlType { manual, auto }
 
 enum TimeRange { lastDay, lastWeek, lastMonth }
-
+extension TimeRangeExtension on TimeRange {
+  String get apiValue {
+    switch (this) {
+      case TimeRange.lastDay:
+        return '24h';
+      case TimeRange.lastWeek:
+        return '7d';
+      case TimeRange.lastMonth:
+        return '1m';
+    }
+  }
+}
 enum PickerMode { duration, time }

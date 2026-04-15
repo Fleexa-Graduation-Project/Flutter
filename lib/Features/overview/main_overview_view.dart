@@ -1,9 +1,14 @@
 import 'package:fleexa/Features/overview/home/data/repos/devices_repository.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
+import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/manager/Energy_cubit/energy_cubit.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/manager/alerts_chart_cubit/alerts_chart_cubit.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/core/network/api_service.dart';
+import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -54,6 +59,20 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) =>
+              SystemOverviewCubit(SystemOverviewRepository(APiService()))
+                ..getOverview(period: TimeRange.lastWeek.apiValue),
+        ),
+        BlocProvider(
+          create: (context) =>
+              AlertsChartCubit(SystemOverviewRepository(APiService()))
+                ..getAlertsChart(period: TimeRange.lastWeek.apiValue),
+        ),
+        BlocProvider(
+            create: (context) =>
+                EnergyCubit(SystemOverviewRepository(APiService()))
+                  ..getEnergy(period: TimeRange.lastWeek.apiValue)),
         BlocProvider<DevicesCubit>(
           create: (context) =>
               DevicesCubit(DevicesRepository(APiService()))..fetchDevices(),
