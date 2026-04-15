@@ -5,8 +5,8 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../../../core/utils/constants/styles.dart';
-import '../../../data/models/daily_alert_stats.dart';
+import '../../../../../../../core/utils/constants/styles.dart';
+import '../../../../data/models/daily_alert_stats.dart';
 
 class AlertWarningChart extends StatelessWidget {
   const AlertWarningChart({super.key, required this.range});

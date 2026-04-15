@@ -1,5 +1,5 @@
 import 'package:fleexa/Features/overview/system_overview/data/models/device_model.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/device_overview_card.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/device_overview_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/generated/l10n.dart';

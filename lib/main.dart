@@ -23,6 +23,15 @@ void main() async {
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(directory.path),
   );
+
+//  var data= await SystemOverviewRepository(APiService()).getSystemOverview(period: '7d');
+//   debugPrint("Fetched System Overview Data:");
+//   debugPrint("System Status: ${data.systemStatus}");
+//   debugPrint("Devices Online: ${data.devicesOnline}");
+//   debugPrint("Energy Consumption: ${data.energyConsumption.length}");
+//   debugPrint("Alerts Chart - Warning Points: ${data.alertsChart.warning.length}");
+//   debugPrint("Alerts Chart - Critical Points: ${data.alertsChart.critical.length}");
+
   runApp(const Fleexa());
 }
 
@@ -70,6 +79,7 @@ class Fleexa extends StatelessWidget {
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(),
         ),
+      
       ],
       child: BlocBuilder<LocalizationCubit, Locale>(builder: (context, locale) {
         return ScreenUtilInit(

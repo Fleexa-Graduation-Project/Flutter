@@ -1,22 +1,24 @@
 import 'package:fleexa/Features/overview/system_overview/data/models/info_status_model.dart';
-import 'package:fleexa/Features/overview/system_overview/views/widgets/info_status_list.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/info_status_list.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SystemStatusCard extends StatelessWidget {
-  const SystemStatusCard({super.key});
+  const SystemStatusCard({super.key, required this.systemStatus, required this.devicesOnline});
 
+  final String systemStatus;
+  final String devicesOnline;
   @override
   Widget build(BuildContext context) {
     final infoItems = [
       InfoStatusModel(
         title: S.of(context).labelSystemStatus,
-        description: S.of(context).statusConnected,
+        description: systemStatus,
       ),
       InfoStatusModel(
         title: S.of(context).labelDevicesOnline,
-        description: "",
+        description: devicesOnline,
       ),
     ];
 

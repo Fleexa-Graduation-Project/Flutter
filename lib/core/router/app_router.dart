@@ -4,7 +4,7 @@ import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_sensor_view.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/temperature_sensor_view.dart';
 import 'package:fleexa/Features/overview/main_overview_view.dart';
-import 'package:fleexa/Features/overview/system_overview/views/system_overview_view.dart'
+import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart'
     show SystemOverviewView;
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_control_view.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_details_view.dart';

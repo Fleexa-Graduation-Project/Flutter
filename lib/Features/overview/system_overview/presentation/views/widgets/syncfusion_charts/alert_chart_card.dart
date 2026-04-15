@@ -1,14 +1,15 @@
+import 'package:fleexa/Features/overview/system_overview/data/models/alerts_chart.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../generated/l10n.dart';
+import '../../../../../../../generated/l10n.dart';
 import 'alert_warning_chart.dart';
-import '../../../../../../core/utils/common_widgets/system_chart_card.dart';
+import '../../../../../../../core/utils/common_widgets/system_chart_card.dart';
 
 class AlertChartCard extends StatefulWidget {
-  const AlertChartCard({super.key});
-
+  const AlertChartCard({super.key,required this.alertsChart});
+  final AlertsChart alertsChart;
   @override
   State<AlertChartCard> createState() => _AlertChartCardState();
 }

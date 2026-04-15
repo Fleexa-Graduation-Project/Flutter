@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../../../core/utils/constants/app_colors.dart';
-import '../../../../../../core/utils/constants/styles.dart';
-import '../../../data/dummy_data.dart';
-import '../../../data/models/energy_stats.dart';
+import '../../../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../../../core/utils/constants/styles.dart';
+import '../../../../data/dummy_data.dart';
+import '../../../../data/models/energy_stats.dart';
 
 class EnergyConsumptionChart extends StatelessWidget {
   const EnergyConsumptionChart({super.key, required this.range});
