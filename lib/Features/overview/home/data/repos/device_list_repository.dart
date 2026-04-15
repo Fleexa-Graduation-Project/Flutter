@@ -1,12 +1,12 @@
 import 'dart:convert';
-import 'package:fleexa/Features/overview/home/data/models/device_model.dart';
+import 'package:fleexa/Features/devices/data/models/device_model.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:fleexa/core/network/api_service.dart';
 
-class DevicesRepository {
+class DeviceListRepository {
   final APiService aPiService;
 
-  DevicesRepository(this.aPiService);
+  DeviceListRepository(this.aPiService);
 
   Future<List<DeviceModel>> getAllDevices() async {
     try {

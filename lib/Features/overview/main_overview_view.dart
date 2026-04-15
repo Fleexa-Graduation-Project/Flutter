@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/overview/home/data/repos/devices_repository.dart';
+import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
@@ -75,7 +75,7 @@ class _MainOverviewViewState extends State<MainOverviewView> {
                   ..getEnergy(period: TimeRange.lastWeek.apiValue)),
         BlocProvider<DevicesCubit>(
           create: (context) =>
-              DevicesCubit(DevicesRepository(APiService()))..fetchDevices(),
+              DevicesCubit(DeviceListRepository(APiService()))..fetchDevices(),
         ),
       ],
       child: Scaffold(

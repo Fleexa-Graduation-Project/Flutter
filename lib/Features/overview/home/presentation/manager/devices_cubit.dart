@@ -1,12 +1,12 @@
-import 'package:fleexa/Features/overview/home/data/models/device_model.dart';
-import 'package:fleexa/Features/overview/home/data/repos/devices_repository.dart';
+import 'package:fleexa/Features/devices/data/models/device_model.dart';
+import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constants/app_strings.dart';
 import 'devices_state.dart';
 
 class DevicesCubit extends Cubit<DevicesState> {
-  final DevicesRepository repository;
+  final DeviceListRepository repository;
 
   List<DeviceModel> _allDevices = [];
 
