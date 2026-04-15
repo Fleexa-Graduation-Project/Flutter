@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/devices/data/models/device_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 
 abstract class DevicesState {}

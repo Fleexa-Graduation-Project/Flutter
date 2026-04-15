@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/devices/data/models/device_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -4,7 +4,7 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../devices/data/models/device_model.dart';
+import '../../../../../devices/shared/data/models/device_model.dart';
 
 class DeviceCardList extends StatelessWidget {
   const DeviceCardList({

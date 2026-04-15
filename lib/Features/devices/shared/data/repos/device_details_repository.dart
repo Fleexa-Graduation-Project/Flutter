@@ -1,7 +1,7 @@
 import 'dart:convert';
 
-import 'package:fleexa/Features/devices/data/models/device_model.dart';
-import 'package:fleexa/Features/devices/data/models/telemetry_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:fleexa/core/network/api_service.dart';
 
