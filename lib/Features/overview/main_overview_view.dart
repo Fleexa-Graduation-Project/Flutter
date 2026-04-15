@@ -1,7 +1,11 @@
+import 'package:fleexa/Features/overview/home/data/repos/devices_repository.dart';
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
+import 'package:fleexa/core/network/api_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'widgets/custom_bottom_nav_bar.dart';
 
@@ -48,16 +52,24 @@ class _MainOverviewViewState extends State<MainOverviewView> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: PageView(
-        controller: _pageController,
-        onPageChanged: _onPageChanged,
-        physics: const BouncingScrollPhysics(),
-        children: _screens,
-      ),
-      bottomNavigationBar: CustomBottomNavBar(
-        currentIndex: _currentIndex,
-        onTap: _onItemTapped,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<DevicesCubit>(
+          create: (context) =>
+              DevicesCubit(DevicesRepository(APiService()))..fetchDevices(),
+        ),
+      ],
+      child: Scaffold(
+        body: PageView(
+          controller: _pageController,
+          onPageChanged: _onPageChanged,
+          physics: const BouncingScrollPhysics(),
+          children: _screens,
+        ),
+        bottomNavigationBar: CustomBottomNavBar(
+          currentIndex: _currentIndex,
+          onTap: _onItemTapped,
+        ),
       ),
     );
   }

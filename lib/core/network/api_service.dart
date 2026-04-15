@@ -23,7 +23,7 @@ class APiService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // TODO: Fetch saved token from secure storage
+          // TODO: Fetch saved token from secure storage 
           String? token = "the_saved_token";
           if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';

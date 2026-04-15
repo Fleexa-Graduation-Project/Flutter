@@ -1,6 +1,4 @@
-// import 'package:dio/dio.dart';
 import 'package:fleexa/core/cubits/localization_cubit.dart';
-// import 'package:fleexa/core/network/api_service.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/core/router/app_router.dart';
@@ -12,62 +10,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 
-// import 'core/network/api_constants.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final directory = await getApplicationDocumentsDirectory();
-
-  // await testPostmanConnection();
 
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(directory.path),
   );
 
-//  var data= await SystemOverviewRepository(APiService()).getSystemOverview(period: '7d');
-//   debugPrint("Fetched System Overview Data:");
-//   debugPrint("System Status: ${data.systemStatus}");
-//   debugPrint("Devices Online: ${data.devicesOnline}");
-//   debugPrint("Energy Consumption: ${data.energyConsumption.length}");
-//   debugPrint("Alerts Chart - Warning Points: ${data.alertsChart.warning.length}");
-//   debugPrint("Alerts Chart - Critical Points: ${data.alertsChart.critical.length}");
-
   runApp(const Fleexa());
 }
-
-// Future<void> testPostmanConnection() async {
-//   debugPrint("=========================================");
-//   debugPrint("🚀 INITIATING POSTMAN MOCK SERVER TEST...");
-//   debugPrint("=========================================");
-
-//   try {
-//     // 1. Instantiate your service
-//     final apiService = APiService();
-
-//     // 2. Fetch the System Overview endpoint
-//     debugPrint(
-//         "⏳ Fetching data from: ${ApiConstants.baseUrl}${ApiConstants.systemOverview}");
-//     final response = await apiService.get(ApiConstants.systemOverview);
-
-//     // 3. Print the results
-//     debugPrint("✅ SUCCESS! Connection established.");
-//     debugPrint("📦 DATA RECEIVED:");
-//     debugPrint(response.data);
-//   } on DioException catch (e) {
-//     // This catches specific network/Dio errors
-//     debugPrint("❌ DIO ERROR: Network request failed.");
-//     debugPrint("Message: ${e.message}");
-//     if (e.response != null) {
-//       debugPrint("Status Code: ${e.response?.statusCode}");
-//       debugPrint("Error Data: ${e.response?.data}");
-//     }
-//   } catch (e) {
-//     // This catches any other random errors
-//     debugPrint("❌ UNKNOWN ERROR:");
-//     debugPrint(e.toString());
-//   }
-//   debugPrint("=========================================");
-// }
 
 class Fleexa extends StatelessWidget {
   const Fleexa({super.key});
@@ -79,7 +31,6 @@ class Fleexa extends StatelessWidget {
         BlocProvider<LocalizationCubit>(
           create: (context) => LocalizationCubit(),
         ),
-      
       ],
       child: BlocBuilder<LocalizationCubit, Locale>(builder: (context, locale) {
         return ScreenUtilInit(
@@ -118,3 +69,37 @@ class Fleexa extends StatelessWidget {
     );
   }
 }
+
+// Future<void> testPostmanConnection() async {
+//   debugPrint("=========================================");
+//   debugPrint("🚀 INITIATING POSTMAN MOCK SERVER TEST...");
+//   debugPrint("=========================================");
+
+//   try {
+//     // 1. Instantiate your service
+//     final apiService = APiService();
+
+//     // 2. Fetch the System Overview endpoint
+//     debugPrint(
+//         "⏳ Fetching data from: ${ApiConstants.baseUrl}${ApiConstants.systemOverview}");
+//     final response = await apiService.get(ApiConstants.systemOverview);
+
+//     // 3. Print the results
+//     debugPrint("✅ SUCCESS! Connection established.");
+//     debugPrint("📦 DATA RECEIVED:");
+//     debugPrint(response.data);
+//   } on DioException catch (e) {
+//     // This catches specific network/Dio errors
+//     debugPrint("❌ DIO ERROR: Network request failed.");
+//     debugPrint("Message: ${e.message}");
+//     if (e.response != null) {
+//       debugPrint("Status Code: ${e.response?.statusCode}");
+//       debugPrint("Error Data: ${e.response?.data}");
+//     }
+//   } catch (e) {
+//     // This catches any other random errors
+//     debugPrint("❌ UNKNOWN ERROR:");
+//     debugPrint(e.toString());
+//   }
+//   debugPrint("=========================================");
+// }

@@ -1,8 +1,12 @@
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
-import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/constants/app_colors.dart';
+import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';
 
 class HomeView extends StatefulWidget {
@@ -13,7 +17,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  DeviceFilter currentFilter = DeviceFilter.all;
   bool isDoorOpen = true;
   bool isAcOn = true;
 
@@ -21,51 +24,65 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: 24,
-              left: 24,
-              right: 24,
-              bottom: 8,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const HomeAppbar(),
-                const SizedBox(height: 12),
-                DevicesSectionHeader(
-                  currentFilter: currentFilter,
-                  onFilterChanged: (value) {
-                    if (value != null) {
-                      setState(() {
-                        currentFilter = value;
-                      });
-                    }
-                  },
-                ),
-                const SizedBox(height: 24),
-                Expanded(
-                  child: DeviceCardList(
-                    filterType: currentFilter,
-                    isDoorOpen: isDoorOpen,
-                    onDoorToggle: (value) {
-                      setState(() {
-                        isDoorOpen = value;
-                      });
-                    },
-                    isAcOn: isAcOn,
-                    onAcToggle: (value) {
-                      setState(() {
-                        isAcOn = value;
-                      });
-                    },
+        child: BlocBuilder<DevicesCubit, DevicesState>(
+          builder: (context, state) {
+            if (state is DevicesLoading || state is DevicesInitial) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (state is DevicesError) {
+              return Center(
+                  child: Text(
+                state.message,
+                style:
+                    Styles.style20Medium.copyWith(color: AppColors.crimsonRed),
+              ));
+            } else if (state is DevicesLoaded) {
+              return Center(
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 24,
+                    left: 24,
+                    right: 24,
+                    bottom: 8,
+                  ),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const HomeAppbar(),
+                      const SizedBox(height: 12),
+                      DevicesSectionHeader(
+                        currentFilter: state.currentFilter,
+                        onFilterChanged: (value) {
+                          if (value != null) {
+                            context.read<DevicesCubit>().filterDevices(value);
+                          }
+                        },
+                      ),
+                      const SizedBox(height: 24),
+                      Expanded(
+                        child: DeviceCardList(
+                          devices: state.devices,
+                          isDoorOpen: isDoorOpen,
+                          onDoorToggle: (value) {
+                            setState(() {
+                              isDoorOpen = value;
+                            });
+                          },
+                          isAcOn: isAcOn,
+                          onAcToggle: (value) {
+                            setState(() {
+                              isAcOn = value;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-              ],
-            ),
-          ),
+              );
+            }
+            return const SizedBox();
+          },
         ),
       ),
     );
