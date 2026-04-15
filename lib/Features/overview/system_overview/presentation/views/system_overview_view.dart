@@ -1,4 +1,3 @@
-import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_state.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/syncfusion_charts/alert_chart_card.dart';
@@ -8,7 +7,6 @@ import 'package:fleexa/Features/overview/system_overview/presentation/views/widg
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/horizontal_card_scroller.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_overview_header.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_status_card.dart';
-import 'package:fleexa/core/network/api_service.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -53,10 +51,10 @@ class SystemOverviewView extends StatelessWidget {
                         style: Styles.style18Medium,
                       ),
                       const SizedBox(height: 24),
-                      HorizontalCardScroller(
+                      const HorizontalCardScroller(
                         height: 340,
                         cards: [
-                          const AlertChartCard(),
+                          AlertChartCard(),
                           EnergyChartCard(
                            
                           ),

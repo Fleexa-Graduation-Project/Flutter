@@ -1,7 +1,5 @@
 
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/Energy_cubit/energy_cubit.dart';
-import 'package:fleexa/Features/overview/system_overview/presentation/manager/alerts_chart_cubit/alerts_chart_cubit.dart';
-import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';

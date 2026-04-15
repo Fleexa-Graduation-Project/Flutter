@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:fleexa/Features/overview/system_overview/data/models/system_overview_model.dart';
-import 'package:fleexa/Features/overview/system_overview/data/models/alerts_chart.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:fleexa/core/network/api_service.dart';
 
