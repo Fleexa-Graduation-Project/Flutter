@@ -39,6 +39,8 @@ dependencies:
   bloc: ^9.2.0
   flutter_bloc: ^9.1.1
   dio: ^5.9.2
+  get_it: ^9.2.1
+  meta: ^1.16.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0

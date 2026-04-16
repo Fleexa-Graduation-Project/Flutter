@@ -7,8 +7,8 @@ import 'package:fleexa/Features/overview/system_overview/presentation/manager/al
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
-import 'package:fleexa/core/network/api_service.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -61,21 +61,20 @@ class _MainOverviewViewState extends State<MainOverviewView> {
       providers: [
         BlocProvider(
           create: (context) =>
-              SystemOverviewCubit(SystemOverviewRepository(APiService()))
+              SystemOverviewCubit(getIt<SystemOverviewRepository>())
                 ..getOverview(period: TimeRange.lastWeek.apiValue),
         ),
         BlocProvider(
           create: (context) =>
-              AlertsChartCubit(SystemOverviewRepository(APiService()))
+              AlertsChartCubit(getIt<SystemOverviewRepository>())
                 ..getAlertsChart(period: TimeRange.lastWeek.apiValue),
         ),
         BlocProvider(
-            create: (context) =>
-                EnergyCubit(SystemOverviewRepository(APiService()))
-                  ..getEnergy(period: TimeRange.lastWeek.apiValue)),
+            create: (context) => EnergyCubit(getIt<SystemOverviewRepository>())
+              ..getEnergy(period: TimeRange.lastWeek.apiValue)),
         BlocProvider<DevicesCubit>(
           create: (context) =>
-              DevicesCubit(DeviceListRepository(APiService()))..fetchDevices(),
+              DevicesCubit(getIt<DeviceListRepository>())..fetchDevices(),
         ),
       ],
       child: Scaffold(

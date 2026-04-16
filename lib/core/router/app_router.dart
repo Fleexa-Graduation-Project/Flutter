@@ -3,6 +3,8 @@ import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_sensor_view.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/temperature_sensor_view.dart';
+import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
 import 'package:fleexa/Features/overview/main_overview_view.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart'
     show SystemOverviewView;
@@ -15,6 +17,8 @@ import 'package:fleexa/Features/settings/presentation/views/settings_profile_vie
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
+import 'package:fleexa/core/utils/service_locator.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
@@ -165,7 +169,12 @@ class AppRouter {
       GoRoute(
         path: '/light-sensor',
         name: lightSensor,
-        builder: (context, state) => const LightSensorView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) =>
+              DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                ..loadDeviceData('light-sensor-01'),
+          child: const LightSensorView(),
+        ),
       ),
     ],
   );
