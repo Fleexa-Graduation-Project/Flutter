@@ -3,13 +3,13 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../constants/app_strings.dart';
-import '../../constants/styles.dart';
-import 'data/dummy_data.dart';
-import 'data/model/temp_stats.dart';
+import '../../../../../../../core/utils/constants/app_strings.dart';
+import '../../../../../../../core/utils/constants/styles.dart';
+import '../../../../../../../core/utils/common_widgets/temp_chart/data/dummy_data.dart';
+import '../../../../../../../core/utils/common_widgets/temp_chart/data/model/temp_stats.dart';
 
-class TempChart extends StatelessWidget {
-  const TempChart({super.key, required this.range});
+class AcChart extends StatelessWidget {
+  const AcChart({super.key, required this.range});
 
   final TimeRange range;
 

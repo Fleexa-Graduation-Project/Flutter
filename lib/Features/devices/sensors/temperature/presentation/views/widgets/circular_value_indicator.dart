@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 class CircularValueIndicator extends StatelessWidget {
   const CircularValueIndicator({
     super.key,
+    required this.value,
   });
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +44,7 @@ class CircularValueIndicator extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                S.of(context).acValue,
+                value.toString(),
                 style: Styles.style28SemiBold,
               ),
               const SizedBox(height: 4),

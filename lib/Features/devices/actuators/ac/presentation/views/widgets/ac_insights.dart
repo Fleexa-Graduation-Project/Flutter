@@ -1,5 +1,6 @@
+import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_insight_card.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_insight_usage.dart';
-import 'package:fleexa/core/utils/common_widgets/temp_chart/temp_insight_card.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/temp_insight_card.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../../../../core/utils/constants/styles.dart';
@@ -18,7 +19,7 @@ class AcInsights extends StatelessWidget {
           style: Styles.style18Medium,
         ),
         const SizedBox(height: 20),
-        const TempInsightCard(),
+        const ACInsightCard(),
         const SizedBox(height: 24),
         const AcInsightUsage(),
       ],

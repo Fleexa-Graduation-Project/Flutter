@@ -2,6 +2,10 @@ import 'package:fleexa/Features/auth/presentation/views/change_password_view.dar
 import 'package:fleexa/Features/auth/presentation/views/reset_password_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/verify_code_view.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_sensor_view.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/data/repos/temp_repository.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/manager/temp_cubit/temp_cubit.dart';
+import 'package:fleexa/Features/devices/sensors/temperature/presentation/manager/temp_telemetry_cubit/temp_telemetry_cubit.dart';
+
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/temperature_sensor_view.dart';
 import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
@@ -17,6 +21,7 @@ import 'package:fleexa/Features/settings/presentation/views/settings_profile_vie
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
+import 'package:fleexa/core/network/api_service.dart';
 import 'package:fleexa/core/utils/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -154,9 +159,25 @@ class AppRouter {
         builder: (context, state) => const AcDetailsView(),
       ),
       GoRoute(
+        name: AppRouter.temperatureSensor,
         path: '/temperature-sensor',
-        name: temperatureSensor,
-        builder: (context, state) => const TemperatureSensorView(),
+        builder: (context, state) {
+          final repo = TempRepository(APiService());
+
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    TempCubit(repo)..getDevice("temp-sensor-01"),
+              ),
+              BlocProvider(
+                create: (context) => TempTelemetryCubit(repo)
+                  ..getTelemetry("temp-sensor-01", "1h"),
+              ),
+            ],
+            child: const TemperatureSensorView(),
+          );
+        },
       ),
       GoRoute(
         path: '/notifications',

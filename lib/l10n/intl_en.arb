@@ -46,6 +46,7 @@
   "//": "--- Status & Alerts ---",
   "currentStatus": "Current Status",
   "statusConnected": "Connected",
+  
   "statusDisconnected": "Disconnected",
   "statusWarning": "Warning",
   "statusSafe": "Safe",
