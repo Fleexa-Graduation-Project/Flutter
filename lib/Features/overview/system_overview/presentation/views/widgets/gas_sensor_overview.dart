@@ -11,6 +11,7 @@ class GasSensorOverview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
+      
         child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: Row(

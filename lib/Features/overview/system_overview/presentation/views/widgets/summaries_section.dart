@@ -1,10 +1,11 @@
 import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
+import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_state.dart';
-
+import 'package:go_router/go_router.dart';
 
 import 'gas_sensor_overview.dart';
 import 'devices_grid.dart';
@@ -13,9 +14,7 @@ class SummariesSection extends StatelessWidget {
   const SummariesSection({super.key});
 
   List<DeviceModel> _filterDevices(List<DeviceModel> devices) {
-    return devices
-        .where((d) => d.type != 'gas-sensor')
-        .toList();
+    return devices.where((d) => d.type != 'gas-sensor').toList();
   }
 
   double _extractGasLevel(List<DeviceModel> devices) {
@@ -47,7 +46,10 @@ class SummariesSection extends StatelessWidget {
 
           return Column(
             children: [
-              GasSensorOverview(gasLevel: gasLevel),
+              GestureDetector(
+                  onTap: () =>
+                      GoRouter.of(context).pushNamed(AppRouter.gasSensor),
+                  child: GasSensorOverview(gasLevel: gasLevel)),
               const SizedBox(height: 24),
               DevicesGrid(devices: filtered),
             ],
