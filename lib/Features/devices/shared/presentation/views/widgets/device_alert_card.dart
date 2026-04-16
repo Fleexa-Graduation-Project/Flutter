@@ -1,4 +1,4 @@
-import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_senor_alert_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/ui_alert_model.dart';
 import 'package:fleexa/core/utils/common_widgets/alert_container.dart';
 import 'package:fleexa/core/utils/common_widgets/disabled_section.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
@@ -9,9 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-class GasSensorAlert extends StatelessWidget {
-  const GasSensorAlert({super.key, required this.alert});
-  final GasSenorAlertModel alert;
+class DeviceAlertCard extends StatelessWidget {
+  const DeviceAlertCard({super.key, required this.alert});
+  final UIAlertModel alert;
   @override
   Widget build(BuildContext context) {
     return DisabledSection(

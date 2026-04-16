@@ -1,5 +1,5 @@
-import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_senor_alert_model.dart';
-import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_alert.dart';
+import 'package:fleexa/Features/devices/shared/data/models/ui_alert_model.dart';
+import 'package:fleexa/Features/devices/shared/presentation/views/widgets/device_alert_card.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/core/utils/functions/helpers.dart';
@@ -15,8 +15,8 @@ class GasAlertList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<GasSenorAlertModel> uiAlerts = alerts.map((apiAlert) {
-      return GasSenorAlertModel(
+    final List<UIAlertModel> uiAlerts = alerts.map((apiAlert) {
+      return UIAlertModel(
         title: apiAlert.title,
         alertType: AlertHelper.determineAlertType(apiAlert.severity),
         description: apiAlert.description,
@@ -51,7 +51,7 @@ class GasAlertList extends StatelessWidget {
               top: 12,
               bottom: 12,
             ),
-            child: GasSensorAlert(alert: alert),
+            child: DeviceAlertCard(alert: alert),
           );
         },
       ),
