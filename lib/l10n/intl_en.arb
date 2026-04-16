@@ -83,6 +83,7 @@
 
   "//": "--- Sensor Details Screens ---",
   "temperatureSensor": "Temperature Sensor",
+    "tempSensor": "Temp Sensor",
   "gasSensor": "Gas Sensor",
   "lightSensor": "Light Sensor",
   

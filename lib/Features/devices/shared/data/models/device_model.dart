@@ -22,7 +22,7 @@ class DeviceModel {
   final String operationalState;
   final String health;
   final Map<String, dynamic> payload;
-
+  final int lastSeenAt;
   DeviceModel({
     required this.deviceId,
     required this.type,
@@ -30,6 +30,7 @@ class DeviceModel {
     required this.operationalState,
     required this.health,
     required this.payload,
+    this.lastSeenAt = 0,
   });
 
   factory DeviceModel.fromJson(Map<String, dynamic> json) {

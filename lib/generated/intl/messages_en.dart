@@ -270,6 +270,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tempMin": MessageLookupByLibrary.simpleMessage("Min"),
     "tempOutside": MessageLookupByLibrary.simpleMessage("Outside"),
     "tempPerformance": MessageLookupByLibrary.simpleMessage("Temp Performance"),
+    "tempSensor": MessageLookupByLibrary.simpleMessage("Temp Sensor"),
     "temperature": MessageLookupByLibrary.simpleMessage("Temperature"),
     "temperatureSensor": MessageLookupByLibrary.simpleMessage(
       "Temperature Sensor",

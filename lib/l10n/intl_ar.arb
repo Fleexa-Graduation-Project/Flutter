@@ -82,6 +82,7 @@
 
   "//": "--- Sensor Details Screens ---",
   "temperatureSensor": "حساس الحرارة",
+  "tempSensor": "حساس الحرارة",
   "gasSensor": "حساس الغاز",
   "lightSensor": "حساس الضوء",
   "temperatureStatus": "حالة الحرارة",

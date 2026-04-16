@@ -272,6 +272,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "tempPerformance": MessageLookupByLibrary.simpleMessage(
       "أداء درجة الحرارة",
     ),
+    "tempSensor": MessageLookupByLibrary.simpleMessage("حساس الحرارة"),
     "temperature": MessageLookupByLibrary.simpleMessage("درجة الحرارة"),
     "temperatureSensor": MessageLookupByLibrary.simpleMessage("حساس الحرارة"),
     "temperatureStatus": MessageLookupByLibrary.simpleMessage("حالة الحرارة"),
