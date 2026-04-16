@@ -4,13 +4,18 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class GasSensorStausCard extends StatelessWidget {
-  const GasSensorStausCard({super.key});
+  const GasSensorStausCard({super.key, required this.status});
+
+  final String status;
 
   @override
   Widget build(BuildContext context) {
-    return const CustomContainer(
+    final deviceStatus = status.toUpperCase() == 'ONLINE'
+        ? DeviceStatus.online
+        : DeviceStatus.offline;
+    return CustomContainer(
         child: DeviceStatusRow(
-      status: DeviceStatus.online,
+      status: deviceStatus,
     ));
   }
 }

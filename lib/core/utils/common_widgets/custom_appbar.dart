@@ -56,15 +56,16 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
                     style: Styles.style16Medium,
                   ),
                   TextSpan(
-                    text: "${S.of(context).infoStatusSafe} < 500 PPM\n",
+                    text: "${S.of(context).infoStatusSafe} (0 -  299 PPM)\n",
                     style: Styles.style16Medium,
                   ),
                   TextSpan(
-                    text: "${S.of(context).infoStatusWarning} 500 - 1500 PPM\n",
+                    text:
+                        "${S.of(context).infoStatusWarning} (300 -  599 PPM)\n",
                     style: Styles.style16Medium,
                   ),
                   TextSpan(
-                    text: "${S.of(context).infoStatusCritical} > 1500 PPM",
+                    text: "${S.of(context).infoStatusCritical} (600+ PPM)",
                     style: Styles.style16Medium,
                   ),
                 ],

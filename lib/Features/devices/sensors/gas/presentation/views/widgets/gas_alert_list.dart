@@ -1,35 +1,29 @@
 import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_senor_alert_model.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_alert.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
-import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
-import 'package:fleexa/generated/l10n.dart';
+import 'package:fleexa/core/utils/functions/helpers.dart';
 import 'package:flutter/material.dart';
 import 'package:timelines_plus/timelines_plus.dart';
 
+import '../../../../../shared/data/models/alert_model.dart';
+
 class GasAlertList extends StatelessWidget {
-  const GasAlertList({super.key});
+  const GasAlertList({super.key, required this.alerts});
+
+  final List<AlertModel> alerts;
 
   @override
   Widget build(BuildContext context) {
-    final List<GasSenorAlertModel> alerts = [
-      GasSenorAlertModel(
-          title: S.of(context).gasLevel,
-          alertType: AlertType.critical,
-          description:
-              "${S.of(context).gasLevelValue} ${S.of(context).unitPpmText}",
-          dateTime: DateTime.now().subtract(const Duration(
-            hours: 2,
-          )),
-          iconPath: AppAssets.iconsFire),
-      GasSenorAlertModel(
-          title: S.of(context).gasSpikeDetected,
-          alertType: AlertType.critical,
-          description:
-              "${S.of(context).gasLevelValue} ${S.of(context).unitPpmText}",
-          dateTime: DateTime.now().subtract(const Duration(hours: 1)),
-          iconPath: AppAssets.iconsFire),
-    ];
+    final List<GasSenorAlertModel> uiAlerts = alerts.map((apiAlert) {
+      return GasSenorAlertModel(
+        title: apiAlert.title,
+        alertType: AlertHelper.determineAlertType(apiAlert.severity),
+        description: apiAlert.description,
+        dateTime: apiAlert.time,
+        iconPath: AppAssets.iconsFire,
+      );
+    }).toList();
     return Timeline.tileBuilder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -48,9 +42,9 @@ class GasAlertList extends StatelessWidget {
       builder: TimelineTileBuilder.fromStyle(
         contentsAlign: ContentsAlign.basic,
         indicatorStyle: IndicatorStyle.dot,
-        itemCount: alerts.length,
+        itemCount: uiAlerts.length,
         contentsBuilder: (context, index) {
-          final alert = alerts[index];
+          final alert = uiAlerts[index];
           return Padding(
             padding: const EdgeInsets.only(
               left: 8,

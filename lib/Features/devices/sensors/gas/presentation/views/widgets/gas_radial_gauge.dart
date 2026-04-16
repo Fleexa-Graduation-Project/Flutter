@@ -50,9 +50,18 @@ class GasRadialGauge extends StatelessWidget {
           annotations: <GaugeAnnotation>[
             GaugeAnnotation(
               positionFactor: 0,
-              widget: _CenterGaugeContent(
-                ppmValue: ppmValue,
-                status: status,
+              widget: TweenAnimationBuilder<double>(
+                tween: Tween<double>(begin: 0, end: 1),
+                duration: const Duration(milliseconds: 800),
+                builder: (context, value, child) {
+                  return Opacity(
+                    opacity: value,
+                    child: _CenterGaugeContent(
+                      ppmValue: ppmValue,
+                      status: status,
+                    ),
+                  );
+                },
               ),
             ),
           ],
@@ -73,6 +82,9 @@ class GasRadialGauge extends StatelessWidget {
             ),
             MarkerPointer(
               value: ppmValue,
+              enableAnimation: true,
+              animationDuration: 1300,
+              animationType: AnimationType.ease,
               markerType: MarkerType.circle,
               color: statusColor,
               markerHeight: 15,

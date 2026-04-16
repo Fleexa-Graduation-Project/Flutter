@@ -1,26 +1,29 @@
-import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/Features/devices/shared/data/models/chart_point_model.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:fleexa/Features/devices/sensors/gas/data/dummy_data.dart';
-import 'package:fleexa/Features/devices/sensors/gas/data/models/gas_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 
 class GasSensorChart extends StatelessWidget {
-  final TimeRange range;
+  final List<ChartPointModel> data;
+  final String periodKey;
+  final double maxValue;
 
   const GasSensorChart({
     super.key,
-    required this.range,
+    required this.data,
+    required this.periodKey,
+    required this.maxValue,
   });
 
   @override
   Widget build(BuildContext context) {
-    final data = getGasData(range);
+    final double dynamicMax = maxValue + (maxValue * 0.2);
+    final double interval = (dynamicMax / 6).ceilToDouble();
 
     return SfCartesianChart(
-      key: ValueKey(range),
+      key: ValueKey(periodKey),
 
       legend: Legend(
         isVisible: true,
@@ -36,6 +39,7 @@ class GasSensorChart extends StatelessWidget {
       /// X Axis
       primaryXAxis: CategoryAxis(
         interval: 1,
+        labelIntersectAction: AxisLabelIntersectAction.rotate90,
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
@@ -54,8 +58,8 @@ class GasSensorChart extends StatelessWidget {
       /// Y Axis
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: 100,
-        interval: 20,
+        maximum: dynamicMax,
+        interval: interval,
         majorTickLines: const MajorTickLines(size: 0),
         majorGridLines: MajorGridLines(
           width: 1,
@@ -69,11 +73,11 @@ class GasSensorChart extends StatelessWidget {
 
       /// Series
       series: <CartesianSeries>[
-        LineSeries<GasChartModel, String>(
+        LineSeries<ChartPointModel, String>(
           dataSource: data,
           name: S.of(context).gasLevel,
-          xValueMapper: (data, _) => data.time,
-          yValueMapper: (data, _) => data.gasLevel,
+          xValueMapper: (point, _) => point.label,
+          yValueMapper: (point, _) => point.value,
           color: AppColors.crimsonRed,
           width: 2,
           markerSettings: const MarkerSettings(
