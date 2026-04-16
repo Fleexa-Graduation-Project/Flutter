@@ -26,6 +26,7 @@ import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
+import '../../Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import '../../Features/overview/notifications/views/notifications_view.dart';
 
 class AppRouter {
@@ -169,10 +170,19 @@ class AppRouter {
       GoRoute(
         path: '/light-sensor',
         name: lightSensor,
-        builder: (context, state) => BlocProvider(
-          create: (context) =>
-              DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                ..loadDeviceData('light-sensor-01'),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('light-sensor-01'),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
+                    ..loadTelemetry('light-sensor-01'),
+            ),
+          ],
           child: const LightSensorView(),
         ),
       ),

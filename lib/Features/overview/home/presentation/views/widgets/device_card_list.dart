@@ -97,7 +97,9 @@ class DeviceCardList extends StatelessWidget {
 
         return DeviceCard(
           title: title,
-          subtext: subtext,
+          subtext: device.operationalState.isNotEmpty
+              ? device.operationalState
+              : subtext,
           pageRouteName: route,
           icon: mainIcon,
           type: type,

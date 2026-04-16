@@ -1,26 +1,29 @@
-import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/Features/devices/shared/data/models/chart_point_model.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:fleexa/Features/devices/sensors/light/data/dummy_data.dart';
-import 'package:fleexa/Features/devices/sensors/light/data/model/light_chart_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 
 class LightSensorChart extends StatelessWidget {
-  final TimeRange range;
-
   const LightSensorChart({
     super.key,
-    required this.range,
+    required this.data,
+    required this.periodKey,
+    required this.maxValue,
   });
+
+  final List<ChartPointModel> data;
+  final String periodKey;
+  final double maxValue;
 
   @override
   Widget build(BuildContext context) {
-    final data = getLightData(range);
+    final double dynamicMax = maxValue + (maxValue * 0.2);
+    final double interval = (dynamicMax / 5).round().toDouble();
 
     return SfCartesianChart(
-      key: ValueKey(range), // important
+      key: ValueKey(periodKey),
 
       legend: Legend(
         isVisible: true,
@@ -36,6 +39,7 @@ class LightSensorChart extends StatelessWidget {
       /// X Axis
       primaryXAxis: CategoryAxis(
         interval: 1,
+        labelIntersectAction: AxisLabelIntersectAction.rotate90,
         labelAlignment: LabelAlignment.center,
         placeLabelsNearAxisLine: false,
         labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
@@ -54,8 +58,8 @@ class LightSensorChart extends StatelessWidget {
       /// Y Axis
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: 800,
-        interval: 160,
+        maximum: dynamicMax,
+        interval: interval,
         majorTickLines: const MajorTickLines(size: 0),
         majorGridLines: MajorGridLines(
           width: 1,
@@ -69,11 +73,11 @@ class LightSensorChart extends StatelessWidget {
 
       /// Series
       series: <CartesianSeries>[
-        LineSeries<LightChartModel, String>(
+        LineSeries<ChartPointModel, String>(
           dataSource: data,
           name: S.of(context).unitLuxText,
-          xValueMapper: (data, _) => data.time,
-          yValueMapper: (data, _) => data.luxLevel,
+          xValueMapper: (point, _) => point.label,
+          yValueMapper: (point, _) => point.value,
           color: AppColors.crimsonRed,
           width: 2,
           markerSettings: const MarkerSettings(

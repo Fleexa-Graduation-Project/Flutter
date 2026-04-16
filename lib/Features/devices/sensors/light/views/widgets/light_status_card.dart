@@ -6,20 +6,31 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class LightStatusCard extends StatelessWidget {
-  const LightStatusCard({super.key});
+  const LightStatusCard({
+    super.key,
+    required this.status,
+    required this.operationalState,
+  });
+
+  final String status;
+  final String operationalState;
 
   @override
   Widget build(BuildContext context) {
+    final deviceStatus = status.toUpperCase() == 'ONLINE'
+        ? DeviceStatus.online
+        : DeviceStatus.offline;
+
     return CustomContainer(
       child: Column(
         children: [
-          const DeviceStatusRow(
-            status: DeviceStatus.online,
+          DeviceStatusRow(
+            status: deviceStatus,
           ),
           const SizedBox(height: 12),
           CustomContainerRow(
             title: S.of(context).lightstatus,
-            value: S.of(context).statusBright,
+            value: operationalState,
           ),
         ],
       ),

@@ -1,10 +1,15 @@
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_sensor_chart.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../../../../../core/utils/constants/app_colors.dart';
+import '../../../../shared/presentation/manager/device_telemetry_state.dart';
 
 class LightInsightsSection extends StatefulWidget {
   const LightInsightsSection({super.key});
@@ -15,6 +20,8 @@ class LightInsightsSection extends StatefulWidget {
 
 class _LightInsightsSectionState extends State<LightInsightsSection> {
   TimeRange currentValue = TimeRange.lastWeek;
+
+  @override
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,15 +34,53 @@ class _LightInsightsSectionState extends State<LightInsightsSection> {
         const SizedBox(height: 20),
         SystemChartCard(
           title: S.of(context).lightLevelOverTime,
-          insight: LightSensorChart(
-            range: currentValue,
-          ),
           timeFilter: ChartTimeSelector(
             currentValue: currentValue,
             onChanged: (value) {
-              setState(() {
-                currentValue = value!;
-              });
+              if (value != null && value != currentValue) {
+                setState(() {
+                  currentValue = value;
+                });
+
+                String apiPeriod = '7d';
+                if (value == TimeRange.lastDay) apiPeriod = '24h';
+                if (value == TimeRange.lastMonth) apiPeriod = '1m';
+
+                context
+                    .read<DeviceTelemetryCubit>()
+                    .loadTelemetry('light-sensor-01', period: apiPeriod);
+              }
+            },
+          ),
+          insight: BlocBuilder<DeviceTelemetryCubit, DeviceTelemetryState>(
+            builder: (context, state) {
+              if (state is DeviceTelemetryLoading ||
+                  state is DeviceTelemetryInitial) {
+                return const SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              } else if (state is DeviceTelemetryError) {
+                return SizedBox(
+                  height: 200,
+                  child: Center(
+                    child: Text(
+                      state.message,
+                      style: Styles.style12Medium
+                          .copyWith(color: AppColors.crimsonRed),
+                    ),
+                  ),
+                );
+              } else if (state is DeviceTelemetryLoaded) {
+                return LightSensorChart(
+                  data: state.telemetry.data,
+                  periodKey: state.currentPeriod,
+                  maxValue: state.telemetry.max,
+                );
+              }
+              return const SizedBox();
             },
           ),
         ),
