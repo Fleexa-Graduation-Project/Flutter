@@ -141,12 +141,35 @@ class AppRouter {
       GoRoute(
         path: '/door-lock-control',
         name: doorLockControl,
-        builder: (context, state) => const DoorLockControlView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('door-actuator-01'),
+            ),
+          ],
+          child: const DoorLockControlView(),
+        ),
       ),
       GoRoute(
         path: '/door-lock-details',
         name: doorLockDetails,
-        builder: (context, state) => const DoorLockDetailsView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('door-actuator-01'),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadAlerts('door-actuator-01'),
+            ),
+          ],
+          child: const DoorLockDetailsView(),
+        ),
       ),
       GoRoute(
         path: '/ac-control',

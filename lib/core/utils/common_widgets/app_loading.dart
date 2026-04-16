@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class AppLoading extends StatelessWidget {
-  const AppLoading({super.key});
+  const AppLoading({super.key, this.size = 40});
+  final double size;
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class AppLoading extends StatelessWidget {
       child: LoadingAnimationWidget.twistingDots(
         leftDotColor: AppColors.darkMaroon,
         rightDotColor: AppColors.davysGray,
-        size: 40,
+        size: size,
       ),
     );
   }
