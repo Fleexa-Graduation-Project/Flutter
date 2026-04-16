@@ -1,5 +1,7 @@
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_sensor_chart.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
+import 'package:fleexa/core/utils/common_widgets/app_error.dart';
+import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
@@ -8,7 +10,6 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../core/utils/constants/app_colors.dart';
 import '../../../../shared/presentation/manager/device_telemetry_state.dart';
 
 class LightInsightsSection extends StatefulWidget {
@@ -58,20 +59,12 @@ class _LightInsightsSectionState extends State<LightInsightsSection> {
                   state is DeviceTelemetryInitial) {
                 return const SizedBox(
                   height: 200,
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
+                  child: AppLoading(),
                 );
               } else if (state is DeviceTelemetryError) {
                 return SizedBox(
                   height: 200,
-                  child: Center(
-                    child: Text(
-                      state.message,
-                      style: Styles.style12Medium
-                          .copyWith(color: AppColors.crimsonRed),
-                    ),
-                  ),
+                  child: AppError(message: state.message),
                 );
               } else if (state is DeviceTelemetryLoaded) {
                 return LightSensorChart(

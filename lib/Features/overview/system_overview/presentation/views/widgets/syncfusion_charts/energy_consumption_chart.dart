@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart' hide ChartPoint;
 
+import '../../../../../../../core/utils/common_widgets/app_error.dart';
+import '../../../../../../../core/utils/common_widgets/app_loading.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
 import '../../../../data/models/chart_point.dart';
 
@@ -32,11 +34,11 @@ class EnergyConsumptionChart extends StatelessWidget {
     return BlocBuilder<EnergyCubit, EnergyState>(
       builder: (context, state) {
         if (state is EnergyLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const AppLoading();
         }
 
         if (state is EnergyFailure) {
-          return Center(child: Text(state.error));
+          return AppError(message: state.error);
         }
 
         if (state is EnergySuccess) {
@@ -48,7 +50,6 @@ class EnergyConsumptionChart extends StatelessWidget {
           return SfCartesianChart(
             key: ValueKey(range),
             plotAreaBorderWidth: 0,
-
             primaryXAxis: CategoryAxis(
               majorGridLines: const MajorGridLines(
                 width: 1,
@@ -65,7 +66,6 @@ class EnergyConsumptionChart extends StatelessWidget {
                 color: AppColors.lightGray,
               ),
             ),
-
             primaryYAxis: NumericAxis(
               minimum: 0,
               maximum: yMax,
@@ -85,7 +85,6 @@ class EnergyConsumptionChart extends StatelessWidget {
                 color: AppColors.lightGray,
               ),
             ),
-
             series: <CartesianSeries>[
               ColumnSeries<ChartPoint, String>(
                 dataSource: data,
