@@ -1,9 +1,8 @@
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_state.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/summaries_section.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/syncfusion_charts/alert_chart_card.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/syncfusion_charts/energy_chart_card.dart';
-import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/devices_grid.dart';
-import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/gas_sensor_overview.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/horizontal_card_scroller.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_overview_header.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_status_card.dart';
@@ -67,9 +66,7 @@ class SystemOverviewView extends StatelessWidget {
                         style: Styles.style18Medium,
                       ),
                       const SizedBox(height: 24),
-                      const GasSensorOverview(),
-                      const SizedBox(height: 24),
-                      const DevicesGrid(),
+                 const SummariesSection()
                     ],
                   ),
                 ),

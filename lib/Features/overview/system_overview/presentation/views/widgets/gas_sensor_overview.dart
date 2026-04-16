@@ -6,8 +6,8 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class GasSensorOverview extends StatelessWidget {
-  const GasSensorOverview({super.key});
-
+  const GasSensorOverview({super.key, required this.gasLevel});
+  final double gasLevel;
   @override
   Widget build(BuildContext context) {
     return CustomContainer(
@@ -30,9 +30,7 @@ class GasSensorOverview extends StatelessWidget {
                     TextSpan(
                         text: "${S.of(context).gasLevel} ",
                         style: Styles.style12Regular),
-                    TextSpan(
-                        text: S.of(context).gasLevelValue,
-                        style: Styles.style12SemiBold),
+                    TextSpan(text: "$gasLevel", style: Styles.style12SemiBold),
                     TextSpan(
                         text: " ${S.of(context).unitPpmText}",
                         style: Styles.style12Regular),

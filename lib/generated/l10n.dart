@@ -516,6 +516,11 @@ class S {
     );
   }
 
+  /// `Temp Sensor`
+  String get tempSensor {
+    return Intl.message('Temp Sensor', name: 'tempSensor', desc: '', args: []);
+  }
+
   /// `Gas Sensor`
   String get gasSensor {
     return Intl.message('Gas Sensor', name: 'gasSensor', desc: '', args: []);
