@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../../../../core/utils/common_widgets/app_error.dart';
+import '../../../../../../../core/utils/common_widgets/app_loading.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
 import '../../../../data/models/alerts_chart.dart';
 
@@ -35,11 +37,11 @@ class AlertWarningChart extends StatelessWidget {
     return BlocBuilder<AlertsChartCubit, AlertsChartState>(
       builder: (context, state) {
         if (state is AlertsChartLoading) {
-          return const Center(child: CircularProgressIndicator());
+          return const AppLoading();
         }
 
         if (state is AlertsChartFailure) {
-          return Center(child: Text(state.error));
+          return AppError(message: state.error);
         }
 
         if (state is AlertsChartSuccess) {

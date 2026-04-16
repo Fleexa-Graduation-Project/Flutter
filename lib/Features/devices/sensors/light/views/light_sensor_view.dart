@@ -2,9 +2,9 @@ import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_insigh
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_sensor_gauge.dart';
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_status_card.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
+import 'package:fleexa/core/utils/common_widgets/app_error.dart';
+import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
-import 'package:fleexa/core/utils/constants/app_colors.dart';
-import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,15 +21,9 @@ class LightSensorView extends StatelessWidget {
       body: BlocBuilder<DeviceDetailsCubit, DeviceDetailsState>(
         builder: (context, state) {
           if (state is DeviceDetailsLoading || state is DeviceDetailsInitial) {
-            return const Center(child: CircularProgressIndicator());
+            return const AppLoading();
           } else if (state is DeviceDetailsError) {
-            return Center(
-              child: Text(
-                state.message,
-                style:
-                    Styles.style12Medium.copyWith(color: AppColors.crimsonRed),
-              ),
-            );
+            return AppError(message: state.message);
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
             final double luxValue =

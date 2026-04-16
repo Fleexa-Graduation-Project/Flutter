@@ -1,11 +1,11 @@
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
-import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/constants/app_colors.dart';
+import '../../../../../core/utils/common_widgets/app_error.dart';
 import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';
 
@@ -27,14 +27,9 @@ class _HomeViewState extends State<HomeView> {
         child: BlocBuilder<DevicesCubit, DevicesState>(
           builder: (context, state) {
             if (state is DevicesLoading || state is DevicesInitial) {
-              return const Center(child: CircularProgressIndicator());
+              return const AppLoading();
             } else if (state is DevicesError) {
-              return Center(
-                  child: Text(
-                state.message,
-                style:
-                    Styles.style20Medium.copyWith(color: AppColors.crimsonRed),
-              ));
+              return AppError(message: state.message);
             } else if (state is DevicesLoaded) {
               return Center(
                 child: Padding(

@@ -12,6 +12,9 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/common_widgets/app_error.dart';
+import '../../../../../core/utils/common_widgets/app_loading.dart';
+
 class SystemOverviewView extends StatelessWidget {
   const SystemOverviewView({super.key});
 
@@ -22,11 +25,11 @@ class SystemOverviewView extends StatelessWidget {
         child: BlocBuilder<SystemOverviewCubit, SystemOverviewState>(
           builder: (context, state) {
             if (state is SystemOverviewLoading) {
-              return const Center(child: CircularProgressIndicator());
+              return const AppLoading();
             }
 
             if (state is SystemOverviewFailure) {
-              return Center(child: Text(state.error));
+              return AppError(message: state.error);
             }
 
             if (state is SystemOverviewSuccess) {
@@ -55,9 +58,7 @@ class SystemOverviewView extends StatelessWidget {
                         height: 340,
                         cards: [
                           AlertChartCard(),
-                          EnergyChartCard(
-                           
-                          ),
+                          EnergyChartCard(),
                         ],
                       ),
                       const SizedBox(height: 32),
