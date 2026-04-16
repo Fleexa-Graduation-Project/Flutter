@@ -26,6 +26,7 @@ import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
+import '../../Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import '../../Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import '../../Features/overview/notifications/views/notifications_view.dart';
 
@@ -165,7 +166,26 @@ class AppRouter {
       GoRoute(
         path: '/gas-sensor',
         name: gasSensor,
-        builder: (context, state) => const GasSensorView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('gas-sensor-01'),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
+                    ..loadTelemetry('gas-sensor-01'),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadAlerts('gas-sensor-01'),
+            ),
+          ],
+          child: const GasSensorView(),
+        ),
       ),
       GoRoute(
         path: '/light-sensor',

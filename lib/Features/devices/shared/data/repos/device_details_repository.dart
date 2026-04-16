@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:fleexa/Features/devices/shared/data/models/alert_model.dart';
 import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
 import 'package:fleexa/core/network/api_constants.dart';
@@ -31,9 +32,7 @@ class DeviceDetailsRepository {
     try {
       final response = await apiService.get(
         ApiConstants.deviceTelemetry(deviceId),
-        queryParameters: {
-          "period": period
-        },
+        queryParameters: {"period": period},
       );
 
       dynamic responseData = response.data;
@@ -42,6 +41,22 @@ class DeviceDetailsRepository {
       return TelemetryModel.fromJson(responseData);
     } catch (e) {
       throw Exception('Failed to fetch telemetry for $deviceId: $e');
+    }
+  }
+
+  // 3. Fetches the Alerts Data
+  Future<List<AlertModel>> getDeviceAlerts(String deviceId) async {
+    try {
+      final response =
+          await apiService.get(ApiConstants.deviceAlerts(deviceId));
+
+      dynamic responseData = response.data;
+      if (responseData is String) responseData = jsonDecode(responseData);
+
+      final List dataList = responseData['data'] ?? [];
+      return dataList.map((item) => AlertModel.fromJson(item)).toList();
+    } catch (e) {
+      return [];
     }
   }
 }
