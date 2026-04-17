@@ -7,6 +7,7 @@ import 'package:fleexa/Features/devices/shared/presentation/manager/device_detai
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -35,28 +36,33 @@ class TemperatureSensorView extends StatelessWidget {
               }
 
               if (state is DeviceDetailsLoaded) {
-                return SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      const SizedBox(height: 52),
-                      Center(
-                          child: CircularValueIndicator(
-                              value: state.device.payload["temp"] ?? 0)),
-                      const SizedBox(height: 40),
-                      TempInfoSummary(data: state.device),
-                      const SizedBox(height: 24),
-                      TempStatList(data: state.device),
-                      const SizedBox(height: 32),
-                      const RelatedDeviceCard(),
-                      const SizedBox(height: 32),
-                      Text(
-                        S.of(context).labelInsights,
-                        style: Styles.style18Medium,
-                      ),
-                      const SizedBox(height: 20),
-                      const TempInsightCard(),
-                    ],
+                return CustomRefreshIndicator(
+                  onRefresh: () => context
+                      .read<DeviceDetailsCubit>()
+                      .loadDeviceData("temp-sensor-01"),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const SizedBox(height: 52),
+                        Center(
+                            child: CircularValueIndicator(
+                                value: state.device.payload["temp"] ?? 0)),
+                        const SizedBox(height: 40),
+                        TempInfoSummary(data: state.device),
+                        const SizedBox(height: 24),
+                        TempStatList(data: state.device),
+                        const SizedBox(height: 32),
+                        const RelatedDeviceCard(),
+                        const SizedBox(height: 32),
+                        Text(
+                          S.of(context).labelInsights,
+                          style: Styles.style18Medium,
+                        ),
+                        const SizedBox(height: 20),
+                        const TempInsightCard(),
+                      ],
+                    ),
                   ),
                 );
               }
