@@ -7,6 +7,7 @@ import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -44,39 +45,47 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                     .take(5)
                     .toList();
             return SafeArea(
-              child: SingleChildScrollView(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 52),
-                  child: Column(
-                    children: [
-                      const SizedBox(height: 32),
-                      const DevicePic(),
-                      const SizedBox(height: 72),
-                      CustomContainer(
-                        child: UpperContainerContent(
-                            isLocked: isLocked,
-                            onToggle: (value) {
-                              setState(() {
-                                isLocked = value;
-                              });
-                            }),
-                      ),
-                      const SizedBox(height: 36),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
+              child: CustomRefreshIndicator(
+                onRefresh: () => context
+                    .read<DeviceDetailsCubit>()
+                    .loadDeviceData("door-actuator-01"),
+                child: Center(
+                  child: SingleChildScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 24, vertical: 52),
+                      child: Column(
                         children: [
-                          Text(
-                            S.of(context).recentActivities,
-                            style: Styles.style18Medium,
+                          const SizedBox(height: 32),
+                          const DevicePic(),
+                          const SizedBox(height: 72),
+                          CustomContainer(
+                            child: UpperContainerContent(
+                                isLocked: isLocked,
+                                onToggle: (value) {
+                                  setState(() {
+                                    isLocked = value;
+                                  });
+                                }),
                           ),
+                          const SizedBox(height: 36),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Text(
+                                S.of(context).recentActivities,
+                                style: Styles.style18Medium,
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 20),
+                          CustomContainer(
+                              child: RecentEventsList(events: dynamicEvents)),
+                          const SizedBox(height: 32),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      CustomContainer(
-                          child: RecentEventsList(events: dynamicEvents)),
-                      const SizedBox(height: 32),
-                    ],
+                    ),
                   ),
                 ),
               ),

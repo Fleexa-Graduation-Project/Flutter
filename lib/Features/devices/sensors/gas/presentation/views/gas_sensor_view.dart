@@ -6,6 +6,7 @@ import 'package:fleexa/Features/devices/shared/presentation/manager/device_detai
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,37 +33,42 @@ class GasSensorView extends StatelessWidget {
             final device = state.device;
             final double ppmValue =
                 (device.payload['gas_level'] ?? 0).toDouble();
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const SizedBox(
-                      height: 2,
-                    ),
-                    GasSensorGaugeWidget(
-                      ppmValue: ppmValue,
-                      status: device.operationalState,
-                    ),
-                    const SizedBox(
-                      height: 28,
-                    ),
-                    GasSensorStausCard(
-                      status: device.status,
-                    ),
-                    const SizedBox(
-                      height: 32,
-                    ),
-                    const GasAlertsSection(),
-                    const SizedBox(
-                      height: 12,
-                    ),
-                    const GasInsightsSection(),
-                    const SizedBox(
-                      height: 32,
-                    ),
-                  ],
+            return CustomRefreshIndicator(
+              onRefresh: () => context
+                  .read<DeviceDetailsCubit>()
+                  .loadDeviceData("gas-sensor-01"),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        height: 2,
+                      ),
+                      GasSensorGaugeWidget(
+                        ppmValue: ppmValue,
+                        status: device.operationalState,
+                      ),
+                      const SizedBox(
+                        height: 28,
+                      ),
+                      GasSensorStausCard(
+                        status: device.status,
+                      ),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                      const GasAlertsSection(),
+                      const SizedBox(
+                        height: 12,
+                      ),
+                      const GasInsightsSection(),
+                      const SizedBox(
+                        height: 32,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
