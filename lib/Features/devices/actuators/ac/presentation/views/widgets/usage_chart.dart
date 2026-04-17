@@ -1,21 +1,29 @@
-import 'package:fleexa/Features/devices/actuators/ac/data/dummy_data.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../../core/utils/constants/styles.dart';
-import '../../../data/models/usage_stats.dart';
+import '../../../../../shared/data/models/chart_point_model.dart';
 
 class UsageChart extends StatelessWidget {
-  const UsageChart({super.key, required this.timerange});
+  const UsageChart({
+    super.key,
+    required this.data,
+    required this.periodKey,
+    required this.maxValue,
+  });
 
-  final TimeRange timerange;
+  final List<ChartPointModel> data;
+  final String periodKey;
+  final double maxValue;
 
   @override
   Widget build(BuildContext context) {
+    final double dynamicMax = maxValue + (maxValue * 0.5);
+    final double interval = (dynamicMax / 6).ceilToDouble();
+
     return SfCartesianChart(
-      key: ValueKey(timerange),
+      key: ValueKey(periodKey),
       // Remove chart border
       plotAreaBorderWidth: 0,
 
@@ -30,6 +38,7 @@ class UsageChart extends StatelessWidget {
       // X & Y axis styling
       primaryXAxis: CategoryAxis(
         axisLine: const AxisLine(width: 1),
+        labelIntersectAction: AxisLabelIntersectAction.rotate90,
         tickPosition: TickPosition.outside,
         majorTickLines:
             const MajorTickLines(size: 12, color: Colors.transparent),
@@ -42,8 +51,8 @@ class UsageChart extends StatelessWidget {
       ),
       primaryYAxis: NumericAxis(
         minimum: 0,
-        maximum: timerange == TimeRange.lastMonth ? 40 : 24,
-        interval: timerange == TimeRange.lastMonth ? 5 : 4,
+        maximum: dynamicMax,
+        interval: interval,
         tickPosition: TickPosition.outside,
         opposedPosition: true,
         labelFormat: '{value}h',
@@ -59,11 +68,11 @@ class UsageChart extends StatelessWidget {
 
       // Chart series
       series: <CartesianSeries>[
-        BarSeries<UsageStats, String>(
+        BarSeries<ChartPointModel, String>(
           name: 'Usage Hours',
-          dataSource: getACUsageData(timerange),
-          xValueMapper: (UsageStats data, _) => data.timeLabel,
-          yValueMapper: (UsageStats data, _) => data.usageHours,
+          dataSource: data,
+          xValueMapper: (point, _) => point.label,
+          yValueMapper: (point, _) => point.value,
           color: AppColors.darkMaroon,
           width: 0.5,
           isTrackVisible: true,

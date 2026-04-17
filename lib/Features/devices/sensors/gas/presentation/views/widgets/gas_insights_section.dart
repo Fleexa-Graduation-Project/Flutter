@@ -42,9 +42,10 @@ class _GasInsightsSectionState extends State<GasInsightsSection> {
                 String apiPeriod = '7d';
                 if (value == TimeRange.lastDay) apiPeriod = '24h';
                 if (value == TimeRange.lastMonth) apiPeriod = '1m';
-                context
-                    .read<DeviceTelemetryCubit>()
-                    .loadTelemetry('gas-sensor-01', period: apiPeriod);
+                context.read<DeviceTelemetryCubit>().loadTelemetry(
+                    'gas-sensor-01',
+                    period: apiPeriod,
+                    metric: 'gas_level');
               }
             },
           ),

@@ -28,11 +28,14 @@ class DeviceDetailsRepository {
 
   // 2. Fetches the Insights Chart Data
   Future<TelemetryModel> getDeviceTelemetry(
-      String deviceId, String period) async {
+      String deviceId, String period, String metric) async {
     try {
       final response = await apiService.get(
         ApiConstants.deviceTelemetry(deviceId),
-        queryParameters: {"period": period},
+        queryParameters: {
+          "period": period,
+          "metric": metric,
+        },
       );
 
       dynamic responseData = response.data;

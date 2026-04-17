@@ -1,6 +1,4 @@
-import 'package:fleexa/Features/devices/sensors/temperature/data/repos/temp_repository.dart';
 import 'package:fleexa/core/cubits/localization_cubit.dart';
-import 'package:fleexa/core/network/api_service.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/core/router/app_router.dart';

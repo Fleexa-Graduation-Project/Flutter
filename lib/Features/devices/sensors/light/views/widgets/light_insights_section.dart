@@ -47,9 +47,11 @@ class _LightInsightsSectionState extends State<LightInsightsSection> {
                 if (value == TimeRange.lastDay) apiPeriod = '24h';
                 if (value == TimeRange.lastMonth) apiPeriod = '1m';
 
-                context
-                    .read<DeviceTelemetryCubit>()
-                    .loadTelemetry('light-sensor-01', period: apiPeriod);
+                context.read<DeviceTelemetryCubit>().loadTelemetry(
+                      'light-sensor-01',
+                      period: apiPeriod,
+                      metric: 'light_level',
+                    );
               }
             },
           ),

@@ -179,7 +179,21 @@ class AppRouter {
       GoRoute(
         path: '/ac-details',
         name: acDetails,
-        builder: (context, state) => const AcDetailsView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('ac-actuator-01'),
+            ),
+            BlocProvider(
+              create: (context) =>
+                  DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
+                    ..loadTelemetry('ac-actuator-01', metric: 'power_state'),
+            ),
+          ],
+          child: const AcDetailsView(),
+        ),
       ),
       GoRoute(
         name: AppRouter.temperatureSensor,
@@ -220,7 +234,7 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                    ..loadTelemetry('gas-sensor-01'),
+                    ..loadTelemetry('gas-sensor-01', metric: 'gas_level'),
             ),
             BlocProvider(
               create: (context) =>
@@ -244,7 +258,7 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                    ..loadTelemetry('light-sensor-01'),
+                    ..loadTelemetry('light-sensor-01', metric: 'light_level'),
             ),
           ],
           child: const LightSensorView(),
