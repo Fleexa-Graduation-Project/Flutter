@@ -54,6 +54,7 @@ class AlertsSection extends StatelessWidget {
               contentsBuilder: (context, index) {
                 final apiAlert = state.alerts[index];
                 final uiAlert = UIAlertModel(
+                  deviceId: apiAlert.deviceId,
                   title: apiAlert.title,
                   alertSeverity:
                       AlertHelper.determineAlertType(apiAlert.severity),

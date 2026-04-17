@@ -40,7 +40,10 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
             return AppError(message: state.message);
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
-            final List dynamicEvents = device.payload['recent_events'] ?? [];
+            final List dynamicEvents =
+                (device.payload['recent_events'] as List? ?? [])
+                    .take(5)
+                    .toList();
             return SafeArea(
               child: CustomRefreshIndicator(
                 onRefresh: () => context
@@ -51,12 +54,12 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                     physics: const AlwaysScrollableScrollPhysics(),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 24, vertical: 24),
+                          horizontal: 24, vertical: 52),
                       child: Column(
                         children: [
                           const SizedBox(height: 32),
                           const DevicePic(),
-                          const SizedBox(height: 36),
+                          const SizedBox(height: 72),
                           CustomContainer(
                             child: UpperContainerContent(
                                 isLocked: isLocked,

@@ -1,7 +1,9 @@
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../manager/notifications_cubit.dart';
 import 'widgets/notifications_list.dart';
 
 class NotificationsView extends StatelessWidget {
@@ -12,11 +14,10 @@ class NotificationsView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbar(
         title: S.of(context).homeNotifications,
-        clearAllButton: true,
-        onClearAll: () {
-          // Handle clear all functionality
+        readAllButton: true,
+        onReadAll: () {
+          context.read<NotificationsCubit>().markAllRead();
         },
-        
       ),
       body: const SafeArea(
         child: Center(child: NotificationsList()),

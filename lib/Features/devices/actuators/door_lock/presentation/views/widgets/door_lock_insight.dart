@@ -30,20 +30,18 @@ class _DoorLockInsightState extends State<DoorLockInsight> {
             width: double.infinity,
           );
         }
-
-        final Map<String, dynamic> insights =
-            state.device.payload['insights'] ?? {};
-        final double normalDuration =
-            (insights['normal_duration_mins'] ?? 2).toDouble();
+        final double normalDuration = 2;
         final double avgDuration =
-            (insights['average_duration_mins'] ?? 0).toDouble();
+            (state.device.payload['average_unlock'] ?? 0).toDouble();
 
-        final bool isAboveNormal = avgDuration > normalDuration;
-        final Color statusColor =
-            isAboveNormal ? AppColors.crimsonRed : AppColors.emeraldGreen;
-        final String statusText = isAboveNormal
-            ? S.of(context).statusAboveNormal
-            : S.of(context).statusNormal;
+        final String status =
+            state.device.payload['unlock_duration_status'] ?? '...';
+        final Color statusColor = status.toUpperCase() == 'NORMAL'
+            ? AppColors.emeraldGreen
+            : AppColors.crimsonRed;
+        final String statusText = status.toUpperCase() == 'NORMAL'
+            ? S.of(context).statusNormal
+            : S.of(context).statusAboveNormal;
 
         return GestureDetector(
           onTapDown: (_) {

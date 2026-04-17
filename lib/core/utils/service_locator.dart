@@ -3,6 +3,7 @@ import 'package:fleexa/core/network/api_service.dart';
 import 'package:get_it/get_it.dart';
 
 import '../../Features/devices/shared/data/repos/device_details_repository.dart';
+import '../../Features/overview/notifications/data/repos/notifications_repository.dart';
 import '../../Features/overview/system_overview/data/repos/system_overview_repository.dart';
 
 final getIt = GetIt.instance;
@@ -22,5 +23,9 @@ void setupServiceLocator() {
 
   getIt.registerLazySingleton<SystemOverviewRepository>(
     () => SystemOverviewRepository(getIt<APiService>()),
+  );
+
+  getIt.registerLazySingleton<NotificationsRepository>(
+    () => NotificationsRepository(getIt<APiService>()),
   );
 }

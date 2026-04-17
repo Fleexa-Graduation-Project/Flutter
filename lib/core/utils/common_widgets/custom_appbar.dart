@@ -14,16 +14,16 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.detailsPage,
     this.showBackButton = true,
     this.infoButton = false,
-    this.clearAllButton = false,
-    this.onClearAll,
+    this.readAllButton = false,
+    this.onReadAll,
   });
 
   final String? detailsPage;
   final String title;
   final bool showBackButton;
   final bool infoButton;
-  final bool clearAllButton;
-  final VoidCallback? onClearAll;
+  final bool readAllButton;
+  final VoidCallback? onReadAll;
 
   @override
   Widget build(BuildContext context) {
@@ -88,13 +88,13 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
-        if (clearAllButton && onClearAll != null)
+        if (readAllButton && onReadAll != null)
           Padding(
             padding: const EdgeInsets.only(left: 24, top: 4),
             child: TextButton(
-              onPressed: onClearAll,
+              onPressed: onReadAll,
               child: Text(
-                'Clear All',
+                'Mark as read',
                 style:
                     Styles.style14Regular.copyWith(color: AppColors.coolGray),
               ),

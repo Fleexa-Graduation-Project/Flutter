@@ -1,3 +1,4 @@
+import 'package:fleexa/Features/overview/notifications/presentation/views/widgets/notification_bell_badge.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,17 +19,9 @@ class TopAppbarActionRow extends StatelessWidget {
           width: 28,
         ),
         const Spacer(),
-        IconButton(
-          onPressed: () {
-            GoRouter.of(context).pushNamed(AppRouter.notifications);
-          },
-          icon: SvgPicture.asset(
-            'assets/icons/notification.svg',
-            width: 24,
-            height: 24,
-            fit: BoxFit.contain,
-          ),
-        ),
+        NotificationBellBadge(onTap: () {
+          GoRouter.of(context).pushNamed(AppRouter.notifications);
+        }),
         const SizedBox(width: 8),
         InkWell(
           onTap: () {
