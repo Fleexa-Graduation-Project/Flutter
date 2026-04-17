@@ -1,3 +1,6 @@
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/manager/Energy_cubit/energy_cubit.dart';
+import 'package:fleexa/Features/overview/system_overview/presentation/manager/alerts_chart_cubit/alerts_chart_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_state.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/summaries_section.dart';
@@ -37,9 +40,20 @@ class SystemOverviewView extends StatelessWidget {
               final data = state.data;
 
               return CustomRefreshIndicator(
-                onRefresh: () => context
-                    .read<SystemOverviewCubit>()
-                    .getOverview(period: TimeRange.lastWeek.apiValue),
+                onRefresh: () async {
+                  await Future.wait([
+                    context
+                        .read<SystemOverviewCubit>()
+                        .getOverview(period: TimeRange.lastWeek.apiValue),
+                    context
+                        .read<AlertsChartCubit>()
+                        .getAlertsChart(period: TimeRange.lastWeek.apiValue),
+                    context
+                        .read<EnergyCubit>()
+                        .getEnergy(period: TimeRange.lastWeek.apiValue),
+                    context.read<DevicesCubit>().fetchDevices(),
+                  ]);
+                },
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
