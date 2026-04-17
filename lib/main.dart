@@ -80,37 +80,3 @@ class Fleexa extends StatelessWidget {
     );
   }
 }
-
-// Future<void> testPostmanConnection() async {
-//   debugPrint("=========================================");
-//   debugPrint("🚀 INITIATING POSTMAN MOCK SERVER TEST...");
-//   debugPrint("=========================================");
-
-//   try {
-//     // 1. Instantiate your service
-//     final apiService = APiService();
-
-//     // 2. Fetch the System Overview endpoint
-//     debugPrint(
-//         "⏳ Fetching data from: ${ApiConstants.baseUrl}${ApiConstants.systemOverview}");
-//     final response = await apiService.get(ApiConstants.systemOverview);
-
-//     // 3. Print the results
-//     debugPrint("✅ SUCCESS! Connection established.");
-//     debugPrint("📦 DATA RECEIVED:");
-//     debugPrint(response.data);
-//   } on DioException catch (e) {
-//     // This catches specific network/Dio errors
-//     debugPrint("❌ DIO ERROR: Network request failed.");
-//     debugPrint("Message: ${e.message}");
-//     if (e.response != null) {
-//       debugPrint("Status Code: ${e.response?.statusCode}");
-//       debugPrint("Error Data: ${e.response?.data}");
-//     }
-//   } catch (e) {
-//     // This catches any other random errors
-//     debugPrint("❌ UNKNOWN ERROR:");
-//     debugPrint(e.toString());
-//   }
-//   debugPrint("=========================================");
-// }
