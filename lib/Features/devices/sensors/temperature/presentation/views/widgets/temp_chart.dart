@@ -1,4 +1,3 @@
-
 import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_state.dart';
@@ -37,15 +36,23 @@ class TempChart extends StatelessWidget {
             key: ValueKey(range),
             plotAreaBorderWidth: 0,
             primaryXAxis: CategoryAxis(
+              placeLabelsNearAxisLine: false,
+              labelAlignment: LabelAlignment.center,
+              labelIntersectAction: AxisLabelIntersectAction.rotate90,
               interval: 1,
+              axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
               labelStyle: Styles.style10Regular.copyWith(
                 color: AppColors.coolGray,
               ),
+              axisLabelFormatter: (args) {
+                return ChartAxisLabel(args.text, args.textStyle);
+              },
               majorGridLines: MajorGridLines(
                 width: 1,
                 color: AppColors.white.withOpacity(0.05),
                 dashArray: const [5, 5],
               ),
+              majorTickLines: const MajorTickLines(size: 0),
             ),
             primaryYAxis: NumericAxis(
               minimum: 0,
