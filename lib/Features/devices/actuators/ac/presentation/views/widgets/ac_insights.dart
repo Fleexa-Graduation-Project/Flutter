@@ -1,4 +1,3 @@
-// import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_insight_card.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_insight_usage.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +17,6 @@ class AcInsights extends StatelessWidget {
           style: Styles.style18Medium,
         ),
         const SizedBox(height: 20),
-        // const ACInsightCard(),
-        // const SizedBox(height: 24),
         const AcInsightUsage(),
       ],
     );

@@ -14,12 +14,16 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
     this.detailsPage,
     this.showBackButton = true,
     this.infoButton = false,
+    this.clearAllButton = false,
+    this.onClearAll,
   });
 
   final String? detailsPage;
   final String title;
   final bool showBackButton;
   final bool infoButton;
+  final bool clearAllButton;
+  final VoidCallback? onClearAll;
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +85,18 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
               child: SvgPicture.asset(
                 'assets/icons/info.svg',
                 width: 24,
+              ),
+            ),
+          ),
+        if (clearAllButton && onClearAll != null)
+          Padding(
+            padding: const EdgeInsets.only(left: 24, top: 4),
+            child: TextButton(
+              onPressed: onClearAll,
+              child: Text(
+                'Clear All',
+                style:
+                    Styles.style14Regular.copyWith(color: AppColors.coolGray),
               ),
             ),
           ),

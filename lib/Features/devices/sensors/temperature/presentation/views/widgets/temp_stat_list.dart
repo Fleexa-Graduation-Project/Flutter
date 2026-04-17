@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 
 
 class TempStatList extends StatelessWidget {
-  const TempStatList({super.key,required this.data});
+  const TempStatList({super.key, required this.data});
   final DeviceModel data;
 
   @override

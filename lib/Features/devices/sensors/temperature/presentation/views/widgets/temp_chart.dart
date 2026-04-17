@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-
 import '../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
 

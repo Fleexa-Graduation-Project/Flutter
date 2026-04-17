@@ -5,11 +5,11 @@ class UIAlertModel {
   final String description;
   final DateTime dateTime;
   final String iconPath;
-  final AlertType alertType;
+  final AlertSeverity alertSeverity;
 
   const UIAlertModel({
     required this.title,
-    required this.alertType,
+    required this.alertSeverity,
     required this.description,
     required this.dateTime,
     required this.iconPath,

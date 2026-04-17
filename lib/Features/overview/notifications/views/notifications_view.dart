@@ -12,6 +12,11 @@ class NotificationsView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbar(
         title: S.of(context).homeNotifications,
+        clearAllButton: true,
+        onClearAll: () {
+          // Handle clear all functionality
+        },
+        
       ),
       body: const SafeArea(
         child: Center(child: NotificationsList()),

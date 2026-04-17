@@ -6,14 +6,14 @@ class AlertModel {
   final DateTime dateTime;
   final bool isRead;
   final AlertDeviceType alertDeviceType;
-  final AlertType alertType;
+  final AlertSeverity alertSeverity;
 
   AlertModel({
     required this.title,
     required this.description,
     required this.dateTime,
     required this.alertDeviceType,
-    required this.alertType,
+    required this.alertSeverity,
     this.isRead = true,
   });
 }

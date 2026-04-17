@@ -8,8 +8,6 @@ class ApiConstants {
   static String deviceDetails(String id) => "/devices/$id";
   static String deviceTelemetry(String id) => "/devices/$id/telemetry";
   static String deviceAlerts(String id) => "/devices/$id/alerts";
-  static String deviceTelemetryWithPeriod(String id, String period) =>
-      "/devices/$id/telemetry?period=$period";
   // Authentication Endpoints
   static const String login = "/auth/login";
   static const String register = "/auth/register";

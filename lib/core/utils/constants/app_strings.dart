@@ -10,7 +10,7 @@ enum ActuatorType { doorLock, ac }
 
 enum NotificationType { info, warning, critical }
 
-enum AlertType { warning, critical }
+enum AlertSeverity { warning, critical }
 
 enum AlertDeviceType { doorLock, gasSensor }
 
@@ -19,6 +19,7 @@ enum ACMode { cooling, heating, fanOnly, dry }
 enum ACControlType { manual, auto }
 
 enum TimeRange { lastDay, lastWeek, lastMonth }
+
 extension TimeRangeExtension on TimeRange {
   String get apiValue {
     switch (this) {
@@ -31,4 +32,5 @@ extension TimeRangeExtension on TimeRange {
     }
   }
 }
+
 enum PickerMode { duration, time }

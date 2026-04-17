@@ -2,11 +2,11 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:intl/intl.dart';
 
 class AlertHelper {
-  static AlertType determineAlertType(String severity) {
+  static AlertSeverity determineAlertType(String severity) {
     if (severity.toUpperCase() == 'CRITICAL') {
-      return AlertType.critical;
+      return AlertSeverity.critical;
     }
-    return AlertType.warning;
+    return AlertSeverity.warning;
   }
 
   static String formatTimeForUI(DateTime time) {

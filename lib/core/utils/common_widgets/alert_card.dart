@@ -28,7 +28,7 @@ class AlertCard extends StatelessWidget {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: alert.alertType == AlertType.critical
+                color: alert.alertSeverity == AlertSeverity.critical
                     ? AppColors.wineRed
                     : AppColors.burntOrange,
                 borderRadius: BorderRadius.circular(8.r),
