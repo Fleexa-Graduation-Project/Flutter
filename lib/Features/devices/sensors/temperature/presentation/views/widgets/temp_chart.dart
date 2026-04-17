@@ -1,4 +1,3 @@
-import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_telemetry_model.dart';
 import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_state.dart';
@@ -9,7 +8,6 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-
 
 import '../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../core/utils/constants/styles.dart';

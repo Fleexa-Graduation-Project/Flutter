@@ -18,7 +18,7 @@ class GasAlertList extends StatelessWidget {
     final List<UIAlertModel> uiAlerts = alerts.map((apiAlert) {
       return UIAlertModel(
         title: apiAlert.title,
-        alertType: AlertHelper.determineAlertType(apiAlert.severity),
+        alertSeverity: AlertHelper.determineAlertType(apiAlert.severity),
         description: apiAlert.description,
         dateTime: apiAlert.time,
         iconPath: AppAssets.iconsFire,
