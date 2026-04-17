@@ -5,6 +5,7 @@ import 'package:fleexa/Features/devices/shared/presentation/manager/device_detai
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -29,22 +30,27 @@ class LightSensorView extends StatelessWidget {
             final double luxValue =
                 (device.payload['light_level'] ?? 0).toDouble();
 
-            return SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 24),
-                child: Column(
-                  children: [
-                    const SizedBox(height: 42),
-                    LightSensorGauge(luxValue: luxValue),
-                    const SizedBox(height: 20),
-                    LightStatusCard(
-                      status: device.status,
-                      operationalState: device.operationalState,
-                    ),
-                    const SizedBox(height: 40),
-                    const LightInsightsSection(),
-                    const SizedBox(height: 40),
-                  ],
+            return CustomRefreshIndicator(
+              onRefresh: () => context
+                  .read<DeviceDetailsCubit>()
+                  .loadDeviceData("light-sensor-01"),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 42),
+                      LightSensorGauge(luxValue: luxValue),
+                      const SizedBox(height: 20),
+                      LightStatusCard(
+                        status: device.status,
+                        operationalState: device.operationalState,
+                      ),
+                      const SizedBox(height: 40),
+                      const LightInsightsSection(),
+                      const SizedBox(height: 40),
+                    ],
+                  ),
                 ),
               ),
             );
