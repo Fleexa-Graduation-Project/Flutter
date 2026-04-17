@@ -34,10 +34,8 @@ class _TempInsightCardState extends State<TempInsightCard> {
             currentValue = value;
           });
 
-          context.read<DeviceTelemetryCubit>().loadTelemetry(
-                "temp-sensor-01",
-                metric: value.apiValue,
-              );
+          context.read<DeviceTelemetryCubit>().loadTelemetry("temp-sensor-01",
+              period: value.apiValue, metric: "temp");
         },
       ),
     );
