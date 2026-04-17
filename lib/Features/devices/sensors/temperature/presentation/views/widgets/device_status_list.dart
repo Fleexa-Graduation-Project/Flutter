@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/devices/sensors/temperature/data/models/device_status_model.dart';
-import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_model.dart';
+
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/device_status_row.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +13,7 @@ class DeviceStatusList extends StatelessWidget {
 
     required this.tempModel,
   });
-  final TempModel tempModel;
+  final DeviceModel tempModel;
   @override
   Widget build(BuildContext context) {
         final List<DeviceStatusModel> deviceStatusItems = [

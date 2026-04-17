@@ -44,7 +44,7 @@ class CircularValueIndicator extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
-                value.toString(),
+                value.toStringAsFixed(0),
                 style: Styles.style28SemiBold,
               ),
               const SizedBox(height: 4),

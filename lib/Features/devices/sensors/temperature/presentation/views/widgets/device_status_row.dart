@@ -1,7 +1,7 @@
 import 'package:fleexa/Features/devices/sensors/temperature/data/models/device_status_model.dart';
-import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_model.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/connected_label.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/not_connected_label.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -14,7 +14,7 @@ class DeviceStatusRow extends StatelessWidget {
   });
 
   final DeviceStatusModel deviceStatusModel;
-  final TempModel tempModel;
+  final DeviceModel tempModel;
 
   @override
   Widget build(BuildContext context) {

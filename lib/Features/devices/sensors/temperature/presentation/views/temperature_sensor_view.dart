@@ -1,9 +1,9 @@
-import 'package:fleexa/Features/devices/sensors/temperature/presentation/manager/temp_cubit/temp_cubit.dart';
-import 'package:fleexa/Features/devices/sensors/temperature/presentation/manager/temp_cubit/temp_state.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/circular_value_indicator.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/related_device_card.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/temp_info_summary.dart';
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/temp_stat_list.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_state.dart';
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
@@ -24,29 +24,29 @@ class TemperatureSensorView extends StatelessWidget {
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: BlocBuilder<TempCubit, TempState>(
+          child: BlocBuilder<DeviceDetailsCubit, DeviceDetailsState>(
             builder: (context, state) {
-              if (state is TempLoading) {
+              if (state is DeviceDetailsLoading) {
                 return const AppLoading();
               }
 
-              if (state is TempError) {
+              if (state is DeviceDetailsError) {
                 return AppError(message: state.message);
               }
 
-              if (state is TempLoaded) {
+              if (state is DeviceDetailsLoaded) {
                 return SingleChildScrollView(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 52),
                       Center(
-                          child:
-                              CircularValueIndicator(value: state.device.temp)),
+                          child: CircularValueIndicator(
+                              value: state.device.payload["temp"] ?? 0)),
                       const SizedBox(height: 40),
                       TempInfoSummary(data: state.device),
                       const SizedBox(height: 24),
-                      const TempStatList(),
+                      TempStatList(data: state.device),
                       const SizedBox(height: 32),
                       const RelatedDeviceCard(),
                       const SizedBox(height: 32),

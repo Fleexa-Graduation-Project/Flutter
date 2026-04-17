@@ -1,3 +1,4 @@
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -5,8 +6,6 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
-
-import '../../manager/temp_telemetry_cubit/temp_telemetry_cubit.dart';
 
 import 'temp_chart.dart';
 
@@ -35,9 +34,9 @@ class _TempInsightCardState extends State<TempInsightCard> {
             currentValue = value;
           });
 
-          context.read<TempTelemetryCubit>().getTelemetry(
+          context.read<DeviceTelemetryCubit>().loadTelemetry(
                 "temp-sensor-01",
-                value.apiValue,
+                metric: value.apiValue,
               );
         },
       ),

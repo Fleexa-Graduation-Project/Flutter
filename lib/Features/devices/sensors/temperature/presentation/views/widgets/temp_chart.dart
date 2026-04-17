@@ -1,4 +1,7 @@
 import 'package:fleexa/Features/devices/sensors/temperature/data/models/temp_telemetry_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
+import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_state.dart';
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
@@ -7,8 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
-import '../../manager/temp_telemetry_cubit/temp_telemetry_cubit.dart';
-import '../../manager/temp_telemetry_cubit/temp_telemetry_state.dart';
 
 import '../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
@@ -20,18 +21,18 @@ class TempChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<TempTelemetryCubit, TempTelemetryState>(
+    return BlocBuilder<DeviceTelemetryCubit, DeviceTelemetryState>(
       builder: (context, state) {
-        if (state is TempTelemetryLoading) {
+        if (state is DeviceTelemetryLoading) {
           return const AppLoading();
         }
 
-        if (state is TempTelemetryError) {
+        if (state is DeviceTelemetryError) {
           return AppError(message: state.message);
         }
 
-        if (state is TempTelemetryLoaded) {
-          final TempTelemetryModel data = state.telemetry;
+        if (state is DeviceTelemetryLoaded) {
+          final TelemetryModel data = state.telemetry;
 
           return SfCartesianChart(
             key: ValueKey(range),
