@@ -19,13 +19,15 @@ class RecentEventsList extends StatelessWidget {
       );
     }
     return Column(
-        children: events.map(
-      (eventData) {
+      children: List.generate(events.length, (index) {
+        final eventData = events[index];
         final String eventName = eventData['event'] ?? 'Unknown Event';
         final String eventTime = eventData['time'] ?? '--:--';
 
+        final bool isLast = index == events.length - 1;
+
         return Padding(
-          padding: const EdgeInsets.only(bottom: 12),
+          padding: EdgeInsets.only(bottom: isLast ? 0 : 12),
           child: Row(
             children: [
               Text(
@@ -40,7 +42,7 @@ class RecentEventsList extends StatelessWidget {
             ],
           ),
         );
-      },
-    ).toList());
+      }),
+    );
   }
 }

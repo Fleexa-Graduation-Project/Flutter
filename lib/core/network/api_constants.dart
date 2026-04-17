@@ -5,6 +5,7 @@ class ApiConstants {
   // System & Device Endpoints
   static const String systemOverview = "/system/overview";
   static const String devices = "/devices";
+  static const String allAlerts = "/alerts";
   static String deviceDetails(String id) => "/devices/$id";
   static String deviceTelemetry(String id) => "/devices/$id/telemetry";
   static String deviceAlerts(String id) => "/devices/$id/alerts";

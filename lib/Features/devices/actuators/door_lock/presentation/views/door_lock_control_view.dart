@@ -39,43 +39,44 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
             return AppError(message: state.message);
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
-            final List dynamicEvents = device.payload['recent_events'] ?? [];
+            final List dynamicEvents =
+                (device.payload['recent_events'] as List? ?? [])
+                    .take(5)
+                    .toList();
             return SafeArea(
-              child: Center(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 24),
-                    child: Column(
-                      children: [
-                        const SizedBox(height: 32),
-                        const DevicePic(),
-                        const SizedBox(height: 36),
-                        CustomContainer(
-                          child: UpperContainerContent(
-                              isLocked: isLocked,
-                              onToggle: (value) {
-                                setState(() {
-                                  isLocked = value;
-                                });
-                              }),
-                        ),
-                        const SizedBox(height: 36),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Text(
-                              S.of(context).recentActivities,
-                              style: Styles.style18Medium,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 20),
-                        CustomContainer(
-                            child: RecentEventsList(events: dynamicEvents)),
-                        const SizedBox(height: 32),
-                      ],
-                    ),
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 24, vertical: 52),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 32),
+                      const DevicePic(),
+                      const SizedBox(height: 72),
+                      CustomContainer(
+                        child: UpperContainerContent(
+                            isLocked: isLocked,
+                            onToggle: (value) {
+                              setState(() {
+                                isLocked = value;
+                              });
+                            }),
+                      ),
+                      const SizedBox(height: 36),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            S.of(context).recentActivities,
+                            style: Styles.style18Medium,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      CustomContainer(
+                          child: RecentEventsList(events: dynamicEvents)),
+                      const SizedBox(height: 32),
+                    ],
                   ),
                 ),
               ),

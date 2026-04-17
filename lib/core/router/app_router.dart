@@ -28,7 +28,7 @@ import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.d
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
 import '../../Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import '../../Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
-import '../../Features/overview/notifications/views/notifications_view.dart';
+import '../../Features/overview/notifications/presentation/views/notifications_view.dart';
 
 class AppRouter {
   // Route names
