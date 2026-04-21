@@ -22,6 +22,8 @@ void main() async {
   final directory = await getApplicationDocumentsDirectory();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(directory.path),
+
+    
   );
 
   runApp(const Fleexa());

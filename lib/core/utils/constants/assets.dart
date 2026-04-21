@@ -18,6 +18,22 @@ class AppAssets {
   /// assets/fonts/Poppins-SemiBold.ttf
   static const String fontsPoppinsSemiBold = "assets/fonts/Poppins-SemiBold.ttf";
 
+  /// Assets for fontsRubikBold
+  /// assets/fonts/Rubik-Bold.ttf
+  static const String fontsRubikBold = "assets/fonts/Rubik-Bold.ttf";
+
+  /// Assets for fontsRubikMedium
+  /// assets/fonts/Rubik-Medium.ttf
+  static const String fontsRubikMedium = "assets/fonts/Rubik-Medium.ttf";
+
+  /// Assets for fontsRubikRegular
+  /// assets/fonts/Rubik-Regular.ttf
+  static const String fontsRubikRegular = "assets/fonts/Rubik-Regular.ttf";
+
+  /// Assets for fontsRubikSemiBold
+  /// assets/fonts/Rubik-SemiBold.ttf
+  static const String fontsRubikSemiBold = "assets/fonts/Rubik-SemiBold.ttf";
+
   /// Assets for iconsAc
   /// assets/icons/ac.svg
   static const String iconsAc = "assets/icons/ac.svg";
@@ -45,6 +61,14 @@ class AppAssets {
   /// Assets for iconsAvg
   /// assets/icons/avg.svg
   static const String iconsAvg = "assets/icons/avg.svg";
+
+  /// Assets for iconsChart
+  /// assets/icons/chart.svg
+  static const String iconsChart = "assets/icons/chart.svg";
+
+  /// Assets for iconsCloud
+  /// assets/icons/cloud.svg
+  static const String iconsCloud = "assets/icons/cloud.svg";
 
   /// Assets for iconsDetailsPage
   /// assets/icons/details_page.svg
@@ -158,13 +182,33 @@ class AppAssets {
   /// assets/icons/theme_mode.svg
   static const String iconsThemeMode = "assets/icons/theme_mode.svg";
 
+  /// Assets for iconsTimerSettingsIcon
+  /// assets/icons/timer_settings_icon.svg
+  static const String iconsTimerSettingsIcon = "assets/icons/timer_settings_icon.svg";
+
   /// Assets for iconsUnlock
   /// assets/icons/unlock.svg
   static const String iconsUnlock = "assets/icons/unlock.svg";
 
+  /// Assets for iconsWifi
+  /// assets/icons/wifi.svg
+  static const String iconsWifi = "assets/icons/wifi.svg";
+
+  /// Assets for imagesAcDevice
+  /// assets/images/ac_device.svg
+  static const String imagesAcDevice = "assets/images/ac_device.svg";
+
   /// Assets for imagesDoorLockDevice
   /// assets/images/door_lock_device.svg
   static const String imagesDoorLockDevice = "assets/images/door_lock_device.svg";
+
+  /// Assets for imagesFleexaLogo
+  /// assets/images/fleexa_logo.png
+  static const String imagesFleexaLogo = "assets/images/fleexa_logo.png";
+
+  /// Assets for imagesFleexaLogoBg
+  /// assets/images/fleexa_logo_bg.png
+  static const String imagesFleexaLogoBg = "assets/images/fleexa_logo_bg.png";
 
   /// Assets for imagesFullLogo
   /// assets/images/full_logo.svg

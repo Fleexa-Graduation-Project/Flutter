@@ -5,6 +5,7 @@ import 'package:fleexa/Features/devices/sensors/gas/presentation/views/gas_senso
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/temperature_sensor_view.dart';
 import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
+import 'package:fleexa/Features/on_boarding/presentation/views/on_boarding_screen.dart';
 import 'package:fleexa/Features/overview/main_overview_view.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart'
     show SystemOverviewView;
@@ -59,6 +60,7 @@ class AppRouter {
   static const String notifications = 'notifications';
   static const String gasSensor = 'gasSensor';
   static const String lightSensor = 'lightSensor';
+  static const String onBoarding = 'onBoarding';
 
   static final GoRouter router = GoRouter(
     initialLocation: '/',
@@ -68,6 +70,10 @@ class AppRouter {
         name: splash,
         builder: (context, state) => const SplashView(),
       ),
+      GoRoute(
+          path: '/onboarding',
+          name: onBoarding,
+          builder: (context, state) => const OnBoardingScreen()),
       GoRoute(
         path: '/main-overview',
         name: mainOverview,
