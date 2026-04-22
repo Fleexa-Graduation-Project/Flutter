@@ -7,10 +7,13 @@ import 'package:fleexa/Features/overview/system_overview/presentation/manager/al
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/system_overview_cubit/system_overview_cubit.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/system_overview_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
+import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotspot/hotspot.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'widgets/custom_bottom_nav_bar.dart';
 
@@ -25,12 +28,25 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   final PageController _pageController = PageController();
 
   int _currentIndex = 0;
+  bool _isCheckingFirstTime = true;
 
   final List<Widget> _screens = const [
     HomeView(),
     SystemOverviewView(),
     SettingsView(),
   ];
+
+  Future<void> _checkFirstTime(BuildContext innerContext) async {
+    final prefs = await SharedPreferences.getInstance();
+    bool hasSeenTutorial = prefs.getBool('hasSeenMainTutorial') ?? false;
+
+    if (!hasSeenTutorial && innerContext.mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        HotspotProvider.of(innerContext).startFlow();
+      });
+      await prefs.setBool('hasSeenMainTutorial', true);
+    }
+  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -77,16 +93,42 @@ class _MainOverviewViewState extends State<MainOverviewView> {
               DevicesCubit(getIt<DeviceListRepository>())..fetchDevices(),
         ),
       ],
-      child: Scaffold(
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: _onPageChanged,
-          physics: const BouncingScrollPhysics(),
-          children: _screens,
+      child: Theme(
+        data: Theme.of(context).copyWith(
+          cardColor: AppColors.dimGray,
+          dialogBackgroundColor: AppColors.dimGray,
+          colorScheme: Theme.of(context).colorScheme.copyWith(
+                primary: AppColors.wineRed,
+                secondary: AppColors.white,
+              ),
+          textTheme: Theme.of(context).textTheme.apply(
+                bodyColor: AppColors.white,
+                displayColor: AppColors.white,
+              ),
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
+              foregroundColor: AppColors.coolGray,
+            ),
+          ),
         ),
-        bottomNavigationBar: CustomBottomNavBar(
-          currentIndex: _currentIndex,
-          onTap: _onItemTapped,
+        child: HotspotProvider(
+          backgroundColor: AppColors.charcoalBlack,
+          child: Builder(builder: (innerContext) {
+            if (_isCheckingFirstTime) {
+              _checkFirstTime(innerContext);
+              _isCheckingFirstTime = false;
+            }
+            return Scaffold(
+                body: PageView(
+                    controller: _pageController,
+                    onPageChanged: _onPageChanged,
+                    physics: const BouncingScrollPhysics(),
+                    children: _screens),
+                bottomNavigationBar: CustomBottomNavBar(
+                  currentIndex: _currentIndex,
+                  onTap: _onItemTapped,
+                ));
+          }),
         ),
       ),
     );

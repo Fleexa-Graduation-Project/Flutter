@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hotspot/hotspot.dart';
 
 class TopAppbarActionRow extends StatelessWidget {
   const TopAppbarActionRow({super.key});
@@ -21,7 +22,12 @@ class TopAppbarActionRow extends StatelessWidget {
         const Spacer(),
         NotificationBellBadge(onTap: () {
           GoRouter.of(context).pushNamed(AppRouter.notifications);
-        }),
+        }).withHotspot(
+          order: 2,
+          title: 'System Notifications',
+          text:
+              'Catch system notifications and anomalies the moment they happen.',
+        ),
         const SizedBox(width: 8),
         InkWell(
           onTap: () {

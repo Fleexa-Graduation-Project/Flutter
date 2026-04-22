@@ -57,7 +57,7 @@ class _AcInsightUsageState extends State<AcInsightUsage> {
             return UsageChart(
               data: state.telemetry.data,
               periodKey: state.currentPeriod,
-              maxValue: state.telemetry.max,
+              maxValue: state.telemetry.chartMax,
             );
           }
           return const SizedBox();

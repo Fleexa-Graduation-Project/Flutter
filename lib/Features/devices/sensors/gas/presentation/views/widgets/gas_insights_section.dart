@@ -66,7 +66,7 @@ class _GasInsightsSectionState extends State<GasInsightsSection> {
                 return GasSensorChart(
                   data: state.telemetry.data,
                   periodKey: state.currentPeriod,
-                  maxValue: state.telemetry.max,
+                  maxValue: state.telemetry.chartMax,
                 );
               }
               return const SizedBox();

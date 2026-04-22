@@ -3,16 +3,12 @@ import 'chart_point_model.dart';
 class TelemetryModel {
   final String period;
   final List<ChartPointModel> data;
-  final double min;
-  final double max;
-  final double average;
+  final double chartMax;
 
   TelemetryModel({
     required this.period,
     required this.data,
-    required this.min,
-    required this.max,
-    required this.average,
+    required this.chartMax,
   });
 
   factory TelemetryModel.fromJson(Map<String, dynamic> json) {
@@ -22,9 +18,7 @@ class TelemetryModel {
               ?.map((item) => ChartPointModel.fromJson(item))
               .toList() ??
           [],
-      min: (json['min'] ?? 0).toDouble(),
-      max: (json['max'] ?? 0).toDouble(),
-      average: (json['average'] ?? 0).toDouble(),
+      chartMax: (json['chart_max'] as num?)?.toDouble() ?? 0.0,
     );
   }
 }

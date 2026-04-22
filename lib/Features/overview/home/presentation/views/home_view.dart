@@ -4,6 +4,7 @@ import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_ap
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hotspot/hotspot.dart';
 
 import '../../../../../core/utils/common_widgets/app_error.dart';
 import '../manager/devices_state.dart';
@@ -70,6 +71,11 @@ class _HomeViewState extends State<HomeView> {
                             });
                           },
                         ),
+                      ).withHotspot(
+                        order: 4,
+                        title: 'Live Devices',
+                        text:
+                            'Monitor all your active sensors and actuators here.',
                       ),
                     ],
                   ),

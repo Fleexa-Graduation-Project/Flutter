@@ -72,7 +72,7 @@ class _LightInsightsSectionState extends State<LightInsightsSection> {
                 return LightSensorChart(
                   data: state.telemetry.data,
                   periodKey: state.currentPeriod,
-                  maxValue: state.telemetry.max,
+                  maxValue: state.telemetry.chartMax,
                 );
               }
               return const SizedBox();
