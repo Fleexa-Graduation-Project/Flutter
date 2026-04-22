@@ -29,21 +29,11 @@ class RelatedDeviceCard extends StatelessWidget {
             const SizedBox(
               width: 16,
             ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).airConditioner,
-                  style: Styles.style14Medium.copyWith(color: AppColors.white),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  '${S.of(context).target} ${S.of(context).acValue}',
-                  style: Styles.style12Regular
-                      .copyWith(color: AppColors.mediumGray),
-                ),
-              ],
+            Text(
+              S.of(context).airConditioner,
+              style: Styles.style14Medium.copyWith(color: AppColors.white),
             ),
+            const SizedBox(height: 4),
             const Spacer(),
             const Icon(
               FontAwesomeIcons.angleRight,

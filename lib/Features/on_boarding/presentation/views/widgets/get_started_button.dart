@@ -1,0 +1,41 @@
+
+import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:flutter/material.dart';
+
+class GetStartedButton extends StatelessWidget {
+  const GetStartedButton({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: () {
+        
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(
+              horizontal: 70, vertical: 14),
+          decoration: ShapeDecoration(
+            color: AppColors.darkMaroon,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18),
+            ),
+            shadows: const [
+              BoxShadow(
+                color: Color(0x3F000000),
+                blurRadius: 4,
+                offset: Offset(0, 4),
+              ),
+            ],
+          ),
+          child: Text(
+            "Get Started",
+            textAlign: TextAlign.center,
+            style: Styles.style20Medium,
+          ),
+        ),
+      );
+  }
+}

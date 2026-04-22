@@ -34,7 +34,7 @@ class AppColors {
   static const Color ashGray = Color(0xFF6C6B6B);
   static const Color warmDarkGray = Color(0xFF595957);
   static const Color davysGray = Color(0xFF555555);
-
+  static const Color platinumGray = Color(0xFF696767);
   // =========================
   // Reds / Burgundy
   // =========================

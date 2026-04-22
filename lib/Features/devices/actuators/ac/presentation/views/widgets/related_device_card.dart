@@ -26,19 +26,9 @@ class RelatedDeviceCard extends StatelessWidget {
               height: 24,
             ),
             const SizedBox(width: 16),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  S.of(context).temperatureSensor,
-                  style: Styles.style14Medium.copyWith(color: AppColors.white),
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  S.of(context).currentTemp(29),
-                  style: Styles.style12Regular,
-                ),
-              ],
+            Text(
+              S.of(context).temperatureSensor,
+              style: Styles.style14Medium.copyWith(color: AppColors.white),
             ),
             const Spacer(),
             const Icon(

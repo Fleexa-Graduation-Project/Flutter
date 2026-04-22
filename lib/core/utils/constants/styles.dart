@@ -8,6 +8,11 @@ class Styles {
     fontSize: 24.sp,
     fontWeight: FontWeight.w500,
   );
+    static TextStyle style24SemiBold= TextStyle(
+    color: AppColors.white,
+    fontSize: 24.sp,
+    fontWeight: FontWeight.w600,
+  );
   static TextStyle style20SemiBold = TextStyle(
     color: AppColors.white,
     fontSize: 20.sp,

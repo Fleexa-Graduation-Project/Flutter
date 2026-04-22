@@ -11,8 +11,8 @@ class APiService {
       BaseOptions(
         baseUrl: ApiConstants.baseUrl,
         receiveDataWhenStatusError: true,
-        connectTimeout: const Duration(seconds: 30),
-        receiveTimeout: const Duration(seconds: 30),
+        connectTimeout: const Duration(seconds: 45),
+        receiveTimeout: const Duration(seconds: 45),
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
@@ -23,7 +23,7 @@ class APiService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // TODO: Fetch saved token from secure storage 
+          // TODO: Fetch saved token from secure storage
           String? token = "the_saved_token";
           if (token != null) {
             options.headers['Authorization'] = 'Bearer $token';

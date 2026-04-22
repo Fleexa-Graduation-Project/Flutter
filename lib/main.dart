@@ -10,7 +10,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
-
 import 'Features/overview/notifications/data/repos/notifications_repository.dart';
 import 'Features/overview/notifications/presentation/manager/notifications_cubit.dart';
 
@@ -22,6 +21,8 @@ void main() async {
   final directory = await getApplicationDocumentsDirectory();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(directory.path),
+
+    
   );
 
   runApp(const Fleexa());
