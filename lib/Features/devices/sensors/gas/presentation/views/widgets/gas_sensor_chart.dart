@@ -1,0 +1,94 @@
+import 'package:fleexa/Features/devices/shared/data/models/chart_point_model.dart';
+import 'package:flutter/material.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
+import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
+
+class GasSensorChart extends StatelessWidget {
+  final List<ChartPointModel> data;
+  final String periodKey;
+  final double maxValue;
+
+  const GasSensorChart({
+    super.key,
+    required this.data,
+    required this.periodKey,
+    required this.maxValue,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final double dynamicMax = maxValue + (maxValue * 0.2);
+    final double interval = (dynamicMax / 6).ceilToDouble();
+
+    return SfCartesianChart(
+      key: ValueKey(periodKey),
+
+      legend: Legend(
+        isVisible: true,
+        position: LegendPosition.bottom,
+        iconHeight: 12,
+        iconWidth: 12,
+        textStyle: Styles.style12Regular.copyWith(color: AppColors.lightGray),
+      ),
+
+      plotAreaBorderWidth: 0,
+      plotAreaBorderColor: Colors.transparent,
+
+      /// X Axis
+      primaryXAxis: CategoryAxis(
+        interval: 1,
+        labelIntersectAction: AxisLabelIntersectAction.rotate90,
+        labelAlignment: LabelAlignment.center,
+        placeLabelsNearAxisLine: false,
+        labelStyle: Styles.style10Regular.copyWith(color: AppColors.coolGray),
+        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
+        axisLabelFormatter: (args) {
+          return ChartAxisLabel(args.text, args.textStyle);
+        },
+        majorGridLines: MajorGridLines(
+          width: 1,
+          color: AppColors.white.withOpacity(0.05),
+          dashArray: const [5, 5],
+        ),
+        majorTickLines: const MajorTickLines(size: 0),
+      ),
+
+      /// Y Axis
+      primaryYAxis: NumericAxis(
+        minimum: 0,
+        maximum: dynamicMax,
+        interval: interval,
+        majorTickLines: const MajorTickLines(size: 0),
+        majorGridLines: MajorGridLines(
+          width: 1,
+          color: AppColors.white.withOpacity(0.05),
+          dashArray: const [5, 5],
+        ),
+        labelStyle: Styles.style12Regular.copyWith(color: AppColors.coolGray),
+        axisLine: const AxisLine(width: 1, color: AppColors.coolGray),
+        tickPosition: TickPosition.inside,
+      ),
+
+      /// Series
+      series: <CartesianSeries>[
+        LineSeries<ChartPointModel, String>(
+          dataSource: data,
+          name: S.of(context).gasLevel,
+          xValueMapper: (point, _) => point.label,
+          yValueMapper: (point, _) => point.value,
+          color: AppColors.crimsonRed,
+          width: 2,
+          markerSettings: const MarkerSettings(
+            isVisible: true,
+            height: 4,
+            width: 4,
+            color: AppColors.crimsonRed,
+            borderColor: AppColors.crimsonRed,
+          ),
+        ),
+      ],
+    );
+  }
+}
