@@ -1,21 +1,17 @@
-import 'package:fleexa/Features/settings/domain/settings_enums.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/cubits/localization_cubit.dart';
 import '../../../../../generated/l10n.dart';
 import 'settings_card.dart';
-import 'settings_drop_down.dart';
 
 class SettingsOptions extends StatelessWidget {
   const SettingsOptions({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final currentLocale = context.watch<LocalizationCubit>().state;
-    final currentLanguage =
-        currentLocale.languageCode == 'ar' ? AppLanguage.ar : AppLanguage.en;
+    // final currentLocale = context.watch<LocalizationCubit>().state;
+    // final currentLanguage =
+    //     currentLocale.languageCode == 'ar' ? AppLanguage.ar : AppLanguage.en;
     return Column(
       children: [
         // Account and Security
@@ -37,25 +33,25 @@ class SettingsOptions extends StatelessWidget {
         const SizedBox(height: 20),
 
         // Language
-        SettingsCard(
-          title: S.of(context).settingsLanguage,
-          icon: Icons.language_rounded,
-          dropDown: SettingsDropDown<AppLanguage>(
-            value: currentLanguage,
-            items: AppLanguage.values,
-            labelBuilder: (language) {
-              return language == AppLanguage.en
-                  ? S.of(context).languageEnglish
-                  : S.of(context).languageArabic;
-            },
-            onChanged: (selectedLanguage) {
-              context
-                  .read<LocalizationCubit>()
-                  .changeLanguage(selectedLanguage.name);
-            },
-          ),
-        ),
-        const SizedBox(height: 20),
+        // SettingsCard(
+        //   title: S.of(context).settingsLanguage,
+        //   icon: Icons.language_rounded,
+        //   dropDown: SettingsDropDown<AppLanguage>(
+        //     value: currentLanguage,
+        //     items: AppLanguage.values,
+        //     labelBuilder: (language) {
+        //       return language == AppLanguage.en
+        //           ? S.of(context).languageEnglish
+        //           : S.of(context).languageArabic;
+        //     },
+        //     onChanged: (selectedLanguage) {
+        //       context
+        //           .read<LocalizationCubit>()
+        //           .changeLanguage(selectedLanguage.name);
+        //     },
+        //   ),
+        // ),
+        // const SizedBox(height: 20),
 
         // About and Support
         SettingsCard(

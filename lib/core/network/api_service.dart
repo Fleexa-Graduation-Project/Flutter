@@ -2,6 +2,7 @@
 
 import 'package:dio/dio.dart';
 import 'package:fleexa/core/network/api_constants.dart';
+import 'package:flutter/foundation.dart';
 
 class APiService {
   late final Dio _dio;
@@ -16,9 +17,23 @@ class APiService {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
+          'x-api-key': ApiConstants.awsApiKey,
         },
       ),
     );
+
+    if (kDebugMode) {
+      _dio.interceptors.add(
+        LogInterceptor(
+          request: true,
+          requestHeader: true,
+          requestBody: true,
+          responseHeader: true,
+          responseBody: true,
+          error: true,
+        ),
+      );
+    }
 
     _dio.interceptors.add(
       InterceptorsWrapper(

@@ -21,8 +21,6 @@ void main() async {
   final directory = await getApplicationDocumentsDirectory();
   HydratedBloc.storage = await HydratedStorage.build(
     storageDirectory: HydratedStorageDirectory(directory.path),
-
-    
   );
 
   runApp(const Fleexa());
@@ -69,9 +67,8 @@ class Fleexa extends StatelessWidget {
                 ),
                 scaffoldBackgroundColor: AppColors.jetBlack,
                 primaryColor: AppColors.white,
-                fontFamily:
-                    const Locale('en').languageCode == 'ar' ? 'Rubik' : 'Rubik',
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+                fontFamily: 'Rubik',
+                colorScheme: ColorScheme.fromSeed(seedColor: AppColors.wineRed),
               ),
               routerConfig: AppRouter.router,
             );
