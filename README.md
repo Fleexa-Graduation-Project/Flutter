@@ -1,16 +1,11 @@
-# fleexa
+# Flutter
 
-A new Flutter project.
+This repository is dedicated to Flutter app development for the Fleexa Graduation Project.
 
-## Getting Started
+## About
 
-This project is a starting point for a Flutter application.
+This is the Flutter-based mobile application codebase for the Fleexa project. It contains the source code, assets, and configurations needed to build and run the Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## License
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
