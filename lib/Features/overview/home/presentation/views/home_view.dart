@@ -1,3 +1,4 @@
+import 'package:fleexa/Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';
 
 import '../../../../../core/utils/common_widgets/app_error.dart';
+import '../../../../devices/actuators/door_lock/presentation/manager/door_lock_state.dart';
 import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';
 
@@ -18,7 +20,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool isDoorOpen = true;
   bool isAcOn = true;
 
   @override
@@ -56,19 +57,25 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       const SizedBox(height: 24),
                       Expanded(
-                        child: DeviceCardList(
-                          devices: state.devices,
-                          isDoorOpen: isDoorOpen,
-                          onDoorToggle: (value) {
-                            setState(() {
-                              isDoorOpen = value;
-                            });
-                          },
-                          isAcOn: isAcOn,
-                          onAcToggle: (value) {
-                            setState(() {
-                              isAcOn = value;
-                            });
+                        child: BlocBuilder<DoorLockCubit, DoorLockState>(
+                          builder: (context, doorState) {
+                            final isLocked =
+                                context.read<DoorLockCubit>().isCurrentlyLocked;
+                            return DeviceCardList(
+                              devices: state.devices,
+                              isDoorOpen: isLocked,
+                              onDoorToggle: (value) {
+                                setState(() {
+                                  context.read<DoorLockCubit>().toggleLock();
+                                });
+                              },
+                              isAcOn: isAcOn,
+                              onAcToggle: (value) {
+                                setState(() {
+                                  isAcOn = value;
+                                });
+                              },
+                            );
                           },
                         ),
                       ).withHotspot(

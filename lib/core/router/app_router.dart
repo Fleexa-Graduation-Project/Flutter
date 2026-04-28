@@ -26,6 +26,7 @@ import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
 import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
+import '../../Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
 import '../../Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import '../../Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
@@ -148,6 +149,9 @@ class AppRouter {
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
                     ..loadDeviceData('door-actuator-01'),
+            ),
+            BlocProvider.value(
+              value: getIt<DoorLockCubit>(),
             ),
           ],
           child: const DoorLockControlView(),

@@ -1,3 +1,4 @@
+import 'package:fleexa/Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/device_pic.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/recent_events_list.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/upper_container_content.dart';
@@ -14,6 +15,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../shared/presentation/manager/device_details_state.dart';
+import '../manager/door_lock_state.dart';
 
 class DoorLockControlView extends StatefulWidget {
   const DoorLockControlView({super.key});
@@ -23,8 +25,6 @@ class DoorLockControlView extends StatefulWidget {
 }
 
 class _DoorLockControlViewState extends State<DoorLockControlView> {
-  bool isLocked = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,13 +61,22 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                           const DevicePic(),
                           const SizedBox(height: 72),
                           CustomContainer(
-                            child: UpperContainerContent(
-                                isLocked: isLocked,
-                                onToggle: (value) {
-                                  setState(() {
-                                    isLocked = value;
-                                  });
-                                }),
+                            child: BlocBuilder<DoorLockCubit, DoorLockState>(
+                              builder: (context, doorState) {
+                                final isLocked = context
+                                    .read<DoorLockCubit>()
+                                    .isCurrentlyLocked;
+                                return UpperContainerContent(
+                                    isLocked: isLocked,
+                                    onToggle: (value) {
+                                      setState(() {
+                                        context
+                                            .read<DoorLockCubit>()
+                                            .toggleLock();
+                                      });
+                                    });
+                              },
+                            ),
                           ),
                           const SizedBox(height: 36),
                           Row(

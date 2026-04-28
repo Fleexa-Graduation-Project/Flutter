@@ -24,6 +24,7 @@ class ApiConstants {
   static String deviceDetails(String id) => "/devices/$id";
   static String deviceTelemetry(String id) => "/devices/$id/telemetry";
   static String deviceAlerts(String id) => "/devices/$id/alerts";
+  static String deviceCommands(String id) => "/devices/$id/commands";
 
   // Authentication Endpoints
   static const String login = "/auth/login";

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:fleexa/Features/devices/shared/data/models/alert_model.dart';
+import 'package:fleexa/Features/devices/shared/data/models/device_command_model.dart';
 import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
 import 'package:fleexa/Features/devices/shared/data/models/telemetry_model.dart';
 import 'package:fleexa/core/network/api_constants.dart';
@@ -61,5 +62,23 @@ class DeviceDetailsRepository {
     } catch (e) {
       return [];
     }
+  }
+
+  Future<void> sendDeviceCommand(
+      {required String deviceId,
+      required String action,
+      Map<String, dynamic>? parameters}) async {
+    final String uniqeReqId = 'cmd-${DateTime.now().millisecondsSinceEpoch}';
+
+    final command = DeviceCommandModel(
+      requestId: uniqeReqId,
+      action: action,
+      parameters: parameters ?? {},
+    );
+
+    await apiService.post(
+      ApiConstants.deviceCommands(deviceId),
+      data: command.toJson(),
+    );
   }
 }

@@ -17,7 +17,7 @@ class APiService {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          'x-api-key': ApiConstants.awsApiKey,
+          // 'x-api-key': ApiConstants.awsApiKey,
         },
       ),
     );

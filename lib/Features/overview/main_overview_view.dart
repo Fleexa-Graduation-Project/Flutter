@@ -15,6 +15,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 
 class MainOverviewView extends StatefulWidget {
@@ -91,6 +92,9 @@ class _MainOverviewViewState extends State<MainOverviewView> {
         BlocProvider<DevicesCubit>(
           create: (context) =>
               DevicesCubit(getIt<DeviceListRepository>())..fetchDevices(),
+        ),
+        BlocProvider.value(
+          value: getIt<DoorLockCubit>(),
         ),
       ],
       child: Theme(
