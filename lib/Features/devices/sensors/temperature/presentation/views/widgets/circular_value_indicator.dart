@@ -16,15 +16,15 @@ class CircularValueIndicator extends StatelessWidget {
       alignment: Alignment.center,
       children: [
         Container(
-          width: 320,
-          height: 320,
+          width: 300,
+          height: 300,
           decoration: BoxDecoration(
             shape: BoxShape.circle,
             gradient: RadialGradient(
               colors: [
                 Colors.transparent,
-                AppColors.burgundy.withOpacity(0.3),
-                AppColors.darkMaroon.withOpacity(0.1),
+                AppColors.burgundy.withOpacity(0.12),
+                AppColors.darkMaroon.withOpacity(0.09),
               ],
               stops: const [0.0, 0.7, 1.0],
             ),
