@@ -28,16 +28,6 @@ class TopAppbarActionRow extends StatelessWidget {
           text:
               'Catch system notifications and anomalies the moment they happen.',
         ),
-        const SizedBox(width: 8),
-        InkWell(
-          onTap: () {
-            GoRouter.of(context).pushNamed(AppRouter.settingsProfile);
-          },
-          child: CircleAvatar(
-            radius: 16.r,
-            backgroundImage: const AssetImage('assets/images/girl.png'),
-          ),
-        )
       ],
     );
   }
