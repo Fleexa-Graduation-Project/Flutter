@@ -8,9 +8,9 @@ class ApiConstants {
       case AppEnvironment.mock:
         return 'https://1650c4e9-95fc-4d60-bba1-bb27851caaaf.mock.pstmn.io/api/v1';
       case AppEnvironment.dev:
-        return 'https://dev-api.fleexa.com/api/v1'; // TODO: DevOps will give you this AWS link
+        return 'https://23wqm3dp5c.execute-api.us-east-1.amazonaws.com/dev';
       case AppEnvironment.prod:
-        return 'https://api.fleexa.com/api/v1'; // TODO: DevOps will give you this AWS link
+        return 'https://api.fleexa.com/api/v1';
     }
   }
 

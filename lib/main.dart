@@ -1,4 +1,6 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:fleexa/core/cubits/localization_cubit.dart';
+import 'package:fleexa/core/services/push_notification_service.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/core/router/app_router.dart';
@@ -12,11 +14,18 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'Features/overview/notifications/data/repos/notifications_repository.dart';
 import 'Features/overview/notifications/presentation/manager/notifications_cubit.dart';
+import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   setupServiceLocator();
+
+  await getIt<PushNotificationService>().init();
 
   final directory = await getApplicationDocumentsDirectory();
   HydratedBloc.storage = await HydratedStorage.build(

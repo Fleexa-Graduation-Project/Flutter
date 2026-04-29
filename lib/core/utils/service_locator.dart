@@ -6,6 +6,7 @@ import 'package:get_it/get_it.dart';
 import '../../Features/devices/shared/data/repos/device_details_repository.dart';
 import '../../Features/overview/notifications/data/repos/notifications_repository.dart';
 import '../../Features/overview/system_overview/data/repos/system_overview_repository.dart';
+import '../services/push_notification_service.dart';
 
 final getIt = GetIt.instance;
 
@@ -35,5 +36,9 @@ void setupServiceLocator() {
       repository: getIt<DeviceDetailsRepository>(),
       deviceId: 'door-actuator-01',
     ),
+  );
+
+  getIt.registerLazySingleton<PushNotificationService>(
+    () => PushNotificationService(),
   );
 }
