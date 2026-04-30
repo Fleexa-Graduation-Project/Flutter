@@ -3,6 +3,7 @@ import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
+import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';
@@ -61,20 +62,24 @@ class _HomeViewState extends State<HomeView> {
                           builder: (context, doorState) {
                             final isLocked =
                                 context.read<DoorLockCubit>().isCurrentlyLocked;
-                            return DeviceCardList(
-                              devices: state.devices,
-                              isDoorOpen: isLocked,
-                              onDoorToggle: (value) {
-                                setState(() {
-                                  context.read<DoorLockCubit>().toggleLock();
-                                });
-                              },
-                              isAcOn: isAcOn,
-                              onAcToggle: (value) {
-                                setState(() {
-                                  isAcOn = value;
-                                });
-                              },
+                            return CustomRefreshIndicator(
+                              onRefresh: () async =>
+                                  context.read<DevicesCubit>().fetchDevices(),
+                              child: DeviceCardList(
+                                devices: state.devices,
+                                isDoorOpen: isLocked,
+                                onDoorToggle: (value) {
+                                  setState(() {
+                                    context.read<DoorLockCubit>().toggleLock();
+                                  });
+                                },
+                                isAcOn: isAcOn,
+                                onAcToggle: (value) {
+                                  setState(() {
+                                    isAcOn = value;
+                                  });
+                                },
+                              ),
                             );
                           },
                         ),
