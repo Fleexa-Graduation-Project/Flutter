@@ -2,6 +2,8 @@ import 'dart:developer';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
+import '../utils/constants/app_colors.dart';
+
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   log("Background message received: ${message.notification?.title}");
@@ -63,17 +65,19 @@ class PushNotificationService {
   }
 
   Future<void> _showLocalNotification(RemoteMessage message) async {
-    const AndroidNotificationDetails androidDetails =
-        AndroidNotificationDetails(
+    AndroidNotificationDetails androidDetails =
+        const AndroidNotificationDetails(
       'high_importance_channel',
       'High Importance Notifications',
       importance: Importance.max,
       priority: Priority.high,
+      playSound: true,
+      color: AppColors.jetBlack,
     );
 
-    const NotificationDetails platformDetails = NotificationDetails(
+    NotificationDetails platformDetails = NotificationDetails(
       android: androidDetails,
-      iOS: DarwinNotificationDetails(),
+      iOS: const DarwinNotificationDetails(),
     );
 
     await _localNotifications.show(
