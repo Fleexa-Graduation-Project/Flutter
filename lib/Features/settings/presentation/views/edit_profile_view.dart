@@ -33,6 +33,8 @@ class _EditProfileViewState extends State<EditProfileView> {
     return Scaffold(
       backgroundColor: AppColors.black,
       appBar: AppBar(
+        elevation: 0,
+        
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.white),
           onPressed: () => Navigator.pop(context),
@@ -50,9 +52,7 @@ class _EditProfileViewState extends State<EditProfileView> {
                 key: _formKey,
                 child: Column(
                   children: [
-                    const SizedBox(height: 20),
-                    const ProfileAvatar(),
-                    const SizedBox(height: 40),
+                    const SizedBox(height: 80),
                     EditField(
                       label: S.of(context).fieldUsername,
                       controller: nameController,
