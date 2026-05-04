@@ -6,7 +6,7 @@ class ApiConstants {
   static String get baseUrl {
     switch (currentEnv) {
       case AppEnvironment.mock:
-        return 'https://1650c4e9-95fc-4d60-bba1-bb27851caaaf.mock.pstmn.io/api/v1';
+        return 'https://a942c4cd-805c-44de-af59-f61d99e769ac.mock.pstmn.io/api/v1';
       case AppEnvironment.dev:
         return 'https://23wqm3dp5c.execute-api.us-east-1.amazonaws.com/dev';
       case AppEnvironment.prod:

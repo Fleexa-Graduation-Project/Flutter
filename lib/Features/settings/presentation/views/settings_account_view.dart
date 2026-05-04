@@ -6,6 +6,9 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../core/utils/constants/app_strings.dart';
+import 'widgets/confirm_dialog.dart';
+
 class SettingsAccountView extends StatelessWidget {
   const SettingsAccountView({super.key});
 
@@ -43,7 +46,17 @@ class SettingsAccountView extends StatelessWidget {
               const SizedBox(height: 18),
               AccountCard(
                 title: S.of(context).settingsDeleteAccount,
-                onTap: () {},
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => ConfirmDialog(
+                      dialogType: DialogType.deleteAccount,
+                      onConfirm: () {
+                        // Perform delete account action here
+                      },
+                    ),
+                  );
+                },
               ),
             ],
           ),

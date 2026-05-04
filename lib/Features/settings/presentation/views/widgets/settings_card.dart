@@ -13,6 +13,7 @@ class SettingsCard extends StatelessWidget {
     this.pageRouteName,
     this.forwardArrow = false,
     this.dropDown,
+    this.onTap,
   });
 
   final String title;
@@ -20,6 +21,7 @@ class SettingsCard extends StatelessWidget {
   final Widget? dropDown;
   final bool forwardArrow;
   final String? pageRouteName;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +30,7 @@ class SettingsCard extends StatelessWidget {
         if (pageRouteName != null) {
           GoRouter.of(context).pushNamed(pageRouteName!);
         }
+        onTap?.call();
       },
       child: Container(
         width: double.infinity,

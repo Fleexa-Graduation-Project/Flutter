@@ -34,3 +34,5 @@ extension TimeRangeExtension on TimeRange {
 }
 
 enum PickerMode { duration, time }
+
+enum DialogType { deleteAccount, logout }

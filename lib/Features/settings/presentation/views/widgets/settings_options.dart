@@ -1,7 +1,9 @@
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../generated/l10n.dart';
+import 'confirm_dialog.dart';
 import 'settings_card.dart';
 
 class SettingsOptions extends StatelessWidget {
@@ -64,6 +66,17 @@ class SettingsOptions extends StatelessWidget {
         SettingsCard(
           title: S.of(context).settingsLogOut,
           icon: Icons.logout,
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) => ConfirmDialog(
+                dialogType: DialogType.logout,
+                onConfirm: () {
+                  // Perform logout action here
+                },
+              ),
+            );
+          },
         ),
       ],
     );
