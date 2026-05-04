@@ -1,9 +1,12 @@
 import 'package:fleexa/Features/settings/presentation/views/widgets/profile_avatar.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/profile_info_card.dart';
+import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsProfileView extends StatelessWidget {
   const SettingsProfileView({super.key});
@@ -18,7 +21,9 @@ class SettingsProfileView extends StatelessWidget {
               FontAwesomeIcons.penToSquare,
               color: AppColors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.pushNamed(AppRouter.editProfile);
+            },
           ),
         ],
         leading: IconButton(
@@ -28,22 +33,14 @@ class SettingsProfileView extends StatelessWidget {
         title: Text(S.of(context).settingsProfile),
         centerTitle: true,
       ),
-      body: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 52,
-              ),
-              ProfileAvatar(),
-              SizedBox(
-                height: 40,
-              ),
-              ProfileInfoCard()
-            ],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 80.h),
+            const ProfileInfoCard(),
+          ],
         ),
       ),
     );
