@@ -1,6 +1,5 @@
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/edit_field.dart';
-import 'package:fleexa/Features/settings/presentation/views/widgets/profile_avatar.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -34,7 +33,6 @@ class _EditProfileViewState extends State<EditProfileView> {
       backgroundColor: AppColors.black,
       appBar: AppBar(
         elevation: 0,
-        
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.white),
           onPressed: () => Navigator.pop(context),

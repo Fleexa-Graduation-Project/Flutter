@@ -1,4 +1,3 @@
-import 'package:fleexa/Features/settings/presentation/views/widgets/profile_avatar.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/profile_info_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
