@@ -4,6 +4,8 @@ import 'package:dio/dio.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:flutter/foundation.dart';
 
+import 'mock/mock_interceptor.dart';
+
 class APiService {
   late final Dio _dio;
 
@@ -21,6 +23,10 @@ class APiService {
         },
       ),
     );
+
+    if (ApiConstants.currentEnv == AppEnvironment.mock) {
+      _dio.interceptors.add(MockInterceptor());
+    }
 
     if (kDebugMode) {
       _dio.interceptors.add(
