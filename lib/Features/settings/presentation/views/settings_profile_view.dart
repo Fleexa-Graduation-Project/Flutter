@@ -32,13 +32,13 @@ class SettingsProfileView extends StatelessWidget {
         title: Text(S.of(context).settingsProfile),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 80.h),
-            const ProfileInfoCard(),
+            SizedBox(height: 40),
+            ProfileInfoCard(),
           ],
         ),
       ),
