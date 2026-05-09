@@ -36,3 +36,10 @@ extension TimeRangeExtension on TimeRange {
 enum PickerMode { duration, time }
 
 enum DialogType { deleteAccount, logout }
+
+class AppConstants {
+  static const List<String> notificationDevices = [
+    'door-actuator-01',
+    'gas-sensor-01',
+  ];
+}
