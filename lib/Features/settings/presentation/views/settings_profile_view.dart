@@ -3,7 +3,6 @@ import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 
@@ -32,13 +31,13 @@ class SettingsProfileView extends StatelessWidget {
         title: Text(S.of(context).settingsProfile),
         centerTitle: true,
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
+      body: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            SizedBox(height: 80.h),
-            const ProfileInfoCard(),
+            SizedBox(height: 40),
+            ProfileInfoCard(),
           ],
         ),
       ),
