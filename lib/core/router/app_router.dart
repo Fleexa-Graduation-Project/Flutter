@@ -12,6 +12,7 @@ import 'package:fleexa/Features/overview/system_overview/presentation/views/syst
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_control_view.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_details_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
+import 'package:fleexa/Features/settings/presentation/views/about_and_support_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_account_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_notifications_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_profile_view.dart';
@@ -48,6 +49,7 @@ class AppRouter {
   static const String editProfile = 'editProfile';
   static const String settingsAccount = 'settingsAccount';
   static const String settingsNotifications = 'settingsNotifications';
+  static const String settingsAboutSupport = 'settingsAboutSupport';
   // overview
   static const String mainOverview = 'mainOverview';
   static const String systemOverview = 'systemOverview';
@@ -129,6 +131,11 @@ class AppRouter {
         path: '/settings-account',
         name: settingsAccount,
         builder: (context, state) => const SettingsAccountView(),
+      ),
+      GoRoute(
+        path: '/settings-about-support',
+        name: settingsAboutSupport,
+        builder: (context, state) => const AboutAndSupportView(),
       ),
       GoRoute(
         path: '/home',

@@ -59,6 +59,8 @@ class SettingsOptions extends StatelessWidget {
         SettingsCard(
           title: S.of(context).settingsAboutAndSupport,
           icon: Icons.info_outline_rounded,
+          forwardArrow: true,
+          pageRouteName: AppRouter.settingsAboutSupport,
         ),
         const SizedBox(height: 20),
 
