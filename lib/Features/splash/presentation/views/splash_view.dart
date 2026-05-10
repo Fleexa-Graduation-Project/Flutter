@@ -1,8 +1,12 @@
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../../auth/presentation/manager/auth_cubit.dart';
+import '../../../auth/presentation/manager/auth_state.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -18,6 +22,8 @@ class _SplashViewState extends State<SplashView> {
   @override
   void initState() {
     super.initState();
+
+    context.read<AuthCubit>().checkAppStart();
 
     // Remove Native Splash & Start Text Expansion
     Future.delayed(const Duration(milliseconds: 500), () {
@@ -39,9 +45,24 @@ class _SplashViewState extends State<SplashView> {
     // Navigate
     Future.delayed(const Duration(milliseconds: 2200), () {
       if (mounted) {
-        GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
+        _navigateBasedOnAuthState();
+        // GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
       }
     });
+  }
+
+  void _navigateBasedOnAuthState() {
+    final authState = context.read<AuthCubit>().state;
+
+    if (authState is FirstTimeUser) {
+      GoRouter.of(context).pushReplacementNamed(AppRouter.onBoarding);
+    } else if (authState is Unauthenticated) {
+      GoRouter.of(context).pushReplacementNamed(AppRouter.signIn);
+    } else if (authState is Authenticated) {
+      GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
+    } else {
+      GoRouter.of(context).pushReplacementNamed(AppRouter.signIn);
+    }
   }
 
   @override

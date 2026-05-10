@@ -25,6 +25,7 @@ import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
+import '../../Features/auth/presentation/views/change_password_with_email_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
 import '../../Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
@@ -41,6 +42,7 @@ class AppRouter {
   static const String signUp = 'signUp';
   // password management
   static const String changePassword = 'changePassword';
+  static const String changePasswordWithEmail = 'changePasswordWithEmail';
   static const String resetPassword = 'resetPassword';
   static const String verifyCode = 'verifyCode';
   // settings
@@ -96,6 +98,11 @@ class AppRouter {
         path: '/change-password',
         name: changePassword,
         builder: (context, state) => const ChangePasswordView(),
+      ),
+      GoRoute(
+        path: '/change-password-with-email',
+        name: changePasswordWithEmail,
+        builder: (context, state) => const ChangePasswordWithEmailView(),
       ),
       GoRoute(
         path: '/reset-password',
