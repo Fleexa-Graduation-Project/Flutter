@@ -1,13 +1,18 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:flutter/foundation.dart';
+import 'package:fleexa/core/utils/token_storage.dart';
 
 import 'mock/mock_interceptor.dart';
 
 class APiService {
   late final Dio _dio;
+
+  late final Dio _refreshDio;
 
   APiService() {
     _dio = Dio(
@@ -19,7 +24,17 @@ class APiService {
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'application/json',
-          // 'x-api-key': ApiConstants.awsApiKey,
+        },
+      ),
+    );
+
+    // Prepare a separate Dio instance for token refresh operations
+    _refreshDio = Dio(
+      BaseOptions(
+        baseUrl: ApiConstants.baseUrl,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
         },
       ),
     );
@@ -44,18 +59,82 @@ class APiService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (options, handler) async {
-          // TODO: Fetch saved token from secure storage
-          String? token = "the_saved_token";
-          if (token != null) {
+          // 1. Retrieve the token from secure storage
+          String? token = await TokenStorage.getAccessToken();
+
+          // 2. Send The Tokem in the Authorization header if it exists
+          if (token != null && !options.path.contains('/auth')) {
             options.headers['Authorization'] = 'Bearer $token';
           }
           return handler.next(options);
         },
-        onError: (DioException e, handler) {
+        onError: (DioException e, handler) async {
+          if (e.response?.statusCode == 401 &&
+              !e.requestOptions.path.contains('/auth')) {
+            bool isRefreshed = await _refreshToken();
+
+            if (isRefreshed) {
+              // Get the new access token after refresh
+              String? newAccessToken = await TokenStorage.getAccessToken();
+
+              // Renew the original request with the new token
+              e.requestOptions.headers['Authorization'] =
+                  'Bearer $newAccessToken';
+
+              try {
+                // Resend the original request with the new token
+                final response = await _dio.fetch(e.requestOptions);
+                return handler.resolve(response);
+              } on DioException catch (retryError) {
+                return handler.next(retryError);
+              }
+            } else {
+              // If refresh failed, clear tokens and maybe redirect to login
+              await TokenStorage.clearTokens();
+              // TODO: في المستقبل، ممكن نبعت Event هنا عشان الـ Router يطرد اليوزر لصفحة الـ SignIn
+              return handler.next(e);
+            }
+          }
           return handler.next(e);
         },
       ),
     );
+  }
+
+  // Token Refresh Logic
+  Future<bool> _refreshToken() async {
+    try {
+      String? refreshToken = await TokenStorage.getRefreshToken();
+
+      if (refreshToken == null || refreshToken.isEmpty) {
+        return false;
+      }
+
+      // use the separate Dio instance to avoid interceptor loops
+      final response = await _refreshDio.post(
+        '/auth/refresh',
+        data: {
+          "refresh_token": refreshToken,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final data = response.data;
+
+        await TokenStorage.saveTokens(
+          accessToken: data['access_token'],
+          idToken: data['id_token'],
+          refreshToken: refreshToken,
+        );
+        return true;
+      }
+      return false;
+    } catch (e) {
+      if (kDebugMode) {
+        log("Refresh Token Failed: $e");
+      }
+      return false;
+    }
   }
 
   // Wrapper Methods

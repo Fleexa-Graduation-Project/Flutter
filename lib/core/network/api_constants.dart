@@ -27,7 +27,10 @@ class ApiConstants {
   static String deviceCommands(String id) => "/devices/$id/commands";
 
   // Authentication Endpoints
-  static const String login = "/auth/login";
-  static const String register = "/auth/register";
-  static const String verify = "/auth/verify";
+  static const String signIn = "/auth/signin";
+  static const String signUp = "/auth/signup";
+  static const String forgotPassword = "/auth/forgot-password";
+  static const String resetPassword = "/auth/reset-password";
+  static const String changePassword = "/auth/change-password";
+  static const String profile = "/auth/profile";
 }

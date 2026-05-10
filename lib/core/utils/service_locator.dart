@@ -1,3 +1,4 @@
+import 'package:fleexa/Features/auth/presentation/manager/auth_cubit.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:fleexa/core/network/api_service.dart';
@@ -45,4 +46,6 @@ void setupServiceLocator() {
 
   getIt.registerSingleton<NotificationSettingsCubit>(
       NotificationSettingsCubit());
+
+  getIt.registerSingleton<AuthCubit>(AuthCubit(getIt<APiService>()));
 }
