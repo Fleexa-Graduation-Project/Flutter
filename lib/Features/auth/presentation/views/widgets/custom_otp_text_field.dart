@@ -5,15 +5,20 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomOtpTextField extends StatelessWidget {
+  final void Function(String) onSubmit;
+  final void Function(String)? onCodeChanged;
+
   const CustomOtpTextField({
     super.key,
+    required this.onSubmit,
+    this.onCodeChanged,
   });
 
   @override
   Widget build(BuildContext context) {
     return OtpTextField(
       autoFocus: true,
-      numberOfFields: 5,
+      numberOfFields: 6,
       enabledBorderColor: AppColors.coolGray,
       focusedBorderColor: AppColors.burgundy,
       showFieldAsBox: true,
@@ -21,8 +26,8 @@ class CustomOtpTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(12.r),
       textStyle: Styles.style20Medium,
       keyboardType: TextInputType.number,
-      onCodeChanged: (String code) {},
-      onSubmit: (String verificationCode) {},
+      onCodeChanged: onCodeChanged,
+      onSubmit: onSubmit,
     );
   }
 }
