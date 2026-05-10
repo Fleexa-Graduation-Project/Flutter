@@ -1,3 +1,4 @@
+import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -22,21 +23,7 @@ class AboutSupportActionCard extends StatelessWidget {
     return InkWell(
       borderRadius: BorderRadius.circular(8.r),
       onTap: onTap,
-      child: Container(
-        width: double.infinity,
-        padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 18),
-        decoration: BoxDecoration(
-          color: AppColors.charcoalBlack,
-          borderRadius: BorderRadius.circular(8.r),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.black.withOpacity(0.1),
-              spreadRadius: 2,
-              blurRadius: 4,
-              offset: const Offset(0, 4),
-            ),
-          ],
-        ),
+      child: CustomContainer(
         child: Row(
           children: [
             Container(
@@ -65,7 +52,8 @@ class AboutSupportActionCard extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       subtitle!,
-                      style: Styles.style14Regular.copyWith(color: AppColors.coolGray),
+                      style: Styles.style14Regular
+                          .copyWith(color: AppColors.coolGray),
                     ),
                   ],
                 ],

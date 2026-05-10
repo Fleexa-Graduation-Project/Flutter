@@ -1,8 +1,8 @@
+import 'package:fleexa/Features/settings/data/models/support_topic.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
-
-import '../about_and_support_view.dart'; // Import TopicSection model
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AboutSupportSection extends StatelessWidget {
   const AboutSupportSection({
@@ -17,8 +17,15 @@ class AboutSupportSection extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: AppColors.charcoalBlack,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: AppColors.white10),
+        borderRadius: BorderRadius.circular(20.r),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            spreadRadius: 2,
+            blurRadius: 4,
+            offset: const Offset(0, 4),
+          ),
+        ],
       ),
       child: Theme(
         data: Theme.of(context).copyWith(
@@ -28,7 +35,8 @@ class AboutSupportSection extends StatelessWidget {
         ),
         child: ExpansionTile(
           tilePadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-          childrenPadding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
+          childrenPadding:
+              const EdgeInsets.only(left: 16, right: 16, bottom: 16),
           iconColor: AppColors.white,
           collapsedIconColor: AppColors.coolGray,
           leading: Container(

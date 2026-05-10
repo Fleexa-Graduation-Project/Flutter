@@ -73,7 +73,7 @@ class AppRouter {
       GoRoute(
         path: '/',
         name: splash,
-        builder: (context, state) => const SplashView(),
+        builder: (context, state) => const MainOverviewView(),
       ),
       GoRoute(
           path: '/onboarding',

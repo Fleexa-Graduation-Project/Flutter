@@ -1,3 +1,4 @@
+import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -8,20 +9,7 @@ class AboutSupportAppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
-      decoration: BoxDecoration(
-        color: AppColors.charcoalBlack,
-        borderRadius: BorderRadius.circular(8.r),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.06),
-            blurRadius: 6,
-            offset: const Offset(0, 3),
-          ),
-        ],
-      ),
+    return CustomContainer(
       child: Row(
         children: [
           Container(
@@ -46,7 +34,8 @@ class AboutSupportAppCard extends StatelessWidget {
                 const SizedBox(height: 2),
                 Text(
                   'Smart Home • Version 1.0.0',
-                  style: Styles.style14Regular.copyWith(color: AppColors.coolGray),
+                  style:
+                      Styles.style14Regular.copyWith(color: AppColors.coolGray),
                 ),
               ],
             ),
