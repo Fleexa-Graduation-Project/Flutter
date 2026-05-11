@@ -3,7 +3,10 @@ import 'package:fleexa/Features/settings/presentation/views/widgets/profile_info
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../../../auth/presentation/manager/auth_cubit.dart';
 
 class ProfileInfoCard extends StatelessWidget {
   const ProfileInfoCard({super.key});
@@ -22,12 +25,12 @@ class ProfileInfoCard extends StatelessWidget {
           profileFields: [
             ProfileFieldSectionModel(
               title: S.of(context).fieldUsername,
-              subtitle: "John Doe",
+              subtitle: context.watch<AuthCubit>().username,
               icon: Icons.person_outline,
             ),
             ProfileFieldSectionModel(
               title: S.of(context).fieldEmail,
-              subtitle: "youssif244@gmail.com",
+              subtitle: context.watch<AuthCubit>().email,
               icon: Icons.email_outlined,
             ),
           ],

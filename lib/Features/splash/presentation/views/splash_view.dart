@@ -45,8 +45,8 @@ class _SplashViewState extends State<SplashView> {
     // Navigate
     Future.delayed(const Duration(milliseconds: 2200), () {
       if (mounted) {
-        _navigateBasedOnAuthState();
-        // GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
+        // _navigateBasedOnAuthState();
+        GoRouter.of(context).pushReplacementNamed(AppRouter.mainOverview);
       }
     });
   }

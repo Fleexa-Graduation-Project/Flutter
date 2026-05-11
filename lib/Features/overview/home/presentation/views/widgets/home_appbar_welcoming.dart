@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../../core/utils/constants/styles.dart';
 import '../../../../../../generated/l10n.dart';
+import '../../../../../auth/presentation/manager/auth_cubit.dart';
 
 class HomeAppbarWelcoming extends StatelessWidget {
   const HomeAppbarWelcoming({super.key});
@@ -19,7 +21,7 @@ class HomeAppbarWelcoming extends StatelessWidget {
             style: Styles.style20SemiBold,
             children: [
               TextSpan(
-                text: ' Jana!',
+                text: " ${context.watch<AuthCubit>().username}!",
                 style: Styles.style20SemiBold.copyWith(
                   color: AppColors.burgundy,
                 ),
