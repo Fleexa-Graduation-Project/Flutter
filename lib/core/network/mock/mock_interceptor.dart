@@ -5,10 +5,68 @@ import 'mock_data.dart';
 class MockInterceptor extends Interceptor {
   @override
   void onRequest(RequestOptions options, RequestInterceptorHandler handler) {
-    // بنعمل تأخير بسيط عشان نحاكي سرعة النت الحقيقية ويفضل الـ Loading شغال
     Future.delayed(const Duration(milliseconds: 600), () {
       final path = options.path;
       final query = options.queryParameters;
+
+      // 0. Authentication Routes
+      if (path.contains('/auth')) {
+        final data = options.data;
+
+        // 1. Sign Up
+        if (path.endsWith('/signup') || path.endsWith('/register')) {
+          MockData.registeredUsers.add({
+            "username": data['username'],
+            "email": data['email'],
+            "password": data['password'],
+          });
+          return _resolveWithData(
+              options, handler, '{"message": "account created successfully"}',
+              statusCode: 201);
+        }
+
+        // 2. Sign In
+        if (path.endsWith('/signin') || path.endsWith('/login')) {
+          final email = data['email'];
+          final password = data['password'];
+
+          try {
+            final user = MockData.registeredUsers.firstWhere(
+              (u) => u['email'] == email && u['password'] == password,
+            );
+            MockData.currentUser = user;
+            return _resolveWithData(
+                options, handler, MockData.authSignInSuccess);
+          } catch (e) {
+            return handler.reject(
+              DioException(
+                requestOptions: options,
+                response: Response(
+                  requestOptions: options,
+                  statusCode: 401,
+                  data: {"error": "Invalid email or password"},
+                ),
+              ),
+            );
+          }
+        }
+
+        // 3. Profile
+        if (path.endsWith('/profile')) {
+          if (MockData.currentUser != null) {
+            final profileData = {
+              "username": MockData.currentUser!['username'],
+              "email": MockData.currentUser!['email']
+            };
+            return _resolveWithData(options, handler, jsonEncode(profileData));
+          } else {
+            return handler.reject(
+              DioException(
+                  requestOptions: options, type: DioExceptionType.badResponse),
+            );
+          }
+        }
+      }
 
       try {
         // 1. System Overview
@@ -65,7 +123,6 @@ class MockInterceptor extends Interceptor {
           }
         }
 
-        // لو الريكويست راح لمسار مش متعرف خالص
         return handler.reject(
           DioException(
             requestOptions: options,

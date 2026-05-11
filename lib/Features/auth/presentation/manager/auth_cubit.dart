@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fleexa/core/network/api_constants.dart';
@@ -10,10 +12,26 @@ import 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   final APiService apiService;
 
+  String username = "User";
+  String email = "";
+
   String? _resetEmail;
   String? _resetCode;
 
   AuthCubit(this.apiService) : super(AuthInitial());
+
+  Future<void> fetchProfile() async {
+    try {
+      final response = await apiService.get('/auth/profile');
+      if (response.statusCode == 200) {
+        username = response.data['username'] ?? "User";
+        email = response.data['email'] ?? "";
+        if (state is Authenticated) emit(Authenticated());
+      }
+    } catch (e) {
+      log("Failed to fetch profile: $e");
+    }
+  }
 
   // 1. Sign Up
   Future<void> signUp({
@@ -69,6 +87,8 @@ class AuthCubit extends Cubit<AuthState> {
           refreshToken: tokens['refresh_token'] ?? "",
           idToken: tokens['id_token'],
         );
+
+        await fetchProfile();
 
         emit(AuthSuccess(message: "Logged in successfully"));
       }
@@ -166,6 +186,8 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await TokenStorage.clearTokens();
+      username = "User";
+      email = "";
       emit(Unauthenticated());
     } catch (e) {
       emit(AuthError("Failed to sign out. Please try again."));
@@ -190,6 +212,7 @@ class AuthCubit extends Cubit<AuthState> {
     final token = await TokenStorage.getAccessToken();
 
     if (token != null && token.isNotEmpty) {
+      await fetchProfile();
       emit(Authenticated()); // Logged in user with valid token -> Home
     } else {
       emit(Unauthenticated()); // User has no valid token -> Sign In

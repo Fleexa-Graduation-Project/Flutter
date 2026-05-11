@@ -113,4 +113,24 @@ class MockData {
       { "device_id": "door-actuator-01", "timestamp": 1776150000, "type": "door-actuator", "severity": "WARNING", "payload": { "lock_state": "UNLOCKED" } }
     ]
   }''';
+
+  // 8. Authentication & Stateful Mock Data
+  // ==========================================
+
+  static List<Map<String, dynamic>> registeredUsers = [
+    {"username": "Jana", "email": "jana@gmail.com", "password": "Password123"},
+    {
+      "username": "Nourhan",
+      "email": "nourhan@gmail.com",
+      "password": "Password123"
+    }
+  ];
+
+  static Map<String, dynamic>? currentUser;
+
+  static const String authSignInSuccess = '''{
+    "access_token": "mock_access_token_123",
+    "id_token": "mock_id_token_123",
+    "refresh_token": "mock_refresh_token_123"
+  }''';
 }

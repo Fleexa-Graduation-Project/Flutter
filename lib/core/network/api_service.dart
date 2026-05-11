@@ -62,10 +62,22 @@ class APiService {
           // 1. Retrieve the token from secure storage
           String? token = await TokenStorage.getAccessToken();
 
-          // 2. Send The Tokem in the Authorization header if it exists
-          if (token != null && !options.path.contains('/auth')) {
+          final publicRoutes = [
+            '/signin',
+            '/signup',
+            '/register',
+            '/forgot-password',
+            '/reset-password',
+            '/refresh'
+          ];
+
+          bool isPublicRoute =
+              publicRoutes.any((route) => options.path.contains(route));
+
+          if (token != null && !isPublicRoute) {
             options.headers['Authorization'] = 'Bearer $token';
           }
+
           return handler.next(options);
         },
         onError: (DioException e, handler) async {

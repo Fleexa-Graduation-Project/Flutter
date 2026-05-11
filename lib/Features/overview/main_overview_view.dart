@@ -29,25 +29,36 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   final PageController _pageController = PageController();
 
   int _currentIndex = 0;
-  bool _isCheckingFirstTime = true;
+
+  final GlobalKey _hotspotKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    _checkFirstTime();
+  }
+
+  Future<void> _checkFirstTime() async {
+    final prefs = await SharedPreferences.getInstance();
+    bool hasSeenTutorial = prefs.getBool('hasSeenMainTutorial') ?? false;
+
+    if (!hasSeenTutorial && mounted) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final currentContext = _hotspotKey.currentContext;
+
+        if (currentContext != null && currentContext.mounted) {
+          HotspotProvider.of(currentContext).startFlow();
+          prefs.setBool('hasSeenMainTutorial', true);
+        }
+      });
+    }
+  }
 
   final List<Widget> _screens = const [
     HomeView(),
     SystemOverviewView(),
     SettingsView(),
   ];
-
-  Future<void> _checkFirstTime(BuildContext innerContext) async {
-    final prefs = await SharedPreferences.getInstance();
-    bool hasSeenTutorial = prefs.getBool('hasSeenMainTutorial') ?? false;
-
-    if (!hasSeenTutorial && innerContext.mounted) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        HotspotProvider.of(innerContext).startFlow();
-      });
-      await prefs.setBool('hasSeenMainTutorial', true);
-    }
-  }
 
   void _onItemTapped(int index) {
     setState(() {
@@ -117,22 +128,23 @@ class _MainOverviewViewState extends State<MainOverviewView> {
         ),
         child: HotspotProvider(
           backgroundColor: AppColors.charcoalBlack,
-          child: Builder(builder: (innerContext) {
-            if (_isCheckingFirstTime) {
-              _checkFirstTime(innerContext);
-              _isCheckingFirstTime = false;
-            }
-            return Scaffold(
+          child: Builder(
+            builder: (innerContext) {
+              return Scaffold(
+                key: _hotspotKey,
                 body: PageView(
-                    controller: _pageController,
-                    onPageChanged: _onPageChanged,
-                    physics: const BouncingScrollPhysics(),
-                    children: _screens),
+                  controller: _pageController,
+                  onPageChanged: _onPageChanged,
+                  physics: const BouncingScrollPhysics(),
+                  children: _screens,
+                ),
                 bottomNavigationBar: CustomBottomNavBar(
                   currentIndex: _currentIndex,
                   onTap: _onItemTapped,
-                ));
-          }),
+                ),
+              );
+            },
+          ),
         ),
       ),
     );
