@@ -1,3 +1,5 @@
+// ignore_for_file: unused_element
+
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

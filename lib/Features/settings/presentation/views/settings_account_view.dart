@@ -6,9 +6,6 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../core/utils/constants/app_strings.dart';
-import 'widgets/confirm_dialog.dart';
-
 class SettingsAccountView extends StatelessWidget {
   const SettingsAccountView({super.key});
 
@@ -48,7 +45,6 @@ class SettingsAccountView extends StatelessWidget {
                 title: S.of(context).settingsDeleteAccount,
                 onTap: () {
                   GoRouter.of(context).pushNamed(AppRouter.deleteAccount);
-                 
                 },
               ),
             ],
