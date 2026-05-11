@@ -1,3 +1,5 @@
+import 'package:fleexa/Features/auth/presentation/manager/auth_cubit.dart';
+import 'package:fleexa/Features/auth/presentation/manager/auth_state.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/confirm_dialog.dart';
@@ -8,6 +10,7 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 import 'package:go_router/go_router.dart';
 
@@ -55,7 +58,8 @@ class _DeleteAccountViewState extends State<DeleteAccountView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 40),
-                        Text(S.of(context).enterYourPasswordToDelete,
+                        Text(
+                          S.of(context).enterYourPasswordToDelete,
                           style: Styles.style14Medium
                               .copyWith(color: AppColors.coolGray),
                         ),
@@ -79,25 +83,46 @@ class _DeleteAccountViewState extends State<DeleteAccountView> {
                                 builder: (dialogContext) => ConfirmDialog(
                                   dialogType: DialogType.deleteAccount,
                                   onConfirm: () async {
-                                    // 1. First, pop the dialog safely
+                                    // 1. Pop the dialog safely
                                     if (dialogContext.canPop()) {
                                       dialogContext.pop();
                                     }
 
-                                    // 2. Perform your API call here (Simulated with a delay)
-                                    // Example: bool isDeleted = await authProvider.deleteAccount(_currentPasswordController.text);
+                                    // 2. Call the cubit to delete the account
+                                    final authCubit = context.read<AuthCubit>();
+                                    bool isDeleted =
+                                        await authCubit.deleteAccount(
+                                            _currentPasswordController.text);
 
-                                    // 3. Ensure the screen still exists before showing Snackbars or routing
+                                    // 3. Ensure the screen is still mounted
                                     if (!context.mounted) return;
 
-                                    AppSnackbar.show(
-                                      context,
-                                      type: SnackBarType.success,
-                                      message:
-                                          "Your account has been successfully deleted. We're sorry to see you go!",
-                                    );
+                                    if (isDeleted) {
+                                      // Show success message
+                                      AppSnackbar.show(
+                                        context,
+                                        type: SnackBarType.success,
+                                        message:
+                                            "Your account has been successfully deleted. We're sorry to see you go!",
+                                      );
 
-                                    context.goNamed(AppRouter.signIn);
+                                      // Route back to sign in
+                                      context.goNamed(AppRouter.signIn);
+                                    } else {
+                                      // Handle failure and show the exact error message from the cubit
+                                      final state = authCubit.state;
+                                      String errorMessage =
+                                          "Incorrect password or network error.";
+                                      if (state is AuthError) {
+                                        errorMessage = state.error;
+                                      }
+
+                                      AppSnackbar.show(
+                                        context,
+                                        type: SnackBarType.fail,
+                                        message: errorMessage,
+                                      );
+                                    }
                                   },
                                 ),
                               );
