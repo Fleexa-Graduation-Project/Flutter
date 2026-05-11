@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_null_comparison
 
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -11,8 +12,11 @@ import 'mock/mock_interceptor.dart';
 
 class APiService {
   late final Dio _dio;
-
   late final Dio _refreshDio;
+
+  final _logoutController = StreamController<void>.broadcast();
+  Stream<void> get onLogout => _logoutController.stream;
+
 
   APiService() {
     _dio = Dio(
@@ -103,7 +107,7 @@ class APiService {
             } else {
               // If refresh failed, clear tokens and maybe redirect to login
               await TokenStorage.clearTokens();
-              // TODO: في المستقبل، ممكن نبعت Event هنا عشان الـ Router يطرد اليوزر لصفحة الـ SignIn
+              _logoutController.add(null);
               return handler.next(e);
             }
           }

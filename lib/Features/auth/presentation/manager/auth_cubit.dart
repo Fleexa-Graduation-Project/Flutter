@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -18,7 +19,21 @@ class AuthCubit extends Cubit<AuthState> {
   String? _resetEmail;
   String? _resetCode;
 
-  AuthCubit(this.apiService) : super(AuthInitial());
+  StreamSubscription? _logoutSubscription;
+
+  AuthCubit(this.apiService) : super(AuthInitial()) {
+    _logoutSubscription = apiService.onLogout.listen((_) {
+      username = "User";
+      email = "";
+      emit(Unauthenticated());
+    });
+  }
+
+  @override
+  Future<void> close() {
+    _logoutSubscription?.cancel();
+    return super.close();
+  }
 
   Future<void> fetchProfile() async {
     try {
