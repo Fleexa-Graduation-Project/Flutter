@@ -29,7 +29,6 @@ class SettingsView extends StatelessWidget {
                   style: Styles.style20SemiBold,
                 ),
                 const SizedBox(height: 32),
-
                 const SettingsOptions(),
                 const SizedBox(height: 20),
               ],

@@ -39,10 +39,10 @@ class _SignInViewState extends State<SignInView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
-          onPressed: () => Navigator.pop(context),
-        ),
+        // leading: IconButton(
+        //   icon: const Icon(Icons.arrow_back_ios),
+        //   onPressed: () => Navigator.pop(context),
+        // ),
         title: Text(S.of(context).authSignInTitle),
         centerTitle: true,
       ),
