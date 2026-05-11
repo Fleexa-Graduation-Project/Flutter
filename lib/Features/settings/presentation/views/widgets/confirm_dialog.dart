@@ -58,7 +58,7 @@ class ConfirmDialog extends StatelessWidget {
         TextButton(
           onPressed: () {
             onConfirm();
-            GoRouter.of(context).pop();
+         
           },
           child: Text(
             confirmButtonText,

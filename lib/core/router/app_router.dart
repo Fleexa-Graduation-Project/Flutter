@@ -11,6 +11,7 @@ import 'package:fleexa/Features/overview/system_overview/presentation/views/syst
     show SystemOverviewView;
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_control_view.dart';
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/door_lock_details_view.dart';
+import 'package:fleexa/Features/settings/presentation/views/delete_account_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/edit_profile_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/about_and_support_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/settings_account_view.dart';
@@ -66,7 +67,7 @@ class AppRouter {
   static const String gasSensor = 'gasSensor';
   static const String lightSensor = 'lightSensor';
   static const String onBoarding = 'onBoarding';
-
+  static const String deleteAccount = 'deleteAccount';
   static final GoRouter router = GoRouter(
     initialLocation: '/',
     routes: [
@@ -98,6 +99,11 @@ class AppRouter {
         path: '/change-password',
         name: changePassword,
         builder: (context, state) => const ChangePasswordView(),
+      ),
+      GoRoute(
+        path: '/delete-account',
+        name: deleteAccount,
+        builder: (context, state) => const DeleteAccountView(),
       ),
       GoRoute(
         path: '/change-password-with-email',

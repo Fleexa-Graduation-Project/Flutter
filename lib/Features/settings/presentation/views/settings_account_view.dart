@@ -47,15 +47,8 @@ class SettingsAccountView extends StatelessWidget {
               AccountCard(
                 title: S.of(context).settingsDeleteAccount,
                 onTap: () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => ConfirmDialog(
-                      dialogType: DialogType.deleteAccount,
-                      onConfirm: () {
-                        // Perform delete account action here
-                      },
-                    ),
-                  );
+                  GoRouter.of(context).pushNamed(AppRouter.deleteAccount);
+                 
                 },
               ),
             ],
