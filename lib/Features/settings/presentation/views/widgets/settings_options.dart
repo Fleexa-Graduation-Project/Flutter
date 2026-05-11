@@ -32,6 +32,7 @@ class SettingsOptions extends StatelessWidget {
           );
         }
       },
+      
       child: Column(
         children: [
           // Account and Security
