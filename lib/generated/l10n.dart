@@ -1415,6 +1415,448 @@ class S {
       args: [],
     );
   }
+
+  /// `Mark as read`
+  String get markAsRead {
+    return Intl.message('Mark as read', name: 'markAsRead', desc: '', args: []);
+  }
+
+  /// `No recent activities.`
+  String get noRecentActivities {
+    return Intl.message(
+      'No recent activities.',
+      name: 'noRecentActivities',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Skip`
+  String get skip {
+    return Intl.message('Skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `Smart Control`
+  String get smartControl {
+    return Intl.message(
+      'Smart Control',
+      name: 'smartControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Real-time Monitoring`
+  String get realtimeMonitoring {
+    return Intl.message(
+      'Real-time Monitoring',
+      name: 'realtimeMonitoring',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Instant Alerts`
+  String get instantAlerts {
+    return Intl.message(
+      'Instant Alerts',
+      name: 'instantAlerts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Started`
+  String get getStarted {
+    return Intl.message('Get Started', name: 'getStarted', desc: '', args: []);
+  }
+
+  /// `Live Devices`
+  String get liveDevices {
+    return Intl.message(
+      'Live Devices',
+      name: 'liveDevices',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Filter Your Fleet`
+  String get filterYourFleet {
+    return Intl.message(
+      'Filter Your Fleet',
+      name: 'filterYourFleet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to Fleexa`
+  String get welcomeToFleexa {
+    return Intl.message(
+      'Welcome to Fleexa',
+      name: 'welcomeToFleexa',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `System Notifications`
+  String get systemNotifications {
+    return Intl.message(
+      'System Notifications',
+      name: 'systemNotifications',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are all caught up!`
+  String get youAreAllCaughtUp {
+    return Intl.message(
+      'You are all caught up!',
+      name: 'youAreAllCaughtUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  // skipped getter for the '5' key
+
+  /// `System Analytics`
+  String get systemAnalytics {
+    return Intl.message(
+      'System Analytics',
+      name: 'systemAnalytics',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Privacy Policy`
+  String get privacyPolicy {
+    return Intl.message(
+      'Privacy Policy',
+      name: 'privacyPolicy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Data Collection`
+  String get dataCollection {
+    return Intl.message(
+      'Data Collection',
+      name: 'dataCollection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Usage Purpose`
+  String get usagePurpose {
+    return Intl.message(
+      'Usage Purpose',
+      name: 'usagePurpose',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your Control`
+  String get yourControl {
+    return Intl.message(
+      'Your Control',
+      name: 'yourControl',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contact Support`
+  String get contactSupport {
+    return Intl.message(
+      'Contact Support',
+      name: 'contactSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Email Us`
+  String get emailUs {
+    return Intl.message('Email Us', name: 'emailUs', desc: '', args: []);
+  }
+
+  /// `What to Include`
+  String get whatToInclude {
+    return Intl.message(
+      'What to Include',
+      name: 'whatToInclude',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Response Times`
+  String get responseTimes {
+    return Intl.message(
+      'Response Times',
+      name: 'responseTimes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Report a Problem`
+  String get reportAProblem {
+    return Intl.message(
+      'Report a Problem',
+      name: 'reportAProblem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pre-check Steps`
+  String get precheckSteps {
+    return Intl.message(
+      'Pre-check Steps',
+      name: 'precheckSteps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Be Specific`
+  String get beSpecific {
+    return Intl.message('Be Specific', name: 'beSpecific', desc: '', args: []);
+  }
+
+  /// `Urgent Issues`
+  String get urgentIssues {
+    return Intl.message(
+      'Urgent Issues',
+      name: 'urgentIssues',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `About & Support`
+  String get aboutSupport {
+    return Intl.message(
+      'About & Support',
+      name: 'aboutSupport',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `How can we help?`
+  String get howCanWeHelp {
+    return Intl.message(
+      'How can we help?',
+      name: 'howCanWeHelp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `support@fleexa.app`
+  String get supportfleexaapp {
+    return Intl.message(
+      'support@fleexa.app',
+      name: 'supportfleexaapp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete Account`
+  String get deleteAccount {
+    return Intl.message(
+      'Delete Account',
+      name: 'deleteAccount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Fleexa`
+  String get fleexa {
+    return Intl.message('Fleexa', name: 'fleexa', desc: '', args: []);
+  }
+
+  /// `Smart Home • Version 1.0.0`
+  String get smartHomeVersion100 {
+    return Intl.message(
+      'Smart Home • Version 1.0.0',
+      name: 'smartHomeVersion100',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Run your IoT simulation without a single physical board.`
+  String get runYourIotSimulationWithout {
+    return Intl.message(
+      'Run your IoT simulation without a single physical board.',
+      name: 'runYourIotSimulationWithout',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Track your sensor data instantly from anywhere.`
+  String get trackYourSensorDataInstantly {
+    return Intl.message(
+      'Track your sensor data instantly from anywhere.',
+      name: 'trackYourSensorDataInstantly',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get notified immediately when thresholds are met.`
+  String get getNotifiedImmediatelyWhenThresholds {
+    return Intl.message(
+      'Get notified immediately when thresholds are met.',
+      name: 'getNotifiedImmediatelyWhenThresholds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We are committed to ensuring your smart home experience is secure. We only use the information strictly necessary to operate your devices.`
+  String get weAreCommittedToEnsuring {
+    return Intl.message(
+      'We are committed to ensuring your smart home experience is secure. We only use the information strictly necessary to operate your devices.',
+      name: 'weAreCommittedToEnsuring',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We collect minimal info needed for the app.`
+  String get weCollectMinimalInfoNeeded {
+    return Intl.message(
+      'We collect minimal info needed for the app.',
+      name: 'weCollectMinimalInfoNeeded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your data provides stable, live features.`
+  String get yourDataProvidesStableLive {
+    return Intl.message(
+      'Your data provides stable, live features.',
+      name: 'yourDataProvidesStableLive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You manage your settings and account.`
+  String get youManageYourSettingsAnd {
+    return Intl.message(
+      'You manage your settings and account.',
+      name: 'youManageYourSettingsAnd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Need assistance with your app or devices? Our dedicated support team is here to help you resolve issues quickly.`
+  String get needAssistanceWithYourApp {
+    return Intl.message(
+      'Need assistance with your app or devices? Our dedicated support team is here to help you resolve issues quickly.',
+      name: 'needAssistanceWithYourApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reach out directly at support@fleexa.app.`
+  String get reachOutDirectlyAtSupportfleexaapp {
+    return Intl.message(
+      'Reach out directly at support@fleexa.app.',
+      name: 'reachOutDirectlyAtSupportfleexaapp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Provide details to speed up resolution.`
+  String get provideDetailsToSpeedUp {
+    return Intl.message(
+      'Provide details to speed up resolution.',
+      name: 'provideDetailsToSpeedUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We aim to reply within 24 to 48 hours.`
+  String get weAimToReplyWithin {
+    return Intl.message(
+      'We aim to reply within 24 to 48 hours.',
+      name: 'weAimToReplyWithin',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Help us improve Fleexa! Providing clear steps allows our engineering team to fix bugs efficiently.`
+  String get helpUsImproveFleexaProviding {
+    return Intl.message(
+      'Help us improve Fleexa! Providing clear steps allows our engineering team to fix bugs efficiently.',
+      name: 'helpUsImproveFleexaProviding',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Verify basics before sending a report.`
+  String get verifyBasicsBeforeSendingA {
+    return Intl.message(
+      'Verify basics before sending a report.',
+      name: 'verifyBasicsBeforeSendingA',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Clear reproduction steps fix bugs faster.`
+  String get clearReproductionStepsFixBugs {
+    return Intl.message(
+      'Clear reproduction steps fix bugs faster.',
+      name: 'clearReproductionStepsFixBugs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Security and hardware drops are high priority.`
+  String get securityAndHardwareDropsAre {
+    return Intl.message(
+      'Security and hardware drops are high priority.',
+      name: 'securityAndHardwareDropsAre',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your password to delete your account `
+  String get enterYourPasswordToDelete {
+    return Intl.message(
+      'Enter your password to delete your account ',
+      name: 'enterYourPasswordToDelete',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

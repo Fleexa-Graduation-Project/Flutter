@@ -93,8 +93,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.only(left: 24, top: 4),
             child: TextButton(
               onPressed: onReadAll,
-              child: Text(
-                'Mark as read',
+              child: Text(S.of(context).markAsRead,
                 style:
                     Styles.style14Regular.copyWith(color: AppColors.coolGray),
               ),

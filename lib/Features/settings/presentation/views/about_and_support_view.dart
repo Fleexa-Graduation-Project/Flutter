@@ -1,4 +1,6 @@
 import 'package:fleexa/Features/settings/data/models/support_data.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/Features/settings/data/models/support_topic.dart';
 import 'package:fleexa/Features/settings/presentation/views/support_detail_view.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/about_support_action_card.dart';
@@ -28,7 +30,7 @@ class AboutAndSupportView extends StatelessWidget {
           icon: const Icon(Icons.arrow_back_ios, color: AppColors.white),
           onPressed: () => GoRouter.of(context).pop(),
         ),
-        title: Text('About & Support', style: Styles.style20Medium),
+        title: Text(S.of(context).aboutSupport, style: Styles.style20Medium),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -40,23 +42,23 @@ class AboutAndSupportView extends StatelessWidget {
               children: [
                 const AboutSupportAppCard(),
                 const SizedBox(height: 32),
-                Text('How can we help?', style: Styles.style20SemiBold),
+                Text(S.of(context).howCanWeHelp, style: Styles.style20SemiBold),
                 const SizedBox(height: 24),
                 AboutSupportActionCard(
-                  title: 'Privacy Policy',
+                  title: S.of(context).privacyPolicy,
                   icon: Icons.privacy_tip_outlined,
                   onTap: () => _openDetailsPage(context, SupportData.privacyPolicy),
                 ),
                 const SizedBox(height: 16),
                 AboutSupportActionCard(
-                  title: 'Contact Support',
-                  subtitle: 'support@fleexa.app',
+                  title: S.of(context).contactSupport,
+                  subtitle: S.of(context).supportfleexaapp,
                   icon: Icons.support_agent_rounded,
                   onTap: () => _openDetailsPage(context, SupportData.contactSupport),
                 ),
                 const SizedBox(height: 16),
                 AboutSupportActionCard(
-                  title: 'Report a Problem',
+                  title: S.of(context).reportAProblem,
                   icon: Icons.bug_report_outlined,
                   onTap: () => _openDetailsPage(context, SupportData.reportProblem),
                 ),

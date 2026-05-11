@@ -1,4 +1,6 @@
 import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -12,8 +14,7 @@ class RecentEventsList extends StatelessWidget {
     if (events.isEmpty) {
       return Padding(
         padding: const EdgeInsets.all(16.0),
-        child: Text(
-          'No recent activities.',
+        child: Text(S.of(context).noRecentActivities,
           style: Styles.style14Medium.copyWith(color: AppColors.coolGray),
         ),
       );

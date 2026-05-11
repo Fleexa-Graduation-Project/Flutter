@@ -60,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Threshold": MessageLookupByLibrary.simpleMessage("Threshold"),
     "ThresholdDescription": m0,
+    "aboutSupport": MessageLookupByLibrary.simpleMessage("About & Support"),
     "ac": MessageLookupByLibrary.simpleMessage("AC"),
     "acValue": MessageLookupByLibrary.simpleMessage("20°C"),
     "activeHours": MessageLookupByLibrary.simpleMessage("Active Hours"),
@@ -91,15 +92,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "Average Unlock Duration",
     ),
+    "beSpecific": MessageLookupByLibrary.simpleMessage("Be Specific"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "clearReproductionStepsFixBugs": MessageLookupByLibrary.simpleMessage(
+      "Clear reproduction steps fix bugs faster.",
+    ),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm New Password",
     ),
+    "contactSupport": MessageLookupByLibrary.simpleMessage("Contact Support"),
     "controlType": MessageLookupByLibrary.simpleMessage("Control Type"),
     "currentPassword": MessageLookupByLibrary.simpleMessage("Current Password"),
     "currentStatus": MessageLookupByLibrary.simpleMessage("Current Status"),
     "currentTemp": m1,
     "currentTemperature": MessageLookupByLibrary.simpleMessage("Current Temp"),
+    "dataCollection": MessageLookupByLibrary.simpleMessage("Data Collection"),
     "dayFri": MessageLookupByLibrary.simpleMessage("Fri"),
     "dayMon": MessageLookupByLibrary.simpleMessage("Mon"),
     "daySat": MessageLookupByLibrary.simpleMessage("Sat"),
@@ -107,6 +114,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dayThu": MessageLookupByLibrary.simpleMessage("Thu"),
     "dayTue": MessageLookupByLibrary.simpleMessage("Tue"),
     "dayWed": MessageLookupByLibrary.simpleMessage("Wed"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("Delete Account"),
     "deviceStatus": MessageLookupByLibrary.simpleMessage("Device Status"),
     "didntReceiveOTP": MessageLookupByLibrary.simpleMessage(
       "Didn\'t receive an OTP?",
@@ -119,9 +127,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "doorvalue": MessageLookupByLibrary.simpleMessage("24 mins"),
     "editProfile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
+    "emailUs": MessageLookupByLibrary.simpleMessage("Email Us"),
     "ends": MessageLookupByLibrary.simpleMessage("End:"),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "Enter your email address to recover your password",
+    ),
+    "enterYourPasswordToDelete": MessageLookupByLibrary.simpleMessage(
+      "Enter your password to delete your account ",
     ),
     "fieldConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "Confirm Password",
@@ -133,6 +145,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "filterLast24h": MessageLookupByLibrary.simpleMessage("Last 24 Hours"),
     "filterLastMonth": MessageLookupByLibrary.simpleMessage("Last Month"),
     "filterLastWeek": MessageLookupByLibrary.simpleMessage("Last Week"),
+    "filterYourFleet": MessageLookupByLibrary.simpleMessage(
+      "Filter Your Fleet",
+    ),
+    "fleexa": MessageLookupByLibrary.simpleMessage("Fleexa"),
     "gasLevel": MessageLookupByLibrary.simpleMessage("Gas Level"),
     "gasLevelExceeded": MessageLookupByLibrary.simpleMessage(
       "Gas level has exceeded the safe limit",
@@ -143,6 +159,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "Gas spike detected",
     ),
     "gasStatus": MessageLookupByLibrary.simpleMessage("Gas Status"),
+    "getNotifiedImmediatelyWhenThresholds":
+        MessageLookupByLibrary.simpleMessage(
+          "Get notified immediately when thresholds are met.",
+        ),
+    "getStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
+    "helpUsImproveFleexaProviding": MessageLookupByLibrary.simpleMessage(
+      "Help us improve Fleexa! Providing clear steps allows our engineering team to fix bugs efficiently.",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("Home"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("Actuators"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("All Devices"),
@@ -151,9 +175,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("Notifications"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("Sensors"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("Welcome Home"),
+    "howCanWeHelp": MessageLookupByLibrary.simpleMessage("How can we help?"),
     "infoStatusCritical": MessageLookupByLibrary.simpleMessage("• Critical: "),
     "infoStatusSafe": MessageLookupByLibrary.simpleMessage("• Safe: "),
     "infoStatusWarning": MessageLookupByLibrary.simpleMessage("• Warning: "),
+    "instantAlerts": MessageLookupByLibrary.simpleMessage("Instant Alerts"),
     "isRequired": MessageLookupByLibrary.simpleMessage("is required"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "Alerts & Warnings",
@@ -180,21 +206,48 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "lightSensor": MessageLookupByLibrary.simpleMessage("Light Sensor"),
     "lightstatus": MessageLookupByLibrary.simpleMessage("Light Status"),
+    "liveDevices": MessageLookupByLibrary.simpleMessage("Live Devices"),
     "manualMode": MessageLookupByLibrary.simpleMessage("Manual Mode"),
+    "markAsRead": MessageLookupByLibrary.simpleMessage("Mark as read"),
     "mode": MessageLookupByLibrary.simpleMessage("Mode"),
     "modeCooling": MessageLookupByLibrary.simpleMessage("Cooling"),
     "modeDry": MessageLookupByLibrary.simpleMessage("Dry"),
     "modeFanOnly": MessageLookupByLibrary.simpleMessage("Fan Only"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("Heating"),
+    "needAssistanceWithYourApp": MessageLookupByLibrary.simpleMessage(
+      "Need assistance with your app or devices? Our dedicated support team is here to help you resolve issues quickly.",
+    ),
+    "noRecentActivities": MessageLookupByLibrary.simpleMessage(
+      "No recent activities.",
+    ),
     "pleaseEnterTheOTP": m3,
+    "precheckSteps": MessageLookupByLibrary.simpleMessage("Pre-check Steps"),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage("Privacy Policy"),
+    "provideDetailsToSpeedUp": MessageLookupByLibrary.simpleMessage(
+      "Provide details to speed up resolution.",
+    ),
+    "reachOutDirectlyAtSupportfleexaapp": MessageLookupByLibrary.simpleMessage(
+      "Reach out directly at support@fleexa.app.",
+    ),
+    "realtimeMonitoring": MessageLookupByLibrary.simpleMessage(
+      "Real-time Monitoring",
+    ),
     "recentActivities": MessageLookupByLibrary.simpleMessage(
       "Recent Activities",
     ),
     "remainingTime": m4,
+    "reportAProblem": MessageLookupByLibrary.simpleMessage("Report a Problem"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("Resend OTP"),
     "resetPassword": MessageLookupByLibrary.simpleMessage("Reset Password"),
+    "responseTimes": MessageLookupByLibrary.simpleMessage("Response Times"),
+    "runYourIotSimulationWithout": MessageLookupByLibrary.simpleMessage(
+      "Run your IoT simulation without a single physical board.",
+    ),
     "running": MessageLookupByLibrary.simpleMessage("Running"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("Save Changes"),
+    "securityAndHardwareDropsAre": MessageLookupByLibrary.simpleMessage(
+      "Security and hardware drops are high priority.",
+    ),
     "sendOTP": MessageLookupByLibrary.simpleMessage("Send OTP"),
     "set": MessageLookupByLibrary.simpleMessage("Set"),
     "setCustomTimer": MessageLookupByLibrary.simpleMessage("Set Custom Timer"),
@@ -238,6 +291,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsWarningAlertsDescription": MessageLookupByLibrary.simpleMessage(
       "Receive alerts for warning-level events",
     ),
+    "skip": MessageLookupByLibrary.simpleMessage("Skip"),
+    "smartControl": MessageLookupByLibrary.simpleMessage("Smart Control"),
+    "smartHomeVersion100": MessageLookupByLibrary.simpleMessage(
+      "Smart Home • Version 1.0.0",
+    ),
     "smartRules": MessageLookupByLibrary.simpleMessage("Smart Rules"),
     "stability": MessageLookupByLibrary.simpleMessage("stability"),
     "stable": MessageLookupByLibrary.simpleMessage("stable"),
@@ -260,7 +318,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusSafe": MessageLookupByLibrary.simpleMessage("Safe"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("Warning"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("CRITICAL"),
+    "supportfleexaapp": MessageLookupByLibrary.simpleMessage(
+      "support@fleexa.app",
+    ),
     "system": MessageLookupByLibrary.simpleMessage("System"),
+    "systemAnalytics": MessageLookupByLibrary.simpleMessage("System Analytics"),
+    "systemNotifications": MessageLookupByLibrary.simpleMessage(
+      "System Notifications",
+    ),
     "systemOverview": MessageLookupByLibrary.simpleMessage("System Overview"),
     "target": MessageLookupByLibrary.simpleMessage("Target"),
     "tempAverage": MessageLookupByLibrary.simpleMessage("Average"),
@@ -290,13 +355,44 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeSec": m10,
     "timer": MessageLookupByLibrary.simpleMessage("Timer"),
     "timerOptions": m11,
+    "trackYourSensorDataInstantly": MessageLookupByLibrary.simpleMessage(
+      "Track your sensor data instantly from anywhere.",
+    ),
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),
     "unlockDuration": MessageLookupByLibrary.simpleMessage("Unlock Duration"),
+    "urgentIssues": MessageLookupByLibrary.simpleMessage("Urgent Issues"),
+    "usagePurpose": MessageLookupByLibrary.simpleMessage("Usage Purpose"),
     "verifyAndContinue": MessageLookupByLibrary.simpleMessage(
       "Verify & Continue",
     ),
+    "verifyBasicsBeforeSendingA": MessageLookupByLibrary.simpleMessage(
+      "Verify basics before sending a report.",
+    ),
     "verifyCode": MessageLookupByLibrary.simpleMessage("Verify Code"),
+    "weAimToReplyWithin": MessageLookupByLibrary.simpleMessage(
+      "We aim to reply within 24 to 48 hours.",
+    ),
+    "weAreCommittedToEnsuring": MessageLookupByLibrary.simpleMessage(
+      "We are committed to ensuring your smart home experience is secure. We only use the information strictly necessary to operate your devices.",
+    ),
+    "weCollectMinimalInfoNeeded": MessageLookupByLibrary.simpleMessage(
+      "We collect minimal info needed for the app.",
+    ),
+    "welcomeToFleexa": MessageLookupByLibrary.simpleMessage(
+      "Welcome to Fleexa",
+    ),
+    "whatToInclude": MessageLookupByLibrary.simpleMessage("What to Include"),
+    "youAreAllCaughtUp": MessageLookupByLibrary.simpleMessage(
+      "You are all caught up!",
+    ),
+    "youManageYourSettingsAnd": MessageLookupByLibrary.simpleMessage(
+      "You manage your settings and account.",
+    ),
+    "yourControl": MessageLookupByLibrary.simpleMessage("Your Control"),
+    "yourDataProvidesStableLive": MessageLookupByLibrary.simpleMessage(
+      "Your data provides stable, live features.",
+    ),
   };
 }

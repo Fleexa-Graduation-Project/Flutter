@@ -1,4 +1,6 @@
 import 'package:fleexa/Features/overview/notifications/presentation/manager/notifications_cubit.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/Features/overview/notifications/presentation/views/widgets/notification_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/common_widgets/app_error.dart';
@@ -34,8 +36,7 @@ class NotificationsList extends StatelessWidget {
 
           if (notifications.values.every((list) => list.isEmpty)) {
             return Center(
-              child: Text(
-                'You are all caught up!',
+              child: Text(S.of(context).youAreAllCaughtUp,
                 style: Styles.style16Medium.copyWith(color: AppColors.coolGray),
               ),
             );

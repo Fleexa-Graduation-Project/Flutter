@@ -32,11 +32,11 @@ class InfoStatusRow extends StatelessWidget {
           )
         ] else ...[
           Text(
-            "5",
+            '5',
             style: Styles.style12Medium.copyWith(color: AppColors.white),
           ),
           Text(
-            "/5",
+            '5',
             style: Styles.style12Medium,
           )
         ]

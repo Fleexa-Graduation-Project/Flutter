@@ -1,5 +1,7 @@
 
 import 'package:fleexa/core/utils/constants/app_colors.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -30,8 +32,7 @@ class GetStartedButton extends StatelessWidget {
               ),
             ],
           ),
-          child: Text(
-            "Get Started",
+          child: Text(S.of(context).getStarted,
             textAlign: TextAlign.center,
             style: Styles.style20Medium,
           ),

@@ -1,4 +1,6 @@
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
@@ -30,10 +32,9 @@ class AboutSupportAppCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Fleexa', style: Styles.style18SemiBold),
+                Text(S.of(context).fleexa, style: Styles.style18SemiBold),
                 const SizedBox(height: 2),
-                Text(
-                  'Smart Home • Version 1.0.0',
+                Text(S.of(context).smartHomeVersion100,
                   style:
                       Styles.style14Regular.copyWith(color: AppColors.coolGray),
                 ),

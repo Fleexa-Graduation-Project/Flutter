@@ -59,6 +59,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "Threshold": MessageLookupByLibrary.simpleMessage("الحد"),
     "ThresholdDescription": m0,
+    "aboutSupport": MessageLookupByLibrary.simpleMessage("حول التطبيق والدعم"),
     "ac": MessageLookupByLibrary.simpleMessage("مكيف الهواء"),
     "acValue": MessageLookupByLibrary.simpleMessage("٢٠°م"),
     "activeHours": MessageLookupByLibrary.simpleMessage("ساعات النشاط"),
@@ -92,10 +93,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "avgUnlockDuration": MessageLookupByLibrary.simpleMessage(
       "متوسط مدة الفتح",
     ),
+    "beSpecific": MessageLookupByLibrary.simpleMessage("كن دقيقاً"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "clearReproductionStepsFixBugs": MessageLookupByLibrary.simpleMessage(
+      "خطوات الإصدار الواضحة تصلح المشاكل بسرعة.",
+    ),
     "confirmNewPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور الجديدة",
     ),
+    "contactSupport": MessageLookupByLibrary.simpleMessage("تواصل مع الدعم"),
     "controlType": MessageLookupByLibrary.simpleMessage("نوع التحكم"),
     "currentPassword": MessageLookupByLibrary.simpleMessage(
       "كلمة المرور الحالية",
@@ -105,6 +111,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentTemperature": MessageLookupByLibrary.simpleMessage(
       "درجة الحرارة الحالية",
     ),
+    "dataCollection": MessageLookupByLibrary.simpleMessage("جمع البيانات"),
     "dayFri": MessageLookupByLibrary.simpleMessage("الجمعة"),
     "dayMon": MessageLookupByLibrary.simpleMessage("الاثنين"),
     "daySat": MessageLookupByLibrary.simpleMessage("السبت"),
@@ -112,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dayThu": MessageLookupByLibrary.simpleMessage("الخميس"),
     "dayTue": MessageLookupByLibrary.simpleMessage("الثلاثاء"),
     "dayWed": MessageLookupByLibrary.simpleMessage("الأربعاء"),
+    "deleteAccount": MessageLookupByLibrary.simpleMessage("حذف الحساب"),
     "deviceStatus": MessageLookupByLibrary.simpleMessage("حالة الجهاز"),
     "didntReceiveOTP": MessageLookupByLibrary.simpleMessage(
       "لم تستلم رمز التحقق؟",
@@ -122,9 +130,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "doorUnlockedStatus": MessageLookupByLibrary.simpleMessage("الباب مفتوح"),
     "doorvalue": MessageLookupByLibrary.simpleMessage("٢٤ دقيقة"),
     "editProfile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
+    "emailUs": MessageLookupByLibrary.simpleMessage("راسلنا عبر البريد"),
     "ends": MessageLookupByLibrary.simpleMessage("توقف:"),
     "enterYourEmail": MessageLookupByLibrary.simpleMessage(
       "أدخل عنوان بريدك الإلكتروني لاستعادة كلمة المرور",
+    ),
+    "enterYourPasswordToDelete": MessageLookupByLibrary.simpleMessage(
+      "أدخل كلمة المرور لحذف حسابك ",
     ),
     "fieldConfirmPassword": MessageLookupByLibrary.simpleMessage(
       "تأكيد كلمة المرور",
@@ -135,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "filterLast24h": MessageLookupByLibrary.simpleMessage("آخر 24 ساعة"),
     "filterLastMonth": MessageLookupByLibrary.simpleMessage("الشهر الماضي"),
     "filterLastWeek": MessageLookupByLibrary.simpleMessage("الأسبوع الماضي"),
+    "filterYourFleet": MessageLookupByLibrary.simpleMessage("تصفية أجهزتك"),
+    "fleexa": MessageLookupByLibrary.simpleMessage("فليكسا"),
     "gasLevel": MessageLookupByLibrary.simpleMessage("مستوى الغاز"),
     "gasLevelExceeded": MessageLookupByLibrary.simpleMessage(
       "مستوى الغاز تجاوز الحد الآمن",
@@ -145,6 +159,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "تم الكشف عن ارتفاع مفاجئ في الغاز",
     ),
     "gasStatus": MessageLookupByLibrary.simpleMessage("حالة الغاز"),
+    "getNotifiedImmediatelyWhenThresholds":
+        MessageLookupByLibrary.simpleMessage(
+          "احصل على تنبيهات فورية عند وصول البيانات للحدود المعينة.",
+        ),
+    "getStarted": MessageLookupByLibrary.simpleMessage("ابدأ الآن"),
+    "helpUsImproveFleexaProviding": MessageLookupByLibrary.simpleMessage(
+      "ساعدنا في تحسين فليكسا! توفير خطوات واضحة يساعد المهندسين في إصلاح الأخطاء.",
+    ),
     "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
     "homeActuators": MessageLookupByLibrary.simpleMessage("المشغلات"),
     "homeAllDevices": MessageLookupByLibrary.simpleMessage("كل الأجهزة"),
@@ -153,9 +175,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "homeNotifications": MessageLookupByLibrary.simpleMessage("الإشعارات"),
     "homeSensors": MessageLookupByLibrary.simpleMessage("الحساسات"),
     "homeWelcome": MessageLookupByLibrary.simpleMessage("أهلاً بك في منزلك"),
+    "howCanWeHelp": MessageLookupByLibrary.simpleMessage("كيف يمكننا مساعدتك؟"),
     "infoStatusCritical": MessageLookupByLibrary.simpleMessage("• خطر: "),
     "infoStatusSafe": MessageLookupByLibrary.simpleMessage("• آمن: "),
     "infoStatusWarning": MessageLookupByLibrary.simpleMessage("• تحذير: "),
+    "instantAlerts": MessageLookupByLibrary.simpleMessage("تنبيهات فورية"),
     "isRequired": MessageLookupByLibrary.simpleMessage("مطلوب"),
     "labelAlertsAndWarnings": MessageLookupByLibrary.simpleMessage(
       "التنبيهات والتحذيرات",
@@ -180,21 +204,46 @@ class MessageLookup extends MessageLookupByLibrary {
     "lightLevelOverTime": MessageLookupByLibrary.simpleMessage("مستوى الضوء"),
     "lightSensor": MessageLookupByLibrary.simpleMessage("حساس الضوء"),
     "lightstatus": MessageLookupByLibrary.simpleMessage("حالة الضوء"),
+    "liveDevices": MessageLookupByLibrary.simpleMessage("الأجهزة المتصلة"),
     "manualMode": MessageLookupByLibrary.simpleMessage("الوضع اليدوي"),
+    "markAsRead": MessageLookupByLibrary.simpleMessage("تحديد كمقروء"),
     "mode": MessageLookupByLibrary.simpleMessage("الوضع"),
     "modeCooling": MessageLookupByLibrary.simpleMessage("تبريد"),
     "modeDry": MessageLookupByLibrary.simpleMessage("جاف"),
     "modeFanOnly": MessageLookupByLibrary.simpleMessage("مروحة فقط"),
     "modeHeating": MessageLookupByLibrary.simpleMessage("تدفئة"),
+    "needAssistanceWithYourApp": MessageLookupByLibrary.simpleMessage(
+      "تحتاج مساعدة بشأن التطبيق أو الأجهزة؟ فريق الدعم لدينا جاهز لمساعدتك سريعاً.",
+    ),
+    "noRecentActivities": MessageLookupByLibrary.simpleMessage(
+      "لا توجد أنشطة حديثة.",
+    ),
     "pleaseEnterTheOTP": m3,
+    "precheckSteps": MessageLookupByLibrary.simpleMessage("خطوات الفحص المسبق"),
+    "privacyPolicy": MessageLookupByLibrary.simpleMessage("سياسة الخصوصية"),
+    "provideDetailsToSpeedUp": MessageLookupByLibrary.simpleMessage(
+      "يُرجى تقديم التفاصيل لتسريع حل المشكلة.",
+    ),
+    "reachOutDirectlyAtSupportfleexaapp": MessageLookupByLibrary.simpleMessage(
+      "تواصل معنا مباشرة عبر support@fleexa.app.",
+    ),
+    "realtimeMonitoring": MessageLookupByLibrary.simpleMessage("مراقبة مباشرة"),
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
     "remainingTime": m4,
+    "reportAProblem": MessageLookupByLibrary.simpleMessage("الإبلاغ عن مشكلة"),
     "resendOTP": MessageLookupByLibrary.simpleMessage("إعادة إرسال رمز التحقق"),
     "resetPassword": MessageLookupByLibrary.simpleMessage(
       "إعادة تعيين كلمة المرور",
     ),
+    "responseTimes": MessageLookupByLibrary.simpleMessage("أوقات الرد"),
+    "runYourIotSimulationWithout": MessageLookupByLibrary.simpleMessage(
+      "قم بتشغيل محاكاة إنترنت الأشياء بدون أي أجهزة مادية.",
+    ),
     "running": MessageLookupByLibrary.simpleMessage("تشغيل"),
     "saveChanges": MessageLookupByLibrary.simpleMessage("حفظ التغييرات"),
+    "securityAndHardwareDropsAre": MessageLookupByLibrary.simpleMessage(
+      "الأمان وفصل الأجهزة هي أولوية قصوى.",
+    ),
     "sendOTP": MessageLookupByLibrary.simpleMessage("إرسال رمز التحقق"),
     "set": MessageLookupByLibrary.simpleMessage("تعيين"),
     "setCustomTimer": MessageLookupByLibrary.simpleMessage("تعيين مؤقت مخصص"),
@@ -234,6 +283,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "settingsWarningAlertsDescription": MessageLookupByLibrary.simpleMessage(
       "تلقي التنبيهات للأحداث على مستوى التحذير",
     ),
+    "skip": MessageLookupByLibrary.simpleMessage("تخطي"),
+    "smartControl": MessageLookupByLibrary.simpleMessage("تحكم ذكي"),
+    "smartHomeVersion100": MessageLookupByLibrary.simpleMessage(
+      "المنزل الذكي • الإصدار 1.0.0",
+    ),
     "smartRules": MessageLookupByLibrary.simpleMessage("القواعد الذكية"),
     "stability": MessageLookupByLibrary.simpleMessage("الاستقرار"),
     "stable": MessageLookupByLibrary.simpleMessage("مستقر"),
@@ -258,7 +312,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusSafe": MessageLookupByLibrary.simpleMessage("آمن"),
     "statusWarning": MessageLookupByLibrary.simpleMessage("تحذير"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("خطر"),
+    "supportfleexaapp": MessageLookupByLibrary.simpleMessage(
+      "support@fleexa.app",
+    ),
     "system": MessageLookupByLibrary.simpleMessage("النظام"),
+    "systemAnalytics": MessageLookupByLibrary.simpleMessage("تحليلات النظام"),
+    "systemNotifications": MessageLookupByLibrary.simpleMessage(
+      "إشعارات النظام",
+    ),
     "systemOverview": MessageLookupByLibrary.simpleMessage(
       "نظرة عامة على النظام",
     ),
@@ -290,11 +351,40 @@ class MessageLookup extends MessageLookupByLibrary {
     "timeSec": m10,
     "timer": MessageLookupByLibrary.simpleMessage("مؤقت"),
     "timerOptions": m11,
+    "trackYourSensorDataInstantly": MessageLookupByLibrary.simpleMessage(
+      "تتبع بيانات مستشعراتك فوراً من أي مكان.",
+    ),
     "unitCelsiusText": MessageLookupByLibrary.simpleMessage("Celsius"),
     "unitLuxText": MessageLookupByLibrary.simpleMessage("Lux"),
     "unitPpmText": MessageLookupByLibrary.simpleMessage("PPM"),
     "unlockDuration": MessageLookupByLibrary.simpleMessage("مدة الفتح"),
+    "urgentIssues": MessageLookupByLibrary.simpleMessage("المشكلات الطارئة"),
+    "usagePurpose": MessageLookupByLibrary.simpleMessage("غرض الاستخدام"),
     "verifyAndContinue": MessageLookupByLibrary.simpleMessage("تحقق واستمر"),
+    "verifyBasicsBeforeSendingA": MessageLookupByLibrary.simpleMessage(
+      "تأكد من الأساسيات قبل إرسال التقارير.",
+    ),
     "verifyCode": MessageLookupByLibrary.simpleMessage("تحقق من الرمز"),
+    "weAimToReplyWithin": MessageLookupByLibrary.simpleMessage(
+      "نسعى للرد خلال ٢٤ إلى ٤٨ ساعة.",
+    ),
+    "weAreCommittedToEnsuring": MessageLookupByLibrary.simpleMessage(
+      "نحن ملتزمون بضمان أمان منزلك الذكي. نستخدم فقط المعلومات الضرورية لتشغيل أجهزتك.",
+    ),
+    "weCollectMinimalInfoNeeded": MessageLookupByLibrary.simpleMessage(
+      "نجمع الحد الأدنى من المعلومات المطلوبة للتطبيق.",
+    ),
+    "welcomeToFleexa": MessageLookupByLibrary.simpleMessage(
+      "مرحبًا بك في فليكسا",
+    ),
+    "whatToInclude": MessageLookupByLibrary.simpleMessage("ما يجب تضمينه"),
+    "youAreAllCaughtUp": MessageLookupByLibrary.simpleMessage("كل شيء محدث!"),
+    "youManageYourSettingsAnd": MessageLookupByLibrary.simpleMessage(
+      "أنت تدير إعداداتك وحسابك.",
+    ),
+    "yourControl": MessageLookupByLibrary.simpleMessage("تحكمك"),
+    "yourDataProvidesStableLive": MessageLookupByLibrary.simpleMessage(
+      "بياناتك تساعد في استقرار المميزات المباشرة.",
+    ),
   };
 }

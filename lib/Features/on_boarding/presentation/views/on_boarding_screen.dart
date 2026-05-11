@@ -1,4 +1,6 @@
 import 'package:fleexa/Features/on_boarding/data/on_boarding_model.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:fleexa/Features/on_boarding/presentation/views/widgets/build_onboarding_page.dart';
 import 'package:fleexa/Features/on_boarding/presentation/views/widgets/get_started_button.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
@@ -47,7 +49,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           if (!isLastPage)
             TextButton(
               onPressed: () => controller.jumpToPage(2),
-              child: Text("Skip", style: Styles.style16Regular),
+              child: Text(S.of(context).skip, style: Styles.style16Regular),
             ),
         ],
       ),
@@ -67,9 +69,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   BuildOnboardingPage(
                     model: OnBoardingModel(
                       image: AppAssets.iconsCloud,
-                      title: "Smart Control",
-                      description:
-                          "Run your IoT simulation without a single physical board.",
+                      title: S.of(context).smartControl,
+                      description: S.of(context).runYourIotSimulationWithout,
                       controller: controller,
                     ),
                     index: 0,
@@ -77,18 +78,16 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                   BuildOnboardingPage(
                     model: OnBoardingModel(
                       image: AppAssets.iconsChart,
-                      title: "Real-time Monitoring",
-                      description:
-                          "Track your sensor data instantly from anywhere.",
+                      title: S.of(context).realtimeMonitoring,
+                      description: S.of(context).trackYourSensorDataInstantly,
                       controller: controller,
                     ),
                   ),
                   BuildOnboardingPage(
                     model: OnBoardingModel(
                       image: AppAssets.iconsWifi,
-                      title: "Instant Alerts",
-                      description:
-                          "Get notified immediately when thresholds are met.",
+                      title: S.of(context).instantAlerts,
+                      description: S.of(context).getNotifiedImmediatelyWhenThresholds,
                       controller: controller,
                     ),
                   ),

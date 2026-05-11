@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:fleexa/generated/l10n.dart';
+
 import 'package:go_router/go_router.dart';
 
 import '../../../../../core/utils/constants/app_colors.dart';
@@ -53,12 +55,12 @@ class ConfirmDialog extends StatelessWidget {
       actions: [
         TextButton(
           onPressed: () => GoRouter.of(context).pop(),
-          child: const Text('Cancel', style: TextStyle(color: AppColors.white)),
+          child: Text(S.of(context).cancel,
+              style: const TextStyle(color: AppColors.white)),
         ),
         TextButton(
           onPressed: () {
             onConfirm();
-         
           },
           child: Text(
             confirmButtonText,

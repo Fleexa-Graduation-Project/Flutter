@@ -31,7 +31,7 @@ class DevicesSectionHeader extends StatelessWidget {
           onChanged: onFilterChanged,
         ).withHotspot(
           order: 3,
-          title: 'Filter Your Fleet',
+          title: S.of(context).filterYourFleet,
           text:
               'Organize your view. Quickly filter devices by specific devices types.',
         ),

@@ -39,7 +39,7 @@ class _DeleteAccountViewState extends State<DeleteAccountView> {
             ),
             onPressed: () => context.pop(),
           ),
-          title: const Text("Delete Account"),
+          title: Text(S.of(context).deleteAccount),
           centerTitle: true,
         ),
         body: SafeArea(
@@ -55,8 +55,7 @@ class _DeleteAccountViewState extends State<DeleteAccountView> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 40),
-                        Text(
-                          "Enter your password to delete your account ",
+                        Text(S.of(context).enterYourPasswordToDelete,
                           style: Styles.style14Medium
                               .copyWith(color: AppColors.coolGray),
                         ),
@@ -87,12 +86,10 @@ class _DeleteAccountViewState extends State<DeleteAccountView> {
 
                                     // 2. Perform your API call here (Simulated with a delay)
                                     // Example: bool isDeleted = await authProvider.deleteAccount(_currentPasswordController.text);
-                                  
 
                                     // 3. Ensure the screen still exists before showing Snackbars or routing
                                     if (!context.mounted) return;
 
-                                 
                                     AppSnackbar.show(
                                       context,
                                       type: SnackBarType.success,

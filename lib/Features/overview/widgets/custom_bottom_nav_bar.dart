@@ -59,7 +59,7 @@ class CustomBottomNavBar extends StatelessWidget {
               child: SvgPicture.asset('assets/icons/system_tab_off.svg'),
             ).withHotspot(
               order: 5,
-              title: 'System Analytics',
+              title: S.of(context).systemAnalytics,
               text: 'Access your system charts here.',
             ),
             activeIcon: Padding(
