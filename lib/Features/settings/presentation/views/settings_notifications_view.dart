@@ -2,6 +2,7 @@ import 'package:fleexa/Features/settings/presentation/manager/notification_setti
 import 'package:fleexa/core/utils/common_widgets/disabled_section.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/settings_notifications_card.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/settings_switch.dart';
+import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -22,7 +23,10 @@ class SettingsNotificationsView extends StatelessWidget {
         centerTitle: true,
         titleTextStyle: Styles.style20Medium,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(
+            Icons.arrow_back_ios,
+            color: AppColors.white,
+          ),
           onPressed: () => Navigator.pop(context),
         ),
       ),
