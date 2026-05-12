@@ -1,5 +1,9 @@
+import 'dart:async';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_state.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/Energy_cubit/energy_cubit.dart';
@@ -16,6 +20,7 @@ import 'package:hotspot/hotspot.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
+import 'system_overview/presentation/manager/system_overview_cubit/system_overview_state.dart';
 import 'widgets/custom_bottom_nav_bar.dart';
 
 class MainOverviewView extends StatefulWidget {
@@ -27,15 +32,53 @@ class MainOverviewView extends StatefulWidget {
 
 class _MainOverviewViewState extends State<MainOverviewView> {
   final PageController _pageController = PageController();
+  final GlobalKey _hotspotKey = GlobalKey();
+
+  late StreamSubscription<List<ConnectivityResult>> _connectivitySubscription;
 
   int _currentIndex = 0;
-
-  final GlobalKey _hotspotKey = GlobalKey();
 
   @override
   void initState() {
     super.initState();
     _checkFirstTime();
+    _setupNetworkListener();
+  }
+
+  void _setupNetworkListener() {
+    _connectivitySubscription = Connectivity()
+        .onConnectivityChanged
+        .listen((List<ConnectivityResult> results) {
+      // if connection is back
+      if (!results.contains(ConnectivityResult.none)) {
+        // use the hotspot context to trigger data refresh in the relevant cubits
+        final currentContext = _hotspotKey.currentContext;
+
+        if (currentContext != null && currentContext.mounted) {
+          // 1. Check the Homepage screen.
+          final devicesState = currentContext.read<DevicesCubit>().state;
+          if (devicesState is DevicesError &&
+              devicesState.errorType == ErrorType.network) {
+            currentContext.read<DevicesCubit>().fetchDevices();
+          }
+
+          // 2. Check the System Overview screen.
+          final systemState = currentContext.read<SystemOverviewCubit>().state;
+          if (systemState is SystemOverviewFailure &&
+              systemState.errorType == ErrorType.network) {
+            currentContext
+                .read<SystemOverviewCubit>()
+                .getOverview(period: TimeRange.lastWeek.apiValue);
+            currentContext
+                .read<AlertsChartCubit>()
+                .getAlertsChart(period: TimeRange.lastWeek.apiValue);
+            currentContext
+                .read<EnergyCubit>()
+                .getEnergy(period: TimeRange.lastWeek.apiValue);
+          }
+        }
+      }
+    });
   }
 
   Future<void> _checkFirstTime() async {
@@ -80,6 +123,7 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   @override
   void dispose() {
     _pageController.dispose();
+    _connectivitySubscription.cancel();
     super.dispose();
   }
 
