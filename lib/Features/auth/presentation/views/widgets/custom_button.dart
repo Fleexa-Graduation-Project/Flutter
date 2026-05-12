@@ -6,8 +6,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
+  final TextStyle? textStyle;
 
-  const CustomButton({super.key, required this.text, required this.onPressed});
+  const CustomButton(
+      {super.key, required this.text, required this.onPressed, this.textStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,7 @@ class CustomButton extends StatelessWidget {
           child: Text(
             text,
             textAlign: TextAlign.center,
-            style: Styles.style20Medium,
+            style: textStyle ?? Styles.style20Medium,
           ),
         ),
       ),

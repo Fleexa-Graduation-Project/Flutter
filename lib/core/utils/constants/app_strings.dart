@@ -20,6 +20,8 @@ enum ACControlType { manual, auto }
 
 enum TimeRange { lastDay, lastWeek, lastMonth }
 
+enum ErrorType { network, server, unknown }
+
 extension TimeRangeExtension on TimeRange {
   String get apiValue {
     switch (this) {
