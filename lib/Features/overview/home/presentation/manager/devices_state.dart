@@ -9,7 +9,8 @@ class DevicesLoading extends DevicesState {}
 
 class DevicesError extends DevicesState {
   final String message;
-  DevicesError(this.message);
+  final ErrorType errorType;
+  DevicesError({required this.errorType, this.message = ""});
 }
 
 class DevicesLoaded extends DevicesState {

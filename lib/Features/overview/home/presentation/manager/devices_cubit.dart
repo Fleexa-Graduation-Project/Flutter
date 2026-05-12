@@ -3,6 +3,7 @@ import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constants/app_strings.dart';
+import '../../../../../core/utils/error_handler.dart';
 import 'devices_state.dart';
 
 class DevicesCubit extends Cubit<DevicesState> {
@@ -21,7 +22,8 @@ class DevicesCubit extends Cubit<DevicesState> {
         currentFilter: DeviceFilter.all,
       ));
     } catch (e) {
-      emit(DevicesError('Failed to load devices: $e'));
+      final type = ErrorHandler.getErrorType(e);
+      emit(DevicesError(errorType: type, message: e.toString()));
     }
   }
 

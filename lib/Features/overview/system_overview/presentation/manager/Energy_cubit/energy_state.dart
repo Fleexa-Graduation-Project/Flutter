@@ -1,5 +1,7 @@
 import 'package:fleexa/Features/overview/system_overview/data/models/chart_point.dart';
 
+import '../../../../../../core/utils/constants/app_strings.dart';
+
 abstract class EnergyState {}
 
 class EnergyInitial extends EnergyState {}
@@ -14,6 +16,6 @@ class EnergySuccess extends EnergyState {
 
 class EnergyFailure extends EnergyState {
   final String error;
-
-  EnergyFailure(this.error);
+  final ErrorType errorType;
+  EnergyFailure({required this.error, required this.errorType});
 }

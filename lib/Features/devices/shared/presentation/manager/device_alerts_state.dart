@@ -1,3 +1,4 @@
+import '../../../../../core/utils/constants/app_strings.dart';
 import '../../data/models/alert_model.dart';
 
 abstract class DeviceAlertsState {}
@@ -8,7 +9,8 @@ class DeviceAlertsLoading extends DeviceAlertsState {}
 
 class DeviceAlertsError extends DeviceAlertsState {
   final String message;
-  DeviceAlertsError({required this.message});
+  final ErrorType errorType;
+  DeviceAlertsError({required this.message, required this.errorType});
 }
 
 class DeviceAlertsLoaded extends DeviceAlertsState {

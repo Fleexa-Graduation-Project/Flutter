@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/overview/notifications/data/repos/notifications_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../../core/utils/error_handler.dart';
 import '../../../../devices/shared/data/models/ui_alert_model.dart';
 import 'notifications_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,7 +49,9 @@ class NotificationsCubit extends Cubit<NotificationsState> {
 
       _emitGrouped();
     } catch (e) {
-      emit(NotificationsError('Failed to load notifications: $e'));
+      final type = ErrorHandler.getErrorType(e);
+      emit(NotificationsError(
+          errorType: type, message: 'Failed to load notifications: $e'));
     }
   }
 

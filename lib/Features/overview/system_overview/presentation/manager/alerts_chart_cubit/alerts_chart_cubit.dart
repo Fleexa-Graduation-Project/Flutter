@@ -4,6 +4,9 @@ import 'package:meta/meta.dart';
 import 'package:fleexa/Features/overview/system_overview/data/models/alerts_chart.dart';
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 
+import '../../../../../../core/utils/constants/app_strings.dart';
+import '../../../../../../core/utils/error_handler.dart';
+
 part 'alerts_chart_state.dart';
 
 class AlertsChartCubit extends Cubit<AlertsChartState> {
@@ -20,7 +23,8 @@ class AlertsChartCubit extends Cubit<AlertsChartState> {
 
       emit(AlertsChartSuccess(data.alertsChart));
     } catch (e) {
-      emit(AlertsChartFailure(e.toString()));
+      final type = ErrorHandler.getErrorType(e);
+      emit(AlertsChartFailure(error: e.toString(), errorType: type));
     }
   }
 }

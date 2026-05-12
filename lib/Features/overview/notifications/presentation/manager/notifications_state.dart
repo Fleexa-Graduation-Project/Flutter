@@ -1,3 +1,4 @@
+import '../../../../../core/utils/constants/app_strings.dart';
 import '../../../../devices/shared/data/models/ui_alert_model.dart';
 
 abstract class NotificationsState {}
@@ -8,7 +9,8 @@ class NotificationsLoading extends NotificationsState {}
 
 class NotificationsError extends NotificationsState {
   final String message;
-  NotificationsError(this.message);
+  final ErrorType errorType;
+  NotificationsError({required this.message, required this.errorType});
 }
 
 class NotificationsLoaded extends NotificationsState {

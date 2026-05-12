@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 
+import '../../../../../../core/utils/error_handler.dart';
+
 class EnergyCubit extends Cubit<EnergyState> {
   final SystemOverviewRepository repository;
 
@@ -16,7 +18,8 @@ class EnergyCubit extends Cubit<EnergyState> {
 
       emit(EnergySuccess(data.energyConsumption));
     } catch (e) {
-      emit(EnergyFailure(e.toString()));
+      final type = ErrorHandler.getErrorType(e);
+      emit(EnergyFailure(error: e.toString(), errorType: type));
     }
   }
 }

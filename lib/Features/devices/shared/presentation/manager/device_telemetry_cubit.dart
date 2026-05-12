@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/error_handler.dart';
 import 'device_telemetry_state.dart';
 
 class DeviceTelemetryCubit extends Cubit<DeviceTelemetryState> {
@@ -21,7 +22,8 @@ class DeviceTelemetryCubit extends Cubit<DeviceTelemetryState> {
         ),
       );
     } catch (e) {
-      emit(DeviceTelemetryError(message: 'Failed to load chart: $e'));
+      final type = ErrorHandler.getErrorType(e);
+      emit(DeviceTelemetryError(errorType: type, message: e.toString()));
     }
   }
 }

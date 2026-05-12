@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/error_handler.dart';
 import 'device_details_state.dart';
 
 class DeviceDetailsCubit extends Cubit<DeviceDetailsState> {
@@ -14,7 +15,8 @@ class DeviceDetailsCubit extends Cubit<DeviceDetailsState> {
       final device = await repository.getDeviceDetails(deviceId);
       emit(DeviceDetailsLoaded(device: device));
     } catch (e) {
-      emit(DeviceDetailsError(e.toString()));
+      final type = ErrorHandler.getErrorType(e);
+      emit(DeviceDetailsError(errorType: type, message: e.toString()));
     }
   }
 }

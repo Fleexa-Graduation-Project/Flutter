@@ -15,6 +15,6 @@ final class AlertsChartSuccess extends AlertsChartState {
 
 final class AlertsChartFailure extends AlertsChartState {
   final String error;
-
-  AlertsChartFailure(this.error);
+  final ErrorType errorType;
+  AlertsChartFailure({required this.error, required this.errorType});
 }

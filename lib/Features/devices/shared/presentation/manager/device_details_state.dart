@@ -1,3 +1,4 @@
+import '../../../../../core/utils/constants/app_strings.dart';
 import '../../data/models/device_model.dart';
 
 abstract class DeviceDetailsState {}
@@ -8,7 +9,8 @@ class DeviceDetailsLoading extends DeviceDetailsState {}
 
 class DeviceDetailsError extends DeviceDetailsState {
   final String message;
-  DeviceDetailsError(this.message);
+  final ErrorType errorType;
+  DeviceDetailsError({required this.message, required this.errorType});
 }
 
 class DeviceDetailsLoaded extends DeviceDetailsState {

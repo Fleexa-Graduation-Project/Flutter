@@ -1,5 +1,6 @@
 import 'package:fleexa/Features/overview/system_overview/data/models/system_overview_model.dart';
 
+import '../../../../../../core/utils/constants/app_strings.dart';
 
 abstract class SystemOverviewState {}
 
@@ -15,6 +16,6 @@ class SystemOverviewSuccess extends SystemOverviewState {
 
 class SystemOverviewFailure extends SystemOverviewState {
   final String error;
-
-  SystemOverviewFailure(this.error);
+  final ErrorType errorType;
+  SystemOverviewFailure({required this.error, required this.errorType});
 }

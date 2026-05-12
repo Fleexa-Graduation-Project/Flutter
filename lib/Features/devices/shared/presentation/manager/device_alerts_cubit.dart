@@ -1,6 +1,7 @@
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_alerts_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../core/utils/error_handler.dart';
 import '../../data/repos/device_details_repository.dart';
 
 class DeviceAlertsCubit extends Cubit<DeviceAlertsState> {
@@ -14,7 +15,8 @@ class DeviceAlertsCubit extends Cubit<DeviceAlertsState> {
       final alerts = await repository.getDeviceAlerts(deviceId);
       emit(DeviceAlertsLoaded(alerts: alerts));
     } catch (e) {
-      emit(DeviceAlertsError(message: 'Failed to load alerts: $e'));
+      final type = ErrorHandler.getErrorType(e);
+      emit(DeviceAlertsError(errorType: type, message: e.toString()));
     }
   }
 }
