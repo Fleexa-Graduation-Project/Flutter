@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';
 
-import '../../../../../core/utils/common_widgets/app_error.dart';
+import '../../../../../core/utils/common_widgets/error_page.dart';
 import '../../../../devices/actuators/door_lock/presentation/manager/door_lock_state.dart';
 import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';
@@ -34,7 +34,10 @@ class _HomeViewState extends State<HomeView> {
             if (state is DevicesLoading || state is DevicesInitial) {
               return const AppLoading();
             } else if (state is DevicesError) {
-              return AppError(message: state.message);
+              return ErrorPage(
+                type: state.errorType,
+                onRetry: () => context.read<DevicesCubit>().fetchDevices(),
+              );
             } else if (state is DevicesLoaded) {
               return Center(
                 child: Padding(

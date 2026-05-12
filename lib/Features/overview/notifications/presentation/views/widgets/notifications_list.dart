@@ -1,9 +1,9 @@
 import 'package:fleexa/Features/overview/notifications/presentation/manager/notifications_cubit.dart';
+import 'package:fleexa/core/utils/common_widgets/error_page.dart';
 import 'package:fleexa/generated/l10n.dart';
 
 import 'package:fleexa/Features/overview/notifications/presentation/views/widgets/notification_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/skelton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,13 +30,19 @@ class NotificationsList extends StatelessWidget {
             ),
           );
         } else if (state is NotificationsError) {
-          return AppError(message: state.message);
+          return ErrorPage(
+            onRetry: () {
+              context.read<NotificationsCubit>().loadNotifications();
+            },
+            type: state.errorType,
+          );
         } else if (state is NotificationsLoaded) {
           final notifications = state.groupedAlerts;
 
           if (notifications.values.every((list) => list.isEmpty)) {
             return Center(
-              child: Text(S.of(context).youAreAllCaughtUp,
+              child: Text(
+                S.of(context).youAreAllCaughtUp,
                 style: Styles.style16Medium.copyWith(color: AppColors.coolGray),
               ),
             );

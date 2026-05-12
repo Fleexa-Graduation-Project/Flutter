@@ -3,10 +3,10 @@ import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/g
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_gauge_widget.dart';
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_staus_card.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/utils/common_widgets/error_page.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,7 +28,14 @@ class GasSensorView extends StatelessWidget {
           if (state is DeviceDetailsLoading || state is DeviceDetailsInitial) {
             return const AppLoading();
           } else if (state is DeviceDetailsError) {
-            return AppError(message: state.message);
+            return ErrorPage(
+              onRetry: () {
+                context
+                    .read<DeviceDetailsCubit>()
+                    .loadDeviceData("gas-sensor-01");
+              },
+              type: state.errorType,
+            );
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
             final double ppmValue =

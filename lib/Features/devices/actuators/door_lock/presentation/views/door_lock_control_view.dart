@@ -4,11 +4,11 @@ import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/w
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/upper_container_content.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/app_error.dart';
 import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
 import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/utils/common_widgets/error_page.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +37,14 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
           if (state is DeviceDetailsLoading || state is DeviceDetailsInitial) {
             return const AppLoading();
           } else if (state is DeviceDetailsError) {
-            return AppError(message: state.message);
+            return ErrorPage(
+              onRetry: () {
+                context
+                    .read<DeviceDetailsCubit>()
+                    .loadDeviceData("door-actuator-01");
+              },
+              type: state.errorType,
+            );
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
             final List dynamicEvents =
