@@ -175,4 +175,13 @@ class APiService {
       rethrow;
     }
   }
+  // DELETE request wrapper
+  Future<Response> delete(String endpoint, {dynamic data}) async {
+    try {
+      final response = await _dio.delete(endpoint, data: data);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

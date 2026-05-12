@@ -233,4 +233,39 @@ class AuthCubit extends Cubit<AuthState> {
       emit(Unauthenticated()); // User has no valid token -> Sign In
     }
   }
+
+// 8. Delete Account
+  Future<bool> deleteAccount(String password) async {
+    emit(AuthLoading());
+    try {
+      // Calls DELETE /api/v1/auth/account on your Go backend
+      final response = await apiService.delete(
+        '/auth/account',
+        data: {
+          "password": password,
+        },
+      );
+
+      if (response.statusCode == 200) {
+        // Clear local storage and state just like a Sign Out
+        await TokenStorage.clearTokens();
+        username = "User";
+        email = "";
+
+        emit(AuthSuccess(message: "Account deleted successfully"));
+        emit(
+            Unauthenticated()); // This ensures the rest of your app knows the user is gone
+        return true;
+      }
+      return false;
+    } on DioException catch (e) {
+      // This will catch the 401 "incorrect password" error from your Go handler
+      String errorMsg = e.response?.data['error'] ?? "Failed to delete account";
+      emit(AuthError(errorMsg));
+      return false;
+    } catch (e) {
+      emit(AuthError("An unexpected error occurred"));
+      return false;
+    }
+  }
 }
