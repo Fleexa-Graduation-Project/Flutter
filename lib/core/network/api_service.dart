@@ -1,5 +1,3 @@
-// ignore_for_file: unnecessary_null_comparison
-
 import 'dart:async';
 import 'dart:developer';
 
@@ -16,7 +14,6 @@ class APiService {
 
   final _logoutController = StreamController<void>.broadcast();
   Stream<void> get onLogout => _logoutController.stream;
-
 
   APiService() {
     _dio = Dio(
@@ -175,6 +172,7 @@ class APiService {
       rethrow;
     }
   }
+
   // DELETE request wrapper
   Future<Response> delete(String endpoint, {dynamic data}) async {
     try {
