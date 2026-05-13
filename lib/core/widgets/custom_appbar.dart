@@ -90,12 +90,14 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
           ),
         if (readAllButton && onReadAll != null)
           Padding(
-            padding: const EdgeInsets.only(left: 24, top: 4),
-            child: TextButton(
+            padding: const EdgeInsets.only(right: 8.0),
+            child: IconButton(
               onPressed: onReadAll,
-              child: Text(S.of(context).markAsRead,
-                style:
-                    Styles.style14Regular.copyWith(color: AppColors.coolGray),
+              tooltip: S.of(context).markAsRead, // Shows text when long-pressed
+              icon: const Icon(
+                Icons.done_all_rounded,
+                size: 24,
+                color: AppColors.coolGray,
               ),
             ),
           ),
