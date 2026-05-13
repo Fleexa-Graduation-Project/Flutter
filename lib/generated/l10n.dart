@@ -1666,7 +1666,7 @@ class S {
   /// `support@fleexa.app`
   String get supportfleexaapp {
     return Intl.message(
-      'support@fleexa.app',
+      'fleexa.app@gmail.com',
       name: 'supportfleexaapp',
       desc: '',
       args: [],
@@ -1781,7 +1781,7 @@ class S {
   /// `Reach out directly at support@fleexa.app.`
   String get reachOutDirectlyAtSupportfleexaapp {
     return Intl.message(
-      'Reach out directly at support@fleexa.app.',
+      'Reach out directly at fleexa.app@gmail.com.',
       name: 'reachOutDirectlyAtSupportfleexaapp',
       desc: '',
       args: [],

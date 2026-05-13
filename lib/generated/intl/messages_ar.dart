@@ -225,7 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يُرجى تقديم التفاصيل لتسريع حل المشكلة.",
     ),
     "reachOutDirectlyAtSupportfleexaapp": MessageLookupByLibrary.simpleMessage(
-      "تواصل معنا مباشرة عبر support@fleexa.app.",
+      "تواصل معنا مباشرة عبر fleexa.app@gmail.com.",
     ),
     "realtimeMonitoring": MessageLookupByLibrary.simpleMessage("مراقبة مباشرة"),
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
