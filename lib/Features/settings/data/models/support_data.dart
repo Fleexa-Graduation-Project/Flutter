@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fleexa/generated/l10n.dart';
-
 import '../models/support_topic.dart';
 
 class SupportData {
