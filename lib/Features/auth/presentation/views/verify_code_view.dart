@@ -3,7 +3,7 @@ import 'package:fleexa/Features/auth/presentation/views/widgets/account_action_t
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.dart';
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_otp_text_field.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/app_snackbar.dart';
+import 'package:fleexa/core/widgets/app_snackbar.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';

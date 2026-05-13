@@ -1,7 +1,7 @@
 import 'package:fleexa/Features/overview/notifications/data/repos/notifications_repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../../core/utils/error_handler.dart';
+import '../../../../../core/errors/error_handler.dart';
 import '../../../../devices/shared/data/models/ui_alert_model.dart';
 import 'notifications_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

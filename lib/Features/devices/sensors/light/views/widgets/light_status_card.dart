@@ -1,6 +1,6 @@
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container_row.dart';
-import 'package:fleexa/core/utils/common_widgets/device_status_row.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/custom_container_row.dart';
+import 'package:fleexa/core/widgets/device_status_row.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

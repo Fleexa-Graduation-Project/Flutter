@@ -9,15 +9,15 @@ import 'package:fleexa/Features/overview/system_overview/presentation/views/widg
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/horizontal_card_scroller.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_overview_header.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/system_status_card.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
-import 'package:fleexa/core/utils/common_widgets/error_page.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/error_page.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/common_widgets/app_loading.dart';
+import '../../../../../core/widgets/app_loading.dart';
 
 class SystemOverviewView extends StatelessWidget {
   const SystemOverviewView({super.key});

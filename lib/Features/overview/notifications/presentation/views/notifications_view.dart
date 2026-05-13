@@ -1,4 +1,4 @@
-import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
+import 'package:fleexa/core/widgets/custom_appbar.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

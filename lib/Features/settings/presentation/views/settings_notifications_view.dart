@@ -1,5 +1,5 @@
 import 'package:fleexa/Features/settings/presentation/manager/notification_settings_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/disabled_section.dart';
+import 'package:fleexa/core/widgets/disabled_section.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/settings_notifications_card.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/settings_switch.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';

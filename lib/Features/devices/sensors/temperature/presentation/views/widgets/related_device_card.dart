@@ -1,5 +1,5 @@
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';

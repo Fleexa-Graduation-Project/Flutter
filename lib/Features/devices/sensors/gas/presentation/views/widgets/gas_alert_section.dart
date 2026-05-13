@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_alert_list.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/skelton.dart';
+import 'package:fleexa/core/widgets/skelton.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

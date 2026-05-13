@@ -1,5 +1,5 @@
 import 'package:fleexa/Features/devices/shared/data/models/ui_alert_model.dart';
-import 'package:fleexa/core/utils/common_widgets/alert_container.dart';
+import 'package:fleexa/core/widgets/alert_container.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';

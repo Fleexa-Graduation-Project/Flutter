@@ -1,7 +1,7 @@
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/custom_row_details.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/core/utils/common_widgets/skelton.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/skelton.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

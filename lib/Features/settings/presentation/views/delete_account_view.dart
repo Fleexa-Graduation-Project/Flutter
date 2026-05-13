@@ -4,7 +4,7 @@ import 'package:fleexa/Features/auth/presentation/views/widgets/custom_button.da
 import 'package:fleexa/Features/auth/presentation/views/widgets/custom_text_form_field.dart';
 import 'package:fleexa/Features/settings/presentation/views/widgets/confirm_dialog.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/app_snackbar.dart';
+import 'package:fleexa/core/widgets/app_snackbar.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';

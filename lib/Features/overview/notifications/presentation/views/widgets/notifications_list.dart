@@ -1,10 +1,10 @@
 import 'package:fleexa/Features/overview/notifications/presentation/manager/notifications_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/error_page.dart';
+import 'package:fleexa/core/widgets/error_page.dart';
 import 'package:fleexa/generated/l10n.dart';
 
 import 'package:fleexa/Features/overview/notifications/presentation/views/widgets/notification_card.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/skelton.dart';
+import 'package:fleexa/core/widgets/skelton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

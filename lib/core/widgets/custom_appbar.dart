@@ -5,7 +5,7 @@ import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../generated/l10n.dart';
+import '../../generated/l10n.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({

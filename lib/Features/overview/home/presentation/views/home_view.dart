@@ -4,13 +4,13 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/home_appbar.dart';
-import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/app_loading.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';
 
-import '../../../../../core/utils/common_widgets/error_page.dart';
+import '../../../../../core/widgets/error_page.dart';
 import '../../../../devices/actuators/door_lock/presentation/manager/door_lock_state.dart';
 import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';

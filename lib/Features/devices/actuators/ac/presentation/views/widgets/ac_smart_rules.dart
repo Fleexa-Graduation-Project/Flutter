@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/custom_slider.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/time_button.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';

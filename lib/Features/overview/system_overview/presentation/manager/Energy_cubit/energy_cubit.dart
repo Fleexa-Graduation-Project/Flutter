@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 
-import '../../../../../../core/utils/error_handler.dart';
+import '../../../../../../core/errors/error_handler.dart';
 
 class EnergyCubit extends Cubit<EnergyState> {
   final SystemOverviewRepository repository;

@@ -2,7 +2,7 @@ import 'package:fleexa/Features/auth/presentation/manager/auth_cubit.dart';
 import 'package:fleexa/Features/settings/presentation/manager/notification_settings_cubit.dart';
 import 'package:fleexa/core/cubits/localization_cubit.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/service_locator.dart';
+import 'package:fleexa/core/setup/service_locator.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,7 +10,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Features/overview/notifications/data/repos/notifications_repository.dart';
 import 'Features/overview/notifications/presentation/manager/notifications_cubit.dart';
-import 'core/utils/app_initializer.dart';
+import 'core/setup/app_initializer.dart';
 import 'core/utils/theme/app_theme.dart';
 
 void main() async {

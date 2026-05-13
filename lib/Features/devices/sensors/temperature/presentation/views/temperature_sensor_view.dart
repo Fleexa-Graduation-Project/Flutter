@@ -4,10 +4,10 @@ import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/w
 import 'package:fleexa/Features/devices/sensors/temperature/presentation/views/widgets/temp_stat_list.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_state.dart';
-import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
-import 'package:fleexa/core/utils/common_widgets/error_page.dart';
+import 'package:fleexa/core/widgets/app_loading.dart';
+import 'package:fleexa/core/widgets/custom_appbar.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/error_page.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';

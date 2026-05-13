@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/views/widgets/device_alert_card.dart';
-import 'package:fleexa/core/utils/common_widgets/skelton.dart';
+import 'package:fleexa/core/widgets/skelton.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/core/utils/functions/helpers.dart';
 import 'package:flutter/material.dart';

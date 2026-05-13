@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:dio/dio.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:flutter/foundation.dart';
-import 'package:fleexa/core/utils/token_storage.dart';
+import 'package:fleexa/core/storage/token_storage.dart';
 
 import 'mock/mock_interceptor.dart';
 

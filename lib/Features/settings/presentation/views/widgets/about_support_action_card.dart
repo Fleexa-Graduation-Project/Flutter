@@ -1,4 +1,4 @@
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';

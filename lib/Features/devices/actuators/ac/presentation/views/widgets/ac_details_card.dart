@@ -1,14 +1,14 @@
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/core/utils/common_widgets/device_status_row.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/device_status_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../../core/utils/common_widgets/custom_container_row.dart';
+import '../../../../../../../core/widgets/custom_container_row.dart';
 import '../../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../../generated/l10n.dart';
-import '../../../../../../../core/utils/common_widgets/app_error.dart';
-import '../../../../../../../core/utils/common_widgets/skelton.dart';
+import '../../../../../../../core/widgets/app_error.dart';
+import '../../../../../../../core/widgets/skelton.dart';
 import '../../../../../shared/presentation/manager/device_details_state.dart';
 
 class AcDetailsCard extends StatelessWidget {

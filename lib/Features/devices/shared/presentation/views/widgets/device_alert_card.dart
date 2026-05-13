@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/devices/shared/data/models/ui_alert_model.dart';
-import 'package:fleexa/core/utils/common_widgets/alert_container.dart';
-import 'package:fleexa/core/utils/common_widgets/disabled_section.dart';
+import 'package:fleexa/core/widgets/alert_container.dart';
+import 'package:fleexa/core/widgets/disabled_section.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';

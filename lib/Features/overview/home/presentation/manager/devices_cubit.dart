@@ -3,7 +3,7 @@ import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/constants/app_strings.dart';
-import '../../../../../core/utils/error_handler.dart';
+import '../../../../../core/errors/error_handler.dart';
 import 'devices_state.dart';
 
 class DevicesCubit extends Cubit<DevicesState> {

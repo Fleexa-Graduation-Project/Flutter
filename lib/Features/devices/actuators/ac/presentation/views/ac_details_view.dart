@@ -3,11 +3,11 @@ import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/related_device_section.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../core/utils/common_widgets/custom_appbar.dart';
+import '../../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../../../generated/l10n.dart';
 
 class AcDetailsView extends StatelessWidget {

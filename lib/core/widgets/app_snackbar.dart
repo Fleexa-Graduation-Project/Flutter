@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 
-import '../constants/app_colors.dart';
-import '../constants/styles.dart';
+import '../utils/constants/app_colors.dart';
+import '../utils/constants/styles.dart';
 
 class AppSnackbar {
   AppSnackbar._();

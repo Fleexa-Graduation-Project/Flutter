@@ -1,10 +1,10 @@
 import 'package:fleexa/Features/devices/sensors/gas/presentation/views/widgets/gas_sensor_chart.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_telemetry_state.dart';
-import 'package:fleexa/core/utils/common_widgets/app_error.dart';
-import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
-import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
-import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
+import 'package:fleexa/core/widgets/app_error.dart';
+import 'package:fleexa/core/widgets/app_loading.dart';
+import 'package:fleexa/core/widgets/chart_time_selector.dart';
+import 'package:fleexa/core/widgets/system_chart_card.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';

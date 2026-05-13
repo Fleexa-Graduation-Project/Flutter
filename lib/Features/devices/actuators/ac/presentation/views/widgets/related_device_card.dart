@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../../../../core/router/app_router.dart';
-import '../../../../../../../../core/utils/common_widgets/custom_container.dart';
+import '../../../../../../../core/widgets/custom_container.dart';
 import '../../../../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../../../../core/utils/constants/styles.dart';
 import '../../../../../../../../generated/l10n.dart';

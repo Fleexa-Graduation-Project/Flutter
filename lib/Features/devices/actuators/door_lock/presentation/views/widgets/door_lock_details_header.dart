@@ -1,13 +1,13 @@
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/app_error.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_container.dart';
-import 'package:fleexa/core/utils/common_widgets/skelton.dart';
+import 'package:fleexa/core/widgets/app_error.dart';
+import 'package:fleexa/core/widgets/custom_container.dart';
+import 'package:fleexa/core/widgets/skelton.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../../core/utils/common_widgets/custom_container_row.dart';
-import '../../../../../../../../core/utils/common_widgets/device_status_row.dart';
+import '../../../../../../../core/widgets/custom_container_row.dart';
+import '../../../../../../../core/widgets/device_status_row.dart';
 import '../../../../../../../../generated/l10n.dart';
 import '../../../../../shared/presentation/manager/device_details_state.dart';
 

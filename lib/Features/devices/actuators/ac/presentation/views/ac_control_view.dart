@@ -9,7 +9,7 @@ import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../../../../core/utils/common_widgets/custom_appbar.dart';
+import '../../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../../../generated/l10n.dart';
 
 class AcControlView extends StatefulWidget {

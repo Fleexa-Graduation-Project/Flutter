@@ -5,7 +5,7 @@ import 'package:fleexa/Features/overview/system_overview/data/models/alerts_char
 import 'package:fleexa/Features/overview/system_overview/data/repos/system_overview_repository.dart';
 
 import '../../../../../../core/utils/constants/app_strings.dart';
-import '../../../../../../core/utils/error_handler.dart';
+import '../../../../../../core/errors/error_handler.dart';
 
 part 'alerts_chart_state.dart';
 

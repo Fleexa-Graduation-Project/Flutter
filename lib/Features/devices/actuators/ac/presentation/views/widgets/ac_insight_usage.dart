@@ -1,12 +1,12 @@
-import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
+import 'package:fleexa/core/widgets/system_chart_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../../core/utils/common_widgets/chart_time_selector.dart';
+import '../../../../../../../core/widgets/chart_time_selector.dart';
 import '../../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../../generated/l10n.dart';
-import '../../../../../../../core/utils/common_widgets/app_error.dart';
-import '../../../../../../../core/utils/common_widgets/app_loading.dart';
+import '../../../../../../../core/widgets/app_error.dart';
+import '../../../../../../../core/widgets/app_loading.dart';
 import '../../../../../shared/presentation/manager/device_telemetry_cubit.dart';
 import '../../../../../shared/presentation/manager/device_telemetry_state.dart';
 import 'usage_chart.dart';

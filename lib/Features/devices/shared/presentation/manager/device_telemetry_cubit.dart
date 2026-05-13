@@ -1,7 +1,7 @@
 import 'package:fleexa/Features/devices/shared/data/repos/device_details_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/error_handler.dart';
+import '../../../../../core/errors/error_handler.dart';
 import 'device_telemetry_state.dart';
 
 class DeviceTelemetryCubit extends Cubit<DeviceTelemetryState> {

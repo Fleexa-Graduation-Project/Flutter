@@ -1,12 +1,12 @@
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/alerts_chart_cubit/alerts_chart_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
+import 'package:fleexa/core/widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../../../generated/l10n.dart';
 import 'alert_warning_chart.dart';
-import '../../../../../../../core/utils/common_widgets/system_chart_card.dart';
+import '../../../../../../../core/widgets/system_chart_card.dart';
 
 class AlertChartCard extends StatefulWidget {
   const AlertChartCard({super.key});

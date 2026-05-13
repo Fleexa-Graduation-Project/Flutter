@@ -5,7 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fleexa/core/network/api_constants.dart';
 import 'package:fleexa/core/network/api_service.dart';
-import 'package:fleexa/core/utils/token_storage.dart';
+import 'package:fleexa/core/storage/token_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'auth_state.dart';

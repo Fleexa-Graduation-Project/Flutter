@@ -3,14 +3,14 @@ import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/w
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/views/widgets/door_lock_insight.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../../../core/utils/common_widgets/custom_appbar.dart';
+import '../../../../../../core/widgets/custom_appbar.dart';
 
 class DoorLockDetailsView extends StatelessWidget {
   const DoorLockDetailsView({super.key});

@@ -2,10 +2,10 @@ import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_insigh
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_sensor_gauge.dart';
 import 'package:fleexa/Features/devices/sensors/light/views/widgets/light_status_card.dart';
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_details_cubit.dart';
-import 'package:fleexa/core/utils/common_widgets/app_loading.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_appbar.dart';
-import 'package:fleexa/core/utils/common_widgets/custom_refresh_indicator.dart';
-import 'package:fleexa/core/utils/common_widgets/error_page.dart';
+import 'package:fleexa/core/widgets/app_loading.dart';
+import 'package:fleexa/core/widgets/custom_appbar.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
+import 'package:fleexa/core/widgets/error_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

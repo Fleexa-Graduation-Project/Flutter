@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/generated/l10n.dart';
-import 'package:fleexa/core/utils/common_widgets/chart_time_selector.dart';
-import 'package:fleexa/core/utils/common_widgets/system_chart_card.dart';
+import 'package:fleexa/core/widgets/chart_time_selector.dart';
+import 'package:fleexa/core/widgets/system_chart_card.dart';
 
 import 'temp_chart.dart';
 

@@ -1,6 +1,6 @@
 import 'package:fleexa/Features/auth/presentation/manager/auth_cubit.dart';
 import 'package:fleexa/core/router/app_router.dart';
-import 'package:fleexa/core/utils/common_widgets/app_snackbar.dart';
+import 'package:fleexa/core/widgets/app_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';

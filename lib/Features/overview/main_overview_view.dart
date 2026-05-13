@@ -13,7 +13,7 @@ import 'package:fleexa/Features/overview/system_overview/presentation/views/syst
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
-import 'package:fleexa/core/utils/service_locator.dart';
+import 'package:fleexa/core/setup/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hotspot/hotspot.dart';

@@ -9,7 +9,7 @@ import 'package:flutter_icon_snackbar/flutter_icon_snackbar.dart';
 import 'package:go_router/go_router.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 
-import '../../../../core/utils/common_widgets/app_snackbar.dart';
+import '../../../../core/widgets/app_snackbar.dart';
 import '../../../../core/utils/constants/app_colors.dart';
 import '../manager/auth_state.dart';
 

@@ -2,9 +2,9 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../Features/auth/presentation/views/widgets/custom_button.dart';
-import '../constants/app_colors.dart';
-import '../constants/styles.dart';
+import '../../Features/auth/presentation/views/widgets/custom_button.dart';
+import '../utils/constants/app_colors.dart';
+import '../utils/constants/styles.dart';
 
 class ErrorPage extends StatelessWidget {
   const ErrorPage({super.key, required this.onRetry, required this.type});

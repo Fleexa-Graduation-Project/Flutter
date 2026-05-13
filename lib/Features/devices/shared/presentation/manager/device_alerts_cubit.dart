@@ -1,7 +1,7 @@
 import 'package:fleexa/Features/devices/shared/presentation/manager/device_alerts_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../../core/utils/error_handler.dart';
+import '../../../../../core/errors/error_handler.dart';
 import '../../data/repos/device_details_repository.dart';
 
 class DeviceAlertsCubit extends Cubit<DeviceAlertsState> {

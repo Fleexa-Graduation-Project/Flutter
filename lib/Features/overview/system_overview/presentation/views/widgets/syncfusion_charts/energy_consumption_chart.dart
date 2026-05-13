@@ -7,8 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:syncfusion_flutter_charts/charts.dart' hide ChartPoint;
 
-import '../../../../../../../core/utils/common_widgets/app_error.dart';
-import '../../../../../../../core/utils/common_widgets/app_loading.dart';
+import '../../../../../../../core/widgets/app_error.dart';
+import '../../../../../../../core/widgets/app_loading.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
 import '../../../../data/models/chart_point.dart';
 

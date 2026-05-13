@@ -20,7 +20,7 @@ import 'package:fleexa/Features/settings/presentation/views/settings_profile_vie
 import 'package:fleexa/Features/settings/presentation/views/settings_view.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
 import 'package:fleexa/Features/splash/presentation/views/splash_view.dart';
-import 'package:fleexa/core/utils/service_locator.dart';
+import 'package:fleexa/core/setup/service_locator.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
