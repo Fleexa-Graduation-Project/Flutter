@@ -51,3 +51,11 @@ flutter {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 }
+
+configurations.all {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "androidx.core" && (requested.name == "core" || requested.name == "core-ktx")) {
+            useVersion("1.13.1")
+        }
+    }
+}
