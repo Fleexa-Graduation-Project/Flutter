@@ -93,7 +93,7 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
               onPressed: onReadAll,
-              tooltip: S.of(context).markAsRead, // Shows text when long-pressed
+              tooltip: S.of(context).markAsRead, 
               icon: const Icon(
                 Icons.done_all_rounded,
                 size: 24,

@@ -17,6 +17,7 @@ class SettingsSwitch extends StatelessWidget {
     return Switch(
       value: value,
       inactiveTrackColor: AppColors.warmDarkGray,
+      activeColor: AppColors.white,
       activeTrackColor: AppColors.darkMaroon,
       materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
       trackOutlineColor: WidgetStateProperty.all(Colors.transparent),
