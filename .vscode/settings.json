@@ -59,6 +59,7 @@
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "cmake.sourceDirectory": "C:/Users/Ahmed EL Tahawy/OneDrive/Desktop/Hla - projects/fleexa/linux",
   "files.exclude": {
-    "**/generated": true
+    "**/generated": true,
+    "**/firebase_options.dart" : true
   }
 }
