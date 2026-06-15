@@ -33,4 +33,7 @@ class ApiConstants {
   static const String resetPassword = "/api/v1/auth/reset-password";
   static const String changePassword = "/api/v1/auth/change-password";
   static const String profile = "/api/v1/auth/profile";
+
+  // User Preferences Endpoint
+  static const String userPreferences = "/api/v1/users/preferences";
 }

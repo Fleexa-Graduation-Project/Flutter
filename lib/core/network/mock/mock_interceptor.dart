@@ -67,6 +67,11 @@ class MockInterceptor extends Interceptor {
           }
         }
       }
+      if (path.endsWith('/preferences') && options.method == 'PUT') {
+        return _resolveWithData(
+            options, handler, '{"message": "Preferences updated successfully"}',
+            statusCode: 200);
+      }
 
       try {
         // 1. System Overview

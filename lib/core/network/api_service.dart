@@ -164,6 +164,7 @@ class APiService {
     }
   }
 
+  // POST request with optional body data
   Future<Response> post(String endpoint, {dynamic data}) async {
     try {
       final response = await _dio.post(endpoint, data: data);
@@ -177,6 +178,16 @@ class APiService {
   Future<Response> delete(String endpoint, {dynamic data}) async {
     try {
       final response = await _dio.delete(endpoint, data: data);
+      return response;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  // PUT request wrapper
+  Future<Response> put(String endpoint, {dynamic data}) async {
+    try {
+      final response = await _dio.put(endpoint, data: data);
       return response;
     } catch (e) {
       rethrow;
