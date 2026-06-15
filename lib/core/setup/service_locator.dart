@@ -41,11 +41,12 @@ void setupServiceLocator() {
   );
 
   getIt.registerLazySingleton<PushNotificationService>(
-    () => PushNotificationService(),
+    () => PushNotificationService(getIt<APiService>()),
   );
 
   getIt.registerSingleton<NotificationSettingsCubit>(
-      NotificationSettingsCubit());
+      NotificationSettingsCubit(getIt<PushNotificationService>()));
 
-  getIt.registerSingleton<AuthCubit>(AuthCubit(getIt<APiService>()));
+  getIt.registerSingleton<AuthCubit>(
+      AuthCubit(getIt<APiService>(), getIt<PushNotificationService>()));
 }

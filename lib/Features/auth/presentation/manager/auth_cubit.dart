@@ -9,9 +9,11 @@ import 'package:fleexa/core/storage/token_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'auth_state.dart';
+import 'package:fleexa/core/services/push_notification_service.dart';
 
 class AuthCubit extends Cubit<AuthState> {
   final APiService apiService;
+  final PushNotificationService pushNotificationService;
 
   String username = "User";
   String email = "";
@@ -21,7 +23,8 @@ class AuthCubit extends Cubit<AuthState> {
 
   StreamSubscription? _logoutSubscription;
 
-  AuthCubit(this.apiService) : super(AuthInitial()) {
+  AuthCubit(this.apiService, this.pushNotificationService)
+      : super(AuthInitial()) {
     _logoutSubscription = apiService.onLogout.listen((_) {
       username = "User";
       email = "";
@@ -104,6 +107,8 @@ class AuthCubit extends Cubit<AuthState> {
         );
 
         await fetchProfile();
+
+        await pushNotificationService.registerDeviceForNotifications();
 
         emit(AuthSuccess(message: "Logged in successfully"));
       }
@@ -200,6 +205,7 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> signOut() async {
     emit(AuthLoading());
     try {
+      await pushNotificationService.unregisterDevice();
       await TokenStorage.clearTokens();
       username = "User";
       email = "";
@@ -228,6 +234,9 @@ class AuthCubit extends Cubit<AuthState> {
 
     if (token != null && token.isNotEmpty) {
       await fetchProfile();
+
+      await pushNotificationService.registerDeviceForNotifications();
+
       emit(Authenticated()); // Logged in user with valid token -> Home
     } else {
       emit(Unauthenticated()); // User has no valid token -> Sign In
@@ -248,6 +257,7 @@ class AuthCubit extends Cubit<AuthState> {
 
       if (response.statusCode == 200) {
         // Clear local storage and state just like a Sign Out
+        await pushNotificationService.unregisterDevice();
         await TokenStorage.clearTokens();
         username = "User";
         email = "";
