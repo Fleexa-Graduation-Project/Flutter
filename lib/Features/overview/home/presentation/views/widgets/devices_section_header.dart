@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hotspot/hotspot.dart';
 
 import '../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../core/utils/constants/styles.dart';
@@ -29,11 +28,6 @@ class DevicesSectionHeader extends StatelessWidget {
         DevicesFilterDropdown(
           currentFilter: currentFilter,
           onChanged: onFilterChanged,
-        ).withHotspot(
-          order: 3,
-          title: S.of(context).filterYourFleet,
-          text:
-              'Organize your view. Quickly filter devices by specific devices types.',
         ),
       ],
     );

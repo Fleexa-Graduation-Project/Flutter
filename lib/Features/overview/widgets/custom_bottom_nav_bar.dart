@@ -1,7 +1,6 @@
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:hotspot/hotspot.dart';
 
 import '../../../core/utils/constants/app_colors.dart';
 import '../../../core/utils/constants/styles.dart';
@@ -57,10 +56,6 @@ class CustomBottomNavBar extends StatelessWidget {
             icon: Padding(
               padding: const EdgeInsets.all(8.0),
               child: SvgPicture.asset('assets/icons/system_tab_off.svg'),
-            ).withHotspot(
-              order: 5,
-              title: S.of(context).systemAnalytics,
-              text: 'Access your system charts here.',
             ),
             activeIcon: Padding(
               padding: const EdgeInsets.all(8.0),

@@ -1,11 +1,9 @@
 import 'package:fleexa/Features/overview/notifications/presentation/views/widgets/notification_bell_badge.dart';
-import 'package:fleexa/generated/l10n.dart';
 
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hotspot/hotspot.dart';
 
 class TopAppbarActionRow extends StatelessWidget {
   const TopAppbarActionRow({super.key});
@@ -23,12 +21,7 @@ class TopAppbarActionRow extends StatelessWidget {
         const Spacer(),
         NotificationBellBadge(onTap: () {
           GoRouter.of(context).pushNamed(AppRouter.notifications);
-        }).withHotspot(
-          order: 2,
-          title: S.of(context).systemNotifications,
-          text:
-              'Catch system notifications and anomalies the moment they happen.',
-        ),
+        }),
       ],
     );
   }

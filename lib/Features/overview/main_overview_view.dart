@@ -16,8 +16,6 @@ import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/setup/service_locator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotspot/hotspot.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import '../devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
 import 'system_overview/presentation/manager/system_overview_cubit/system_overview_state.dart';
@@ -41,7 +39,6 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   @override
   void initState() {
     super.initState();
-    _checkFirstTime();
     _setupNetworkListener();
   }
 
@@ -79,22 +76,6 @@ class _MainOverviewViewState extends State<MainOverviewView> {
         }
       }
     });
-  }
-
-  Future<void> _checkFirstTime() async {
-    final prefs = await SharedPreferences.getInstance();
-    bool hasSeenTutorial = prefs.getBool('hasSeenMainTutorial') ?? false;
-
-    if (!hasSeenTutorial && mounted) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        final currentContext = _hotspotKey.currentContext;
-
-        if (currentContext != null && currentContext.mounted) {
-          HotspotProvider.of(currentContext).startFlow();
-          prefs.setBool('hasSeenMainTutorial', true);
-        }
-      });
-    }
   }
 
   final List<Widget> _screens = const [
@@ -170,24 +151,17 @@ class _MainOverviewViewState extends State<MainOverviewView> {
             ),
           ),
         ),
-        child: HotspotProvider(
-          backgroundColor: AppColors.charcoalBlack,
-          child: Builder(
-            builder: (innerContext) {
-              return Scaffold(
-                key: _hotspotKey,
-                body: PageView(
-                  controller: _pageController,
-                  onPageChanged: _onPageChanged,
-                  physics: const BouncingScrollPhysics(),
-                  children: _screens,
-                ),
-                bottomNavigationBar: CustomBottomNavBar(
-                  currentIndex: _currentIndex,
-                  onTap: _onItemTapped,
-                ),
-              );
-            },
+        child: Scaffold(
+          key: _hotspotKey,
+          body: PageView(
+            controller: _pageController,
+            onPageChanged: _onPageChanged,
+            physics: const BouncingScrollPhysics(),
+            children: _screens,
+          ),
+          bottomNavigationBar: CustomBottomNavBar(
+            currentIndex: _currentIndex,
+            onTap: _onItemTapped,
           ),
         ),
       ),

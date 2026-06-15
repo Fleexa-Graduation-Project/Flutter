@@ -1,5 +1,4 @@
 import 'package:fleexa/Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
-import 'package:fleexa/generated/l10n.dart';
 
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/widgets/device_card_list.dart';
@@ -8,7 +7,6 @@ import 'package:fleexa/core/widgets/app_loading.dart';
 import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hotspot/hotspot.dart';
 
 import '../../../../../core/widgets/error_page.dart';
 import '../../../../devices/actuators/door_lock/presentation/manager/door_lock_state.dart';
@@ -88,11 +86,6 @@ class _HomeViewState extends State<HomeView> {
                             );
                           },
                         ),
-                      ).withHotspot(
-                        order: 4,
-                        title: S.of(context).liveDevices,
-                        text:
-                            'Monitor all your active sensors and actuators here.',
                       ),
                     ],
                   ),

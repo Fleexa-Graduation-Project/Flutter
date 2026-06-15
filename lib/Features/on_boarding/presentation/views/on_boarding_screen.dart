@@ -7,7 +7,10 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/assets.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../../core/router/app_router.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});
@@ -48,7 +51,9 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
           // Hide Skip button if on the last page
           if (!isLastPage)
             TextButton(
-              onPressed: () => controller.jumpToPage(2),
+              onPressed: () {
+                GoRouter.of(context).goNamed(AppRouter.signIn);
+              },
               child: Text(S.of(context).skip, style: Styles.style16Regular),
             ),
         ],
@@ -87,7 +92,8 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                     model: OnBoardingModel(
                       image: AppAssets.iconsWifi,
                       title: S.of(context).instantAlerts,
-                      description: S.of(context).getNotifiedImmediatelyWhenThresholds,
+                      description:
+                          S.of(context).getNotifiedImmediatelyWhenThresholds,
                       controller: controller,
                     ),
                   ),
