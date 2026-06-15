@@ -40,9 +40,14 @@ class AuthCubit extends Cubit<AuthState> {
 
   Future<void> fetchProfile() async {
     try {
-      final response = await apiService.get('/auth/profile');
+      final response = await apiService.get(ApiConstants.profile);
       if (response.statusCode == 200) {
-        username = response.data['username'] ?? "User";
+        log("REAL PROFILE DATA: ${response.data}");
+        final rawUsername = response.data['username'];
+        username =
+            (rawUsername != null && rawUsername.toString().trim().isNotEmpty)
+                ? rawUsername.toString()
+                : "User";
         email = response.data['email'] ?? "";
         if (state is Authenticated) emit(Authenticated());
       }
