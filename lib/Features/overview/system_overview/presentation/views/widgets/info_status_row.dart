@@ -7,6 +7,9 @@ import 'package:flutter/material.dart';
 class InfoStatusRow extends StatelessWidget {
   const InfoStatusRow({super.key, required this.infoStatusModel});
   final InfoStatusModel infoStatusModel;
+  bool get isConnected =>
+      infoStatusModel.description.toLowerCase() == 'online' ||
+      infoStatusModel.description.toLowerCase() == 'connected';
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -18,27 +21,26 @@ class InfoStatusRow extends StatelessWidget {
           Container(
             width: 8,
             height: 8,
-            decoration: const BoxDecoration(
-              color: AppColors.emeraldGreen,
+            decoration: BoxDecoration(
+              color:
+                  isConnected ? AppColors.emeraldGreen : AppColors.crimsonRed,
               shape: BoxShape.circle,
             ),
           ),
-          const SizedBox(
-            width: 4,
-          ),
+          const SizedBox(width: 4),
           Text(
-            infoStatusModel.description,
-            style: Styles.style12Medium,
-          )
+            isConnected
+                ? S.of(context).statusConnected
+                : S.of(context).statusDisconnected,
+            style: Styles.style12Medium.copyWith(
+              color: AppColors.coolGray,
+            ),
+          ),
         ] else ...[
           Text(
-            '5',
+            infoStatusModel.description,
             style: Styles.style12Medium.copyWith(color: AppColors.white),
           ),
-          Text(
-            '5',
-            style: Styles.style12Medium,
-          )
         ]
       ],
     );
