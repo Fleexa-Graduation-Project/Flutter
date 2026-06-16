@@ -35,7 +35,7 @@ class _AcInsightUsageState extends State<AcInsightUsage> {
             String apiPeriod = '7d';
             if (value == TimeRange.lastDay) apiPeriod = '24h';
             if (value == TimeRange.lastMonth) apiPeriod = '1m';
-            context.read<DeviceTelemetryCubit>().loadTelemetry('ac-actuator-01',
+            context.read<DeviceTelemetryCubit>().loadTelemetry('ac-curtain-01',
                 period: apiPeriod, metric: 'power_state');
           }
         },

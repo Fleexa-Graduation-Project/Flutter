@@ -211,12 +211,16 @@ class AuthCubit extends Cubit<AuthState> {
     emit(AuthLoading());
     try {
       await pushNotificationService.unregisterDevice();
+    } catch (e) {
+      log("Failed to unregister device from backend, but logging out locally anyway: $e");
+    }
+    try {
       await TokenStorage.clearTokens();
       username = "User";
       email = "";
       emit(Unauthenticated());
     } catch (e) {
-      emit(AuthError("Failed to sign out. Please try again."));
+      emit(AuthError("An unexpected error occurred during local sign out."));
     }
   }
 

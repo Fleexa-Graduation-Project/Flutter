@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/app_loading.dart';
+import '../../../home/presentation/manager/devices_state.dart';
 
 class SystemOverviewView extends StatelessWidget {
   const SystemOverviewView({super.key});
@@ -68,9 +69,28 @@ class SystemOverviewView extends StatelessWidget {
                       children: [
                         const SystemOverviewHeader(),
                         const SizedBox(height: 18),
-                        SystemStatusCard(
-                          systemStatus: data.systemStatus,
-                          devicesOnline: data.devicesOnline,
+                        BlocBuilder<DevicesCubit, DevicesState>(
+                          builder: (context, devicesState) {
+                            int totalDevices = 0;
+                            int onlineDevices = 0;
+
+                            if (devicesState is DevicesLoaded) {
+                              totalDevices = devicesState.devices.length;
+                              onlineDevices = devicesState.devices
+                                  .where((d) => d.status == 'ONLINE')
+                                  .length;
+                            }
+
+                            String displayDevices =
+                                devicesState is DevicesLoaded
+                                    ? "$onlineDevices / $totalDevices"
+                                    : data.devicesOnline;
+
+                            return SystemStatusCard(
+                              systemStatus: data.systemStatus,
+                              devicesOnline: displayDevices,
+                            );
+                          },
                         ),
                         const SizedBox(height: 32),
                         Text(

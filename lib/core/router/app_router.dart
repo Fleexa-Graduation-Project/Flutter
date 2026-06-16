@@ -209,12 +209,12 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('ac-actuator-01'),
+                    ..loadDeviceData('ac-curtain-01'),
             ),
             BlocProvider(
               create: (context) =>
                   DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                    ..loadTelemetry('ac-actuator-01', metric: 'power_state'),
+                    ..loadTelemetry('ac-curtain-01', metric: 'power_state'),
             ),
           ],
           child: const AcDetailsView(),

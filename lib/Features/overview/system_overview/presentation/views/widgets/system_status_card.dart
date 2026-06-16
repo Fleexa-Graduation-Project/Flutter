@@ -5,7 +5,8 @@ import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 class SystemStatusCard extends StatelessWidget {
-  const SystemStatusCard({super.key, required this.systemStatus, required this.devicesOnline});
+  const SystemStatusCard(
+      {super.key, required this.systemStatus, required this.devicesOnline});
 
   final String systemStatus;
   final String devicesOnline;

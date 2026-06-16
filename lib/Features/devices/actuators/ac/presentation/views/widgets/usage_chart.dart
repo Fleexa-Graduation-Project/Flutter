@@ -20,7 +20,8 @@ class UsageChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double dynamicMax = maxValue + (maxValue * 0.5);
-    final double interval = (dynamicMax / 6).ceilToDouble();
+    final double interval =
+        dynamicMax > 0 ? (dynamicMax / 6).ceilToDouble() : 20;
 
     return SfCartesianChart(
       key: ValueKey(periodKey),
