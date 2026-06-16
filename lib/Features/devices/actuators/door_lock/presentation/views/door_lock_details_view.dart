@@ -40,14 +40,9 @@ class DoorLockDetailsView extends StatelessWidget {
                 children: [
                   const DoorLockDetailsHeader(),
                   const SizedBox(height: 40),
-                  Text(
-                    S.of(context).labelAlertsAndWarnings,
-                    style:
-                        Styles.style18Medium.copyWith(color: AppColors.white),
-                  ),
-                  const SizedBox(height: 12),
+               
                   const AlertsSection(),
-                  const SizedBox(height: 40),
+                 
                   Text(
                     S.of(context).labelInsights,
                     style:
