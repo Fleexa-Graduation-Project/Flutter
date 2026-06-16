@@ -29,7 +29,7 @@ class AlertWarningChart extends StatelessWidget {
   }
 
   double _getInterval(double max) {
-    return (max / 5).ceilToDouble();
+    return  (max / 5).ceilToDouble();
   }
 
   @override

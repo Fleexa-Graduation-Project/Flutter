@@ -57,7 +57,8 @@ class TempChart extends StatelessWidget {
             primaryYAxis: NumericAxis(
               minimum: 0,
               maximum: data.chartMax + 5,
-              interval: (data.chartMax / 5).ceilToDouble(),
+              interval:
+                  (data.chartMax > 0) ? (data.chartMax / 5).ceilToDouble() : 50,
               labelStyle: Styles.style12Regular.copyWith(
                 color: AppColors.coolGray,
               ),

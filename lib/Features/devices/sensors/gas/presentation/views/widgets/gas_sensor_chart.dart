@@ -20,7 +20,8 @@ class GasSensorChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double dynamicMax = maxValue + (maxValue * 0.2);
-    final double interval = (dynamicMax / 6).ceilToDouble();
+    final double interval =
+        (dynamicMax > 0) ? (dynamicMax / 6).ceilToDouble() : 50;
 
     return SfCartesianChart(
       key: ValueKey(periodKey),

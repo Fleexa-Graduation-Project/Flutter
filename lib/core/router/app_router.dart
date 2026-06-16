@@ -168,7 +168,7 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-actuator-01'),
+                    ..loadDeviceData('door-locker-01'),
             ),
             BlocProvider.value(
               value: getIt<DoorLockCubit>(),
@@ -185,12 +185,12 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-actuator-01'),
+                    ..loadDeviceData('door-locker-01'),
             ),
             BlocProvider(
               create: (context) =>
                   DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadAlerts('door-actuator-01'),
+                    ..loadAlerts('door-locker-01'),
             ),
           ],
           child: const DoorLockDetailsView(),

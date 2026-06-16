@@ -20,7 +20,8 @@ class LightSensorChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double dynamicMax = maxValue + (maxValue * 0.2);
-    final double interval = (dynamicMax / 5).round().toDouble();
+    final double interval =
+        (dynamicMax > 0) ? (dynamicMax / 5).round().toDouble() : 50;
 
     return SfCartesianChart(
       key: ValueKey(periodKey),

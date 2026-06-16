@@ -41,7 +41,7 @@ enum DialogType { deleteAccount, logout }
 
 class AppConstants {
   static const List<String> notificationDevices = [
-    'door-actuator-01',
+    'door-locker-01',
     'gas-sensor-01',
   ];
 }

@@ -36,7 +36,7 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<DoorLockCubit>(
     () => DoorLockCubit(
       repository: getIt<DeviceDetailsRepository>(),
-      deviceId: 'door-actuator-01',
+      deviceId: 'door-locker-01',
     ),
   );
 

@@ -41,7 +41,7 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
               onRetry: () {
                 context
                     .read<DeviceDetailsCubit>()
-                    .loadDeviceData("door-actuator-01");
+                    .loadDeviceData("door-locker-01");
               },
               type: state.errorType,
             );
@@ -55,7 +55,7 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
               child: CustomRefreshIndicator(
                 onRefresh: () => context
                     .read<DeviceDetailsCubit>()
-                    .loadDeviceData("door-actuator-01"),
+                    .loadDeviceData("door-locker-01"),
                 child: Center(
                   child: SingleChildScrollView(
                     physics: const AlwaysScrollableScrollPhysics(),
@@ -109,6 +109,12 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
           }
           return const SizedBox();
         },
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          context.read<DoorLockCubit>().toggleLock();
+        },
+        child: const Icon(Icons.send),
       ),
     );
   }
