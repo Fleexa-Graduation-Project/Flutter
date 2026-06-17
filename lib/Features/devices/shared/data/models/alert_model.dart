@@ -16,28 +16,42 @@ class AlertModel {
   });
 
   factory AlertModel.fromJson(Map<String, dynamic> json) {
-    final payload = json['payload'] ?? {};
+
+    final payload = json['payload'] is Map<String, dynamic>
+        ? json['payload'] as Map<String, dynamic>
+        : {};
+
     final String type = json['type'] ?? '';
-    final int timestamp = json['timestamp'] ?? 0;
 
-    // 1. Convert UNIX to DateTime
-    final parsedTime = DateTime.fromMillisecondsSinceEpoch(timestamp * 1000);
+  
+    final String timestampStr = json['timestamp']?.toString() ?? '';
+    final parsedTime = DateTime.tryParse(timestampStr) ?? DateTime.now();
 
-    // 2. Format the title and description based on the device type
+
     String parsedTitle = payload['title'] ?? 'System Alert';
+
+
     String parsedDesc = payload['description'] ?? '';
+
 
     if (payload['title'] == null) {
       if (type == 'gas-sensor') {
-        parsedTitle = payload['status'] == 'DANGER'
+        parsedTitle = json['severity'] == 'CRITICAL'
             ? 'Gas Spike Detected'
             : 'Gas Level Warning';
-        parsedDesc = '${payload['gas_level'] ?? 0} PPM detected';
+
+        if (parsedDesc.isEmpty) {
+          final gasLevel = payload['gas_level'] ?? 'Unknown levels';
+          parsedDesc = 'Gas detected at $gasLevel';
+        }
       } else if (type == 'door-actuator') {
         parsedTitle = 'Door Alert';
-        parsedDesc = payload['lock_state'] == 'UNLOCKED'
-            ? 'Door Unlocked'
-            : 'Door Locked';
+
+        if (parsedDesc.isEmpty) {
+          parsedDesc = payload['lock_state'] == 'UNLOCKED'
+              ? 'Door Unlocked'
+              : 'Door Locked';
+        }
       }
     }
 
