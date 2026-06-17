@@ -19,7 +19,7 @@ class AcInsightUsage extends StatefulWidget {
 }
 
 class _AcInsightUsageState extends State<AcInsightUsage> {
-  TimeRange currentValue = TimeRange.lastWeek;
+  TimeRange currentValue = TimeRange.lastDay;
   @override
   Widget build(BuildContext context) {
     return SystemChartCard(
@@ -32,10 +32,10 @@ class _AcInsightUsageState extends State<AcInsightUsage> {
             setState(() {
               currentValue = value;
             });
-            String apiPeriod = '7d';
-            if (value == TimeRange.lastDay) apiPeriod = '24h';
+            String apiPeriod = '24h';
+            if (value == TimeRange.lastWeek) apiPeriod = '7d';
             if (value == TimeRange.lastMonth) apiPeriod = '1m';
-            context.read<DeviceTelemetryCubit>().loadTelemetry('ac-curtain-01',
+            context.read<DeviceTelemetryCubit>().loadTelemetry('ac-actuator-01',
                 period: apiPeriod, metric: 'power_state');
           }
         },

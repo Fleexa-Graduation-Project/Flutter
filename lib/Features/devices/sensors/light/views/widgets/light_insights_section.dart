@@ -20,7 +20,7 @@ class LightInsightsSection extends StatefulWidget {
 }
 
 class _LightInsightsSectionState extends State<LightInsightsSection> {
-  TimeRange currentValue = TimeRange.lastWeek;
+  TimeRange currentValue = TimeRange.lastDay;
 
   @override
   @override
@@ -43,8 +43,8 @@ class _LightInsightsSectionState extends State<LightInsightsSection> {
                   currentValue = value;
                 });
 
-                String apiPeriod = '7d';
-                if (value == TimeRange.lastDay) apiPeriod = '24h';
+                String apiPeriod = '24h';
+                if (value == TimeRange.lastWeek) apiPeriod = '7d';
                 if (value == TimeRange.lastMonth) apiPeriod = '1m';
 
                 context.read<DeviceTelemetryCubit>().loadTelemetry(

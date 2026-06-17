@@ -25,10 +25,10 @@ class AcDetailsView extends StatelessWidget {
             await Future.wait([
               context
                   .read<DeviceDetailsCubit>()
-                  .loadDeviceData("ac-curtain-01"),
+                  .loadDeviceData("ac-actuator-01"),
               context
                   .read<DeviceTelemetryCubit>()
-                  .loadTelemetry('ac-curtain-01', metric: 'power_state'),
+                  .loadTelemetry('ac-actuator-01', metric: 'power_state'),
             ]);
           },
           child: const Center(

@@ -19,7 +19,7 @@ class GasInsightsSection extends StatefulWidget {
 }
 
 class _GasInsightsSectionState extends State<GasInsightsSection> {
-  TimeRange currentValue = TimeRange.lastWeek;
+  TimeRange currentValue = TimeRange.lastDay;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -39,8 +39,8 @@ class _GasInsightsSectionState extends State<GasInsightsSection> {
                 setState(() {
                   currentValue = value;
                 });
-                String apiPeriod = '7d';
-                if (value == TimeRange.lastDay) apiPeriod = '24h';
+                String apiPeriod = '24h';
+                if (value == TimeRange.lastWeek) apiPeriod = '7d';
                 if (value == TimeRange.lastMonth) apiPeriod = '1m';
                 context.read<DeviceTelemetryCubit>().loadTelemetry(
                     'gas-sensor-01',

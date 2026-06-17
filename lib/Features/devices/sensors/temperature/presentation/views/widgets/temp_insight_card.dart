@@ -17,7 +17,7 @@ class TempInsightCard extends StatefulWidget {
 }
 
 class _TempInsightCardState extends State<TempInsightCard> {
-  TimeRange currentValue = TimeRange.lastWeek;
+  TimeRange currentValue = TimeRange.lastDay;
 
   @override
   Widget build(BuildContext context) {

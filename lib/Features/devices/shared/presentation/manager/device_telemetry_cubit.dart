@@ -10,7 +10,7 @@ class DeviceTelemetryCubit extends Cubit<DeviceTelemetryState> {
   DeviceTelemetryCubit(this.repository) : super(DeviceTelemetryInitial());
 
   Future<void> loadTelemetry(String deviceId,
-      {required String metric, String period = '7d'}) async {
+      {required String metric, String period = '24h'}) async {
     emit(DeviceTelemetryLoading());
     try {
       final telemetry =

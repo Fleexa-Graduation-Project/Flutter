@@ -24,6 +24,9 @@ class DeviceListRepository {
       final result = DeviceListResponse.fromJson(responseData);
       List<DeviceModel> devices = result.data;
 
+      devices.removeWhere((d) =>
+          d.deviceId == 'door-locker-01' || d.deviceId == 'ac-curtain-01');
+
       try {
         final doorSensor = devices.firstWhere((d) => d.type == 'door-sensor');
         final doorLocker = devices.firstWhere((d) => d.type == 'door-actuator');

@@ -25,6 +25,9 @@ class DoorLockControlView extends StatefulWidget {
 }
 
 class _DoorLockControlViewState extends State<DoorLockControlView> {
+  List<dynamic> localEvents = [];
+  bool _isInitialized = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,21 +44,40 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
               onRetry: () {
                 context
                     .read<DeviceDetailsCubit>()
-                    .loadDeviceData("door-locker-01");
+                    .loadDeviceData("door-actuator-01");
               },
               type: state.errorType,
             );
           } else if (state is DeviceDetailsLoaded) {
             final device = state.device;
-            final List dynamicEvents =
-                (device.payload['recent_events'] as List? ?? [])
-                    .take(5)
-                    .toList();
+
+            if (!_isInitialized) {
+              final bool isLockedFromPayload =
+                  device.payload['lock_state'] == 'LOCKED';
+
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context
+                    .read<DoorLockCubit>()
+                    .initializeState(isLockedFromPayload);
+              });
+
+              localEvents = List.from(
+                  (device.payload['recent_events'] as List? ?? []).take(5));
+              _isInitialized = true;
+            }
+
+            // final List dynamicEvents =
+            //     (device.payload['recent_events'] as List? ?? [])
+            //         .take(5)
+            //         .toList();
             return SafeArea(
               child: CustomRefreshIndicator(
-                onRefresh: () => context
-                    .read<DeviceDetailsCubit>()
-                    .loadDeviceData("door-locker-01"),
+                onRefresh: () async {
+                  _isInitialized = false;
+                  await context
+                      .read<DeviceDetailsCubit>()
+                      .loadDeviceData("door-actuator-01");
+                },
                 child: Center(
                   child: SingleChildScrollView(
                     physics: const AlwaysScrollableScrollPhysics(),
@@ -70,18 +92,34 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                           CustomContainer(
                             child: BlocBuilder<DoorLockCubit, DoorLockState>(
                               builder: (context, doorState) {
-                                final isLocked = context
+                                bool isLocked = context
                                     .read<DoorLockCubit>()
                                     .isCurrentlyLocked;
+                                if (doorState is DoorLockUpdated) {
+                                  isLocked = doorState.isLocked;
+                                }
                                 return UpperContainerContent(
-                                    isLocked: isLocked,
-                                    onToggle: (value) {
-                                      setState(() {
-                                        context
-                                            .read<DoorLockCubit>()
-                                            .toggleLock();
+                                  isLocked: isLocked,
+                                  onToggle: (value) {
+                                    setState(() {
+                                      final newLockState = !isLocked;
+                                      localEvents.insert(0, {
+                                        "event": newLockState
+                                            ? "Door locked"
+                                            : "Door unlocked",
+                                        "time": "Just now",
                                       });
+
+                                      if (localEvents.length > 5) {
+                                        localEvents.removeLast();
+                                      }
+
+                                      context
+                                          .read<DoorLockCubit>()
+                                          .toggleLock();
                                     });
+                                  },
+                                );
                               },
                             ),
                           ),
@@ -97,7 +135,7 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
                           ),
                           const SizedBox(height: 20),
                           CustomContainer(
-                              child: RecentEventsList(events: dynamicEvents)),
+                              child: RecentEventsList(events: localEvents)),
                           const SizedBox(height: 32),
                         ],
                       ),
@@ -109,12 +147,6 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
           }
           return const SizedBox();
         },
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.read<DoorLockCubit>().toggleLock();
-        },
-        child: const Icon(Icons.send),
       ),
     );
   }

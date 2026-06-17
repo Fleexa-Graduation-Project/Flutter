@@ -27,8 +27,8 @@ class DoorLockDetailsView extends StatelessWidget {
             await Future.wait([
               context
                   .read<DeviceDetailsCubit>()
-                  .loadDeviceData("door-locker-01"),
-              context.read<DeviceAlertsCubit>().loadAlerts("door-locker-01"),
+                  .loadDeviceData("door-actuator-01"),
+              context.read<DeviceAlertsCubit>().loadAlerts("door-actuator-01"),
             ]);
           },
           child: SingleChildScrollView(
@@ -40,9 +40,7 @@ class DoorLockDetailsView extends StatelessWidget {
                 children: [
                   const DoorLockDetailsHeader(),
                   const SizedBox(height: 40),
-               
                   const AlertsSection(),
-                 
                   Text(
                     S.of(context).labelInsights,
                     style:
