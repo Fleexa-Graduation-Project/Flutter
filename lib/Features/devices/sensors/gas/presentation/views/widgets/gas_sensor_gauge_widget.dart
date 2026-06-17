@@ -12,10 +12,24 @@ class GasSensorGaugeWidget extends StatelessWidget {
     required this.status,
   });
 
+  // Color _getStatusColor() {
+  //   if (ppmValue < 300) return AppColors.emeraldGreen;
+  //   if (ppmValue < 600) return AppColors.copperOrange;
+  //   return AppColors.burgundy;
+  // }
   Color _getStatusColor() {
-    if (ppmValue < 300) return AppColors.emeraldGreen;
-    if (ppmValue < 600) return AppColors.copperOrange;
-    return AppColors.burgundy;
+    switch (status.toUpperCase()) {
+      case 'SAFE':
+      case 'NORMAL':
+        return AppColors.emeraldGreen;
+      case 'WARNING':
+        return AppColors.copperOrange;
+      case 'CRITICAL':
+      case 'DANGER':
+        return AppColors.burgundy;
+      default:
+        return AppColors.emeraldGreen;
+    }
   }
 
   @override
