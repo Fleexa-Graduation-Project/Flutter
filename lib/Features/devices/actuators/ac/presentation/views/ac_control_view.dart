@@ -150,13 +150,6 @@ class _AcControlViewState extends State<AcControlView> {
           return const SizedBox();
         },
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.blueAccent,
-        onPressed: () {
-          context.read<AcControlCubit>().togglePower();
-        },
-        child: const Icon(Icons.power_settings_new, color: Colors.white),
-      ),
     );
   }
 }
