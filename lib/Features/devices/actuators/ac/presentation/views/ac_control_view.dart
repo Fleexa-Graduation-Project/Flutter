@@ -7,10 +7,18 @@ import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/control_mode_toggle.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../../../core/widgets/app_loading.dart';
 import '../../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../../../generated/l10n.dart';
+import '../../../../../../core/widgets/error_page.dart';
+import '../../../../shared/presentation/manager/device_details_cubit.dart';
+import '../../../../shared/presentation/manager/device_details_state.dart';
+import '../manager/ac_control_cubit.dart';
+import '../manager/ac_control_state.dart';
 
 class AcControlView extends StatefulWidget {
   const AcControlView({super.key});
@@ -21,10 +29,8 @@ class AcControlView extends StatefulWidget {
 
 class _AcControlViewState extends State<AcControlView> {
   int controlMode = 0; // 0 = Automatic, 1 = Manual
-  ACMode selectedMode = ACMode.cooling;
-  int targetTemperature = 24;
   int threshold = 1;
-  bool powerOn = true;
+  bool _isInitialized = false;
 
   @override
   Widget build(BuildContext context) {
@@ -33,75 +39,123 @@ class _AcControlViewState extends State<AcControlView> {
         title: S.of(context).airConditioner,
         detailsPage: AppRouter.acDetails,
       ),
-      body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  ControlModeToggle(
-                    controlMode: controlMode,
-                    onModeChanged: (int mode) {
-                      setState(() {
-                        controlMode = mode;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 48),
-                  AcDeviceStatus(
-                    selectedMode: selectedMode,
-                    temperature: targetTemperature,
-                  ),
-                  const SizedBox(height: 20),
-                  AcControlButtons(
-                    isManual: controlMode == 1,
-                    onIncreaseTemp: () {
-                      setState(() {
-                        targetTemperature++;
-                      });
-                    },
-                    isOn: powerOn,
-                    onPowerToggle: (bool isOn) {
-                      setState(() {
-                        powerOn = isOn;
-                      });
-                    },
-                    onDecreaseTemp: () {
-                      setState(() {
-                        targetTemperature--;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 20),
-                  AcModeControl(
-                    acMode: selectedMode,
-                    onToggle: (value) {
-                      setState(() {
-                        selectedMode = value;
-                      });
-                    },
-                  ),
-                  const SizedBox(height: 32),
-                  const AcTempInfo(),
-                  const SizedBox(height: 32),
-                  if (controlMode == 0)
-                    const AcTimer()
-                  else
-                    AcSmartRules(
-                      threshold: threshold,
-                      targetTemp: targetTemperature,
-                      onChanged: (value) {
-                        setState(() {
-                          threshold = value.toInt();
-                        });
-                      },
+      body: BlocBuilder<DeviceDetailsCubit, DeviceDetailsState>(
+        builder: (context, state) {
+          if (state is DeviceDetailsLoading || state is DeviceDetailsInitial) {
+            return const AppLoading();
+          } else if (state is DeviceDetailsError) {
+            return ErrorPage(
+              onRetry: () {
+                context
+                    .read<DeviceDetailsCubit>()
+                    .loadDeviceData("ac-actuator-01");
+              },
+              type: state.errorType,
+            );
+          } else if (state is DeviceDetailsLoaded) {
+            if (!_isInitialized) {
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                context
+                    .read<AcControlCubit>()
+                    .initializeState(state.device.payload);
+              });
+              _isInitialized = true;
+            }
+            final insideTemp = state.device.payload['inside_temp'] ?? 24;
+            return SafeArea(
+              child: CustomRefreshIndicator(
+                onRefresh: () async {
+                  _isInitialized = false;
+                  context
+                      .read<DeviceDetailsCubit>()
+                      .loadDeviceData("ac-actuator-01");
+                },
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.all(24),
+                    child: SingleChildScrollView(
+                      physics: const AlwaysScrollableScrollPhysics(),
+                      child: BlocBuilder<AcControlCubit, AcControlState>(
+                        builder: (context, state) {
+                          // read current values from the cubit
+                          final acCubit = context.read<AcControlCubit>();
+                          final powerOn = acCubit.powerOn;
+                          final targetTemp = acCubit.targetTemperature;
+                          final currentModeString = acCubit.selectedMode;
+
+                          ACMode selectedMode = ACMode.values.firstWhere(
+                            (m) =>
+                                m.name.toUpperCase() ==
+                                currentModeString.toUpperCase(),
+                            orElse: () => ACMode.cooling,
+                          );
+
+                          return Column(
+                            children: [
+                              ControlModeToggle(
+                                controlMode: controlMode,
+                                onModeChanged: (int mode) {
+                                  setState(() {
+                                    controlMode = mode;
+                                  });
+                                },
+                              ),
+                              const SizedBox(height: 48),
+                              AcDeviceStatus(
+                                selectedMode: selectedMode,
+                                temperature: targetTemp,
+                              ),
+                              const SizedBox(height: 20),
+                              AcControlButtons(
+                                isManual: controlMode == 1,
+                                isOn: powerOn,
+                                onPowerToggle: (_) => acCubit.togglePower(),
+                                onIncreaseTemp: () =>
+                                    acCubit.changeTemperature(targetTemp + 1),
+                                onDecreaseTemp: () =>
+                                    acCubit.changeTemperature(targetTemp - 1),
+                              ),
+                              const SizedBox(height: 20),
+                              AcModeControl(
+                                acMode: selectedMode,
+                                onToggle: (value) => acCubit
+                                    .changeMode(value.name.toUpperCase()),
+                              ),
+                              const SizedBox(height: 32),
+                              AcTempInfo(insideTemp: insideTemp),
+                              const SizedBox(height: 32),
+                              if (controlMode == 0)
+                                const AcTimer()
+                              else
+                                AcSmartRules(
+                                  threshold: threshold,
+                                  targetTemp: targetTemp,
+                                  onChanged: (value) {
+                                    setState(
+                                      () => threshold = value.toInt(),
+                                    );
+                                  },
+                                ),
+                            ],
+                          );
+                        },
+                      ),
                     ),
-                ],
+                  ),
+                ),
               ),
-            ),
-          ),
-        ),
+            );
+          }
+
+          return const SizedBox();
+        },
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.blueAccent,
+        onPressed: () {
+          context.read<AcControlCubit>().togglePower();
+        },
+        child: const Icon(Icons.power_settings_new, color: Colors.white),
       ),
     );
   }

@@ -64,7 +64,6 @@ class Fleexa extends StatelessWidget {
           );
         },
       ),
-
     );
   }
 }

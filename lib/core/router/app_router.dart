@@ -27,6 +27,7 @@ import 'package:fleexa/Features/auth/presentation/views/sign_in_view.dart';
 import 'package:fleexa/Features/auth/presentation/views/sign_up_view.dart';
 
 import '../../Features/auth/presentation/views/change_password_with_email_view.dart';
+import '../../Features/devices/actuators/ac/presentation/manager/ac_control_cubit.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_control_view.dart';
 import '../../Features/devices/actuators/ac/presentation/views/ac_details_view.dart';
 import '../../Features/devices/actuators/door_lock/presentation/manager/door_lock_cubit.dart';
@@ -168,7 +169,7 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-locker-01'),
+                    ..loadDeviceData('door-actuator-01'),
             ),
             BlocProvider.value(
               value: getIt<DoorLockCubit>(),
@@ -185,12 +186,12 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-locker-01'),
+                    ..loadDeviceData('door-actuator-01'),
             ),
             BlocProvider(
               create: (context) =>
                   DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadAlerts('door-locker-01'),
+                    ..loadAlerts('door-actuator-01'),
             ),
           ],
           child: const DoorLockDetailsView(),
@@ -199,7 +200,19 @@ class AppRouter {
       GoRoute(
         path: '/ac-control',
         name: acControl,
-        builder: (context, state) => const AcControlView(),
+        builder: (context, state) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) =>
+                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                    ..loadDeviceData('ac-actuator-01'),
+            ),
+            BlocProvider.value(
+              value: getIt<AcControlCubit>(),
+            ),
+          ],
+          child: const AcControlView(),
+        ),
       ),
       GoRoute(
         path: '/ac-details',
@@ -209,12 +222,12 @@ class AppRouter {
             BlocProvider(
               create: (context) =>
                   DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('ac-curtain-01'),
+                    ..loadDeviceData('ac-actuator-01'),
             ),
             BlocProvider(
               create: (context) =>
                   DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                    ..loadTelemetry('ac-curtain-01', metric: 'power_state'),
+                    ..loadTelemetry('ac-actuator-01', metric: 'power_state'),
             ),
           ],
           child: const AcDetailsView(),

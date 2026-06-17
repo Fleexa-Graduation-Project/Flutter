@@ -4,6 +4,7 @@ import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.
 import 'package:fleexa/core/network/api_service.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../Features/devices/actuators/ac/presentation/manager/ac_control_cubit.dart';
 import '../../Features/devices/shared/data/repos/device_details_repository.dart';
 import '../../Features/overview/notifications/data/repos/notifications_repository.dart';
 import '../../Features/overview/system_overview/data/repos/system_overview_repository.dart';
@@ -36,7 +37,14 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<DoorLockCubit>(
     () => DoorLockCubit(
       repository: getIt<DeviceDetailsRepository>(),
-      deviceId: 'door-locker-01',
+      deviceId: 'door-actuator-01',
+    ),
+  );
+
+  getIt.registerLazySingleton<AcControlCubit>(
+    () => AcControlCubit(
+      repository: getIt<DeviceDetailsRepository>(),
+      deviceId: 'ac-actuator-01',
     ),
   );
 

@@ -7,9 +7,11 @@ import '../../../../../../../../core/utils/constants/styles.dart';
 import '../../../../../../../../generated/l10n.dart';
 
 class AcTempCard extends StatelessWidget {
-  const AcTempCard({super.key, required this.isOutside});
+  const AcTempCard(
+      {super.key, required this.isOutside, required this.temperature});
 
   final bool isOutside;
+  final num temperature;
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class AcTempCard extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(isOutside ? '28°' : '24°', style: Styles.style24Medium),
+              Text('${temperature.toInt()}°', style: Styles.style24Medium),
               Text(
                 isOutside
                     ? S.of(context).tempOutside

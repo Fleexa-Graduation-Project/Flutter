@@ -2,15 +2,17 @@ import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/
 import 'package:flutter/material.dart';
 
 class AcTempInfo extends StatelessWidget {
-  const AcTempInfo({super.key});
+  const AcTempInfo({super.key, required this.insideTemp});
+
+  final num insideTemp;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return Row(
       children: [
-        Expanded(child: AcTempCard(isOutside: true)),
-        SizedBox(width: 24),
-        Expanded(child: AcTempCard(isOutside: false)),
+        const Expanded(child: AcTempCard(isOutside: true, temperature: 28)),
+        const SizedBox(width: 24),
+        Expanded(child: AcTempCard(isOutside: false, temperature: insideTemp)),
       ],
     );
   }
