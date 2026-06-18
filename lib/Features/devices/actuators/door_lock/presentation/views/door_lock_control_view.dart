@@ -66,10 +66,6 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
               _isInitialized = true;
             }
 
-            // final List dynamicEvents =
-            //     (device.payload['recent_events'] as List? ?? [])
-            //         .take(5)
-            //         .toList();
             return SafeArea(
               child: CustomRefreshIndicator(
                 onRefresh: () async {

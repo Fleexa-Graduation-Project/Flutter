@@ -10,14 +10,14 @@ class DeviceCardList extends StatelessWidget {
   const DeviceCardList({
     super.key,
     required this.devices,
-    required this.isDoorOpen,
+    required this.isDoorLocked,
     required this.isAcOn,
     required this.onDoorToggle,
     required this.onAcToggle,
   });
 
   final List<DeviceModel> devices;
-  final bool isDoorOpen;
+  final bool isDoorLocked;
   final bool isAcOn;
   final ValueChanged<bool>? onDoorToggle;
   final ValueChanged<bool>? onAcToggle;
@@ -46,14 +46,15 @@ class DeviceCardList extends StatelessWidget {
         switch (device.type) {
           case 'door-actuator':
             title = S.of(context).doorLock;
-            subtext = isDoorOpen
+            subtext = isDoorLocked
                 ? S.of(context).doorLockedStatus
                 : S.of(context).doorUnlockedStatus;
             route = AppRouter.doorLockControl;
             mainIcon = 'assets/icons/door_lock_actuator.svg';
             type = DeviceType.actuator;
-            isOn = isDoorOpen;
+            isOn = isDoorLocked;
             onToggle = onDoorToggle;
+            
             break;
 
           case 'ac-actuator':

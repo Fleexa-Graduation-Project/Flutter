@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:fleexa/Features/devices/actuators/ac/presentation/manager/ac_control_cubit.dart';
 import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_state.dart';
@@ -131,6 +132,9 @@ class _MainOverviewViewState extends State<MainOverviewView> {
         ),
         BlocProvider.value(
           value: getIt<DoorLockCubit>(),
+        ),
+        BlocProvider.value(
+          value: getIt<AcControlCubit>(),
         ),
       ],
       child: Theme(

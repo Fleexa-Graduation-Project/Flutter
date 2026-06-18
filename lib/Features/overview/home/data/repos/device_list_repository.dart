@@ -36,7 +36,7 @@ class DeviceListRepository {
 
         devices.removeWhere((d) => d.type == 'door-sensor');
       } catch (e) {
-        log("No separate door sensor found to merge.");
+        log("something went wrong while merging door sensor and locker data.");
       }
 
       return devices;

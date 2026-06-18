@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/widgets/error_page.dart';
+import '../../../../devices/actuators/ac/presentation/manager/ac_control_cubit.dart';
+import '../../../../devices/actuators/ac/presentation/manager/ac_control_state.dart';
 import '../../../../devices/actuators/door_lock/presentation/manager/door_lock_state.dart';
 import '../manager/devices_state.dart';
 import 'widgets/devices_section_header.dart';
@@ -61,30 +63,57 @@ class _HomeViewState extends State<HomeView> {
                       ),
                       const SizedBox(height: 24),
                       Expanded(
-                        child: BlocBuilder<DoorLockCubit, DoorLockState>(
-                          builder: (context, doorState) {
-                            final isLocked =
-                                context.read<DoorLockCubit>().isCurrentlyLocked;
-                            return CustomRefreshIndicator(
-                              onRefresh: () async =>
-                                  context.read<DevicesCubit>().fetchDevices(),
-                              child: DeviceCardList(
-                                devices: state.devices,
-                                isDoorOpen: isLocked,
-                                onDoorToggle: (value) {
-                                  setState(() {
-                                    context.read<DoorLockCubit>().toggleLock();
-                                  });
-                                },
-                                isAcOn: isAcOn,
-                                onAcToggle: (value) {
-                                  setState(() {
-                                    isAcOn = value;
-                                  });
-                                },
-                              ),
-                            );
+                        child: BlocListener<DoorLockCubit, DoorLockState>(
+                          listener: (context, doorState) {
+                            if (doorState is DoorLockUpdated) {
+                              context
+                                  .read<DevicesCubit>()
+                                  .updateDeviceStateLocally(
+                                    'door-actuator-01',
+                                    doorState.isLocked ? 'LOCKED' : 'UNLOCKED',
+                                  );
+                            }
                           },
+                          child: CustomRefreshIndicator(
+                            onRefresh: () async =>
+                                context.read<DevicesCubit>().fetchDevices(),
+                            child: DeviceCardList(
+                              isAcOn: () {
+                                final acCubit = context.watch<AcControlCubit>();
+
+                                if (acCubit.state is AcControlInitial) {
+                                  final acDevice = state.devices.firstWhere(
+                                    (d) => d.type == 'ac-actuator',
+                                    orElse: () => state.devices.first,
+                                  );
+                                  return acDevice.operationalState == 'ON';
+                                }
+                                return acCubit.powerOn;
+                              }(),
+                              isDoorLocked: () {
+                                final doorCubit =
+                                    context.watch<DoorLockCubit>();
+
+                                if (doorCubit.state is DoorLockInitial) {
+                                  final doorDevice = state.devices.firstWhere(
+                                    (d) => d.type == 'door-actuator',
+                                    orElse: () => state.devices.first,
+                                  );
+                                  return doorDevice.operationalState ==
+                                      'LOCKED';
+                                }
+
+                                return doorCubit.isCurrentlyLocked;
+                              }(),
+                              devices: state.devices,
+                              onDoorToggle: (value) {
+                                context.read<DoorLockCubit>().toggleLock();
+                              },
+                              onAcToggle: (value) {
+                                context.read<AcControlCubit>().togglePower();
+                              },
+                            ),
+                          ),
                         ),
                       ),
                     ],

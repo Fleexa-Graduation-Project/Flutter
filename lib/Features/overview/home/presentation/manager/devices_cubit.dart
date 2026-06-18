@@ -51,4 +51,34 @@ class DevicesCubit extends Cubit<DevicesState> {
       currentFilter: filter,
     ));
   }
+
+  void updateDeviceStateLocally(String deviceId, String newOperationalState) {
+    if (state is DevicesLoaded) {
+      final currentState = state as DevicesLoaded;
+
+      final updatedDevices = currentState.devices.map((device) {
+        if (device.deviceId == deviceId) {
+          // copy the device and update only the operationalState
+          return DeviceModel(
+            deviceId: device.deviceId,
+            type: device.type,
+            status: device.status,
+            operationalState: newOperationalState,
+            health: device.health,
+            payload: device.payload,
+            lastSeenAt: device.lastSeenAt,
+          );
+        }
+        return device;
+      }).toList();
+
+      _allDevices = updatedDevices; // update the master list as well
+
+      // send new list to the ui
+      emit(DevicesLoaded(
+        devices: updatedDevices,
+        currentFilter: currentState.currentFilter,
+      ));
+    }
+  }
 }
