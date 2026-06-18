@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fleexa/Features/overview/notifications/presentation/manager/notifications_cubit.dart';
 import 'package:fleexa/core/widgets/error_page.dart';
 import 'package:fleexa/generated/l10n.dart';
@@ -21,6 +23,7 @@ class NotificationsList extends StatelessWidget {
     return BlocBuilder<NotificationsCubit, NotificationsState>(
       builder: (context, state) {
         if (state is NotificationsLoading || state is NotificationsInitial) {
+          log('NotificationsList: ${state.runtimeType}');
           return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
             itemCount: 6,

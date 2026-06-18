@@ -1,4 +1,5 @@
 import 'package:fleexa/core/widgets/custom_appbar.dart';
+import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,8 +20,13 @@ class NotificationsView extends StatelessWidget {
           context.read<NotificationsCubit>().markAllRead();
         },
       ),
-      body: const SafeArea(
-        child: Center(child: NotificationsList()),
+      body: SafeArea(
+        child: CustomRefreshIndicator(
+          onRefresh: () async {
+            await context.read<NotificationsCubit>().loadNotifications();
+          },
+          child: const Center(child: NotificationsList()),
+        ),
       ),
     );
   }

@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../../../core/utils/constants/app_colors.dart';
 import '../../../../../../core/utils/constants/app_strings.dart';
+import '../../../../../../core/utils/functions/date_time_helper.dart';
 
 class NotificationCard extends StatelessWidget {
   const NotificationCard({
@@ -19,13 +20,6 @@ class NotificationCard extends StatelessWidget {
   final UIAlertModel alert;
   final VoidCallback onTap;
   final VoidCallback onDismiss;
-
-  String _getTimeAgo(DateTime dateTime) {
-    final difference = DateTime.now().difference(dateTime);
-    if (difference.inMinutes < 60) return '${difference.inMinutes} min ago';
-    if (difference.inHours < 24) return '${difference.inHours} hr ago';
-    return '${difference.inDays} days ago';
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +90,7 @@ class NotificationCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 8),
                 Text(
-                  _getTimeAgo(alert.dateTime),
+                  DateTimeHelper.formatDynamicTime(alert.dateTime),
                   style:
                       Styles.style10Regular.copyWith(color: AppColors.coolGray),
                 ),
