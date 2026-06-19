@@ -35,10 +35,15 @@ class AcDetailsCard extends StatelessWidget {
                 DeviceStatusRow(
                   status: status,
                 ),
+                // const SizedBox(height: 16),
+                // CustomContainerRow(
+                //   title: S.of(context).controlType,
+                //   value: S.of(context).autoMode,
+                // ),
                 const SizedBox(height: 16),
                 CustomContainerRow(
-                  title: S.of(context).controlType,
-                  value: S.of(context).autoMode,
+                  title: 'Power State',
+                  value: device.payload['power_state'] ?? 'Unknown',
                 ),
                 const SizedBox(height: 16),
                 CustomContainerRow(
@@ -47,9 +52,14 @@ class AcDetailsCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 CustomContainerRow(
+                  title: 'Room Temp',
+                  value: '${device.payload['inside_temp'] ?? '--'}° C',
+                ),
+                const SizedBox(height: 16),
+                CustomContainerRow(
                   title: S.of(context).target,
                   value:
-                      '${(device.payload['target_temp']).round() ?? '--'}° C',
+                      '${(device.payload['target_temp'] as num?)?.round() ?? '--'}° C',
                 ),
                 const SizedBox(height: 16),
                 CustomContainerRow(

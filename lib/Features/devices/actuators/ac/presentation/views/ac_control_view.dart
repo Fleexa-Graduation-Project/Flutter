@@ -1,10 +1,8 @@
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_control_buttons.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_device_status.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_mode_control.dart';
-import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_smart_rules.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_temp_info.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/ac_timer.dart';
-import 'package:fleexa/Features/devices/actuators/ac/presentation/views/widgets/control_mode_toggle.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
 import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
@@ -28,7 +26,7 @@ class AcControlView extends StatefulWidget {
 }
 
 class _AcControlViewState extends State<AcControlView> {
-  int controlMode = 0; // 0 = Automatic, 1 = Manual
+  // int controlMode = 0; // 0 = Automatic, 1 = Manual
   int threshold = 1;
   bool _isInitialized = false;
 
@@ -92,22 +90,22 @@ class _AcControlViewState extends State<AcControlView> {
 
                           return Column(
                             children: [
-                              ControlModeToggle(
-                                controlMode: controlMode,
-                                onModeChanged: (int mode) {
-                                  setState(() {
-                                    controlMode = mode;
-                                  });
-                                },
-                              ),
-                              const SizedBox(height: 48),
+                              // ControlModeToggle(
+                              //   controlMode: controlMode,
+                              //   onModeChanged: (int mode) {
+                              //     setState(() {
+                              //       controlMode = mode;
+                              //     });
+                              //   },
+                              // ),
+                              const SizedBox(height: 16),
                               AcDeviceStatus(
                                 selectedMode: selectedMode,
                                 temperature: targetTemp,
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 32),
                               AcControlButtons(
-                                isManual: controlMode == 1,
+                                isManual: true,
                                 isOn: powerOn,
                                 onPowerToggle: (_) => acCubit.togglePower(),
                                 onIncreaseTemp: () =>
@@ -115,27 +113,27 @@ class _AcControlViewState extends State<AcControlView> {
                                 onDecreaseTemp: () =>
                                     acCubit.changeTemperature(targetTemp - 1),
                               ),
-                              const SizedBox(height: 20),
+                              const SizedBox(height: 32),
                               AcModeControl(
                                 acMode: selectedMode,
                                 onToggle: (value) => acCubit
                                     .changeMode(value.name.toUpperCase()),
                               ),
-                              const SizedBox(height: 32),
+                              const SizedBox(height: 40),
                               AcTempInfo(insideTemp: insideTemp),
-                              const SizedBox(height: 32),
-                              if (controlMode == 0)
-                                const AcTimer()
-                              else
-                                AcSmartRules(
-                                  threshold: threshold,
-                                  targetTemp: targetTemp,
-                                  onChanged: (value) {
-                                    setState(
-                                      () => threshold = value.toInt(),
-                                    );
-                                  },
-                                ),
+                              const SizedBox(height: 40),
+                              // if (controlMode == 0)
+                              const AcTimer()
+                              // else
+                              //   AcSmartRules(
+                              //     threshold: threshold,
+                              //     targetTemp: targetTemp,
+                              //     onChanged: (value) {
+                              //       setState(
+                              //         () => threshold = value.toInt(),
+                              //       );
+                              //     },
+                              //   ),
                             ],
                           );
                         },
