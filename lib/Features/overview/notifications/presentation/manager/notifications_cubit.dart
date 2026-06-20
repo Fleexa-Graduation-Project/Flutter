@@ -124,4 +124,9 @@ class NotificationsCubit extends Cubit<NotificationsState> {
 
     emit(NotificationsLoaded(grouped));
   }
+
+  void clearData() {
+    _currentAlerts = [];
+    emit(NotificationsInitial());
+  }
 }

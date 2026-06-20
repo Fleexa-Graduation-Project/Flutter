@@ -1,4 +1,5 @@
 import 'package:fleexa/Features/auth/presentation/manager/auth_cubit.dart';
+import 'package:fleexa/Features/overview/notifications/presentation/manager/notifications_cubit.dart';
 import 'package:fleexa/core/router/app_router.dart';
 import 'package:fleexa/core/widgets/app_snackbar.dart';
 import 'package:flutter/material.dart';
@@ -32,7 +33,6 @@ class SettingsOptions extends StatelessWidget {
           );
         }
       },
-      
       child: Column(
         children: [
           // Account and Security
@@ -94,6 +94,7 @@ class SettingsOptions extends StatelessWidget {
                   dialogType: DialogType.logout,
                   onConfirm: () {
                     GoRouter.of(context).pop(dialogContext);
+                    context.read<NotificationsCubit>().clearData();
                     context.read<AuthCubit>().signOut();
                   },
                 ),
