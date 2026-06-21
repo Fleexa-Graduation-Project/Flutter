@@ -51,6 +51,8 @@ class EnergyConsumptionChart extends StatelessWidget {
             key: ValueKey(range),
             plotAreaBorderWidth: 0,
             primaryXAxis: CategoryAxis(
+              labelIntersectAction: AxisLabelIntersectAction.rotate90,
+              interval: 1,
               majorGridLines: const MajorGridLines(
                 width: 1,
                 color: Color(0xFF333333),
@@ -70,6 +72,7 @@ class EnergyConsumptionChart extends StatelessWidget {
               minimum: 0,
               maximum: yMax,
               interval: interval,
+              labelIntersectAction: AxisLabelIntersectAction.rotate90,
               axisLine: const AxisLine(width: 1),
               tickPosition: TickPosition.outside,
               majorTickLines: const MajorTickLines(
