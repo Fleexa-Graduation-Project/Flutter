@@ -27,6 +27,7 @@ class _AcTimerState extends State<AcTimer> {
 
   int remainingHours = 0;
   int remainingMinutes = 0;
+  int remainingSeconds = 0;
 
   @override
   void dispose() {
@@ -41,6 +42,7 @@ class _AcTimerState extends State<AcTimer> {
       setState(() {
         remainingHours = 0;
         remainingMinutes = 0;
+        remainingSeconds = 0;
         selectedHours = null;
       });
       return;
@@ -51,9 +53,11 @@ class _AcTimerState extends State<AcTimer> {
       final diff = endTimestamp - now;
 
       if (diff > 0) {
+        final int totalSeconds = (diff / 1000).floor();
         setState(() {
           remainingHours = (diff / (1000 * 60 * 60)).floor();
           remainingMinutes = ((diff / (1000 * 60)) % 60).floor();
+          remainingSeconds = totalSeconds % 60;
 
           // if the user opned the screen and the timer was already running.
           if (selectedHours == null && remainingMinutes == 0) {
@@ -66,6 +70,7 @@ class _AcTimerState extends State<AcTimer> {
         setState(() {
           remainingHours = 0;
           remainingMinutes = 0;
+          remainingSeconds = 0;
           selectedHours = null;
         });
       }
@@ -73,7 +78,16 @@ class _AcTimerState extends State<AcTimer> {
 
     updateRemainingTime(); // first call to set the initial state
     _countdownTimer = Timer.periodic(
-        const Duration(minutes: 1), (_) => updateRemainingTime());
+        const Duration(seconds: 1), (_) => updateRemainingTime());
+  }
+
+  String _formatTimer() {
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
+    if (remainingHours > 0) {
+      return '${twoDigits(remainingHours)}:${twoDigits(remainingMinutes)}:${twoDigits(remainingSeconds)}';
+    } else {
+      return '${twoDigits(remainingMinutes)}:${twoDigits(remainingSeconds)}';
+    }
   }
 
   @override
@@ -99,10 +113,10 @@ class _AcTimerState extends State<AcTimer> {
                 const Spacer(),
                 Text(
                   // show the remaining time.
-                  remainingHours > 0 || remainingMinutes > 0
-                      ? S
-                          .of(context)
-                          .remainingTime(remainingHours, remainingMinutes)
+                  remainingHours > 0 ||
+                          remainingMinutes > 0 ||
+                          remainingSeconds > 0
+                      ? _formatTimer()
                       : "No active timer",
                   style:
                       Styles.style14Medium.copyWith(color: AppColors.coolGray),
@@ -126,7 +140,10 @@ class _AcTimerState extends State<AcTimer> {
                               const EdgeInsets.symmetric(horizontal: 20),
                           child: CustomTimerPicker(
                             mode: PickerMode.duration,
-                            initialDuration: const Duration(hours: 1),
+                            initialDuration: Duration(
+                              hours: selectedHours ?? 0,
+                              minutes: selectedMin,
+                            ),
                             onTimerSet: (Duration duration) {
                               acCubit.setTimer(
                                   duration.inHours, duration.inMinutes % 60);
@@ -135,6 +152,8 @@ class _AcTimerState extends State<AcTimer> {
                                 selectedHours = duration.inHours;
                                 selectedMin = duration.inMinutes % 60;
                               });
+
+                              // Navigator.pop(dialogContext);
                             },
                           ),
                         );

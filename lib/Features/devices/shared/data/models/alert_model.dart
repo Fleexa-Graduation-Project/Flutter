@@ -18,7 +18,7 @@ class AlertModel {
   });
 
   factory AlertModel.fromJson(Map<String, dynamic> json) {
-    log("RAW ALERT DATA: $json");
+    // log("RAW ALERT DATA: $json");
     final payload = json['payload'] is Map<String, dynamic>
         ? json['payload'] as Map<String, dynamic>
         : {};

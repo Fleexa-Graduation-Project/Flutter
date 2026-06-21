@@ -40,6 +40,7 @@ class _MainOverviewViewState extends State<MainOverviewView> {
   void initState() {
     super.initState();
     _setupNetworkListener();
+    getIt<DevicesCubit>().fetchDevices();
   }
 
   void _setupNetworkListener() {
@@ -125,8 +126,9 @@ class _MainOverviewViewState extends State<MainOverviewView> {
         BlocProvider(
             create: (context) => EnergyCubit(getIt<SystemOverviewRepository>())
               ..getEnergy(period: TimeRange.lastWeek.apiValue)),
-        BlocProvider<DevicesCubit>(
-            create: (context) => getIt<DevicesCubit>()..fetchDevices()),
+        BlocProvider.value(
+          value: getIt<DevicesCubit>(),
+        ),
         BlocProvider.value(
           value: getIt<DoorLockCubit>(),
         ),

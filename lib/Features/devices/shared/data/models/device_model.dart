@@ -49,9 +49,9 @@ class DeviceModel {
     if (status != 'ONLINE') return Colors.red;
 
     // 2. Door Lock Rule (Locked = Green, Unlocked = Red)
-    if (type == 'door-actuator') {
-      return operationalState == 'LOCKED' ? Colors.green : Colors.red;
-    }
+    // if (type == 'door-actuator') {
+    //   return operationalState == 'LOCKED' ? Colors.green : Colors.red;
+    // }
 
     // 3. Gas Sensor Rule (Degraded = Orange, Safe = Green)
     if (type == 'gas-sensor') {
