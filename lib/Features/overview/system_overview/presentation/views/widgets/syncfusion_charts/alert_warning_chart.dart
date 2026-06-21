@@ -101,7 +101,8 @@ class AlertWarningChart extends StatelessWidget {
             primaryXAxis: CategoryAxis(
               labelPlacement: LabelPlacement.onTicks,
               edgeLabelPlacement: EdgeLabelPlacement.shift,
-              labelIntersectAction: AxisLabelIntersectAction.rotate45,
+              labelIntersectAction: AxisLabelIntersectAction.rotate90,
+              interval: 1,
               majorGridLines: const MajorGridLines(
                 width: 1,
                 color: Color(0xFF333333),
@@ -122,7 +123,7 @@ class AlertWarningChart extends StatelessWidget {
               maximum: yMax,
               interval: interval,
               edgeLabelPlacement: EdgeLabelPlacement.shift,
-              labelIntersectAction: AxisLabelIntersectAction.rotate45,
+              labelIntersectAction: AxisLabelIntersectAction.rotate90,
               majorGridLines: const MajorGridLines(
                 width: 1,
                 color: Color(0xFF333333),
