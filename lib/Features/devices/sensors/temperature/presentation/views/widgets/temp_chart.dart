@@ -31,6 +31,18 @@ class TempChart extends StatelessWidget {
 
         if (state is DeviceTelemetryLoaded) {
           final TelemetryModel data = state.telemetry;
+          final double dataMax = data.data.isNotEmpty
+              ? data.data
+                  .map((e) => e.value)
+                  .reduce((a, b) => a > b ? a : b)
+                  .toDouble()
+              : 0.0;
+
+          final double dynamicMax = dataMax == 0 ? 50.0 : (dataMax * 1.2);
+
+          double interval = (dynamicMax / 5).ceilToDouble();
+
+          if (interval <= 0) interval = 10.0;
 
           return SfCartesianChart(
             key: ValueKey(range),
@@ -56,9 +68,8 @@ class TempChart extends StatelessWidget {
             ),
             primaryYAxis: NumericAxis(
               minimum: 0,
-              maximum: data.chartMax + 5,
-              interval:
-                  (data.chartMax > 0) ? (data.chartMax / 5).ceilToDouble() : 50,
+              maximum: dynamicMax,
+              interval: interval,
               labelStyle: Styles.style12Regular.copyWith(
                 color: AppColors.coolGray,
               ),
@@ -87,6 +98,13 @@ class TempChart extends StatelessWidget {
                   isVisible: true,
                   color: AppColors.crimsonRed,
                   borderColor: AppColors.crimsonRed,
+                ),
+                dataLabelSettings: DataLabelSettings(
+                  isVisible: true,
+                  labelAlignment: ChartDataLabelAlignment.outer,
+                  textStyle: Styles.style12Regular.copyWith(
+                    color: AppColors.coolGray,
+                  ),
                 ),
               ),
             ],

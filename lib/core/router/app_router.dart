@@ -318,7 +318,7 @@ class AppRouter {
               BlocProvider(
                 create: (context) =>
                     DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                      ..loadTelemetry("temp-sensor-01", metric: "1h"),
+                      ..loadTelemetry("temp-sensor-01", metric: "temp"),
               ),
             ],
             child: const TemperatureSensorView(),

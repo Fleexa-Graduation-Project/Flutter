@@ -16,6 +16,34 @@ class AlertWarningChart extends StatelessWidget {
 
   final TimeRange range;
 
+  int _getSortOrder(String label) {
+    if (label.contains(':')) {
+      final parts = label.split(':');
+      return (int.parse(parts[0]) * 60) + int.parse(parts[1]);
+    }
+    final parts = label.split(' ');
+    if (parts.length == 2) {
+      final months = [
+        'Jan',
+        'Feb',
+        'Mar',
+        'Apr',
+        'May',
+        'Jun',
+        'Jul',
+        'Aug',
+        'Sep',
+        'Oct',
+        'Nov',
+        'Dec'
+      ];
+      final month = months.indexOf(parts[0]);
+      final day = int.tryParse(parts[1]) ?? 0;
+      return (month * 100) + day;
+    }
+    return 0;
+  }
+
   double _getMaxY(AlertsChart data) {
     final allValues = <int>[
       ...data.warning.map((e) => e.value.toInt()),
@@ -29,7 +57,7 @@ class AlertWarningChart extends StatelessWidget {
   }
 
   double _getInterval(double max) {
-    return  (max / 5).ceilToDouble();
+    return (max / 5).ceilToDouble();
   }
 
   @override
@@ -50,6 +78,14 @@ class AlertWarningChart extends StatelessWidget {
           final yMax = _getMaxY(data);
           final interval = _getInterval(yMax);
 
+          final allLabels = <String>{
+            ...data.warning.map((e) => e.label),
+            ...data.critical.map((e) => e.label),
+          }.toList();
+
+          allLabels
+              .sort((a, b) => _getSortOrder(a).compareTo(_getSortOrder(b)));
+
           return SfCartesianChart(
             key: ValueKey(range),
             plotAreaBorderWidth: 0,
@@ -64,6 +100,8 @@ class AlertWarningChart extends StatelessWidget {
             ),
             primaryXAxis: CategoryAxis(
               labelPlacement: LabelPlacement.onTicks,
+              edgeLabelPlacement: EdgeLabelPlacement.shift,
+              labelIntersectAction: AxisLabelIntersectAction.rotate45,
               majorGridLines: const MajorGridLines(
                 width: 1,
                 color: Color(0xFF333333),
@@ -83,6 +121,8 @@ class AlertWarningChart extends StatelessWidget {
               minimum: 0,
               maximum: yMax,
               interval: interval,
+              edgeLabelPlacement: EdgeLabelPlacement.shift,
+              labelIntersectAction: AxisLabelIntersectAction.rotate45,
               majorGridLines: const MajorGridLines(
                 width: 1,
                 color: Color(0xFF333333),
@@ -99,6 +139,17 @@ class AlertWarningChart extends StatelessWidget {
               ),
             ),
             series: <CartesianSeries>[
+              LineSeries<String, String>(
+                name: 'Anchor',
+                dataSource: allLabels,
+                xValueMapper: (label, _) => label,
+                yValueMapper: (label, _) => 0,
+                color: Colors.transparent,
+                width: 0,
+                isVisibleInLegend: false,
+                markerSettings: const MarkerSettings(isVisible: false),
+                dataLabelSettings: const DataLabelSettings(isVisible: false),
+              ),
               LineSeries(
                 name: S.of(context).statusWarning,
                 animationDuration: 1000,
@@ -111,6 +162,13 @@ class AlertWarningChart extends StatelessWidget {
                   isVisible: true,
                   borderColor: AppColors.copperOrange,
                   color: AppColors.copperOrange,
+                ),
+                dataLabelSettings: DataLabelSettings(
+                  isVisible: true,
+                  labelAlignment: ChartDataLabelAlignment.outer,
+                  textStyle: Styles.style12Regular.copyWith(
+                    color: AppColors.coolGray,
+                  ),
                 ),
               ),
               LineSeries(
@@ -125,6 +183,13 @@ class AlertWarningChart extends StatelessWidget {
                   isVisible: true,
                   borderColor: AppColors.crimsonRed,
                   color: AppColors.crimsonRed,
+                ),
+                dataLabelSettings: DataLabelSettings(
+                  isVisible: true,
+                  labelAlignment: ChartDataLabelAlignment.outer,
+                  textStyle: Styles.style12Regular.copyWith(
+                    color: AppColors.coolGray,
+                  ),
                 ),
               ),
             ],
