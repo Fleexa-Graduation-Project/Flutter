@@ -61,8 +61,12 @@ class AlertModel {
     if (type == 'gas-sensor') {
       final gasLevel = payload['gas_level'] ?? payload['ppm'];
       if (gasLevel != null) {
-        // Ex: "Level: 377 PPM"
-        parsedDesc = '${'Level: $gasLevel'.replaceAll(' PPM', '')} PPM';
+        String formattedGasLevel = gasLevel is num
+            ? '${gasLevel.toStringAsFixed(0)} PPM'
+            : gasLevel.toString();
+
+        parsedDesc =
+            'Level: ${formattedGasLevel.replaceAll(RegExp(r'\s*PPM', caseSensitive: false), '')} PPM';
       } else if (parsedDesc.contains('—')) {
         parsedDesc = parsedDesc.split('—').last.trim();
       }

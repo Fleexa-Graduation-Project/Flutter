@@ -46,36 +46,43 @@ class _AlertsSectionState extends State<AlertsSection> {
 
           return Column(
             children: [
-              Text(
-                S.of(context).labelAlertsAndWarnings,
-                style: Styles.style18Medium.copyWith(color: AppColors.white),
-              ),
               const SizedBox(height: 12),
               Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if (state.alerts.length > 2)
-                    TextButton(
-                      onPressed: () {
-                        setState(() {
-                          _showAll = !_showAll;
-                        });
-                      },
-                      style: TextButton.styleFrom(
-                        foregroundColor: AppColors.darkMaroon,
-                        padding: const EdgeInsets.only(bottom: 8),
-                        minimumSize: Size.zero,
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).labelAlertsAndWarnings,
+                        style: Styles.style18Medium
+                            .copyWith(color: AppColors.white),
                       ),
-                      child: Text(
-                        _showAll ? "See Less" : "See More",
-                        style: Styles.style14Regular.copyWith(
-                          color: AppColors.coolGray,
-                          decoration: TextDecoration.underline,
-                          decorationColor: AppColors.coolGray,
+                      if (state.alerts.length > 2)
+                        TextButton(
+                          onPressed: () {
+                            setState(() {
+                              _showAll = !_showAll;
+                            });
+                          },
+                          style: TextButton.styleFrom(
+                            foregroundColor: AppColors.darkMaroon,
+                            padding: const EdgeInsets.only(bottom: 8),
+                            minimumSize: Size.zero,
+                            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                          ),
+                          child: Text(
+                            _showAll ? "See Less" : "See More",
+                            style: Styles.style14Regular.copyWith(
+                              color: AppColors.coolGray,
+                              decoration: TextDecoration.underline,
+                              decorationColor: AppColors.coolGray,
+                            ),
+                          ),
                         ),
-                      ),
-                    ),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
                   Timeline.tileBuilder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),

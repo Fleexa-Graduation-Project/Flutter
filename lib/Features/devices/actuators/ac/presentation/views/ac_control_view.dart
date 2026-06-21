@@ -44,9 +44,8 @@ class _AcControlViewState extends State<AcControlView> {
           } else if (state is DeviceDetailsError) {
             return ErrorPage(
               onRetry: () {
-                context
-                    .read<DeviceDetailsCubit>()
-                    .loadDeviceData("ac-actuator-01");
+                final currentAcId = context.read<AcControlCubit>().deviceId;
+                context.read<DeviceDetailsCubit>().loadDeviceData(currentAcId);
               },
               type: state.errorType,
             );
@@ -60,13 +59,15 @@ class _AcControlViewState extends State<AcControlView> {
               _isInitialized = true;
             }
             final insideTemp = state.device.payload['inside_temp'] ?? 24;
+            final outsideTemp = state.device.payload['outside_temp'] ?? 38;
             return SafeArea(
               child: CustomRefreshIndicator(
                 onRefresh: () async {
                   _isInitialized = false;
+                  final currentAcId = context.read<AcControlCubit>().deviceId;
                   context
                       .read<DeviceDetailsCubit>()
-                      .loadDeviceData("ac-actuator-01");
+                      .loadDeviceData(currentAcId);
                 },
                 child: Center(
                   child: Padding(
@@ -120,7 +121,10 @@ class _AcControlViewState extends State<AcControlView> {
                                     .changeMode(value.name.toUpperCase()),
                               ),
                               const SizedBox(height: 40),
-                              AcTempInfo(insideTemp: insideTemp),
+                              AcTempInfo(
+                                insideTemp: insideTemp,
+                                outsideTemp: outsideTemp,
+                              ),
                               const SizedBox(height: 40),
                               // if (controlMode == 0)
                               const AcTimer()

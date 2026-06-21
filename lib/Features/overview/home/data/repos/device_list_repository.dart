@@ -24,15 +24,29 @@ class DeviceListRepository {
       final result = DeviceListResponse.fromJson(responseData);
       List<DeviceModel> devices = result.data;
 
-      devices.removeWhere((d) =>
-          d.deviceId == 'door-locker-01' || d.deviceId == 'ac-curtain-01');
+      bool hasMainDoor = devices.any(
+          (d) => d.type == 'door-actuator' || d.deviceId == 'door-actuator-01');
+
+      if (hasMainDoor) {
+        devices.removeWhere(
+            (d) => d.type == 'door-locker' || d.deviceId == 'door-locker-01');
+      }
+
+      bool hasMainAc = devices.any(
+          (d) => d.type == 'ac-actuator' || d.deviceId == 'ac-actuator-01');
+
+      if (hasMainAc) {
+        devices.removeWhere(
+            (d) => d.type == 'ac-curtain' || d.deviceId == 'ac-curtain-01');
+      }
 
       try {
         final doorSensor = devices.firstWhere((d) => d.type == 'door-sensor');
-        final doorLocker = devices.firstWhere((d) => d.type == 'door-actuator');
+        final mainDoor = devices.firstWhere(
+            (d) => d.type == 'door-actuator' || d.deviceId == 'door-locker-01');
 
-        doorLocker.payload['door_physical_state'] = doorSensor.operationalState;
-        doorLocker.payload['sensor_id'] = doorSensor.deviceId;
+        mainDoor.payload['door_physical_state'] = doorSensor.operationalState;
+        mainDoor.payload['sensor_id'] = doorSensor.deviceId;
 
         devices.removeWhere((d) => d.type == 'door-sensor');
       } catch (e) {

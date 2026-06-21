@@ -216,6 +216,10 @@ class AuthCubit extends Cubit<AuthState> {
     }
     try {
       await TokenStorage.clearTokens();
+
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove('read_alerts');
+
       username = "User";
       email = "";
       emit(Unauthenticated());

@@ -9,6 +9,8 @@ import '../../../../../../../core/widgets/app_error.dart';
 import '../../../../../../../core/widgets/app_loading.dart';
 import '../../../../../shared/presentation/manager/device_telemetry_cubit.dart';
 import '../../../../../shared/presentation/manager/device_telemetry_state.dart';
+import 'package:get_it/get_it.dart';
+import '../../../../../actuators/ac/presentation/manager/ac_control_cubit.dart';
 import 'usage_chart.dart';
 
 class AcInsightUsage extends StatefulWidget {
@@ -35,7 +37,9 @@ class _AcInsightUsageState extends State<AcInsightUsage> {
             String apiPeriod = '24h';
             if (value == TimeRange.lastWeek) apiPeriod = '7d';
             if (value == TimeRange.lastMonth) apiPeriod = '1m';
-            context.read<DeviceTelemetryCubit>().loadTelemetry('ac-actuator-01',
+            final currentAcId = GetIt.instance<AcControlCubit>().deviceId;
+
+            context.read<DeviceTelemetryCubit>().loadTelemetry(currentAcId,
                 period: apiPeriod, metric: 'power_state');
           }
         },

@@ -44,6 +44,7 @@ class DeviceCardList extends StatelessWidget {
         ValueChanged<bool>? onToggle;
 
         switch (device.type) {
+          case 'door-locker':
           case 'door-actuator':
             title = S.of(context).doorLock;
             subtext = isDoorLocked
@@ -54,9 +55,9 @@ class DeviceCardList extends StatelessWidget {
             type = DeviceType.actuator;
             isOn = isDoorLocked;
             onToggle = onDoorToggle;
-            
-            break;
 
+            break;
+          case 'ac-curtain':
           case 'ac-actuator':
             title = S.of(context).ac;
             subtext = S.of(context).target;

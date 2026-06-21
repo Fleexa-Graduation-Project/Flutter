@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fleexa/Features/devices/actuators/ac/presentation/manager/ac_control_cubit.dart';
-import 'package:fleexa/Features/overview/home/data/repos/device_list_repository.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
 import 'package:fleexa/Features/overview/home/presentation/manager/devices_state.dart';
 import 'package:fleexa/Features/overview/home/presentation/views/home_view.dart';
@@ -127,9 +126,7 @@ class _MainOverviewViewState extends State<MainOverviewView> {
             create: (context) => EnergyCubit(getIt<SystemOverviewRepository>())
               ..getEnergy(period: TimeRange.lastWeek.apiValue)),
         BlocProvider<DevicesCubit>(
-          create: (context) =>
-              DevicesCubit(getIt<DeviceListRepository>())..fetchDevices(),
-        ),
+            create: (context) => getIt<DevicesCubit>()..fetchDevices()),
         BlocProvider.value(
           value: getIt<DoorLockCubit>(),
         ),

@@ -34,6 +34,8 @@ import '../../Features/devices/actuators/door_lock/presentation/manager/door_loc
 import '../../Features/devices/sensors/light/views/light_sensor_view.dart';
 import '../../Features/devices/shared/presentation/manager/device_alerts_cubit.dart';
 import '../../Features/devices/shared/presentation/manager/device_telemetry_cubit.dart';
+import '../../Features/overview/home/presentation/manager/devices_cubit.dart';
+import '../../Features/overview/home/presentation/manager/devices_state.dart';
 import '../../Features/overview/notifications/presentation/views/notifications_view.dart';
 
 class AppRouter {
@@ -162,77 +164,146 @@ class AppRouter {
         builder: (context, state) => const SystemOverviewView(),
       ),
       GoRoute(
-        path: '/door-lock-control',
-        name: doorLockControl,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-actuator-01'),
-            ),
-            BlocProvider.value(
-              value: getIt<DoorLockCubit>(),
-            ),
-          ],
-          child: const DoorLockControlView(),
-        ),
-      ),
+          path: '/door-lock-control',
+          name: doorLockControl,
+          builder: (context, state) {
+            final devicesState = getIt<DevicesCubit>().state;
+            String currentDoorId = 'door-actuator-01';
+
+            if (devicesState is DevicesLoaded) {
+              final doorDevice = devicesState.devices.firstWhere(
+                (d) =>
+                    d.type == 'door-actuator' ||
+                    d.type == 'door-locker' ||
+                    d.deviceId.contains('door-'),
+                orElse: () => devicesState.devices.first,
+              );
+              currentDoorId = doorDevice.deviceId;
+            }
+
+            getIt<DoorLockCubit>().deviceId = currentDoorId;
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                        ..loadDeviceData(currentDoorId),
+                ),
+                BlocProvider.value(
+                  value: getIt<DoorLockCubit>(),
+                ),
+              ],
+              child: const DoorLockControlView(),
+            );
+          }),
       GoRoute(
         path: '/door-lock-details',
         name: doorLockDetails,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('door-actuator-01'),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadAlerts('door-actuator-01'),
-            ),
-          ],
-          child: const DoorLockDetailsView(),
-        ),
+        builder: (context, state) {
+          final devicesState = getIt<DevicesCubit>().state;
+          String currentDoorId = 'door-actuator-01';
+
+          if (devicesState is DevicesLoaded) {
+            final doorDevice = devicesState.devices.firstWhere(
+              (d) =>
+                  d.type == 'door-actuator' ||
+                  d.type == 'door-locker' ||
+                  d.deviceId.contains('door-'),
+              orElse: () => devicesState.devices.first,
+            );
+            currentDoorId = doorDevice.deviceId;
+          }
+
+          getIt<DoorLockCubit>().deviceId = currentDoorId;
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                      ..loadDeviceData(currentDoorId),
+              ),
+              BlocProvider(
+                create: (context) =>
+                    DeviceAlertsCubit(getIt<DeviceDetailsRepository>())
+                      ..loadAlerts(currentDoorId),
+              ),
+            ],
+            child: const DoorLockDetailsView(),
+          );
+        },
       ),
       GoRoute(
         path: '/ac-control',
         name: acControl,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('ac-actuator-01'),
-            ),
-            BlocProvider.value(
-              value: getIt<AcControlCubit>(),
-            ),
-          ],
-          child: const AcControlView(),
-        ),
+        builder: (context, state) {
+          final devicesState = getIt<DevicesCubit>().state;
+          String currentAcId = 'ac-actuator-01';
+
+          if (devicesState is DevicesLoaded) {
+            final acDevice = devicesState.devices.firstWhere(
+              (d) =>
+                  d.type == 'ac-actuator' ||
+                  d.type == 'ac-curtain' ||
+                  d.deviceId.contains('ac-'),
+              orElse: () => devicesState.devices.first,
+            );
+            currentAcId = acDevice.deviceId;
+          }
+
+          getIt<AcControlCubit>().deviceId = currentAcId;
+
+          return MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) =>
+                    DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                      ..loadDeviceData(currentAcId),
+              ),
+              BlocProvider.value(
+                value: getIt<AcControlCubit>(),
+              ),
+            ],
+            child: const AcControlView(),
+          );
+        },
       ),
       GoRoute(
-        path: '/ac-details',
-        name: acDetails,
-        builder: (context, state) => MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
-                    ..loadDeviceData('ac-actuator-01'),
-            ),
-            BlocProvider(
-              create: (context) =>
-                  DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
-                    ..loadTelemetry('ac-actuator-01', metric: 'power_state'),
-            ),
-          ],
-          child: const AcDetailsView(),
-        ),
-      ),
+          path: '/ac-details',
+          name: acDetails,
+          builder: (context, state) {
+            final devicesState = getIt<DevicesCubit>().state;
+            String currentAcId = 'ac-actuator-01';
+
+            if (devicesState is DevicesLoaded) {
+              final acDevice = devicesState.devices.firstWhere(
+                (d) =>
+                    d.type == 'ac-actuator' ||
+                    d.type == 'ac-curtain' ||
+                    d.deviceId.contains('ac-'),
+                orElse: () => devicesState.devices.first,
+              );
+              currentAcId = acDevice.deviceId;
+            }
+
+            getIt<AcControlCubit>().deviceId = currentAcId;
+
+            return MultiBlocProvider(
+              providers: [
+                BlocProvider(
+                  create: (context) =>
+                      DeviceDetailsCubit(getIt<DeviceDetailsRepository>())
+                        ..loadDeviceData(currentAcId),
+                ),
+                BlocProvider(
+                  create: (context) =>
+                      DeviceTelemetryCubit(getIt<DeviceDetailsRepository>())
+                        ..loadTelemetry(currentAcId, metric: 'power_state'),
+                ),
+              ],
+              child: const AcDetailsView(),
+            );
+          }),
       GoRoute(
         name: AppRouter.temperatureSensor,
         path: '/temperature-sensor',

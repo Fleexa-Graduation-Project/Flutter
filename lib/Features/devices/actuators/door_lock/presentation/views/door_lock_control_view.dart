@@ -42,9 +42,10 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
           } else if (state is DeviceDetailsError) {
             return ErrorPage(
               onRetry: () {
+                final currentDoorId = context.read<DoorLockCubit>().deviceId;
                 context
                     .read<DeviceDetailsCubit>()
-                    .loadDeviceData("door-actuator-01");
+                    .loadDeviceData(currentDoorId);
               },
               type: state.errorType,
             );
@@ -70,9 +71,10 @@ class _DoorLockControlViewState extends State<DoorLockControlView> {
               child: CustomRefreshIndicator(
                 onRefresh: () async {
                   _isInitialized = false;
+                  final currentDoorId = context.read<DoorLockCubit>().deviceId;
                   await context
                       .read<DeviceDetailsCubit>()
-                      .loadDeviceData("door-actuator-01");
+                      .loadDeviceData(currentDoorId);
                 },
                 child: Center(
                   child: SingleChildScrollView(

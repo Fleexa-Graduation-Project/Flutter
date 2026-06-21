@@ -5,7 +5,7 @@ import 'ac_control_state.dart';
 
 class AcControlCubit extends Cubit<AcControlState> {
   final DeviceDetailsRepository repository;
-  final String deviceId;
+  String deviceId;
 
   // Default values before initialization
   bool powerOn = false;

@@ -21,7 +21,6 @@ class GasSensorView extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppbar(
         title: S.of(context).gasSensor,
-        infoButton: true,
       ),
       body: BlocBuilder<DeviceDetailsCubit, DeviceDetailsState>(
         builder: (context, state) {

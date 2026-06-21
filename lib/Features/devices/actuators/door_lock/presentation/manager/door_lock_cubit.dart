@@ -5,7 +5,7 @@ import 'dart:developer';
 
 class DoorLockCubit extends Cubit<DoorLockState> {
   final DeviceDetailsRepository repository;
-  final String deviceId;
+  String deviceId;
 
   bool isCurrentlyLocked = true;
 

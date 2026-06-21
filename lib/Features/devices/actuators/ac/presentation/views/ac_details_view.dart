@@ -6,6 +6,8 @@ import 'package:fleexa/Features/devices/shared/presentation/manager/device_telem
 import 'package:fleexa/core/widgets/custom_refresh_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
+import '../manager/ac_control_cubit.dart';
 
 import '../../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../../../generated/l10n.dart';
@@ -22,13 +24,13 @@ class AcDetailsView extends StatelessWidget {
       body: SafeArea(
         child: CustomRefreshIndicator(
           onRefresh: () async {
+            final currentAcId = GetIt.instance<AcControlCubit>().deviceId;
+
             await Future.wait([
-              context
-                  .read<DeviceDetailsCubit>()
-                  .loadDeviceData("ac-actuator-01"),
+              context.read<DeviceDetailsCubit>().loadDeviceData(currentAcId),
               context
                   .read<DeviceTelemetryCubit>()
-                  .loadTelemetry('ac-actuator-01', metric: 'power_state'),
+                  .loadTelemetry(currentAcId, metric: 'power_state'),
             ]);
           },
           child: const Center(
