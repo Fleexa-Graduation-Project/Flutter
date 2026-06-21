@@ -24,20 +24,16 @@ class DeviceListRepository {
       final result = DeviceListResponse.fromJson(responseData);
       List<DeviceModel> devices = result.data;
 
-      bool hasMainDoor = devices.any(
-          (d) => d.type == 'door-actuator' || d.deviceId == 'door-actuator-01');
+      bool hasMainDoor = devices.any((d) => d.deviceId == 'door-actuator-01');
 
       if (hasMainDoor) {
-        devices.removeWhere(
-            (d) => d.type == 'door-locker' || d.deviceId == 'door-locker-01');
+        devices.removeWhere((d) => d.deviceId == 'door-locker-01');
       }
 
-      bool hasMainAc = devices.any(
-          (d) => d.type == 'ac-actuator' || d.deviceId == 'ac-actuator-01');
+      bool hasMainAc = devices.any((d) => d.deviceId == 'ac-actuator-01');
 
       if (hasMainAc) {
-        devices.removeWhere(
-            (d) => d.type == 'ac-curtain' || d.deviceId == 'ac-curtain-01');
+        devices.removeWhere((d) => d.deviceId == 'ac-curtain-01');
       }
 
       try {
