@@ -11,6 +11,7 @@ class AcControlCubit extends Cubit<AcControlState> {
   bool powerOn = false;
   int targetTemperature = 24;
   String selectedMode = 'COOLING';
+  double? timerEndTimestamp;
 
   AcControlCubit({required this.repository, required this.deviceId})
       : super(AcControlInitial());
@@ -20,6 +21,10 @@ class AcControlCubit extends Cubit<AcControlState> {
     powerOn = payload['power_state'] == 'ON';
     targetTemperature = payload['target_temp']?.toInt() ?? 24;
     selectedMode = payload['mode'] ?? 'COOLING';
+    final timerVal = payload['timer_end_timestamp'];
+    timerEndTimestamp = (timerVal != null && timerVal > 0)
+        ? (timerVal * 1000).toDouble()
+        : null;
 
     _emitUpdate();
   }
@@ -63,6 +68,28 @@ class AcControlCubit extends Cubit<AcControlState> {
     );
   }
 
+  Future<void> setTimer(int hours, int minutes) async {
+    final previousTimer = timerEndTimestamp;
+
+    // calulate the duration in hours as a double
+    final double durationHours = hours + (minutes / 60.0);
+
+    // update the ui temporarily with the new timer end timestamp
+    if (durationHours > 0) {
+      timerEndTimestamp =
+          DateTime.now().millisecondsSinceEpoch + (durationHours * 3600 * 1000);
+    } else {
+      timerEndTimestamp = null;
+    }
+    _emitUpdate();
+
+    await _sendCommand(
+      action: "set_timer",
+      parameters: {"duration_hours": durationHours},
+      fallback: () => timerEndTimestamp = previousTimer,
+    );
+  }
+
   // Helper function to send commands to AWS
   Future<void> _sendCommand({
     required String action,
@@ -89,6 +116,7 @@ class AcControlCubit extends Cubit<AcControlState> {
       powerOn: powerOn,
       targetTemperature: targetTemperature,
       selectedMode: selectedMode,
+      timerEndTimestamp: timerEndTimestamp,
     ));
   }
 }

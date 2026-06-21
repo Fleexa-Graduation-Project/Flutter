@@ -29,6 +29,7 @@ class _AcControlViewState extends State<AcControlView> {
   // int controlMode = 0; // 0 = Automatic, 1 = Manual
   int threshold = 1;
   bool _isInitialized = false;
+  
 
   @override
   Widget build(BuildContext context) {

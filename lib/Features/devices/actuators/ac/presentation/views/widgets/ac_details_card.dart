@@ -61,11 +61,11 @@ class AcDetailsCard extends StatelessWidget {
                   value:
                       '${(device.payload['target_temp'] as num?)?.round() ?? '--'}° C',
                 ),
-                const SizedBox(height: 16),
-                CustomContainerRow(
-                  title: S.of(context).running,
-                  value: device.payload['running_time'] ?? '--',
-                ),
+                // const SizedBox(height: 16),
+                // CustomContainerRow(
+                //   title: 'Time Remaining',
+                //   value: device.payload['time_remaining'] ?? '--',
+                // ),
               ],
             ),
           );

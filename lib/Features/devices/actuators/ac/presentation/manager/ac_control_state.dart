@@ -6,11 +6,13 @@ class AcControlUpdated extends AcControlState {
   final bool powerOn;
   final int targetTemperature;
   final String selectedMode;
+  final double? timerEndTimestamp;
 
   AcControlUpdated({
     required this.powerOn,
     required this.targetTemperature,
     required this.selectedMode,
+    this.timerEndTimestamp,
   });
 }
 
