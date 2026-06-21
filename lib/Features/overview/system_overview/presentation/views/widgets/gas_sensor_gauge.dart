@@ -5,19 +5,51 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
 class GasSensorGauge extends StatelessWidget {
-  final double gasLevel; // e.g., 0.82
+  final double gasLevel;
+  final String status; 
 
-  const GasSensorGauge({super.key, required this.gasLevel});
+  const GasSensorGauge({
+    super.key,
+    required this.gasLevel,
+    required this.status,
+  });
 
-  Color _getGaugeColor(double level) {
-    if (level < 0.4) return AppColors.emeraldGreen;
-    if (level < 0.7) return AppColors.copperOrange;
-    return AppColors.burgundy;
+  Color _getStatusColor() {
+    switch (status.toUpperCase()) {
+      case 'SAFE':
+      case 'NORMAL':
+        return AppColors.emeraldGreen;
+      case 'WARNING':
+        return AppColors.copperOrange;
+      case 'CRITICAL':
+      case 'DANGER':
+        return AppColors.burgundy;
+      default:
+        return AppColors.emeraldGreen;
+    }
+  }
+
+  String _getLocalizedStatusText(BuildContext context) {
+    switch (status.toUpperCase()) {
+      case 'SAFE':
+      case 'NORMAL':
+        return S.of(context).statusSafe;
+      case 'WARNING':
+        return S.of(context).statusWarning;
+      case 'CRITICAL':
+      case 'DANGER':
+        return S.of(context).statusCritical;
+      default:
+        return status;
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final currentColor = _getGaugeColor(gasLevel);
+    final currentColor = _getStatusColor();
+    final double maxGaugeValue = 1000.0;
+    final double pointerValue =
+        gasLevel > maxGaugeValue ? maxGaugeValue : gasLevel;
 
     return SizedBox(
       height: 100,
@@ -28,42 +60,55 @@ class GasSensorGauge extends StatelessWidget {
         axes: <RadialAxis>[
           RadialAxis(
             minimum: 0,
-            maximum: 100,
+            maximum: maxGaugeValue,
             showLabels: false,
             showTicks: false,
             startAngle: 135,
             endAngle: 45,
+            radiusFactor: 1.0,
             axisLineStyle: AxisLineStyle(
               thickness: 8,
               color: Colors.white.withOpacity(0.1),
-              thicknessUnit: GaugeSizeUnit.logicalPixel,
+              cornerStyle: CornerStyle.bothCurve,
             ),
             pointers: <GaugePointer>[
               RangePointer(
-                value: gasLevel * 100,
+                value: pointerValue,
                 width: 8,
                 cornerStyle: CornerStyle.bothCurve,
-                color: currentColor,
                 enableAnimation: true,
-                animationType: AnimationType.easeOutBack,
-                animationDuration: 1200,
+                animationDuration: 1300,
+                animationType: AnimationType.ease,
+                gradient: SweepGradient(
+                  colors: <Color>[
+                    currentColor.withOpacity(0.3),
+                    currentColor,
+                  ],
+                  stops: const <double>[0.1, 1],
+                ),
               ),
               MarkerPointer(
-                value: gasLevel * 100,
+                value: pointerValue,
                 markerType: MarkerType.circle,
-                color: AppColors.white,
-                markerHeight: 6,
-                markerWidth: 6,
+                color: currentColor,
+                markerHeight: 12,
+                markerWidth: 12,
                 enableAnimation: true,
-                animationDuration: 1200,
+                animationDuration: 1300,
+                animationType: AnimationType.ease,
               )
             ],
             annotations: <GaugeAnnotation>[
               GaugeAnnotation(
+               
+                positionFactor: 0,
                 widget: AnimatedDefaultTextStyle(
                   duration: const Duration(milliseconds: 500),
-                  style: Styles.style12Regular.copyWith(color: currentColor),
-                  child: Text(_getStatusText(context, gasLevel)),
+                  style: Styles.style12Regular.copyWith(
+                    color: currentColor,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  child: Text(_getLocalizedStatusText(context)),
                 ),
                 angle: 90,
               )
@@ -72,11 +117,5 @@ class GasSensorGauge extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String _getStatusText(BuildContext context, double level) {
-    if (level < 0.4) return S.of(context).statusSafe;
-    if (level < 0.7) return S.of(context).statusWarning;
-    return S.of(context).statusCritical;
   }
 }

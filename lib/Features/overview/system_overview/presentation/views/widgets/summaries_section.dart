@@ -17,20 +17,19 @@ class SummariesSection extends StatelessWidget {
     return devices.where((d) => d.type != 'gas-sensor').toList();
   }
 
-  double _extractGasLevel(List<DeviceModel> devices) {
-    try {
-      final gas = devices.firstWhere((d) => d.type == 'gas-sensor');
-      return (gas.payload['gas_level'] as num).toDouble();
-    } catch (_) {
-      return 0.0;
+  DeviceModel? _extractGasDevice(List<DeviceModel> devices) {
+    final index = devices.indexWhere((d) => d.type == 'gas-sensor');
+    if (index != -1) {
+      return devices[index];
     }
+    return null;
   }
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<DevicesCubit, DevicesState>(
       builder: (context, state) {
-        if (state is DevicesLoading) {
+        if (state is DevicesLoading || state is DevicesInitial) {
           return const Center(child: CircularProgressIndicator());
         }
 
@@ -42,14 +41,16 @@ class SummariesSection extends StatelessWidget {
           final devices = state.devices;
 
           final filtered = _filterDevices(devices);
-          final gasLevel = _extractGasLevel(devices);
+          final gasDevice = _extractGasDevice(devices);
 
           return Column(
             children: [
-              GestureDetector(
+              if (gasDevice != null)
+                GestureDetector(
                   onTap: () =>
                       GoRouter.of(context).pushNamed(AppRouter.gasSensor),
-                  child: GasSensorOverview(gasLevel: gasLevel)),
+                  child: GasSensorOverview(gasDevice: gasDevice),
+                ),
               const SizedBox(height: 24),
               DevicesGrid(devices: filtered),
             ],

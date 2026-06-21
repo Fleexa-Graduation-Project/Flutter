@@ -13,10 +13,15 @@ class DeviceDetailsCubit extends Cubit<DeviceDetailsState> {
     emit(DeviceDetailsLoading());
     try {
       final device = await repository.getDeviceDetails(deviceId);
-      emit(DeviceDetailsLoaded(device: device));
+
+      if (!isClosed) {
+        emit(DeviceDetailsLoaded(device: device));
+      }
     } catch (e) {
-      final type = ErrorHandler.getErrorType(e);
-      emit(DeviceDetailsError(errorType: type, message: e.toString()));
+      if (!isClosed) {
+        final type = ErrorHandler.getErrorType(e);
+        emit(DeviceDetailsError(errorType: type, message: e.toString()));
+      }
     }
   }
 }

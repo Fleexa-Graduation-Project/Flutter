@@ -1,105 +1,171 @@
 import 'package:fleexa/Features/devices/shared/data/models/device_model.dart';
-
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_cubit.dart';
+import 'package:fleexa/Features/overview/home/presentation/manager/devices_state.dart';
 import 'package:fleexa/Features/overview/system_overview/data/models/device_quick_item.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/card_label_value.dart';
 import 'package:fleexa/Features/overview/system_overview/presentation/views/widgets/device_card.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
+import 'package:fleexa/generated/l10n.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
 class DeviceOverviewCard extends StatelessWidget {
-  final DeviceModel deviceModel;
+  final DeviceModel initialDeviceModel;
   final DeviceQuickItem quickDevice;
 
   const DeviceOverviewCard({
     super.key,
-    required this.deviceModel,
+    required this.initialDeviceModel,
     required this.quickDevice,
   });
-  String formatLastActivity(int timestamp) {
 
-    final isMillis = timestamp > 1000000000000;
-
-    final lastSeen = DateTime.fromMillisecondsSinceEpoch(
-      isMillis ? timestamp : timestamp * 1000,
-    );
-
-    final diff = DateTime.now().difference(lastSeen);
-
-    if (diff.inMinutes < 1) return 'Just now';
-    if (diff.inMinutes < 60) return '${diff.inMinutes} min ago';
-    if (diff.inHours < 24) return '${diff.inHours} h ago';
-    if (diff.inDays < 30) return '${diff.inDays} d ago';
-    return '${(diff.inDays / 30).floor()} mo ago';
-  }
-
-  String getDeviceValue() {
-    final payload = deviceModel.payload;
-
-    switch (deviceModel.type) {
+  String getDeviceLabel(BuildContext context, DeviceModel currentDevice) {
+    switch (currentDevice.type) {
       case 'temp-sensor':
-        return '${payload['temp']?.toStringAsFixed(0) ?? '--'}°C';
-
+        return S.of(context).currentTemperature;
       case 'light-sensor':
-        final raw = (payload['light_level'] ?? 0).toDouble();
-        final percent = (raw / 1000 * 100).clamp(0, 100);
-
-        return '${percent.toStringAsFixed(0)}%';
+        return "Light Level";
       case 'gas-sensor':
-        return '${payload['gas_level'] ?? '--'} PPM';
-
+        return S.of(context).gasLevel;
       case 'door-actuator':
-        final ts = deviceModel.lastSeenAt;
-        return formatLastActivity(ts);
+        return S.of(context).lastActivity;
       case 'ac-actuator':
-        return '${payload['target_temp']?.toStringAsFixed(0) ?? '--'}°C';
-
+        return S.of(context).target;
       default:
-        return deviceModel.status;
+        return quickDevice.deviceDesc;
     }
   }
 
-  bool get isActuator {
-    return deviceModel.type.toLowerCase().contains('actuator');
+  // الدالة الآمنة جداً لمعالجة الوقت ومنع ظهور أي أصفار أو شُرط
+  String _formatAbsoluteTime(dynamic lastSeenData) {
+    // 1. لو القيمة مش موجودة أو صفر، نعرض Just now بدل --
+    if (lastSeenData == null || lastSeenData.toString().trim() == '0') {
+      return 'Just now';
+    }
+
+    DateTime lastSeen;
+
+    try {
+      if (lastSeenData is DateTime) {
+        lastSeen = lastSeenData;
+      } else if (lastSeenData is int) {
+        if (lastSeenData <= 0) return 'Just now';
+        final isMillis = lastSeenData > 1000000000000;
+        lastSeen = DateTime.fromMillisecondsSinceEpoch(
+          isMillis ? lastSeenData : lastSeenData * 1000,
+        );
+      } else if (lastSeenData is String) {
+        String rawDate = lastSeenData.replaceAll(' ', 'T');
+        if (!rawDate.endsWith('Z') && !rawDate.contains('+')) {
+          rawDate += 'Z';
+        }
+        // لو مقدرش يحول التاريخ لسبب ما، هياخد وقت الموبايل الحالي
+        lastSeen = DateTime.tryParse(rawDate)?.toLocal() ?? DateTime.now();
+      } else {
+        return 'Just now';
+      }
+
+      // تحويل الوقت لصيغة 12 ساعة (مثال: 3:49 PM)
+      int hour = lastSeen.hour;
+      String period = hour >= 12 ? 'PM' : 'AM';
+      if (hour == 0) hour = 12;
+      if (hour > 12) hour -= 12;
+      String minute = lastSeen.minute.toString().padLeft(2, '0');
+
+      return '$hour:$minute $period';
+    } catch (e) {
+      // حماية أخيرة لأي خطأ غير متوقع
+      return 'Just now';
+    }
+  }
+
+  String getDeviceValue(DeviceModel currentDevice) {
+    final payload = currentDevice.payload;
+
+    switch (currentDevice.type) {
+      case 'temp-sensor':
+        final temp = (payload['temp'] as num?)?.toInt() ?? 0;
+        return '$temp°C';
+
+      case 'light-sensor':
+        final raw = (payload['light_level'] as num?)?.toInt() ?? 0;
+        return '$raw Lux';
+
+      case 'gas-sensor':
+        final gas = (payload['gas_level'] as num?)?.toDouble() ?? 0.0;
+        return '${gas.toStringAsFixed(1)} PPM';
+
+      case 'door-actuator':
+        // الاعتماد على وقت آخر ظهور من السيرفر، مع التمرير للدالة الآمنة
+        return _formatAbsoluteTime(currentDevice.lastSeenAt);
+
+      case 'ac-actuator':
+        final target = (payload['target_temp'] as num?)?.toInt() ?? 0;
+        return '$target°C';
+
+      default:
+        return currentDevice.status;
+    }
+  }
+
+  bool isActuator(DeviceModel currentDevice) {
+    return currentDevice.type.toLowerCase().contains('actuator');
   }
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => GoRouter.of(context).pushNamed(quickDevice.path),
-      child: DeviceCard(
-        isActuator: isActuator,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
+      child: BlocBuilder<DevicesCubit, DevicesState>(
+        builder: (context, state) {
+          DeviceModel currentDevice = initialDeviceModel;
+
+          if (state is DevicesLoaded) {
+            try {
+              currentDevice = state.devices.firstWhere(
+                (d) => d.deviceId == initialDeviceModel.deviceId,
+              );
+            } catch (_) {}
+          }
+
+          return DeviceCard(
+            isActuator: isActuator(currentDevice),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Row(
+                  children: [
+                    Text(
+                      quickDevice.title,
+                      style: Styles.style14Medium.copyWith(
+                        color: AppColors.white,
+                      ),
+                    ),
+                    const Spacer(),
+                    SvgPicture.asset(quickDevice.iconPath,
+                        width: 20, height: 20),
+                  ],
+                ),
+                const SizedBox(height: 4),
                 Text(
-                  quickDevice.title,
-                  style: Styles.style14Medium.copyWith(
-                    color: AppColors.white,
+                  // هنا هتظهر LOCKED أو UNLOCKED زي ما موجودة في الـ payload
+                  currentDevice.operationalState,
+                  style: Styles.style12Regular.copyWith(
+                    color: AppColors.mediumGray,
                   ),
                 ),
-                const Spacer(),
-                SvgPicture.asset(quickDevice.iconPath, width: 20, height: 20),
+                const SizedBox(height: 12),
+                CardLabelValue(
+                  label: getDeviceLabel(context, currentDevice),
+                  value: getDeviceValue(currentDevice),
+                ),
               ],
             ),
-            const SizedBox(height: 4),
-            Text(
-              deviceModel.operationalState,
-              style: Styles.style12Regular.copyWith(
-                color: AppColors.mediumGray,
-              ),
-            ),
-            const SizedBox(height: 12),
-            CardLabelValue(
-              label: quickDevice.deviceDesc,
-              value: getDeviceValue(),
-            ),
-          ],
-        ),
+          );
+        },
       ),
     );
   }

@@ -77,7 +77,8 @@ class DevicesGrid extends StatelessWidget {
         final quick = _mapQuickItem(device, context);
 
         return DeviceOverviewCard(
-          deviceModel: device,
+     
+          initialDeviceModel: device,
           quickDevice: quick,
         );
       },
