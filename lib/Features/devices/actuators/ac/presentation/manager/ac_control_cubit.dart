@@ -83,9 +83,11 @@ class AcControlCubit extends Cubit<AcControlState> {
     }
     _emitUpdate();
 
+    final int durationInSeconds = (durationHours * 3600).toInt();
+
     await _sendCommand(
       action: "set_timer",
-      parameters: {"duration_hours": durationHours},
+      parameters: {"duration_seconds": durationInSeconds},
       fallback: () => timerEndTimestamp = previousTimer,
     );
   }
