@@ -26,7 +26,7 @@ class NotificationsList extends StatelessWidget {
           log('NotificationsList: ${state.runtimeType}');
           return ListView.builder(
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            itemCount: 6,
+            itemCount: 10,
             itemBuilder: (context, index) => const Padding(
               padding: EdgeInsets.only(bottom: 16),
               child: Skelton(height: 85, width: double.infinity),
