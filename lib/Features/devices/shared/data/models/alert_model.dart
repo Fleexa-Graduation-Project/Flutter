@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 class AlertModel {
   final String deviceId;
   final String deviceType;
