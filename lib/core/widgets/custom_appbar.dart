@@ -1,4 +1,3 @@
-import 'package:el_tooltip/el_tooltip.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
@@ -6,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../generated/l10n.dart';
+import 'info_button.dart';
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppbar({
@@ -50,54 +50,17 @@ class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
             },
             icon: SvgPicture.asset('assets/icons/details_page.svg'),
           ),
-        if (infoButton)
-          ElTooltip(
-            content: RichText(
-              text: TextSpan(
-                children: [
-                  TextSpan(
-                    text: S.of(context).statusGuide,
-                    style: Styles.style16Medium,
-                  ),
-                  TextSpan(
-                    text: "${S.of(context).infoStatusSafe} (0 -  299 PPM)\n",
-                    style: Styles.style16Medium,
-                  ),
-                  TextSpan(
-                    text:
-                        "${S.of(context).infoStatusWarning} (300 -  599 PPM)\n",
-                    style: Styles.style16Medium,
-                  ),
-                  TextSpan(
-                    text: "${S.of(context).infoStatusCritical} (600+ PPM)",
-                    style: Styles.style16Medium,
-                  ),
-                ],
-              ),
-            ),
-            color: AppColors.charcoalBlack,
-            position: ElTooltipPosition.leftStart,
-            showArrow: true,
-            showModal: true,
-            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              child: SvgPicture.asset(
-                'assets/icons/info.svg',
-                width: 24,
-              ),
-            ),
-          ),
+        if (infoButton) const InfoButton(),
         if (readAllButton && onReadAll != null)
           Padding(
             padding: const EdgeInsets.only(right: 8.0),
             child: IconButton(
               onPressed: onReadAll,
-              tooltip: S.of(context).markAsRead, 
+              tooltip: S.of(context).markAsRead,
               icon: const Icon(
                 Icons.done_all_rounded,
                 size: 24,
-                color: AppColors.coolGray,
+                color: AppColors.white,
               ),
             ),
           ),
