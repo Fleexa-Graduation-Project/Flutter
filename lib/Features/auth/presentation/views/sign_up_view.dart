@@ -50,7 +50,9 @@ class _SignUpViewState extends State<SignUpView> {
         //   icon: const Icon(Icons.arrow_back_ios),
         //   onPressed: () => Navigator.pop(context),
         // ),
-        title: Text(S.of(context).authSignUpTitle),
+        title: Padding(
+            padding: const EdgeInsetsGeometry.only(top: 20),
+            child: Text(S.of(context).authSignUpTitle)),
         centerTitle: true,
       ),
       body: BlocConsumer<AuthCubit, AuthState>(
