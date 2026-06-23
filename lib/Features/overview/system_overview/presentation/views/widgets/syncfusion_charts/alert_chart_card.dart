@@ -15,11 +15,15 @@ class AlertChartCard extends StatefulWidget {
   State<AlertChartCard> createState() => _AlertChartCardState();
 }
 
-class _AlertChartCardState extends State<AlertChartCard> {
+class _AlertChartCardState extends State<AlertChartCard>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
   TimeRange currentValue = TimeRange.lastWeek;
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SystemChartCard(
       title: S.of(context).labelAlertsAndWarnings,
       insight: AlertWarningChart(range: currentValue),

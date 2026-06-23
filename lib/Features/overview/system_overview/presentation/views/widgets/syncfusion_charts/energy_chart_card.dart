@@ -1,4 +1,3 @@
-
 import 'package:fleexa/Features/overview/system_overview/presentation/manager/Energy_cubit/energy_cubit.dart';
 import 'package:fleexa/core/widgets/chart_time_selector.dart';
 import 'package:fleexa/core/utils/constants/app_strings.dart';
@@ -16,11 +15,16 @@ class EnergyChartCard extends StatefulWidget {
   State<EnergyChartCard> createState() => _EnergyChartCardState();
 }
 
-class _EnergyChartCardState extends State<EnergyChartCard> {
+class _EnergyChartCardState extends State<EnergyChartCard>
+    with AutomaticKeepAliveClientMixin {
   TimeRange currentValue = TimeRange.lastWeek;
 
   @override
+  bool get wantKeepAlive => true;
+
+  @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SystemChartCard(
       title: S.of(context).labelEnergyConsumption,
       insight: EnergyConsumptionChart(range: currentValue),
