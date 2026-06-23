@@ -39,45 +39,62 @@ class DeviceOverviewCard extends StatelessWidget {
     }
   }
 
-  // الدالة الآمنة جداً لمعالجة الوقت ومنع ظهور أي أصفار أو شُرط
-  String _formatAbsoluteTime(dynamic lastSeenData) {
-    // 1. لو القيمة مش موجودة أو صفر، نعرض Just now بدل --
-    if (lastSeenData == null || lastSeenData.toString().trim() == '0') {
+  // function to format the timestamp into a human-readable string
+  String _formatAbsoluteTime(dynamic timestamp) {
+    if (timestamp == null || timestamp.toString().trim() == '0') {
       return 'Just now';
     }
 
-    DateTime lastSeen;
-
+    DateTime time;
     try {
-      if (lastSeenData is DateTime) {
-        lastSeen = lastSeenData;
-      } else if (lastSeenData is int) {
-        if (lastSeenData <= 0) return 'Just now';
-        final isMillis = lastSeenData > 1000000000000;
-        lastSeen = DateTime.fromMillisecondsSinceEpoch(
-          isMillis ? lastSeenData : lastSeenData * 1000,
+      if (timestamp is int) {
+        if (timestamp <= 0) return 'Just now';
+        final isMillis = timestamp > 1000000000000;
+        time = DateTime.fromMillisecondsSinceEpoch(
+          isMillis ? timestamp : timestamp * 1000,
         );
-      } else if (lastSeenData is String) {
-        String rawDate = lastSeenData.replaceAll(' ', 'T');
-        if (!rawDate.endsWith('Z') && !rawDate.contains('+')) {
-          rawDate += 'Z';
-        }
-        // لو مقدرش يحول التاريخ لسبب ما، هياخد وقت الموبايل الحالي
-        lastSeen = DateTime.tryParse(rawDate)?.toLocal() ?? DateTime.now();
       } else {
         return 'Just now';
       }
 
-      // تحويل الوقت لصيغة 12 ساعة (مثال: 3:49 PM)
-      int hour = lastSeen.hour;
+      final now = DateTime.now();
+      final today = DateTime(now.year, now.month, now.day);
+      final yesterday = today.subtract(const Duration(days: 1));
+      final targetDate = DateTime(time.year, time.month, time.day);
+
+      // Formatting the time into a 12-hour format with AM/PM
+      int hour = time.hour;
       String period = hour >= 12 ? 'PM' : 'AM';
       if (hour == 0) hour = 12;
       if (hour > 12) hour -= 12;
-      String minute = lastSeen.minute.toString().padLeft(2, '0');
+      String minute = time.minute.toString().padLeft(2, '0');
+      String timeString = '$hour:$minute $period';
 
-      return '$hour:$minute $period';
+      // Comparing the dates
+      if (targetDate == today) {
+        return 'Today, $timeString';
+      } else if (targetDate == yesterday) {
+        return 'Yesterday, $timeString';
+      } else {
+        // if the date is older than yesterday, format it as "MMM dd, hh:mm a"
+        const months = [
+          'Jan',
+          'Feb',
+          'Mar',
+          'Apr',
+          'May',
+          'Jun',
+          'Jul',
+          'Aug',
+          'Sep',
+          'Oct',
+          'Nov',
+          'Dec'
+        ];
+        String month = months[time.month - 1];
+        return '$month ${time.day}, $timeString';
+      }
     } catch (e) {
-      // حماية أخيرة لأي خطأ غير متوقع
       return 'Just now';
     }
   }
@@ -99,8 +116,8 @@ class DeviceOverviewCard extends StatelessWidget {
         return '${gas.toStringAsFixed(1)} PPM';
 
       case 'door-actuator':
-        // الاعتماد على وقت آخر ظهور من السيرفر، مع التمرير للدالة الآمنة
-        return _formatAbsoluteTime(currentDevice.lastSeenAt);
+        final lastUnlock = payload['last_unlock'];
+        return _formatAbsoluteTime(lastUnlock);
 
       case 'ac-actuator':
         final target = (payload['target_temp'] as num?)?.toInt() ?? 0;

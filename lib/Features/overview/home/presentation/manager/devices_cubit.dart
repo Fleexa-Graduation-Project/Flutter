@@ -66,7 +66,6 @@ class DevicesCubit extends Cubit<DevicesState> {
             operationalState: newOperationalState,
             health: device.health,
             payload: device.payload,
-            lastSeenAt: device.lastSeenAt,
           );
         }
         return device;

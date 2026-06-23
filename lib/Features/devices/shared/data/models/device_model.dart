@@ -22,7 +22,7 @@ class DeviceModel {
   final String operationalState;
   final String health;
   final Map<String, dynamic> payload;
-  final int lastSeenAt;
+
   DeviceModel({
     required this.deviceId,
     required this.type,
@@ -30,10 +30,17 @@ class DeviceModel {
     required this.operationalState,
     required this.health,
     required this.payload,
-    this.lastSeenAt = 0,
   });
 
   factory DeviceModel.fromJson(Map<String, dynamic> json) {
+    // Helper function to safely parse integers from dynamic values
+    // int parseIntSafe(dynamic value) {
+    //   if (value == null) return 0;
+    //   if (value is int) return value;
+    //   if (value is String) return int.tryParse(value) ?? 0;
+    //   return 0;
+    // }
+
     return DeviceModel(
       deviceId: json['device_id'] ?? '',
       type: json['type'] ?? '',
