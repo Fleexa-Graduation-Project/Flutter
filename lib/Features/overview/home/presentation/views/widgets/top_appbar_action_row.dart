@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../../../../core/utils/constants/app_colors.dart';
+
 class TopAppbarActionRow extends StatelessWidget {
   const TopAppbarActionRow({super.key});
 
@@ -22,6 +24,16 @@ class TopAppbarActionRow extends StatelessWidget {
         NotificationBellBadge(onTap: () {
           GoRouter.of(context).pushNamed(AppRouter.notifications);
         }),
+        const SizedBox(width: 4),
+        IconButton(
+          onPressed: () {},
+          icon: const Icon(
+            Icons.power_settings_new_rounded,
+            fontWeight: FontWeight.w600,
+            size: 24,
+            color: AppColors.white,
+          ),
+        ),
       ],
     );
   }

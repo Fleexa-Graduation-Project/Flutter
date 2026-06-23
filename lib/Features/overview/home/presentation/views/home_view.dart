@@ -24,8 +24,6 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  bool isAcOn = true;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -169,7 +167,7 @@ class _HomeViewState extends State<HomeView> {
 
                                       if (doorCubit.state is DoorLockInitial) {
                                         if (state.devices.isEmpty) return true;
-                                        
+
                                         final doorIndex = state.devices
                                             .indexWhere((d) =>
                                                 d.type == 'door-actuator');
