@@ -225,7 +225,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "يُرجى تقديم التفاصيل لتسريع حل المشكلة.",
     ),
     "reachOutDirectlyAtSupportfleexaapp": MessageLookupByLibrary.simpleMessage(
-      "تواصل معنا مباشرة عبر support@fleexa.app.",
+      "تواصل معنا مباشرة عبر fleexa.app@gmail.com.",
     ),
     "realtimeMonitoring": MessageLookupByLibrary.simpleMessage("مراقبة مباشرة"),
     "recentActivities": MessageLookupByLibrary.simpleMessage("الأنشطة الأخيرة"),
@@ -313,7 +313,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusWarning": MessageLookupByLibrary.simpleMessage("تحذير"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("خطر"),
     "supportfleexaapp": MessageLookupByLibrary.simpleMessage(
-      "support@fleexa.app",
+      "fleexa.app@gmail.com",
     ),
     "system": MessageLookupByLibrary.simpleMessage("النظام"),
     "systemAnalytics": MessageLookupByLibrary.simpleMessage("تحليلات النظام"),

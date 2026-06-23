@@ -227,7 +227,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Provide details to speed up resolution.",
     ),
     "reachOutDirectlyAtSupportfleexaapp": MessageLookupByLibrary.simpleMessage(
-      "Reach out directly at support@fleexa.app.",
+      "Reach out directly at fleexa.app@gmail.com.",
     ),
     "realtimeMonitoring": MessageLookupByLibrary.simpleMessage(
       "Real-time Monitoring",
@@ -319,7 +319,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "statusWarning": MessageLookupByLibrary.simpleMessage("Warning"),
     "statuscapitalcritical": MessageLookupByLibrary.simpleMessage("CRITICAL"),
     "supportfleexaapp": MessageLookupByLibrary.simpleMessage(
-      "support@fleexa.app",
+      "fleexa.app@gmail.com",
     ),
     "system": MessageLookupByLibrary.simpleMessage("System"),
     "systemAnalytics": MessageLookupByLibrary.simpleMessage("System Analytics"),
