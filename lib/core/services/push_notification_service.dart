@@ -1,6 +1,7 @@
 import 'dart:developer';
 import '../network/api_constants.dart';
 import '../network/api_service.dart';
+import 'dart:async';
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -22,6 +23,10 @@ class PushNotificationService {
 
   final APiService apiService;
 
+  final _notificationStreamController =
+      StreamController<RemoteMessage>.broadcast();
+  Stream<RemoteMessage> get onNotificationReceived =>
+      _notificationStreamController.stream;
   PushNotificationService(this.apiService);
 
   Future<void> init() async {
@@ -61,12 +66,27 @@ class PushNotificationService {
     // 3. Receive notifications when the app is in the foreground
 
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
-      log('Message received in Foreground!');
-      if (message.notification != null) {
-        log('Title: ${message.notification?.title}');
+      log('=== NEW MESSAGE RECEIVED IN FOREGROUND ===');
 
+      log('Notification Block: ${message.notification?.toMap()}');
+
+      log('Data Block: ${message.data}');
+
+      log('=============================================');
+
+      if (message.notification != null) {
+        log('The message has a notification block. Showing local notification...');
         _showLocalNotification(message);
+        _notificationStreamController.add(message);
+      } else {
+        log('ALERT: The notification block is NULL! Jana sent a "Data-Only" message.');
       }
+      log('Message received in Foreground!');
+      // if (message.notification != null) {
+      //   log('Title: ${message.notification?.title}');
+
+      //   _showLocalNotification(message);
+      // }
     });
 
     // 4. Receive notifications when the app is in the background or terminated
@@ -170,27 +190,38 @@ class PushNotificationService {
   }
 
   Future<void> _showLocalNotification(RemoteMessage message) async {
-    AndroidNotificationDetails androidDetails =
-        const AndroidNotificationDetails(
-      'high_importance_channel',
-      'High Importance Notifications',
-      importance: Importance.max,
-      priority: Priority.high,
-      playSound: true,
-      color: AppColors.jetBlack,
-    );
+    try {
+      AndroidNotificationDetails androidDetails =
+          const AndroidNotificationDetails(
+        'high_importance_channel',
+        'High Importance Notifications',
+        importance: Importance.max,
+        priority: Priority.high,
+        playSound: true,
+        sound: RawResourceAndroidNotificationSound('alert_sound'),
+        color: AppColors.jetBlack,
+      );
 
-    NotificationDetails platformDetails = NotificationDetails(
-      android: androidDetails,
-      iOS: const DarwinNotificationDetails(),
-    );
+      NotificationDetails platformDetails = NotificationDetails(
+        android: androidDetails,
+        iOS: const DarwinNotificationDetails(
+          presentSound: true,
+          sound: 'alert_sound.wav',
+        ),
+      );
 
-    await _localNotifications.show(
-      id: message.hashCode,
-      title: message.notification?.title,
-      body: message.notification?.body,
-      notificationDetails: platformDetails,
-      payload: message.data.toString(),
-    );
+      int safeId = DateTime.now().millisecondsSinceEpoch.remainder(100000);
+
+      await _localNotifications.show(
+        id: safeId,
+        title: message.notification?.title,
+        body: message.notification?.body,
+        notificationDetails: platformDetails,
+        payload: message.data.toString(),
+      );
+      log('Local notification displayed successfully on screen!');
+    } catch (e) {
+      log(' FATAL ERROR showing local notification: $e');
+    }
   }
 }
