@@ -5,6 +5,8 @@ import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 import 'package:fleexa/generated/l10n.dart';
 
+import '../../../../../../../core/utils/functions/get_day_name.dart';
+
 class GasSensorChart extends StatelessWidget {
   final List<ChartPointModel> data;
   final String periodKey;
@@ -82,7 +84,7 @@ class GasSensorChart extends StatelessWidget {
         LineSeries<ChartPointModel, String>(
           dataSource: data,
           name: S.of(context).gasLevel,
-          xValueMapper: (point, _) => point.label,
+          xValueMapper: (point, _) => getDayName(point.label),
           yValueMapper: (point, _) => point.value,
           color: AppColors.crimsonRed,
           width: 2,

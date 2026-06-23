@@ -5,6 +5,8 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:fleexa/core/utils/constants/app_colors.dart';
 import 'package:fleexa/core/utils/constants/styles.dart';
 
+import '../../../../../../core/utils/functions/get_day_name.dart';
+
 class LightSensorChart extends StatelessWidget {
   const LightSensorChart({
     super.key,
@@ -82,7 +84,7 @@ class LightSensorChart extends StatelessWidget {
         LineSeries<ChartPointModel, String>(
           dataSource: data,
           name: S.of(context).unitLuxText,
-          xValueMapper: (point, _) => point.label,
+          xValueMapper: (point, _) => getDayName(point.label),
           yValueMapper: (point, _) => point.value,
           color: AppColors.crimsonRed,
           width: 2,

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
+import '../../../../../../../core/utils/functions/get_day_name.dart';
 import '../../../../../../../core/widgets/app_error.dart';
 import '../../../../../../../core/widgets/app_loading.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
@@ -143,7 +144,7 @@ class AlertWarningChart extends StatelessWidget {
               LineSeries<String, String>(
                 name: 'Anchor',
                 dataSource: allLabels,
-                xValueMapper: (label, _) => label,
+                xValueMapper: (label, _) => getDayName(label),
                 yValueMapper: (label, _) => 0,
                 color: Colors.transparent,
                 width: 0,
@@ -155,8 +156,8 @@ class AlertWarningChart extends StatelessWidget {
                 name: S.of(context).statusWarning,
                 animationDuration: 1000,
                 dataSource: data.warning,
-                xValueMapper: (e, _) => e.label,
-                yValueMapper: (e, _) => e.value.toInt(),
+                xValueMapper: (point, _) => getDayName(point.label),
+                yValueMapper: (point, _) => point.value.toInt(),
                 color: AppColors.copperOrange,
                 width: 3,
                 markerSettings: const MarkerSettings(
@@ -176,8 +177,8 @@ class AlertWarningChart extends StatelessWidget {
                 name: S.of(context).statusCritical,
                 animationDuration: 1000,
                 dataSource: data.critical,
-                xValueMapper: (e, _) => e.label,
-                yValueMapper: (e, _) => e.value.toInt(),
+                xValueMapper: (point, _) => getDayName(point.label),
+                yValueMapper: (point, _) => point.value.toInt(),
                 color: AppColors.crimsonRed,
                 width: 3,
                 markerSettings: const MarkerSettings(

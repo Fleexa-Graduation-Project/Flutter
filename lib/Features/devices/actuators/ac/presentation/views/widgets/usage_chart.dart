@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../../../../../core/utils/constants/styles.dart';
+import '../../../../../../../core/utils/functions/get_day_name.dart';
 import '../../../../../shared/data/models/chart_point_model.dart';
 
 class UsageChart extends StatelessWidget {
@@ -77,7 +78,7 @@ class UsageChart extends StatelessWidget {
         BarSeries<ChartPointModel, String>(
           name: 'Usage Hours',
           dataSource: data,
-          xValueMapper: (point, _) => point.label,
+          xValueMapper: (point, _) => getDayName(point.label),
           yValueMapper: (point, _) => point.value,
           color: AppColors.darkMaroon,
           width: 0.5,

@@ -11,6 +11,7 @@ import 'package:syncfusion_flutter_charts/charts.dart';
 
 import '../../../../../../../core/utils/constants/app_strings.dart';
 import '../../../../../../../core/utils/constants/styles.dart';
+import '../../../../../../../core/utils/functions/get_day_name.dart';
 
 class TempChart extends StatelessWidget {
   const TempChart({super.key, required this.range});
@@ -90,8 +91,8 @@ class TempChart extends StatelessWidget {
               LineSeries(
                 name: S.of(context).temperature,
                 dataSource: data.data,
-                xValueMapper: (e, _) => e.label,
-                yValueMapper: (e, _) => e.value,
+                xValueMapper: (point, _) => getDayName(point.label),
+                yValueMapper: (point, _) => point.value,
                 color: AppColors.crimsonRed,
                 width: 2,
                 markerSettings: const MarkerSettings(
