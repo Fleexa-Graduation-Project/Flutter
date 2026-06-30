@@ -30,7 +30,8 @@ class _DoorLockInsightState extends State<DoorLockInsight> {
             width: double.infinity,
           );
         }
-        final double normalDuration = 2;
+        final double normalDuration = state.device.normalUnlockDuration;
+
         final double avgDuration =
             (state.device.payload['average_unlock'] ?? 0).toDouble();
 
@@ -39,6 +40,7 @@ class _DoorLockInsightState extends State<DoorLockInsight> {
         final Color statusColor = status.toUpperCase() == 'NORMAL'
             ? AppColors.emeraldGreen
             : AppColors.crimsonRed;
+
         final String statusText = status.toUpperCase() == 'NORMAL'
             ? S.of(context).statusNormal
             : S.of(context).statusAboveNormal;

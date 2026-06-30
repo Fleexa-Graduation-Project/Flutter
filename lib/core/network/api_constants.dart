@@ -25,6 +25,8 @@ class ApiConstants {
   static String deviceTelemetry(String id) => "/devices/$id/telemetry";
   static String deviceAlerts(String id) => "/devices/$id/alerts";
   static String deviceCommands(String id) => "/devices/$id/commands";
+  static String markAlertRead(String id) =>
+      "/alerts/${Uri.encodeComponent(id)}/read";
 
   // Authentication Endpoints
   static const String signIn = "/auth/signin";
@@ -34,6 +36,7 @@ class ApiConstants {
   static const String changePassword = "/auth/change-password";
   static const String profile = "/auth/profile";
 
-  // User Preferences Endpoint
+  // Preferences Endpoint
   static const String userPreferences = "/users/preferences";
+  static String devicePreferences(String id) => "/devices/$id/preferences";
 }

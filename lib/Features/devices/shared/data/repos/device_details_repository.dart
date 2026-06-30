@@ -81,4 +81,18 @@ class DeviceDetailsRepository {
       data: command.toJson(),
     );
   }
+
+  Future<void> updateDevicePreferences(
+      String deviceId, double normalDuration) async {
+    try {
+      await apiService.put(
+        ApiConstants.devicePreferences(deviceId),
+        data: {
+          "normal_unlock_duration": normalDuration,
+        },
+      );
+    } catch (e) {
+      throw Exception('Failed to update device preferences: $e');
+    }
+  }
 }

@@ -22,6 +22,7 @@ class DeviceModel {
   final String operationalState;
   final String health;
   final Map<String, dynamic> payload;
+  final double normalUnlockDuration;
 
   DeviceModel({
     required this.deviceId,
@@ -30,6 +31,7 @@ class DeviceModel {
     required this.operationalState,
     required this.health,
     required this.payload,
+    this.normalUnlockDuration = 15.0,
   });
 
   factory DeviceModel.fromJson(Map<String, dynamic> json) {
@@ -48,6 +50,8 @@ class DeviceModel {
       operationalState: json['operational_state'] ?? 'UNKNOWN',
       health: json['health'] ?? 'UNKNOWN',
       payload: json['payload'] ?? {},
+      normalUnlockDuration:
+          (json['normal_unlock_duration'] as num?)?.toDouble() ?? 15.0,
     );
   }
 
