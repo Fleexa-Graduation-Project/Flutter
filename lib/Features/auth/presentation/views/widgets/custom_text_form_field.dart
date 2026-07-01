@@ -12,6 +12,7 @@ class CustomTextFormField extends StatelessWidget {
   final TextInputType keyboardType;
   final Color borderColor;
   final Color focusedBorderColor;
+  final TextInputAction textInputAction;
 
   const CustomTextFormField({
     super.key,
@@ -22,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
     this.keyboardType = TextInputType.text,
     this.borderColor = AppColors.coolGray,
     this.focusedBorderColor = AppColors.white,
+    this.textInputAction = TextInputAction.next,
   });
 
   @override
@@ -36,6 +38,7 @@ class CustomTextFormField extends StatelessWidget {
           style: Styles.style14Medium.copyWith(color: AppColors.white),
           controller: controller,
           obscureText: isObscure,
+          textInputAction: textInputAction,
           validator: (value) {
             if (value == null || value.isEmpty) {
               return '$hintText ${S.of(context).isRequired}';
